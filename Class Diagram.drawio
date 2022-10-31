@@ -1,14 +1,49 @@
-<mxfile host="app.diagrams.net" modified="2022-10-31T18:20:50.701Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" etag="zhMUe8U1wkvP8M06X-ZM" version="20.5.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-10-31T18:30:24.949Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" etag="IK28EyhchuF4a4Xkxyj8" version="20.5.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="886" dy="648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="jhk4YRGH4lH5L7MhDq73-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="jhk4YRGH4lH5L7MhDq73-0" target="jhk4YRGH4lH5L7MhDq73-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="685" y="275" />
+              <mxPoint x="85" y="275" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="jhk4YRGH4lH5L7MhDq73-0" value="Building" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="230" y="150" width="110" height="50" as="geometry" />
+          <mxGeometry x="630" y="190" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="jhk4YRGH4lH5L7MhDq73-1" value="Powerup" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="470" y="150" width="110" height="50" as="geometry" />
+          <mxGeometry x="1480" y="130" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jhk4YRGH4lH5L7MhDq73-2" value="Cookie Factory" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="30" y="310" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jhk4YRGH4lH5L7MhDq73-6" value="Grandma" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="180" y="310" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jhk4YRGH4lH5L7MhDq73-10" value="Hungry Baby" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="330" y="310" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jhk4YRGH4lH5L7MhDq73-11" value="Hungry Baby" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="480" y="310" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jhk4YRGH4lH5L7MhDq73-14" value="Clicker" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="630" y="310" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jhk4YRGH4lH5L7MhDq73-15" value="Alchemy Laboratory" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="780" y="310" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jhk4YRGH4lH5L7MhDq73-16" value="3D Printer" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="930" y="310" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jhk4YRGH4lH5L7MhDq73-17" value="Cookie God" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1080" y="310" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jhk4YRGH4lH5L7MhDq73-18" value="Cookie Rocket" style="html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1230" y="310" width="110" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
