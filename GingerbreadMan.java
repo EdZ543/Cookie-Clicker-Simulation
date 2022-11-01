@@ -1,17 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GingerbreadMan here.
+ * Factory gets gingerbread man workers. Factory becomes 1.5x more efficient
+ * at cookie production.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jonathan Zhao
+ * @version 1.0 (November 1)
  */
 public class GingerbreadMan extends PowerUp
 {
-    /**
-     * Act - do whatever the GingerbreadMan wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
     {
         // Add your action code here.
