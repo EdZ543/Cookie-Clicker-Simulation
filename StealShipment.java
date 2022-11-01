@@ -1,19 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StealShipment here.
+ * Steals the income from the opponent's cookie factories for 5 seconds.
+ * Has a 15 second cooldown.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jonathan Zhao
+ * @version 1.0 (November 1)
  */
 public class StealShipment extends PowerUp
 {
-    /**
-     * Act - do whatever the StealShipment wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
     {
-        // Add your action code here.
+        
     }
 }
