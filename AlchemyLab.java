@@ -1,19 +1,28 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class AlchemyLab here.
+ * Every 5-10 seconds, produces 500-1000 cookies
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Patrick Hu 
+ * @version November 2022
  */
 public class AlchemyLab extends Building
 {
-    /**
-     * Act - do whatever the AlchemyLab wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
+    public AlchemyLab() {
+        actMark = 0 + getRandomNumberInRange(5 * 60, 10 * 60); // initial value between 5-10 seconds
+    }
+    
+    public void act() {
+        actCount++;
+        if (actCount == actMark) {
+            produceCookies();    
+        }
+    }
+    
+    public void produceCookies() {
+        int numCookies = getRandomNumberInRange(500, 1000);
+        // add cookies to player's cookie count
+        
+        
     }
 }
