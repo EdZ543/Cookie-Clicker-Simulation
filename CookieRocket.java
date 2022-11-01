@@ -8,10 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieRocket extends Building
 {
-    /**
-     * Act - do whatever the CookieRocket wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public CookieRocket(int player) {
+        super(player);
+    }
     public void act()
     {
         // Add your action code here.

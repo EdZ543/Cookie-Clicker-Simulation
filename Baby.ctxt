@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Baby
 comment0.text=\r\n\ Takes\ other\ player's\ cookies.\r\n\ Every\ 10-20\ seconds,\ \u201Ceats\u201D\ away\ 20-40\ cookies.\r\n\ \r\n\ @author\ Patrick\ Hu\r\n\ @version\ November\ 2022\r\n
-comment1.params=
-comment1.target=Baby()
+comment1.params=player
+comment1.target=Baby(int)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
