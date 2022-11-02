@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieRocket extends Building
 {
-    public CookieRocket(int player) {
+    public CookieRocket(Player player) {
         super(player);
     }
     public void act()

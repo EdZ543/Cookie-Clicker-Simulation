@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Printer3D extends Building
 {
-    public Printer3D(int player) {
+    public Printer3D(Player player) {
         super(player);
     }
     public void act()

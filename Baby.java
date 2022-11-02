@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Baby extends Building
 {    
-    public Baby(int player) {
+    public Baby(Player player) {
         super(player);
         actMark = 0 + getRandomNumberInRange(10 * 60, 20 * 60); // initial value between 10-20 seconds
     }

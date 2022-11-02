@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Clicker
-comment0.text=\n\ Simulates\ the\ cursor\ of\ the\ players,\ which\ clicks\ the\ cookies,\ buy\ buttons,\ and\ buildings.\ Also\ available\ as\ a\ building,\ which\ is\ a\ copy\ of\ the\ main\ cursor\ that\ just\ stays\ in\ one\ place\ and\ clicks\ the\ cookie.\n\ \n\ @author\ Eddie\ Zhuang\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Simulates\ the\ cursor\ of\ the\ players,\ which\ clicks\ the\ cookies,\ buy\ buttons,\ and\ buildings.\ Also\ available\ as\ a\ building,\ which\ is\ a\ copy\ of\ the\ main\ cursor\ that\ just\ stays\ in\ one\ place\ and\ clicks\ the\ cookie.\r\n\ \r\n\ @author\ Eddie\ Zhuang\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=player
 comment1.target=Clicker(Player)
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\n\ Act\ -\ do\ whatever\ the\ Clicker\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Clicker\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 numComments=3
