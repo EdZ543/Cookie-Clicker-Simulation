@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieGod extends Building
 {
-    public CookieGod(int player) {
+    public CookieGod(Player player) {
         super(player);
     }
     

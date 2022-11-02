@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class AlchemyLab extends Building
 {
-    public AlchemyLab(int player) {
+    public AlchemyLab(Player player) {
         super(player);
         actMark = 0 + getRandomNumberInRange(5 * 60, 10 * 60); // initial value between 5-10 seconds
     }
@@ -17,13 +17,12 @@ public class AlchemyLab extends Building
         actCount++;
         if (actCount == actMark) {
             produceCookies();    
+            // get next act mark
         }
     }
     
     public void produceCookies() {
-        int numCookies = getRandomNumberInRange(500, 1000);
-        // grab respective player
-                
-        
+        int produced = getRandomNumberInRange(500, 1000);    
+        player.setCookieCount(player.getNumCookies() + produced);
     }
 }

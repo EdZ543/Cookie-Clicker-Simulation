@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieFactory extends Building
 {
-    public CookieFactory(int player) {
+    public CookieFactory(Player player) {
         super(player);
     }
     
