@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Takes other player's cookies.
- * Every 10-20 seconds, “eats” away 20-40 cookies.
+ * Every 10-20 seconds, eats away 20-40 cookies.
  * 
  * @author Patrick Hu
  * @version November 2022
