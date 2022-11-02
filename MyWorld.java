@@ -3,8 +3,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class MyWorld here.
  * 
- * Credits:
- * 
+ * Credits
+ * - Images
+ *   - Cursor image provided by Tobias Ahlin Bjerrome
  * 
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
  * @version (a version number or a date)
