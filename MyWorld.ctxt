@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MyWorld
-comment0.text=\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\n\ \n\ Credits\n\ -\ Images\n\ \ \ -\ Cursor\ image\ provided\ by\ Tobias\ Ahlin\ Bjerrome\n\ \n\ @author\ Patrick\ Hu,\ Eddie\ Zhuang,\ Caden\ Chan,\ Jonathan\ Zhao\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\n\ \n\ Credits\n\ -\ Images\n\ \ \ -\ Cursor\ image\ provided\ by\ Tobias\ Ahlin\ Bjerrome\ at\ https\://tobiasahlin.com/blog/common-mac-os-x-lion-cursors/\n\ \ \ -\ Spinning\ wheel\ of\ death\ provided\ by\ howdytom\ at\ https\://apple.stackexchange.com/questions/243675/location-of-the-resource-files-for-the-spinning-wait-cursor\n\ \n\ @author\ Patrick\ Hu,\ Eddie\ Zhuang,\ Caden\ Chan,\ Jonathan\ Zhao\n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=MyWorld()
 numComments=2

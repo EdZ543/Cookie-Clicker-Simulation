@@ -5,7 +5,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * 
  * Credits
  * - Images
- *   - Cursor image provided by Tobias Ahlin Bjerrome
+ *   - Cursor image provided by Tobias Ahlin Bjerrome at https://tobiasahlin.com/blog/common-mac-os-x-lion-cursors/
+ *   - Spinning wheel of death provided by howdytom at https://apple.stackexchange.com/questions/243675/location-of-the-resource-files-for-the-spinning-wait-cursor
  * 
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
  * @version (a version number or a date)
