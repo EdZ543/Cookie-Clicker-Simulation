@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=AlchemyLab
-comment0.text=\r\n\ Every\ 5-10\ seconds,\ produces\ 500-1000\ cookies\r\n\ \r\n\ @author\ Patrick\ Hu\ \r\n\ @version\ November\ 2022\r\n
+comment0.text=\n\ Every\ 5-10\ seconds,\ produces\ 500-1000\ cookies\n\ \n\ @author\ Patrick\ Hu\ \n\ @version\ November\ 2022\n
 comment1.params=player
 comment1.target=AlchemyLab(int)
 comment2.params=

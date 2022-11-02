@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ReverseDementia
-comment0.text=\r\n\ Grandmas\ become\ twice\ at\ efficient\ when\ baking.\ Angry\ grandmas\ become\r\n\ obedient\ again.\r\n\ \r\n\ @author\ Jonathan\ Zhao\r\n\ @version\ 1.0\ (November\ 1)\r\n
+comment0.text=\n\ Grandmas\ become\ twice\ at\ efficient\ when\ baking.\ Angry\ grandmas\ become\n\ obedient\ again.\n\ \n\ @author\ Jonathan\ Zhao\n\ @version\ 1.0\ (November\ 1)\n
 comment1.params=
 comment1.target=void\ act()
 numComments=2
