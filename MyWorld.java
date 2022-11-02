@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Credits:
  * 
  * 
- * @author (your name) 
+ * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
  * @version (a version number or a date)
  */
 public class MyWorld extends World

@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Building here.
  * 
- * @author Patrick Hu
+ * @author Eddie Zhuang
  * @version November 2022
  */
 public abstract class Building extends Actor
