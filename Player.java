@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Player here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Patrick Hu
+ * @version November 2022
  */
 public class Player extends Actor
 {
@@ -18,7 +18,11 @@ public class Player extends Actor
         
     }
     
-    public void increaseCookies(int x) {
-        numCookies += x;
+    public void setCookieCount(int x) {
+        numCookies = x;
+    }
+    
+    public int getNumCookies() {
+        return numCookies;
     }
 }
