@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Caden Chan
  * @version 2022.11.02
  */
-public class CookieMonster extends Powerup
+public class CookieMonster extends Sabotage
 {
     public CookieMonster(Player target) {
         super(target);

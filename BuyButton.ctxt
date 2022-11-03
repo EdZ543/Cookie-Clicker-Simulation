@@ -1,4 +1,9 @@
 #BlueJ class context
 comment0.target=BuyButton
 comment0.text=\n\ Write\ a\ description\ of\ class\ BuyButton\ here.\n\ \n\ @author\ Caden\ Chan\n\ @version\ 2022.11.02\n
-numComments=1
+comment1.params=p\ target
+comment1.target=void\ click(Player,\ Player)
+comment1.text=\n\ Highlight\ button\ &\ activate\ functionality\ related\ to\ button\n\ @param\ p\ \ \ \ \ \ \ \ The\ Player\ instance\ that\ has\ activated\ this\ button\n
+comment2.params=
+comment2.target=void\ act()
+numComments=3

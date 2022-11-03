@@ -16,11 +16,28 @@ public class MyWorld extends World
 {
     // World variables
     GreenfootImage background;
+    
+    // Game variables
+    BuyButton[] buyButtons;  // select random index of buyButtons to add respective buidling/activate respective powerup
+    
+    // Player variables
+    Player p1, p2;
     public MyWorld()
     {    
         super(1200, 800, 1); 
         // Set world background
         background = new GreenfootImage("background0.png");
         setBackground(background);
+        // Initialize BuyButton array
+        buyButtons = new BuyButton[19];  // one button for each building & powerup.
+    }
+    /**
+     * Returns the player that is NOT [Player thisPlayer].
+     * E.g.: if p1 is passed in, return p2, and vice versa.
+     * 
+     * @param thisPlayer           The reference Player.
+     */
+    public Player getOtherPlayer(Player thisPlayer) { // Used to get the affected player in the event of a sabotage
+        return thisPlayer == p1 ? p2 : p1;
     }
 }
