@@ -3,15 +3,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class CookieMonster here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Caden Chan
+ * @version Nov 2, 2022
  */
 public class CookieMonster extends PowerUp
 {
-    /**
-     * Act - do whatever the CookieMonster wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public CookieMonster(Player target) {
+        super(target);
+    }
     public void act()
     {
         // Add your action code here.

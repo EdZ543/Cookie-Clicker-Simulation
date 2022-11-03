@@ -9,6 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StealShipment extends PowerUp
 {
+    public StealShipment(Player target) {
+        super(target);
+    }
     public void act()
     {
         

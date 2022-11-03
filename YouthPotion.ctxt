@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.target=YouthPotion
 comment0.text=\n\ Grandmas\ return\ to\ their\ prime.\ Their\ speed\ of\ production\ increases\ by\ 2x.\n\ \n\ @author\ Jonathan\ Zhao\ \n\ @version\ 1.0\ (November\ 1)\n
-comment1.params=
-comment1.target=void\ act()
-numComments=2
+comment1.params=target
+comment1.target=YouthPotion(Player)
+comment2.params=
+comment2.target=void\ act()
+numComments=3

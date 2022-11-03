@@ -1,18 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Lag here.
+ * Write a description of class Cookie here.
  * 
  * @author Caden Chan
  * @version Nov 2, 2022
  */
-public class Lag extends PowerUp
+public class Cookie extends Actor
 {
-    public Lag(Player target) {
-        super(target);
-    }
     /**
-     * Act - do whatever the Lag wants to do. This method is called whenever
+     * Act - do whatever the Cookie wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()

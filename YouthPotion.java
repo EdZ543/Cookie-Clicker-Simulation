@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class YouthPotion extends PowerUp
 {
+    public YouthPotion(Player target) {
+        super(target);
+    }
     public void act()
     {
         // Add your action code here.

@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.target=GingerbreadMan
 comment0.text=\n\ Factory\ gets\ gingerbread\ man\ workers.\ Factory\ becomes\ 1.5x\ more\ efficient\n\ at\ cookie\ production.\n\ \n\ @author\ Jonathan\ Zhao\n\ @version\ 1.0\ (November\ 1)\n
-comment1.params=
-comment1.target=void\ act()
-numComments=2
+comment1.params=target
+comment1.target=GingerbreadMan(Player)
+comment2.params=
+comment2.target=void\ act()
+numComments=3
