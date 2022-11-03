@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Building extends Actor
 {
-    private Player player; // either 1 or 2 for Player1 or Player2
+    protected Player player; // either 1 or 2 for Player1 or Player2
     protected int actCount = 0;
     protected int actMark;
     
