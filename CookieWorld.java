@@ -1,8 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class MyWorld here.
- * 
+/** 
  * Credits
  * - Images
  *   - Background image from the original Cookie Clicker by Orteil, provided by caveman at https://wallpapercave.com/cookie-clicker-wallpapers
@@ -10,9 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  *   - Spinning wheel of death provided by howdytom at https://apple.stackexchange.com/questions/243675/location-of-the-resource-files-for-the-spinning-wait-cursor
  * 
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
- * @version (a version number or a date)
+ * @version November 2022
  */
-public class MyWorld extends World
+public class CookieWorld extends World
 {
     // World variables
     GreenfootImage background;
@@ -22,7 +20,7 @@ public class MyWorld extends World
     
     // Player variables
     Player p1, p2;
-    public MyWorld()
+    public CookieWorld()
     {    
         super(1200, 800, 1); 
         // Set world background
@@ -31,6 +29,7 @@ public class MyWorld extends World
         // Initialize BuyButton array
         buyButtons = new BuyButton[19];  // one button for each building & powerup.
     }
+    
     /**
      * Returns the player that is NOT [Player thisPlayer].
      * E.g.: if p1 is passed in, return p2, and vice versa.

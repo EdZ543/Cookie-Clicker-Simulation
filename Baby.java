@@ -11,14 +11,16 @@ public class Baby extends Building
 {    
     public Baby(Player player) {
         super(player);
-        actMark = 0 + getRandomNumberInRange(10 * 60, 20 * 60); // initial value between 10-20 seconds
+        timeLower = 10;
+        timeUpper = 20;
+        actMark = 0 + getRandomNumberInRange(timeLower * 60, timeUpper * 60); // initial value between 10-20 seconds
     }
     
     public void act() {
         actCount++; // 60 acts = 1 second
         if (actCount == actMark) {
             eat();
-            getNextActMark(actCount, 10, 20);
+            getNextActMark(timeLower, timeUpper);
         }
     }
     
@@ -27,6 +29,8 @@ public class Baby extends Building
      */
     public void eat() {
         int amountToEat = getRandomNumberInRange(20, 40);
-        // take away this amount of cookies from enemy player
+        CookieWorld cw = (CookieWorld)getWorld();
+        Player otherPlayer = cw.getOtherPlayer(player);
+        otherPlayer.setCookieCount(otherPlayer.getCookieCount() - amountToEat);
     }
 }
