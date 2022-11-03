@@ -4,9 +4,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class CookieMonster here.
  * 
  * @author Caden Chan
- * @version Nov 2, 2022
+ * @version 2022.11.02
  */
-public class CookieMonster extends PowerUp
+public class CookieMonster extends Powerup
 {
     public CookieMonster(Player target) {
         super(target);

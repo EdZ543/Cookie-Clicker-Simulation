@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Jonathan Zhao
  * @version 1.0 (November 1)
  */
-public class ReverseDementia extends PowerUp
+public class ReverseDementia extends Powerup
 {
     public ReverseDementia(Player target) {
         super(target);

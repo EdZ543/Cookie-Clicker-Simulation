@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Jonathan Zhao
  * @version 1.0 (November 1)
  */
-public class HandCream extends PowerUp
+public class HandCream extends Powerup
 {
     public HandCream(Player target) {
         super(target);

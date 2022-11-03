@@ -4,16 +4,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class BuyButton here.
  * 
  * @author Caden Chan
- * @version Nov 2, 2022
+ * @version 2022.11.02
  */
-public class BuyButton extends Actor
+public abstract class BuyButton extends Actor
 {
-    /**
-     * Act - do whatever the BuyButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
-    }
+    protected GreenfootImage actionIcon;
+    protected int cost, highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player
+    protected boolean active;  // if neither player can afford the upgrade, grey-out the button
 }

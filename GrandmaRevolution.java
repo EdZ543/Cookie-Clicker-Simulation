@@ -4,9 +4,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class GrandmaRevolution here.
  * 
  * @author Caden Chan
- * @version Nov 2, 2022
+ * @version 2022.11.02
  */
-public class GrandmaRevolution extends PowerUp
+public class GrandmaRevolution extends Powerup
 {
     public GrandmaRevolution(Player target) {
         super(target);

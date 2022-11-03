@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=CookieUpgrade
-comment0.text=\n\ Write\ a\ description\ of\ class\ CookieUpgrade\ here.\n\ \n\ @author\ Caden\ Chan\n\ @version\ Nov\ 2,\ 2022\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ CookieUpgrade\ here.\n\ \n\ @author\ Caden\ Chan\n\ @version\ 2022.11.02\n
 comment1.params=target
 comment1.target=CookieUpgrade(Player)
-comment2.params=
-comment2.target=void\ act()
-numComments=3
+comment2.params=cookie
+comment2.target=void\ upgrade(Cookie)
+comment3.params=
+comment3.target=void\ onClickButton()
+numComments=4

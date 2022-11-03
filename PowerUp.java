@@ -1,18 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PowerUp here.
+ * Write a description of class Powerup here.
  * 
  * @author Caden Chan
- * @version Nov 2, 2022
+ * @version 2022.11.02
  */
-public abstract class PowerUp extends Actor
+public abstract class Powerup extends Actor
 {
     protected int duration;
     protected int actCount;
     protected Player target;  // Player that is affected by the Powerup
     
-    public PowerUp(Player target) {
+    // public abstract void onClickButton();
+    public Powerup(Player target) {
         this.target = target;
         actCount = 0;
     }

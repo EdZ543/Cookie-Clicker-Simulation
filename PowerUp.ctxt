@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=PowerUp
-comment0.text=\n\ Write\ a\ description\ of\ class\ PowerUp\ here.\n\ \n\ @author\ Caden\ Chan\n\ @version\ Nov\ 2,\ 2022\n
+comment0.target=Powerup
+comment0.text=\n\ Write\ a\ description\ of\ class\ Powerup\ here.\n\ \n\ @author\ Caden\ Chan\n\ @version\ 2022.11.02\n
 comment1.params=target
-comment1.target=PowerUp(Player)
+comment1.target=Powerup(Player)
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\n\ Act\ -\ do\ whatever\ the\ PowerUp\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n

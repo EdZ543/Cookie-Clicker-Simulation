@@ -4,15 +4,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class CookieUpgrade here.
  * 
  * @author Caden Chan
- * @version Nov 2, 2022
+ * @version 2022.11.02
  */
-public class CookieUpgrade extends PowerUp
+public class CookieUpgrade extends Powerup
 {
-    public CookieUpgrade(Player target) {
+    public CookieUpgrade(Player target) {  
         super(target);
     }
-    public void act()
-    {
-        // Add your action code here.
+    public static void upgrade(Cookie cookie) {
+        
+    }
+    public static void onClickButton() {
+        
     }
 }

@@ -4,9 +4,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class Lag here.
  * 
  * @author Caden Chan
- * @version Nov 2, 2022
+ * @version 2022.11.02
  */
-public class Lag extends PowerUp
+public class Lag extends Powerup
 {
     public Lag(Player target) {
         super(target);

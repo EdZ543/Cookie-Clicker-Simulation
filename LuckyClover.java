@@ -4,9 +4,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class LuckyClover here.
  * 
  * @author Caden Chan
- * @version Nov 2, 2022
+ * @version 2022.11.02
  */
-public class LuckyClover extends PowerUp
+public class LuckyClover extends Powerup
 {
     public LuckyClover(Player target) {
         super(target);

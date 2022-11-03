@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Jonathan Zhao
  * @version 1.0 (November 1)
  */
-public class GingerbreadMan extends PowerUp
+public class GingerbreadMan extends Powerup
 {
     public GingerbreadMan(Player target) {
         super(target);
