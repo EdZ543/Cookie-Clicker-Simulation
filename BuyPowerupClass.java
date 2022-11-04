@@ -7,11 +7,11 @@ import java.lang.reflect.InvocationTargetException;
  * @author Caden Chan
  * @version 2022.11.02
  */
-public class BuyBuildingButton extends BuyButton
+public class BuyPowerupClass extends BuyButton
 {
-    private Class buildingClass;
-    public BuyBuildingButton(Class<Building> buildingClass) {
-        this.buildingClass = buildingClass;
+    private Class powerupClass;
+    public BuyPowerupClass(Class<Powerup> powerupClass) {
+        this.powerupClass = powerupClass;
     }
     public void act()
     {
@@ -35,22 +35,28 @@ public class BuyBuildingButton extends BuyButton
         // add buidling to target's collection
     }
     
-    public Building getBuildingInstance(Player p, Player target) {
-        if(buildingClass == AlchemyLab.class) {
+    public Powerup getPowerupInstance(Player p, Player target) {
+        if(powerupClass == CookieUpgrade.class) {
             
-        } else if(buildingClass == Baby.class){
+        } else if(powerupClass == GingerbreadMan.class){
             
-        } else if(buildingClass == Clicker.class) {
+        } else if(powerupClass == HandCream.class) {
             
-        } else if(buildingClass == CookieFactory.class) {
+        } else if(powerupClass == LuckyClover.class) {
             
-        } else if(buildingClass == CookieGod.class) {
+        } else if(powerupClass == MilkBottles.class) {
             
-        } else if(buildingClass == CookieRocket.class) {
+        } else if(powerupClass == ReverseDementia.class) {
             
-        } else if(buildingClass == Grandma.class) {
+        } else if(powerupClass == CookieMonster.class) {
             
-        } else if (buildingClass == Printer3D.class) {
+        } else if (powerupClass == GrandmaRevolution.class) {
+            
+        } else if (powerupClass == Lag.class) {
+            
+        } else if (powerupClass == StealShipment.class) {
+            
+        } else if (powerupClass == YouthPotion.class) {
             
         }
         return null;
