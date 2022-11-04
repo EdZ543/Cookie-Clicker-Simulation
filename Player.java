@@ -22,7 +22,7 @@ public class Player extends Actor
         numCookies = x;
     }
     
-    public int getNumCookies() {
+    public int getCookieCount() {
         return numCookies;
     }
 }

@@ -1,14 +1,14 @@
 #BlueJ class context
 comment0.target=Building
-comment0.text=\n\ Write\ a\ description\ of\ class\ Building\ here.\n\ \n\ @author\ Eddie\ Zhuang\n\ @version\ November\ 2022\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Building\ here.\r\n\ \r\n\ @author\ Eddie\ Zhuang\r\n\ @version\ November\ 2022\r\n
 comment1.params=player
 comment1.target=Building(Player)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=start\ end
 comment3.target=int\ getRandomNumberInRange(int,\ int)
-comment3.text=\n\ Gets\ a\ random\ number\ in\ the\ range\ from\ 'start'\ to\ 'end'\ inclusive.\n
-comment4.params=curActCount\ start\ end
-comment4.target=int\ getNextActMark(int,\ int,\ int)
-comment4.text=\n\ Gets\ the\ next\ act\ mark\ for\ when\ a\ building\ performs\ its\ action\ by\ calculating\ a\ random\ amount\ of\ seconds\ \n\ between\ a\ start\ and\ end\ range.\n\ \n\ @param\ curActCount\ \ \ The\ building's\ current\ act\ count.\n\ @param\ start\ \ \ \ \ \ \ \ \ The\ lower\ bound\ for\ the\ range\ of\ time.\n\ @param\ end\ \ \ \ \ \ \ \ \ \ \ The\ upper\ bound\ for\ the\ range\ of\ time.\n
+comment3.text=\r\n\ Gets\ a\ random\ number\ in\ the\ range\ from\ `start`\ to\ `end`\ inclusive.\r\n
+comment4.params=start\ end
+comment4.target=int\ getNextActMark(int,\ int)
+comment4.text=\r\n\ Gets\ the\ next\ act\ mark\ for\ when\ a\ building\ performs\ its\ action\ by\ calculating\ a\ random\ amount\ of\ seconds\ \r\n\ between\ a\ `start`\ and\ `end`.\r\n\ \r\n\ @param\ start\ \ \ \ \ \ \ \ \ The\ lower\ bound\ for\ the\ range\ of\ time.\r\n\ @param\ end\ \ \ \ \ \ \ \ \ \ \ The\ upper\ bound\ for\ the\ range\ of\ time.\r\n
 numComments=5
