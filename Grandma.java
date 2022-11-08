@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Grandma extends Building
 {
+    public static final int COST = 100;
+    
     public Grandma(Player player) {
         super(player);
     }

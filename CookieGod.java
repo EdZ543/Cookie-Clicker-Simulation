@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieGod extends Building
 {
+    public static final int COST = 20000;
+    
     public CookieGod(Player player) {
         super(player);
     }

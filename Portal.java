@@ -6,9 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Eddie Zhuang
  * @version November 2022
  */
-public class CookieFactory extends Building
+public class Portal extends Building
 {
-    public CookieFactory(Player player) {
+    public static final int COST = 12000;
+    
+    public Portal(Player player) {
         super(player);
     }
     

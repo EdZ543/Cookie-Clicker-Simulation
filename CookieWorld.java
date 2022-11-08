@@ -26,7 +26,7 @@ public class CookieWorld extends World
     
     // Master lists of Building/Powerup classes
     public static final Class[] BUILDING_CLASSES = new Class[]{AlchemyLab.class, Baby.class, Clicker.class, 
-        CookieFactory.class, CookieGod.class, Grandma.class, Printer3D.class};
+        Portal.class, CookieGod.class, Grandma.class, Printer3D.class};
     public static final Class[] POWERUP_CLASSES = new Class[] {CookieUpgrade.class, GingerbreadMan.class, 
         HandCream.class, LuckyClover.class, MilkBottles.class, ReverseDementia.class, CookieMonster.class, 
         GrandmaRevolution.class, Lag.class, StealShipment.class, YouthPotion.class};   

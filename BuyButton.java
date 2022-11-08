@@ -46,6 +46,6 @@ public class BuyButton extends Actor
     }
     
     public int getCost() {
-        return cost;
+        return cost;    
     }
 }

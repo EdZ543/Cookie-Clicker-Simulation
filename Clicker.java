@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Clicker extends Building
 {
+    public static final int COST = 15;
+    
     private int lagTimer = 0;
     private GreenfootImage normalImage = new GreenfootImage("cursor.png");
     private GreenfootImage laggingImage = new GreenfootImage("lag.gif");
