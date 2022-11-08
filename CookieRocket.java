@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieRocket extends Building
 {
+    public static final int COST = 10000; // tbd
     public CookieRocket(Player player) {
         super(player);
     }
