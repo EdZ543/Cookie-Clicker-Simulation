@@ -9,13 +9,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class BuyButton extends Actor
 {
     protected GreenfootImage actionIcon;
-    protected int cost;
     protected int cooldown;  // if cooldown > 0, cannot activate button.
     protected int highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player
     protected boolean active;  // if neither player can afford the upgrade, grey-out the button
     protected Class mySubclass;  // the subclass associated with the button (either a subclass of Builidng or a subclass of Powerup)
-    
+    // info that will be displayed: cost, cookie output impact per second
+    protected int cost;
     public BuyButton(Class mySubclass, int cost) {
+        
+    }
+    public BuyButton(Class mySubclass, int cost, int cookieOutput) {
         
     }
     

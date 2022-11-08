@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Caden Chan
  * @version 2022.11.02
  */
-public abstract class Powerup extends Actor
+public abstract class Powerup extends SuperSmoothMover
 {
     protected int duration;
     protected int actCount;

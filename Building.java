@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Eddie Zhuang
  * @version November 2022
  */
-public abstract class Building extends Actor
+public abstract class Building extends SuperSmoothMover
 {
     protected Player player;
     protected int actCount;
