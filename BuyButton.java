@@ -6,23 +6,46 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Caden Chan
  * @version 2022.11.02
  */
-public abstract class BuyButton extends Actor
+public class BuyButton extends Actor
 {
     protected GreenfootImage actionIcon;
     protected int cost;
     protected int cooldown;  // if cooldown > 0, cannot activate button.
     protected int highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player
     protected boolean active;  // if neither player can afford the upgrade, grey-out the button
+    protected Class mySubclass;  // the subclass associated with the button (either a subclass of Builidng or a subclass of Powerup)
+    
+    public BuyButton(Class mySubclass, int cost) {
+        
+    }
     
     /**
-     * Highlight button & activate functionality related to button
+     * Highlight button & add building to [Player p]'s collection
+     * - For when the Player who activates the button is the Player that receives the building
      * @param p        The Player instance that has activated this button
      */
-    protected abstract void click(Player p, Player target);
-    
+    public void click(Player p) {
+        click(p, p);
+    }
+    /**
+     * Highlight button & add building to [target p]'s collection
+     * @param p         The Player instance that has activated this button
+     * @param target    The Player instance that receives the building
+     */
+    public void click(Player p, Player target) {
+        // highlight button with player colour
+        // add buidling to target's collection
+    }
     public void act() {
         if(cooldown > 0) {
             cooldown --;
         }
+    }
+    public Class getMySubclass() {
+        return mySubclass;
+    }
+    
+    public int getCost() {
+        return cost;
     }
 }

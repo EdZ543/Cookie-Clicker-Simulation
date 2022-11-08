@@ -1,7 +1,18 @@
 #BlueJ class context
 comment0.target=BuyButton
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ BuyButton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ BuyButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment0.text=\n\ Write\ a\ description\ of\ class\ BuyButton\ here.\n\ \n\ @author\ Caden\ Chan\n\ @version\ 2022.11.02\n
+comment1.params=mySubclass\ cost
+comment1.target=BuyButton(java.lang.Class,\ int)
+comment2.params=p
+comment2.target=void\ click(Player)
+comment2.text=\n\ Highlight\ button\ &\ add\ building\ to\ [Player\ p]'s\ collection\n\ -\ For\ when\ the\ Player\ who\ activates\ the\ button\ is\ the\ Player\ that\ receives\ the\ building\n\ @param\ p\ \ \ \ \ \ \ \ The\ Player\ instance\ that\ has\ activated\ this\ button\n
+comment3.params=p\ target
+comment3.target=void\ click(Player,\ Player)
+comment3.text=\n\ Highlight\ button\ &\ add\ building\ to\ [target\ p]'s\ collection\n\ @param\ p\ \ \ \ \ \ \ \ \ The\ Player\ instance\ that\ has\ activated\ this\ button\n\ @param\ target\ \ \ \ The\ Player\ instance\ that\ receives\ the\ building\n
+comment4.params=
+comment4.target=void\ act()
+comment5.params=
+comment5.target=java.lang.Class\ getMySubclass()
+comment6.params=
+comment6.target=int\ getCost()
+numComments=7

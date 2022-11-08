@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=Clicker
-comment0.text=\r\n\ Simulates\ the\ cursor\ of\ the\ players,\ which\ clicks\ the\ cookies,\ buy\ buttons,\ and\ buildings.\ Also\ available\ as\ a\ building,\ which\ is\ a\ copy\ of\ the\ main\ cursor\ that\ just\ stays\ in\ one\ place\ and\ clicks\ the\ cookie.\r\n\ \r\n\ @author\ Eddie\ Zhuang\r\n\ @version\ November\ 2022\r\n
+comment0.text=\n\ Simulates\ the\ cursor\ of\ the\ players,\ which\ clicks\ the\ cookies,\ buy\ buttons,\ and\ buildings.\ Also\ available\ as\ a\ building,\ which\ is\ a\ copy\ of\ the\ main\ cursor\ that\ just\ stays\ in\ one\ place\ and\ clicks\ the\ cookie.\n\ \n\ @author\ Eddie\ Zhuang\n\ @version\ November\ 2022\n
 comment1.params=player
 comment1.target=Clicker(Player)
-comment1.text=\r\n\ @param\ player\ The\ player\ that\ the\ clicker\ belongs\ to\r\n
+comment1.text=\n\ @param\ player\ The\ player\ that\ the\ clicker\ belongs\ to\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Clicker\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Clicker\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment3.params=seconds
 comment3.target=void\ lagOut(int)
-comment3.text=\r\n\ Causes\ the\ cursor\ to\ become\ a\ loading\ symbol\ and\ not\ click\ for\ a\ number\ of\ seconds.\r\n\ \r\n\ @param\ seconds\ Number\ of\ seconds\ the\ clicker\ will\ lag\ out\ for\r\n
+comment3.text=\n\ Causes\ the\ cursor\ to\ become\ a\ loading\ symbol\ and\ not\ click\ for\ a\ number\ of\ seconds.\n\ \n\ @param\ seconds\ Number\ of\ seconds\ the\ clicker\ will\ lag\ out\ for\n
 numComments=4

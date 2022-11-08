@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Powerup
-comment0.text=\n\ Write\ a\ description\ of\ class\ Powerup\ here.\n\ \n\ @author\ Caden\ Chan\n\ @version\ 2022.11.02\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Powerup\ here.\n\ \n\ \!IMPORTANT\:\ All\ subclasses\ of\ Powerup\ MUST\ have\ the\ `public\ static\ final\ int\ COST`\ field\ (final\ keyword\ is\ optional).\n\ \n\ @author\ Caden\ Chan\n\ @version\ 2022.11.02\n
 comment1.params=target
 comment1.target=Powerup(Player)
 comment2.params=

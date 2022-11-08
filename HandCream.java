@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HandCream extends Powerup
 {
+    public static final int COST = 100; // tbd
     public HandCream(Player target) {
         super(target);
     }

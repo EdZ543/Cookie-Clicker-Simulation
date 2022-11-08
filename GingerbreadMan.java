@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GingerbreadMan extends Powerup
 {
+    public static final int COST = 100; // tbd
     public GingerbreadMan(Player target) {
         super(target);
     }

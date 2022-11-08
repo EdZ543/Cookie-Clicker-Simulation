@@ -3,6 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Powerup here.
  * 
+ * !IMPORTANT: All subclasses of Powerup MUST have the `public static final int COST` field (final keyword is optional).
+ * 
  * @author Caden Chan
  * @version 2022.11.02
  */

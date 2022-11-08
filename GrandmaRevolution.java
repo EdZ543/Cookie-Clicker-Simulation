@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GrandmaRevolution extends Sabotage
 {
+    public static final int COST = 100; // tbd
     public GrandmaRevolution(Player target) {
         super(target);
     }

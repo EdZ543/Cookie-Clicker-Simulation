@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class YouthPotion extends Powerup
 {
+    public static final int COST = 100; // tbd
     public YouthPotion(Player target) {
         super(target);
     }
