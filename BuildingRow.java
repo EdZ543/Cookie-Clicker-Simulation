@@ -12,17 +12,16 @@ public class BuildingRow extends Actor
     
     /**
      * @param buildingType The class of building that will live in this row
+     * @param width The width of the row
+     * @param height The height of the row
+     * @param spacing How far apart each building will be
      */
-    public BuildingRow(Class buildingType) {
+    public BuildingRow(Class buildingType, int width, int height, int spacing) {
         this.buildingType = buildingType;
     }
     
     /**
-     * Act - do whatever the BuildingRow wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Adds a building to this row
      */
-    public void act()
-    {
-        // Add your action code here.
-    }
+    public void addBuilding() {}
 }
