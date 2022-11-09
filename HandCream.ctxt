@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=HandCream
-comment0.text=\n\ Clickers\ are\ moisturized.\ They\ click\ twice\ as\ fast.\n\ \n\ @author\ Jonathan\ Zhao\n\ @version\ 1.0\ (November\ 1)\n
-comment1.params=target
-comment1.target=HandCream(Player)
-comment2.params=
-comment2.target=void\ act()
-numComments=3

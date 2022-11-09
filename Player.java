@@ -13,6 +13,14 @@ public class Player extends Actor
     public Player() {
         // Set image to none
         setImage((GreenfootImage)null);
+        
+        // Add cookie
+        
+        // Add clickers
+        
+        // Add building rows
+        
+        // Add score text
     }
     
     public void act() {

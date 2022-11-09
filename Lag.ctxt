@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=Lag
-comment0.text=\n\ Write\ a\ description\ of\ class\ Lag\ here.\n\ \n\ @author\ Caden\ Chan\n\ @version\ 2022.11.02\n
-comment1.params=target
-comment1.target=Lag(Player)
-comment2.params=
-comment2.target=void\ act()
-comment2.text=\n\ Act\ -\ do\ whatever\ the\ Lag\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-numComments=3

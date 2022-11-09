@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=Grandma
-comment0.text=\n\ Write\ a\ description\ of\ class\ Grandma\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=player
-comment1.target=Grandma(Player)
-comment2.params=
-comment2.target=void\ act()
-numComments=3

@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=ReverseDementia
-comment0.text=\n\ Grandmas\ become\ twice\ at\ efficient\ when\ baking.\ Angry\ grandmas\ become\n\ obedient\ again.\n\ \n\ @author\ Jonathan\ Zhao\n\ @version\ 1.0\ (November\ 1)\n
-comment1.params=target
-comment1.target=ReverseDementia(Player)
-comment2.params=
-comment2.target=void\ act()
-numComments=3
