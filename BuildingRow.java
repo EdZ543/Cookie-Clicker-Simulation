@@ -8,6 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BuildingRow extends Actor
 {
+    private Class buildingType;
+    
+    /**
+     * @param buildingType The class of building that will live in this row
+     */
+    public BuildingRow(Class buildingType) {
+        this.buildingType = buildingType;
+    }
+    
     /**
      * Act - do whatever the BuildingRow wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

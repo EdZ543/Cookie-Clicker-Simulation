@@ -41,6 +41,12 @@ public class CookieWorld extends World
         // buyButtons = new BuyButton[19];  // one button for each building & powerup.
         buyBuildingButtons = initBuyButtons(BUILDING_CLASSES);
         buyPowerupButtons = initBuyButtons(POWERUP_CLASSES);
+        
+        // Initialize players
+        p1 = new Player();
+        p2 = new Player();
+        addObject(p1, 0, 0);
+        addObject(p2, 0, 0);
     }
     
     /**
