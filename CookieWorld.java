@@ -34,9 +34,11 @@ public class CookieWorld extends World
     public CookieWorld() throws MyException
     {   
         super(1200, 800, 1); 
+        
         // Set world background
         background = new GreenfootImage("background0.png");
         setBackground(background);
+        
         // Initialize BuyButton array
         // buyButtons = new BuyButton[19];  // one button for each building & powerup.
         buyBuildingButtons = initBuyButtons(BUILDING_CLASSES);
@@ -45,8 +47,8 @@ public class CookieWorld extends World
         // Initialize players
         p1 = new Player();
         p2 = new Player();
-        addObject(p1, 0, 0);
-        addObject(p2, 0, 0);
+        addObject(p1, 200, 400);
+        addObject(p2, 1000, 400);
     }
     
     /**

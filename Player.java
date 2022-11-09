@@ -8,10 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-    private int numCookies;
+    private int numCookies = 0;
     
     public Player() {
-        numCookies = 0;  
+        // Set image to none
+        setImage((GreenfootImage)null);
     }
     
     public void act() {

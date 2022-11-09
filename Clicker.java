@@ -6,10 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Eddie Zhuang
  * @version November 2022
  */
-public class Clicker extends Building
+public class Clicker extends SuperSmoothMover
 {
     public static final int COST = 15;
     
+    private Player player;
     private int lagTimer = 0;
     private GreenfootImage normalImage = new GreenfootImage("cursor.png");
     private GreenfootImage laggingImage = new GreenfootImage("lag.gif");
@@ -20,8 +21,7 @@ public class Clicker extends Building
      * @param sentient Whether the clicker will be the main one controlled by the player and move around
      */
     public Clicker(Player player, boolean sentient) {
-        super(player);
-        
+        this.player = player;
         this.sentient = sentient;
     }
 
