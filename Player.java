@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.HashMap;
 
 /**
  * Write a description of class Player here.
@@ -9,13 +8,11 @@ import java.util.HashMap;
  */
 public class Player extends Actor
 {
-    private int numCookies;
-    private BuildingCounter[] buildingCounters = new BuildingCounter[6];
-    HashMap<String, Int> buildingCounts = new HashMap<String, Int>(); // buildingCounts["Grandma"]++;
+    private int numCookies = 0;
     
     public Player() {
-        numCookies = 0;
-        
+        // Set image to none
+        setImage((GreenfootImage)null);
     }
     
     public void act() {

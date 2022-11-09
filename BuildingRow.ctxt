@@ -1,7 +1,10 @@
 #BlueJ class context
 comment0.target=BuildingRow
-comment0.text=\r\n\ The\ rectangles\ in\ which\ the\ buildings\ will\ stay\r\n\ \r\n\ @author\ Eddie\ Zhuang\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ BuildingRow\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment0.text=\n\ The\ rectangles\ in\ which\ the\ buildings\ will\ stay\n\ \n\ @author\ Eddie\ Zhuang\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=buildingType\ width\ height\ spacing
+comment1.target=BuildingRow(java.lang.Class,\ int,\ int,\ int)
+comment1.text=\n\ @param\ buildingType\ The\ class\ of\ building\ that\ will\ live\ in\ this\ row\n\ @param\ width\ The\ width\ of\ the\ row\n\ @param\ height\ The\ height\ of\ the\ row\n\ @param\ spacing\ How\ far\ apart\ each\ building\ will\ be\n
+comment2.params=
+comment2.target=void\ addBuilding()
+comment2.text=\n\ Adds\ a\ building\ to\ this\ row\n
+numComments=3

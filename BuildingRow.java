@@ -8,12 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BuildingRow extends Actor
 {
+    private Class buildingType;
+    
     /**
-     * Act - do whatever the BuildingRow wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * @param buildingType The class of building that will live in this row
+     * @param width The width of the row
+     * @param height The height of the row
+     * @param spacing How far apart each building will be
      */
-    public void act()
-    {
-        // Add your action code here.
+    public BuildingRow(Class buildingType, int width, int height, int spacing) {
+        this.buildingType = buildingType;
     }
+    
+    /**
+     * Adds a building to this row
+     */
+    public void addBuilding() {}
 }
