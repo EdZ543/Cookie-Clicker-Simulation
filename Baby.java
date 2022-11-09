@@ -33,6 +33,6 @@ public class Baby extends Building
         int amountToEat = getRandomNumberInRange(20, 40);
         CookieWorld cw = (CookieWorld)getWorld();
         Player otherPlayer = cw.getOtherPlayer(player);
-        otherPlayer.setCookieCount(otherPlayer.getCookieCount() - amountToEat);
+        otherPlayer.changeCookieCount(-amountToEat);
     }
 }

@@ -16,7 +16,7 @@ public class AlchemyLab extends Building
         actMark = 0 + getRandomNumberInRange(timeLower * 60, timeUpper * 60); // initial value between 5-10 seconds
         
         // increase player's building count for alchemy lab
-        player.buildingCount
+        //player.buildingCount
     }
     
     public void act() {
@@ -29,6 +29,6 @@ public class AlchemyLab extends Building
     
     public void produceCookies() {
         int produced = getRandomNumberInRange(500, 1000);    
-        player.setCookieCount(player.getCookieCount() + produced);
+        player.changeCookieCount(produced);
     }
 }

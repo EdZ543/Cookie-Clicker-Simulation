@@ -35,8 +35,8 @@ public class Player extends Actor
     
     public void addedToWorld(World w) {
         // Add cookie
-        cookie = new Cookie();
-        w.addObject(cookie, getX(), getY() - 400);
+        //cookie = new Cookie();
+        //w.addObject(cookie, getX(), getY() - 400);
         
         // Add clickers
         for (int i = 0; i < clickers; i++) {
