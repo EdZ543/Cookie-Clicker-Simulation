@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=HandCream
-comment0.text=\n\ Clickers\ are\ moisturized.\ They\ click\ twice\ as\ fast.\n\ \n\ @author\ Jonathan\ Zhao\n\ @version\ 1.0\ (November\ 1)\n
+comment0.text=\r\n\ Clickers\ are\ moisturized.\ They\ click\ twice\ as\ fast.\r\n\ \r\n\ @author\ Jonathan\ Zhao\r\n\ @version\ 1.0\ (November\ 1)\r\n
 comment1.params=target
 comment1.target=HandCream(Player)
 comment2.params=

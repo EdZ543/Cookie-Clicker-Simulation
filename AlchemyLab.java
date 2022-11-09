@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Every 5-10 seconds, produces 500-1000 cookies
+ * Every 5-10 seconds, the alchemy lab will produce 500-1000 cookies
  * 
  * @author Patrick Hu 
  * @version November 2022
@@ -14,6 +14,9 @@ public class AlchemyLab extends Building
         timeLower = 5;
         timeUpper = 10;
         actMark = 0 + getRandomNumberInRange(timeLower * 60, timeUpper * 60); // initial value between 5-10 seconds
+        
+        // increase player's building count for alchemy lab
+        player.buildingCount
     }
     
     public void act() {

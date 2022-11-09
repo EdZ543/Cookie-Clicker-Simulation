@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=YouthPotion
-comment0.text=\n\ Grandmas\ return\ to\ their\ prime.\ Their\ speed\ of\ production\ increases\ by\ 2x.\n\ \n\ @author\ Jonathan\ Zhao\ \n\ @version\ 1.0\ (November\ 1)\n
+comment0.text=\r\n\ Grandmas\ return\ to\ their\ prime.\ Their\ speed\ of\ production\ increases\ by\ 2x.\r\n\ \r\n\ @author\ Jonathan\ Zhao\ \r\n\ @version\ 1.0\ (November\ 1)\r\n
 comment1.params=target
 comment1.target=YouthPotion(Player)
 comment2.params=

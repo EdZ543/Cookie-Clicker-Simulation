@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=StealShipment
-comment0.text=\n\ Steals\ the\ income\ from\ the\ opponent's\ cookie\ factories\ for\ 5\ seconds.\n\ Has\ a\ 15\ second\ cooldown.\n\ \n\ @author\ Jonathan\ Zhao\n\ @version\ 1.0\ (November\ 1)\n
+comment0.text=\r\n\ Steals\ the\ income\ from\ the\ opponent's\ cookie\ factories\ for\ 5\ seconds.\r\n\ Has\ a\ 15\ second\ cooldown.\r\n\ \r\n\ @author\ Jonathan\ Zhao\r\n\ @version\ 1.0\ (November\ 1)\r\n
 comment1.params=target
 comment1.target=StealShipment(Player)
 comment2.params=
