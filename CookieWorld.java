@@ -58,8 +58,6 @@ public class CookieWorld extends World
         p2 = new Player(clickers2, cps2, grandmas2);
         addObject(p1, 200, 400);
         addObject(p2, 1000, 400);
-        
-        
     }
     
     /**
