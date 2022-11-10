@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * A player in this simulation, of which there are two.
@@ -19,7 +20,7 @@ public class Player extends Actor
     private int cps;
     private int grandmas;
     private String name;
-    private BuildingRow[] buildingRows = new BuildingRow[CookieWorld.BUILDING_CLASSES.length];
+    private ArrayList<BuildingRow> buildingRows = new ArrayList<BuildingRow>();
     
     /**
      * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
@@ -42,6 +43,8 @@ public class Player extends Actor
     }
     
     public void addedToWorld(World w) {
+        CookieWorld cw = (CookieWorld)w;
+        
         // Add cookie
         
         // Add clickers
@@ -50,10 +53,11 @@ public class Player extends Actor
         }
         
         // Add building rows
-        int rowHeight = height / 2 / CookieWorld.BUILDING_CLASSES.length;
-        for (int i = 0; i < CookieWorld.BUILDING_CLASSES.length; i++) {
-            buildingRows[i] = new BuildingRow(CookieWorld.BUILDING_CLASSES[i], width, rowHeight, 10);
-            getWorld().addObject(buildingRows[i], getX(), getY() + (int)((i + 0.5) * rowHeight));
+        int rowHeight = height / 2 / cw.getBuildingClasses().size();
+        for (int i = 0; i < cw.getBuildingClasses().size(); i++) {
+
+            buildingRows.add(new BuildingRow(cw.getBuildingClasses().get(i), width, rowHeight, 10));
+            getWorld().addObject(buildingRows.get(i), getX(), getY() + (int)((i + 0.5) * rowHeight));
         }
         
         // Add starting grandmas
