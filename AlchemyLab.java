@@ -14,6 +14,8 @@ public class AlchemyLab extends Building
         timeUpper = 10;
         actMark = 0 + getRandomNumberInRange(timeLower * 60, timeUpper * 60); // initial value between 5-10 seconds
         
+        setImage("./images/placeholder/alchemy-lab.png");
+        
         // increase player's building count for alchemy lab
     }
     
