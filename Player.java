@@ -13,20 +13,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player extends Actor
 {
     private Cookie cookie;
-    
+    private int width, height;
     private int numCookies = 0;
     private int clickers;
     private int cps;
     private int grandmas;
     private String name;
+    private BuildingRow[] buildingRows = new BuildingRow[CookieWorld.BUILDING_CLASSES.length];
     
     /**
+     * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
+     * @param height The width all the player's stuff will take up (rows, cookie, counter text, etc.)
      * @param clickers How many clickers the player will start off with
      * @param cps The number of clicks per second each clicker will be able to have
      * @param grandmas  Number of starting grandmas
      * @param name The name of the player, for text displays. Example: "Player 1"
      */
-    public Player(int clickers, int cps, int grandmas, String name) {
+    public Player(int width, int height, int clickers, int cps, int grandmas, String name) {
+        this.width = width;
+        this.height = height;
         this.clickers = clickers;
         this.cps = cps;
         this.grandmas = grandmas;
@@ -38,8 +43,6 @@ public class Player extends Actor
     
     public void addedToWorld(World w) {
         // Add cookie
-        //cookie = new Cookie();
-        //w.addObject(cookie, getX(), getY() - 400);
         
         // Add clickers
         for (int i = 0; i < clickers; i++) {
@@ -47,6 +50,11 @@ public class Player extends Actor
         }
         
         // Add building rows
+        int rowHeight = height / 2 / CookieWorld.BUILDING_CLASSES.length;
+        for (int i = 0; i < CookieWorld.BUILDING_CLASSES.length; i++) {
+            buildingRows[i] = new BuildingRow(CookieWorld.BUILDING_CLASSES[i], width, rowHeight, 10);
+            getWorld().addObject(buildingRows[i], getX(), getY() + (int)((i + 0.5) * rowHeight));
+        }
         
         // Add starting grandmas
         

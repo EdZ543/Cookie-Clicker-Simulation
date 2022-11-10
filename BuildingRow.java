@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class BuildingRow extends Actor
 {
     private Class buildingType;
+    private int spacing;
     
     /**
      * @param buildingType The class of building that will live in this row
@@ -18,10 +19,29 @@ public class BuildingRow extends Actor
      */
     public BuildingRow(Class buildingType, int width, int height, int spacing) {
         this.buildingType = buildingType;
+        this.spacing = spacing;
+        
+        setImage(drawBuildingRow(width, height));
     }
     
     /**
      * Adds a building to this row
      */
-    public void addBuilding() {}
+    public void addBuilding() {
+        
+    }
+    
+    private GreenfootImage drawBuildingRow(int width, int height) {
+        GreenfootImage ret = new GreenfootImage(width, height);
+        
+        // Draw inside
+        ret.setColor(new Color(247, 242, 213));
+        ret.fillRect(0, 0, width, height);
+        
+        // Draw border
+        ret.setColor(new Color(38, 20, 8));
+        ret.drawRect(0, 0, width, height);
+        
+        return ret;
+    }
 }
