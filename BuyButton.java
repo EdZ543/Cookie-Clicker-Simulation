@@ -8,18 +8,34 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BuyButton extends Actor
 {
-    protected GreenfootImage actionIcon;
-    protected int cooldown;  // if cooldown > 0, cannot activate button.
-    protected int highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player
-    protected boolean active;  // if neither player can afford the upgrade, grey-out the button
-    protected Class mySubclass;  // the subclass associated with the button (either a subclass of Builidng or a subclass of Powerup)
-    // info that will be displayed: cost, cookie output impact per second
-    protected int cost;
-    public BuyButton(Class mySubclass, int cost) {
-        
-    }
-    public BuyButton(Class mySubclass, int cost, int cookieOutput) {
-        
+    private int cooldown;  // if cooldown > 0, cannot activate button.
+    private int highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player
+    private boolean active;  // if neither player can afford the upgrade, grey-out the button
+    // info that will be displayed: cost, subclass name, icon
+    private int cost;
+    private Class mySubclass;  // the subclass associated with the button (either a subclass of Builidng or a subclass of Powerup)
+    private String name;
+    // Button Attributes
+    private final int WIDTH = 200, HEIGHT = 70;
+    private GreenfootImage actionIcon;
+    private GreenfootImage image;
+    private Font nameFont, costFont;
+    private Color bgColor, textColor;
+    public BuyButton(Class mySubclass, String name, int cost) {
+        this.mySubclass = mySubclass;
+        this.name = name;
+        this.cost = cost;
+        nameFont = new Font(CookieWorld.FONT_NAME, 20);
+        costFont = new Font(CookieWorld.FONT_NAME, 16);
+        bgColor = new Color(117, 83, 61); // temp --> will be replaced by png background image for buttons
+        textColor = Color.WHITE;
+        // set up button image
+        image = new GreenfootImage(WIDTH, HEIGHT);
+        image.setColor(bgColor);
+        image.fill();
+        setImage(image);
+        setText(name, nameFont, 80, nameFont.getSize()+10);
+        setText("Cost: " + cost, costFont, 80, nameFont.getSize() + costFont.getSize()+20);
     }
     
     /**
@@ -50,5 +66,13 @@ public class BuyButton extends Actor
     
     public int getCost() {
         return cost;    
+    }
+    public void setText(String text, Font font) {
+        setText(text, font, 0, font.getSize());
+    }
+    public void setText(String text, Font font, int x, int y) {
+        image.setFont(font);
+        image.setColor(textColor);
+        image.drawString(text, x, y);
     }
 }
