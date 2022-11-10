@@ -10,6 +10,8 @@ public class Printer3D extends Building
 {
     public Printer3D(Player player) {
         super(player);
+        
+        setImage("./images/placeholder/alchemy-lab.png");
     }
     
     public void act() {

@@ -16,8 +16,9 @@ public class BuyButton extends Actor
     private Class mySubclass;  // the subclass associated with the button (either a subclass of Builidng or a subclass of Powerup)
     private String name;
     // Button Attributes
-    private final int WIDTH = 200, HEIGHT = 70;
-    private GreenfootImage actionIcon;
+    private final int WIDTH = 100, HEIGHT = 100;
+    private String icnFile;
+    private GreenfootImage icn;
     private GreenfootImage image;
     private Font nameFont, costFont;
     private Color bgColor, textColor;
@@ -30,9 +31,12 @@ public class BuyButton extends Actor
         bgColor = new Color(117, 83, 61); // temp --> will be replaced by png background image for buttons
         textColor = Color.WHITE;
         // set up button image
-        image = new GreenfootImage(WIDTH, HEIGHT);
-        image.setColor(bgColor);
-        image.fill();
+        image = new GreenfootImage("buybutton-icns/btn-bg.png");
+        icnFile = "buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png";
+        icn = new GreenfootImage(icnFile);
+        image.drawImage(icn, 10, 10);
+        // image.setColor(bgColor);
+        // image.fill();
         setImage(image);
         setText(name, nameFont, 80, nameFont.getSize()+10);
         setText("Cost: " + cost, costFont, 80, nameFont.getSize() + costFont.getSize()+20);

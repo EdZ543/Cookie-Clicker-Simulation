@@ -45,12 +45,7 @@ public class CookieWorld extends World
      *          }, 
      * }
      */
-    public static final Class[] BUILDING_CLASSES = new Class[]{AlchemyLab.class, Baby.class, 
-        Portal.class, CookieGod.class, Grandma.class, Printer3D.class};
-    public static final Class[] POWERUP_CLASSES = new Class[] {CookieUpgrade.class, GingerbreadMan.class, 
-        HandCream.class, LuckyClover.class, MilkBottles.class, ReverseDementia.class, CookieMonster.class, 
-        GrandmaRevolution.class, Lag.class, StealShipment.class, YouthPotion.class};   
-    // Global font 
+   // Global font 
     public static final String FONT_NAME = "Futura";
     
     public CookieWorld() throws MyException
@@ -85,8 +80,8 @@ public class CookieWorld extends World
         
         // Initialize BuyButton array
         // buyButtons = new BuyButton[19];  // one button for each building & powerup.
-        buyBuildingButtons = initBuyButtons(BUILDING_CLASSES);
-        buyPowerupButtons = initBuyButtons(POWERUP_CLASSES);
+        buyBuildingButtons = initBuyButtons(getBuildingClasses());
+        buyPowerupButtons = initBuyButtons(getPowerupClasses());
         
         // Initialize players
         p1 = new Player(400, getHeight(), clickers1, cps1, grandmas1, "Player 1");
@@ -138,6 +133,7 @@ public class CookieWorld extends World
      * 
      * 
      * @param itemClass         The subclass of Building or Powerup whose cost is being returned
+     * @return int              The cost in cookies, pertaining to the subclass `itemClass`
      */
     public int getItemCost(Class itemClass) {
         if(Building.class.isAssignableFrom(itemClass)) { // check if itemClass is a subclass of Building
@@ -153,6 +149,7 @@ public class CookieWorld extends World
      * 
      * 
      * @param itemClass         The subclass of Building or Powerup whose cost is being returned
+     * @return String           The name pertaining to the subclass `itemClass`
      */
     public String getItemName(Class itemClass) {
         if(Building.class.isAssignableFrom(itemClass)) { // check if itemClass is a subclass of Building
@@ -169,17 +166,34 @@ public class CookieWorld extends World
      * Throws `MyException` if `getItemCost(Class itemClass)` requirements aren't met.
      * 
      * @param itemClasses           Array containing subclasses of Building or Powerup
+     * @return BuyButton[]          Array of buttons for each subclass in `itemClasses`
      */
-    public BuyButton[] initBuyButtons(Class[] itemClasses) throws MyException{
-        BuyButton[] buttons = new BuyButton[itemClasses.length];
+    public BuyButton[] initBuyButtons(ArrayList<Class> itemClasses) throws MyException{
+        BuyButton[] buttons = new BuyButton[itemClasses.size()];
         for(int i=0;i<buttons.length;i++) {
-            Class c = itemClasses[i];
+            Class c = itemClasses.get(i);
             BuyButton btn = new BuyButton(c, getItemName(c), getItemCost(c));
             buttons[i] = btn;
         }
         return buttons;
     }
+    /**
+     * Return ArrayList of Building subclasses from `buildingMap`
+     * 
+     * @return ArrayList<Class>     Subclasses of Building
+     */
+    public ArrayList<Class> getBuildingClasses() {
+        return new ArrayList<Class>(buildingMap.keySet());
+    }
     
+    /**
+     * Return ArrayList of Powerup subclasses from `powerupMap`
+     * 
+     * @return ArrayList<Class>     Subclasses of Powerup
+     */
+    public ArrayList<Class> getPowerupClasses() {
+        return new ArrayList<Class>(powerupMap.keySet());
+    }
     private HashMap<String, Object> createHashmap(String[] keys, Object[] values) throws MyException{
         if(keys.length != values.length) {
             throw new MyException("method: createHashmap\nproblem: keys & values arrays must be of equal length");
@@ -190,4 +204,5 @@ public class CookieWorld extends World
         }
         return map;
     }
+    
 }
