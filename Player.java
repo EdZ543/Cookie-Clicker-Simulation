@@ -74,4 +74,13 @@ public class Player extends Actor
     public int getCookieCount() {
         return numCookies;
     }
+    
+    /**
+     * Returns the name of the player
+     * 
+     * @return String The name
+     */
+    public String getName() {
+        return name;
+    }
 }
