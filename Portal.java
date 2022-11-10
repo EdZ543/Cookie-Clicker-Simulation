@@ -1,21 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class CookieFactory here.
+ * Transports cookies from another dimension
+ * Every 5-10 seconds, produces 50-100 cookies
  * 
- * @author Patrick Hu
+ * @author Eddie Zhuang
  * @version November 2022
  */
 public class Portal extends Building
 {
-    public static final int COST = 12000;
-    
     public Portal(Player player) {
         super(player);
     }
     
     public void act()
     {
-        // Add your action code here.
+        player.changeCookieCount(getRandomNumberInRange(50, 100));
     }
 }
