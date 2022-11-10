@@ -8,9 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version November 2022
  */
 public class Baby extends Building
-{    
-    public static final int COST = 200;
-    
+{
     public Baby(Player player) {
         super(player);
         timeLower = 10;

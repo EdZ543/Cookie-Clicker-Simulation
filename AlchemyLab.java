@@ -7,9 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version November 2022
  */
 public class AlchemyLab extends Building
-{   
-    public static final int COST = 2000;
-    
+{
     public AlchemyLab(Player player) {
         super(player);
         timeLower = 5;
