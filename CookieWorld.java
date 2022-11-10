@@ -1,6 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.HashMap;
 /** 
  * Credits
  * - Images
@@ -34,11 +35,23 @@ public class CookieWorld extends World
     private Player p1, p2;
     
     // Master lists of Building/Powerup classes
-    public static final Class[] BUILDING_CLASSES = new Class[]{AlchemyLab.class, Baby.class, Clicker.class, 
+    private HashMap<Class, HashMap<String, Object>> buildingMap;
+    private HashMap<Class, HashMap<String, Object>> powerupMap;
+    /**
+     * {
+     *      AlchemyLab.class: {
+     *          "name": "Alchemy Lab",
+     *          "cost": 10
+     *          }, 
+     * }
+     */
+    public static final Class[] BUILDING_CLASSES = new Class[]{AlchemyLab.class, Baby.class, 
         Portal.class, CookieGod.class, Grandma.class, Printer3D.class};
     public static final Class[] POWERUP_CLASSES = new Class[] {CookieUpgrade.class, GingerbreadMan.class, 
         HandCream.class, LuckyClover.class, MilkBottles.class, ReverseDementia.class, CookieMonster.class, 
         GrandmaRevolution.class, Lag.class, StealShipment.class, YouthPotion.class};   
+    // Global font 
+    public static final String FONT_NAME = "Futura";
     
     public CookieWorld() throws MyException
     {   
@@ -47,6 +60,28 @@ public class CookieWorld extends World
         // Set world background
         background = new GreenfootImage("background0.png");
         setBackground(background);
+        // Initialize building hashmap
+        buildingMap = new HashMap<Class, HashMap<String, Object>>();
+        buildingMap.put(AlchemyLab.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Alchemy Lab", 100}));
+        buildingMap.put(Baby.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Baby", 100}));
+        buildingMap.put(CookieGod.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie God", 100}));
+        buildingMap.put(CookieRocket.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Rocket", 100}));
+        buildingMap.put(Grandma.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Grandma", 100}));
+        buildingMap.put(Portal.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Portal", 100}));
+        buildingMap.put(Printer3D.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"3D Printer", 100}));
+        // Initialize powerup hashmap
+        powerupMap = new HashMap<Class, HashMap<String, Object>>();
+        powerupMap.put(CookieUpgrade.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Upgrade", 100}));
+        powerupMap.put(GingerbreadMan.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Gingerbread Man", 100}));
+        powerupMap.put(HandCream.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Hand Cream", 100}));
+        powerupMap.put(LuckyClover.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lucky Clover", 100}));
+        powerupMap.put(MilkBottles.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Milk Bottles", 100}));
+        powerupMap.put(ReverseDementia.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Reverse Dementia", 100}));
+        powerupMap.put(CookieMonster.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Monster", 100}));
+        powerupMap.put(GrandmaRevolution.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Grandma Revolution", 100}));
+        powerupMap.put(Lag.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lag", 100}));
+        powerupMap.put(StealShipment.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Steal Shipment", 100}));
+        powerupMap.put(YouthPotion.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Youth Potion", 100})); 
         
         // Initialize BuyButton array
         // buyButtons = new BuyButton[19];  // one button for each building & powerup.
@@ -54,10 +89,14 @@ public class CookieWorld extends World
         buyPowerupButtons = initBuyButtons(POWERUP_CLASSES);
         
         // Initialize players
-        p1 = new Player(clickers1, cps1, grandmas1);
-        p2 = new Player(clickers2, cps2, grandmas2);
+        p1 = new Player(clickers1, cps1, grandmas1, "Player 1");
+        p2 = new Player(clickers2, cps2, grandmas2, "Player 2");
         addObject(p1, 200, 400);
         addObject(p2, 1000, 400);
+        
+        for(BuyButton b : buyBuildingButtons) {
+            addObject(b, 600, 100);
+        }
     }
     
     /**
@@ -96,31 +135,59 @@ public class CookieWorld extends World
     }
     /**
      * Returns the cost of [Class itemClass] by retrieving its [public static int COST] field
-     * Throws `MyException` if `COST` field does not exist in `itemClass`
+     * 
      * 
      * @param itemClass         The subclass of Building or Powerup whose cost is being returned
      */
-    public static int getItemCost(Class itemClass) throws MyException{
-        try {
-            int cost = (int) itemClass.getField("COST").get(itemClass);
-            return cost;
-        } catch (IllegalArgumentException| IllegalAccessException | NoSuchFieldException| SecurityException e) { // condense 4 exceptions into one; gets called when public static COST is not defined in [Class itemClass]
-            throw new MyException(itemClass.getSimpleName() + " does not have `COST` variable, or its `COST` variable is not public & static");
+    public int getItemCost(Class itemClass) {
+        if(Building.class.isAssignableFrom(itemClass)) { // check if itemClass is a subclass of Building
+            return (int)buildingMap.get(itemClass).get("cost");
         }
+        if(Powerup.class.isAssignableFrom(itemClass)) { // check if itemClass is a subclass of Powerup
+            return (int)powerupMap.get(itemClass).get("cost");
+        }
+        return -1;
     }
+    /**
+     * Returns the name of [Class itemClass] by retrieving its [public static int COST] field
+     * 
+     * 
+     * @param itemClass         The subclass of Building or Powerup whose cost is being returned
+     */
+    public String getItemName(Class itemClass) {
+        if(Building.class.isAssignableFrom(itemClass)) { // check if itemClass is a subclass of Building
+            return (String)buildingMap.get(itemClass).get("name");
+        }
+        if(Powerup.class.isAssignableFrom(itemClass)) { // check if itemClass is a subclass of Powerup
+            return (String)powerupMap.get(itemClass).get("name");
+        }
+        return null;
+    }
+    
     /**
      * Return an array of new `BuyButton`s, for each subclass in [Class[] itemClasses] (either `BUIDLING_CLASSES` or `POWERUP_CLASES`)
      * Throws `MyException` if `getItemCost(Class itemClass)` requirements aren't met.
      * 
      * @param itemClasses           Array containing subclasses of Building or Powerup
      */
-    public static BuyButton[] initBuyButtons(Class[] itemClasses) throws MyException{
+    public BuyButton[] initBuyButtons(Class[] itemClasses) throws MyException{
         BuyButton[] buttons = new BuyButton[itemClasses.length];
         for(int i=0;i<buttons.length;i++) {
             Class c = itemClasses[i];
-            BuyButton btn = new BuyButton(c, getItemCost(c));
+            BuyButton btn = new BuyButton(c, getItemName(c), getItemCost(c));
             buttons[i] = btn;
         }
         return buttons;
+    }
+    
+    private HashMap<String, Object> createHashmap(String[] keys, Object[] values) throws MyException{
+        if(keys.length != values.length) {
+            throw new MyException("method: createHashmap\nproblem: keys & values arrays must be of equal length");
+        }
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        for(int i=0;i<keys.length;i++ ){
+            map.put(keys[i], values[i]);
+        }
+        return map;
     }
 }

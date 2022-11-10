@@ -18,16 +18,19 @@ public class Player extends Actor
     private int clickers;
     private int cps;
     private int grandmas;
+    private String name;
     
     /**
      * @param clickers How many clickers the player will start off with
      * @param cps The number of clicks per second each clicker will be able to have
      * @param grandmas  Number of starting grandmas
+     * @param name The name of the player, for text displays. Example: "Player 1"
      */
-    public Player(int clickers, int cps, int grandmas) {
+    public Player(int clickers, int cps, int grandmas, String name) {
         this.clickers = clickers;
         this.cps = cps;
         this.grandmas = grandmas;
+        this.name = name;
         
         // Set image to none
         setImage((GreenfootImage)null);
