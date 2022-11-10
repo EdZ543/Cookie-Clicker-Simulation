@@ -7,15 +7,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version November 2022
  */
 public class Grandma extends Building
-{
-    public static final int COST = 100;
-    
+{    
     public Grandma(Player player) {
         super(player);
+        
+        setImage("./images/placeholder/alchemy-lab.png");
     }
     
-    public void act()
-    {
-        // Add your action code here.
+    public void act() {
+
     }
 }
