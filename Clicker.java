@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * 
  * @author Eddie Zhuang
  * @version November 2022
- */
+ */ 
 public class Clicker extends SuperSmoothMover
 {
     public static final int COST = 15;

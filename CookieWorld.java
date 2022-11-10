@@ -58,6 +58,8 @@ public class CookieWorld extends World
         p2 = new Player(clickers2, cps2, grandmas2);
         addObject(p1, 200, 400);
         addObject(p2, 1000, 400);
+        
+        
     }
     
     /**
@@ -71,7 +73,7 @@ public class CookieWorld extends World
     }
     
     /**
-     * Method buys a random Buidling for [Player p], if the player can afford it.
+     * Method buys a random Building for [Player p], if the player can afford it.
      * 
      * @param p             The player that is buying the buidling
      */    

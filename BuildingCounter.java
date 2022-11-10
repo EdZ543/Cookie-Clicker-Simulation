@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BuildingCounter extends Actor
 {
-    // these may be useless
     private Color lineColor = Color.BLACK;
     private Color fillColor = Color.WHITE;
     private Color transparent = new Color(0,0,0,0);
@@ -18,7 +17,7 @@ public class BuildingCounter extends Actor
     GreenfootImage counter;
     protected int count;
     
-    public BuildingCounter(Player player) {
+    public BuildingCounter() {
         setImage("./images/building-counter-bg.png");
         this.player = player;
         count = 0;
@@ -29,11 +28,11 @@ public class BuildingCounter extends Actor
     }
     
     public void draw() {
-        // start with the background (a rounded rectangle)
+        // Start with the background (a rounded rectangle)
         GreenfootImage canvas = new GreenfootImage("./images/building-counter-bg.png");
         // canvas may need to be re sized
         
-        // draw the counter onto the background
+        // Draw the counter onto the background
         String s = String.valueOf(count);
         counter = new GreenfootImage(s, 20, null, null);
         canvas.drawImage(counter, canvas.getWidth() / 2, canvas.getHeight() / 2);
