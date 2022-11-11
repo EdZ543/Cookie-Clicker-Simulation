@@ -22,6 +22,7 @@ public class Player extends Actor
     private int grandmas;
     private String name;
     private ArrayList<BuildingRow> buildingRows = new ArrayList<BuildingRow>();
+    private Label scoreText;
     
     /**
      * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
@@ -67,6 +68,8 @@ public class Player extends Actor
         // Add starting grandmas
         
         // Add score text
+        scoreText = new Label(name + "'s Cookies: " + numCookies, 40);
+        cw.addObject(scoreText, getX(), getY() - 370);
     }
     
     public void act() {
@@ -80,6 +83,7 @@ public class Player extends Actor
      */
     public void changeCookieCount(int dx) {
         numCookies += dx;
+        scoreText.setValue(name + "'s Cookies: " + numCookies);
     }
     
     /**
