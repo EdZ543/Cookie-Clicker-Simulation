@@ -8,21 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */ 
 public class Clicker extends SuperSmoothMover
 {
-    public static final int COST = 15;
-    
+    private Color colour;
     private Player player;
     private int lagTimer = 0;
-    private GreenfootImage normalImage = new GreenfootImage("cursor.png");
+    private GreenfootImage image;
     private GreenfootImage laggingImage = new GreenfootImage("lag.gif");
-    private boolean sentient;
 
     /**
      * @param player The player that the clicker belongs to
-     * @param sentient Whether the clicker will be the main one controlled by the player and move around
+     * @param image The cursor's image
+     * @param color The color of the cursor
      */
-    public Clicker(Player player, boolean sentient) {
+    public Clicker(Player player, GreenfootImage image, Color colour) {
         this.player = player;
-        this.sentient = sentient;
+        this.image = image;
+        this.colour = colour;
+        
+        setImage(image);
     }
 
     /**
@@ -34,7 +36,7 @@ public class Clicker extends SuperSmoothMover
         // Change image and freeze if lagging out
         if (lagTimer > 0) {
             if (lagTimer == 1) {
-                setImage(normalImage);
+                setImage(image);
             }
             
             lagTimer--;
@@ -60,4 +62,11 @@ public class Clicker extends SuperSmoothMover
      * Makes cursor click whatever it is currently on
      */
     public void click() {}
+    
+    /**
+     * Returns the colour of the cursor
+     */
+    public Color getColour() {
+        return colour;
+    }
 }
