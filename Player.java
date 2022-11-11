@@ -76,10 +76,10 @@ public class Player extends Actor
     /**
      * Change the amount of cookies the player has.
      * 
-     * @param dx The amount to change by. If negative, it takes away cookies.
+     * @param x The amount to change by. If negative, it takes away cookies.
      */
-    public void changeCookieCount(int dx) {
-        numCookies += dx;
+    public void changeCookieCount(int x) {
+        numCookies += x;
     }
     
     /**
