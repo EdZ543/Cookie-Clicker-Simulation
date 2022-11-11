@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */ 
 public class Clicker extends SuperSmoothMover
 {
-    private Color colour;
+    private boolean isRed;
     private Player player;
     private int lagTimer = 0;
     private GreenfootImage image;
@@ -16,14 +16,19 @@ public class Clicker extends SuperSmoothMover
 
     /**
      * @param player The player that the clicker belongs to
-     * @param image The cursor's image
-     * @param color The color of the cursor
+     * @param isRed Whether the player is red or not
      */
-    public Clicker(Player player, GreenfootImage image, Color colour) {
+    public Clicker(Player player, boolean isRed) {
         this.player = player;
-        this.image = image;
-        this.colour = colour;
+        this.isRed = isRed;
         
+        if (isRed) {
+            image = new GreenfootImage("red_cursor.png");
+        } else {
+            image = new GreenfootImage("blue_cursor.png");
+        }
+        
+        image.scale(30, 40);
         setImage(image);
     }
 
@@ -66,7 +71,7 @@ public class Clicker extends SuperSmoothMover
     /**
      * Returns the colour of the cursor
      */
-    public Color getColour() {
-        return colour;
+    public boolean isRed() {
+        return isRed;
     }
 }

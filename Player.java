@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Player extends Actor
 {
     private Cookie cookie;
+    private boolean isRed;
     private int width, height;
     private int numCookies = 0;
     private int clickers;
@@ -29,14 +30,16 @@ public class Player extends Actor
      * @param cps The number of clicks per second each clicker will be able to have
      * @param grandmas  Number of starting grandmas
      * @param name The name of the player, for text displays. Example: "Player 1"
+     * @param isRed Whether the player is red or not (blue)
      */
-    public Player(int width, int height, int clickers, int cps, int grandmas, String name) {
+    public Player(int width, int height, int clickers, int cps, int grandmas, String name, boolean isRed) {
         this.width = width;
         this.height = height;
         this.clickers = clickers;
         this.cps = cps;
         this.grandmas = grandmas;
         this.name = name;
+        this.isRed = isRed;
         
         // Set image to none
         setImage((GreenfootImage)null);
@@ -50,15 +53,15 @@ public class Player extends Actor
         
         // Add clickers
         for (int i = 0; i < clickers; i++) {
-            
+            Clicker clicker = new Clicker(this, isRed);
+            cw.addObject(clicker, getX(), 200);
         }
         
         // Add building rows
-        int rowHeight = height / 2 / cw.getBuildingClasses().size();
-        for (int i = 0; i < cw.getBuildingClasses().size(); i++) {
-
+        int rowHeight = (height - 10) / 2 / (cw.getBuildingClasses().size() - 1);
+        for (int i = 0; i < cw.getBuildingClasses().size() - 1; i++) {
             buildingRows.add(new BuildingRow(cw.getBuildingClasses().get(i), width, rowHeight, 10));
-            getWorld().addObject(buildingRows.get(i), getX(), getY() + (int)((i + 0.5) * rowHeight));
+            cw.addObject(buildingRows.get(i), getX(), getY() + 10 + (int)((i + 0.5) * rowHeight));
         }
         
         // Add starting grandmas

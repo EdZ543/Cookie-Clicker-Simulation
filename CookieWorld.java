@@ -60,10 +60,10 @@ public class CookieWorld extends World
         buildingMap.put(AlchemyLab.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Alchemy Lab", 100}));
         buildingMap.put(Baby.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Baby", 100}));
         buildingMap.put(CookieGod.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie God", 100}));
-        buildingMap.put(CookieRocket.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Rocket", 100}));
         buildingMap.put(Grandma.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Grandma", 100}));
         buildingMap.put(Portal.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Portal", 100}));
         buildingMap.put(Printer3D.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"3D Printer", 100}));
+        buildingMap.put(CookieRocket.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Rocket", 100}));
         // Initialize powerup hashmap
         powerupMap = new HashMap<Class, HashMap<String, Object>>();
         powerupMap.put(CookieUpgrade.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Upgrade", 100}));
@@ -84,10 +84,10 @@ public class CookieWorld extends World
         buyPowerupButtons = initBuyButtons(getPowerupClasses());
         
         // Initialize players
-        p1 = new Player(400, getHeight(), clickers1, cps1, grandmas1, "Player 1");
-        p2 = new Player(400, getHeight(), clickers2, cps2, grandmas2, "Player 2");
-        addObject(p1, 200, 400);
-        addObject(p2, 1000, 400);
+        p1 = new Player(400, getHeight(), clickers1, cps1, grandmas1, "Player 1", true);
+        p2 = new Player(400, getHeight(), clickers2, cps2, grandmas2, "Player 2", false);
+        addObject(p1, 205, 400);
+        addObject(p2, 990, 400);
         
         for(BuyButton b : buyBuildingButtons) {
             addObject(b, 600, 100);
