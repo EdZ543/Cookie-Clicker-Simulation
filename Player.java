@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A player in this simulation, of which there are two.
@@ -21,7 +22,7 @@ public class Player extends Actor
     private int cps;
     private int grandmas;
     private String name;
-    private ArrayList<BuildingRow> buildingRows = new ArrayList<BuildingRow>();
+    private HashMap<Class, BuildingRow> buildingRows;
     private Label scoreText;
     
     /**
@@ -50,7 +51,8 @@ public class Player extends Actor
         CookieWorld cw = (CookieWorld)w;
         
         // Add cookie
-        
+        cookie = new Cookie();
+        cw.addObject(cookie, getX(), getY() - 100);
         
         // Add clickers
         for (int i = 0; i < clickers; i++) {
@@ -59,13 +61,18 @@ public class Player extends Actor
         }
         
         // Add building rows
+        buildingRows = new HashMap<Class, BuildingRow>();
         int rowHeight = (height - 10) / 2 / (cw.getBuildingClasses().size() - 1);
+        
         for (int i = 0; i < cw.getBuildingClasses().size() - 1; i++) {
-            buildingRows.add(new BuildingRow(cw.getBuildingClasses().get(i), width, rowHeight, 10));
-            cw.addObject(buildingRows.get(i), getX(), getY() + 10 + (int)((i + 0.5) * rowHeight));
+            BuildingRow buildingRow = new BuildingRow(cw.getBuildingClasses().get(i), width, rowHeight, 10);
+            buildingRows.put(cw.getBuildingClasses().get(i), buildingRow);
+            cw.addObject(buildingRows.get(cw.getBuildingClasses().get(i)), getX(), getY() + 10 + (int)((i + 0.5) * rowHeight));
         }
         
         // Add starting grandmas
+        for (int i = 0; i < grandmas; i++) {
+        }
         
         // Add score text
         scoreText = new Label(name + "'s Cookies: " + numCookies, 40);

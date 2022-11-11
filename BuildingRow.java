@@ -28,7 +28,6 @@ public class BuildingRow extends Actor
      * Adds a building to this row
      */
     public void addBuilding() {
-        
     }
     
     private GreenfootImage drawBuildingRow(int width, int height) {
