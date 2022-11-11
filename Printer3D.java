@@ -15,6 +15,6 @@ public class Printer3D extends Building
     }
     
     public void act() {
-        
+        super.act();
     }
 }

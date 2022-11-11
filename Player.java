@@ -47,6 +47,7 @@ public class Player extends Actor
         
         // Add cookie
         
+        
         // Add clickers
         for (int i = 0; i < clickers; i++) {
             

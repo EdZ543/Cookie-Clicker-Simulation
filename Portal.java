@@ -15,6 +15,10 @@ public class Portal extends Building
     
     public void act()
     {
-        player.changeCookieCount(getRandomNumberInRange(50, 100));
+        super.act();
+        if (actCount == actMark) {
+            player.changeCookieCount(getRandomNumberInRange(50, 100));
+            actMark = getNextActMark(10, 20);
+        }
     }
 }

@@ -11,10 +11,13 @@ public abstract class Building extends SuperSmoothMover
     protected Player player;
     protected int actCount = 0;
     protected int actMark = 0;
-    protected int timeLower, timeUpper; // the range of time before a building's next action
     
     public Building(Player player) {
         this.player = player;
+    }
+    
+    public void act() {
+        actCount++;
     }
     
     /**

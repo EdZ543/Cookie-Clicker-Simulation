@@ -15,6 +15,10 @@ public class Grandma extends Building
     
     public void act()
     {
-        // Add your action code here.
+        super.act();
+        if (actCount == actMark) {
+            player.changeCookieCount(getRandomNumberInRange(30, 50));
+            actMark = getNextActMark(10, 20);
+        }
     }
 }

@@ -10,9 +10,6 @@ public class AlchemyLab extends Building
 {
     public AlchemyLab(Player player) {
         super(player);
-        timeLower = 5;
-        timeUpper = 10;
-        actMark = 0 + getRandomNumberInRange(timeLower * 60, timeUpper * 60); // initial value between 5-10 seconds
         
         setImage("./images/placeholder/alchemy-lab.png");
         
@@ -20,10 +17,10 @@ public class AlchemyLab extends Building
     }
     
     public void act() {
-        actCount++;
+        super.act();
         if (actCount == actMark) {
             produceCookies();    
-            actMark = getNextActMark(timeLower, timeUpper);
+            actMark = getNextActMark(5, 10);
         }
     }
     

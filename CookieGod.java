@@ -16,6 +16,9 @@ public class CookieGod extends Building
     
     public void act()
     {
-        // Add your action code here.
+        super.act();
+        if (actCount == actMark) {
+            actMark = getNextActMark(10, 20);
+        }
     }
 }

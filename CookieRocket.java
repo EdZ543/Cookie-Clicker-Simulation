@@ -11,8 +11,4 @@ public class CookieRocket extends Building
     public CookieRocket(Player player) {
         super(player);
     }
-    
-    public void act() {
-        
-    }
 }
