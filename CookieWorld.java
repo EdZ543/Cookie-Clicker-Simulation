@@ -76,7 +76,6 @@ public class CookieWorld extends World
         powerupMap.put(GrandmaRevolution.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Grandma Revolution", 100}));
         powerupMap.put(Lag.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lag", 100}));
         powerupMap.put(StealShipment.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Steal Shipment", 100}));
-        powerupMap.put(YouthPotion.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Youth Potion", 100})); 
         
         // Initialize BuyButton array
         // buyButtons = new BuyButton[19];  // one button for each building & powerup.
