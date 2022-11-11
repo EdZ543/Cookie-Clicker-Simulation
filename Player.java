@@ -51,8 +51,8 @@ public class Player extends Actor
         CookieWorld cw = (CookieWorld)w;
         
         // Add cookie
-        cookie = new Cookie();
-        cw.addObject(cookie, getX(), getY() - 100);
+        //cookie = new Cookie();
+        //cw.addObject(cookie, getX(), getY() - 100);
         
         // Add clickers
         for (int i = 0; i < clickers; i++) {
@@ -75,6 +75,8 @@ public class Player extends Actor
         }
         
         // Add score text
+        scoreText = new Label(name + "'s Cookies: " + numCookies, 40);
+        cw.addObject(scoreText, getX(), getY() - 370);
     }
     
     public void act() {
@@ -88,6 +90,7 @@ public class Player extends Actor
      */
     public void changeCookieCount(int x) {
         numCookies += x;
+        scoreText.setValue(name + "'s Cookies: " + numCookies);
     }
     
     /**
