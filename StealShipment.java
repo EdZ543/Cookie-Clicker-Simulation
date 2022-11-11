@@ -9,12 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StealShipment extends Powerup
 {
-    public static final int COST = 100; // tbd
     public StealShipment(Player target) {
         super(target);
     }
-    public void act()
-    {
+    
+    public void act() {
         
     }
 }

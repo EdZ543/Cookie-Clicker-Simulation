@@ -75,8 +75,6 @@ public class Player extends Actor
         }
         
         // Add score text
-        scoreText = new Label(name + "'s Cookies: " + numCookies, 40);
-        cw.addObject(scoreText, getX(), getY() - 370);
     }
     
     public void act() {
@@ -86,11 +84,10 @@ public class Player extends Actor
     /**
      * Change the amount of cookies the player has.
      * 
-     * @param dx The amount to change by. If negative, it takes away cookies.
+     * @param x The amount to change by. If negative, it takes away cookies.
      */
-    public void changeCookieCount(int dx) {
-        numCookies += dx;
-        scoreText.setValue(name + "'s Cookies: " + numCookies);
+    public void changeCookieCount(int x) {
+        numCookies += x;
     }
     
     /**

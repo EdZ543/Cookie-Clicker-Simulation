@@ -8,13 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieUpgrade extends Powerup
 {
-    public static final int COST = 100; // tbd
     public CookieUpgrade(Player target) {  
         super(target);
     }
+    
     public static void upgrade(Cookie cookie) {
         
     }
+    
     public static void onClickButton() {
         
     }

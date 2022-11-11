@@ -18,7 +18,12 @@ public class CookieGod extends Building
     {
         super.act();
         if (actCount == actMark) {
-            actMark = getNextActMark(10, 20);
+            bless();
+            actMark = getNextActMark(10, 10);
         }
+    }
+    
+    public void bless() {
+        player.changeCookieCount(100000);
     }
 }
