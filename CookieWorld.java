@@ -2,6 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 /** 
  * Credits
  * - Images
@@ -29,15 +30,16 @@ public class CookieWorld extends World
     
     // Game variables
     // select random index of buyButtons to add respective buidling/activate respective powerup
-    private BuyButton[] buyBuildingButtons;
-    private BuyButton[] buyPowerupButtons;
+    private BuyButton[] buyBuildingButtons, buyPowerupButtons, buySabotageButtons, cookieUpgradeButtons;
+    
+    private Label buildingTitle, powerupTitle; //sabotageTitle;
     
     // Player variables
     private Player p1, p2;
     
     // Master lists of Building/Powerup classes
-    private HashMap<Class, HashMap<String, Object>> buildingMap;
-    private HashMap<Class, HashMap<String, Object>> powerupMap;
+    private LinkedHashMap<Class, HashMap<String, Object>> buildingMap;
+    private LinkedHashMap<Class, HashMap<String, Object>> powerupMap;
     /**
      * {
      *      AlchemyLab.class: {
@@ -53,11 +55,13 @@ public class CookieWorld extends World
     {   
         super(1200, 800, 1); 
         
+        // Drawing Order of Classes
+        setPaintOrder(Clicker.class, Building.class, Powerup.class, BuyButton.class, Label.class, BuildingCounter.class, BuildingRow.class, Cookie.class);
         // Set world background
         background = new GreenfootImage("background0.png");
         setBackground(background);
         // Initialize building hashmap
-        buildingMap = new HashMap<Class, HashMap<String, Object>>();
+        buildingMap = new LinkedHashMap<Class, HashMap<String, Object>>();
         buildingMap.put(AlchemyLab.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Alchemy Lab", 100}));
         buildingMap.put(Baby.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Baby", 100}));
         buildingMap.put(CookieGod.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie God", 100}));
@@ -66,7 +70,7 @@ public class CookieWorld extends World
         buildingMap.put(Printer3D.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"3D Printer", 100}));
         buildingMap.put(CookieRocket.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Rocket", 100}));
         // Initialize powerup hashmap
-        powerupMap = new HashMap<Class, HashMap<String, Object>>();
+        powerupMap = new LinkedHashMap<Class, HashMap<String, Object>>();
         powerupMap.put(CookieUpgrade.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Upgrade", 100}));
         powerupMap.put(GingerbreadMan.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Gingerbread Man", 100}));
         powerupMap.put(HandCream.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Hand Cream", 100}));
@@ -79,19 +83,53 @@ public class CookieWorld extends World
         powerupMap.put(StealShipment.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Steal Shipment", 100}));
         
         // Initialize BuyButton array
-        // buyButtons = new BuyButton[19];  // one button for each building & powerup.
+        // Building Buttons
         buyBuildingButtons = initBuyButtons(getBuildingClasses());
-        buyPowerupButtons = initBuyButtons(getPowerupClasses());
-        
+        // Powerup Buttons
+        ArrayList<Class> tempPowerups = getPowerupClasses(); // powerups omitting CookieUpgrade.class
+        tempPowerups.removeIf(p -> Sabotage.class.isAssignableFrom(p)); // omit sabotages
+        tempPowerups.removeIf(p -> p == CookieUpgrade.class);
+        buyPowerupButtons = initBuyButtons(tempPowerups);  // omit CookieUpgrade class; dealt with separately in next line
+        // Sabotage Buttons
+        ArrayList<Class> tempSabotages = getPowerupClasses();
+        tempSabotages.removeIf(p -> !Sabotage.class.isAssignableFrom(p));  // p is not an instance of Sabotage, remove
+        buySabotageButtons = initBuyButtons(tempSabotages);
+        // Cookie Upgrade Buttons
+        cookieUpgradeButtons = initBuyButtons(new ArrayList<Class>(Arrays.asList(CookieUpgrade.class, CookieUpgrade.class)));  // two buttons for CookieUpgrade class (one for each player)
         // Initialize players
         p1 = new Player(400, getHeight(), clickers1, cps1, grandmas1, "Player 1", true);
         p2 = new Player(400, getHeight(), clickers2, cps2, grandmas2, "Player 2", false);
         addObject(p1, 205, 400);
         addObject(p2, 990, 400);
         
-        for(BuyButton b : buyBuildingButtons) {
-            addObject(b, 600, 100);
+        // Draw Buttons
+        int btnX, btnY;
+        for(int i=0;i<buyBuildingButtons.length;i++) {
+            btnX = i == buyBuildingButtons.length-1 ? 595 : 495 + 100*(i%3);
+            btnY = 100 + 84*(i/3);
+            addObject(buyBuildingButtons[i], btnX, btnY);
         }
+        for(int i=0;i<buyPowerupButtons.length;i++) {
+            btnX = buyPowerupButtons.length - i < 3 ? 546 + 100*(i%2) : 495 + 100*(i%3);
+            btnY = 410 + 84*(i/3);
+            addObject(buyPowerupButtons[i], btnX, btnY);
+        }
+        for(int i=0;i<buySabotageButtons.length;i++) {
+            btnX = 546 + 100*(i%2);
+            btnY = 640 + 84*(i/2);
+            addObject(buySabotageButtons[i], btnX, btnY);
+        }
+        for(int i=0;i<cookieUpgradeButtons.length;i++) {
+            btnX = (cookieUpgradeButtons[i].getImage().getWidth()/2) + 330 + 450*i;
+            btnY = 360;
+            addObject(cookieUpgradeButtons[i], btnX, btnY);
+        }
+        
+        buildingTitle = new Label("Building shop", 30);
+        powerupTitle = new Label("Powerup shop", 30);
+        addObject(buildingTitle, getWidth()/2, 30);
+        addObject(powerupTitle, getWidth()/2, 340);
+        addObject(new Label("Sabotage shop", 30), getWidth()/2, 570);
     }
     
     /**
@@ -194,11 +232,12 @@ public class CookieWorld extends World
     public ArrayList<Class> getPowerupClasses() {
         return new ArrayList<Class>(powerupMap.keySet());
     }
-    private HashMap<String, Object> createHashmap(String[] keys, Object[] values) throws MyException{
+    
+    private LinkedHashMap<String, Object> createHashmap(String[] keys, Object[] values) throws MyException{
         if(keys.length != values.length) {
             throw new MyException("method: createHashmap\nproblem: keys & values arrays must be of equal length");
         }
-        HashMap<String, Object> map = new HashMap<String, Object>();
+        LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
         for(int i=0;i<keys.length;i++ ){
             map.put(keys[i], values[i]);
         }

@@ -11,12 +11,14 @@ public class Cookie extends Actor
     private int level;
     private int cookiesPerClick;
     private GreenfootImage image;
-    public static final GreenfootImage[] COOKIE_SPRITES = getCookieImageArr();  // use level to index through array, and retrieve the corresponding image.
+    public final String[] COOKIE_FILES = {"placeholder/cookie.png"};
+    public final GreenfootImage[] COOKIE_SPRITES = getCookieImageArr();  // use level to index through array, and retrieve the corresponding image.
     
     public Cookie() {
         image = COOKIE_SPRITES[0];
         level = 1;
         cookiesPerClick = calculateCookieOutput();
+        setImage(image);
     }
     
     public void act()
@@ -56,7 +58,11 @@ public class Cookie extends Actor
         // do things to update image visually
     }
     
-    private static GreenfootImage[] getCookieImageArr() {
-        return new GreenfootImage[]{};        
+    private GreenfootImage[] getCookieImageArr() {
+        GreenfootImage[] images = new GreenfootImage[COOKIE_FILES.length];
+        for(int i=0;i<images.length;i++) {
+            images[i] = new GreenfootImage(COOKIE_FILES[i]);
+        }
+        return images;
     }
 }

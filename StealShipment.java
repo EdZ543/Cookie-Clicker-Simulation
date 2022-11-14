@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Jonathan Zhao
  * @version 1.0 (November 1)
  */
-public class StealShipment extends Powerup
+public class StealShipment extends Sabotage
 {
     public StealShipment(Player target) {
         super(target);

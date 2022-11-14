@@ -59,6 +59,9 @@ public class BuyButton extends Actor
         // highlight button with player colour
         // add buidling to target's collection
     }
+    public void hover() {
+        
+    }
     public void act() {
         if(cooldown > 0) {
             cooldown --;
