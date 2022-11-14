@@ -29,7 +29,7 @@ public class CookieWorld extends World
     private GreenfootImage background;
     
     // Game variables
-    // select random index of buyButtons to add respective buidling/activate respective powerup
+    // select random index of buyButtons to add respective building/activate respective powerup
     private BuyButton[] buyBuildingButtons, buyPowerupButtons, buySabotageButtons, cookieUpgradeButtons;
     
     private Label buildingTitle, powerupTitle; //sabotageTitle;
