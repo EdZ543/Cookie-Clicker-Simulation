@@ -96,8 +96,8 @@ public class CookieWorld extends World
         // Cookie Upgrade Buttons
         cookieUpgradeButtons = initBuyButtons(new ArrayList<Class>(Arrays.asList(CookieUpgrade.class, CookieUpgrade.class)));  // two buttons for CookieUpgrade class (one for each player)
         // Initialize players
-        p1 = new Player(400, getHeight(), clickers1, cps1, grandmas1, "Player 1", true);
-        p2 = new Player(400, getHeight(), clickers2, cps2, grandmas2, "Player 2", false);
+        p1 = new Player(400, getHeight(), clickers1, cps1, grandmas1, "Player 1", "red");
+        p2 = new Player(400, getHeight(), clickers2, cps2, grandmas2, "Player 2", "blue");
         addObject(p1, 205, 400);
         addObject(p2, 990, 400);
         

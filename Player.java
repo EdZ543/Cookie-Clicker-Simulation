@@ -9,13 +9,21 @@ import java.util.HashMap;
  * - Number of clickers
  * - Number of starting grandmas
  * 
+ * "AI" behaviour:
+ * - If it has enough cookies to buy the cookie rocket, it shall do so immediately
+ * - Will click around randomly on the cookie, but every 1-5 seconds, it shall perform an action:
+ *   - Click on any clickable buildings
+ *   - Buy a random building 
+ *   - Buy a random powerup
+ *   - Buy a random sabotage
+ * 
  * @author Eddie Zhuang
  * @version November 2022
  */
 public class Player extends Actor
 {
     private Cookie cookie;
-    private boolean isRed;
+    private String colour;
     private int width, height;
     private int numCookies = 0;
     private int clickers;
@@ -24,6 +32,7 @@ public class Player extends Actor
     private String name;
     private HashMap<Class, BuildingRow> buildingRows;
     private Label scoreText;
+    private Clicker clicker;
     
     /**
      * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
@@ -34,14 +43,14 @@ public class Player extends Actor
      * @param name The name of the player, for text displays. Example: "Player 1"
      * @param isRed Whether the player is red or not (blue)
      */
-    public Player(int width, int height, int clickers, int cps, int grandmas, String name, boolean isRed) {
+    public Player(int width, int height, int clickers, int cps, int grandmas, String name, String colour) {
         this.width = width;
         this.height = height;
         this.clickers = clickers;
         this.cps = cps;
         this.grandmas = grandmas;
         this.name = name;
-        this.isRed = isRed;
+        this.colour = colour;
         
         // Set image to none
         setImage((GreenfootImage)null);
@@ -54,11 +63,15 @@ public class Player extends Actor
         cookie = new Cookie();
         cw.addObject(cookie, getX(), getY() - 180);
         
-        // Add clickers
+        // Add stationary clickers
         for (int i = 0; i < clickers; i++) {
-            Clicker clicker = new Clicker(this, isRed);
-            cw.addObject(clicker, getX(), 200);
+            Clicker clickerBuilding = new Clicker(this, false, "white");
+            cw.addObject(clickerBuilding, getX(), 200);
         }
+        
+        // Add sentient clicker
+        clicker = new Clicker(this, false, colour);
+        cw.addObject(clicker, getX(), 200);
         
         // Add building rows
         buildingRows = new HashMap<Class, BuildingRow>();
@@ -81,7 +94,7 @@ public class Player extends Actor
     }
     
     public void act() {
-        
+        //
     }
     
     /**
