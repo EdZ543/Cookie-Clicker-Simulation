@@ -28,4 +28,14 @@ public class AlchemyLab extends Building
         int produced = getRandomNumberInRange(500, 1000);    
         player.changeCookieCount(produced);
     }
+    
+    public void moveToRow() {
+        // PSEUDO-CODE: determine x and y position of where each building should be on its respective row
+        // y position is the building row's y position (this value can be hardcoded as building row y-positions are known)
+        // y position needs to offset a bit to create a sense of depth. This offset alternates between up and down the middle of the row.
+        // x position increases based on the where the last building was and the width of the building's png
+            // this value may be stored inside BuildingRow (?) ex. `lastBuildingX`, 'lastBuildingY`
+        // now that building's position on its row is determined, calculate x and y distance from buy button to this position
+        // gradually move building to its position on building row
+    }
 }
