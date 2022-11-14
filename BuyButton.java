@@ -20,16 +20,10 @@ public class BuyButton extends Actor
     private String icnFile;
     private GreenfootImage icn;
     private GreenfootImage image;
-    private Font nameFont, costFont;
-    private Color bgColor, textColor;
     public BuyButton(Class mySubclass, String name, int cost) {
         this.mySubclass = mySubclass;
         this.name = name;
         this.cost = cost;
-        nameFont = new Font(CookieWorld.FONT_NAME, 20);
-        costFont = new Font(CookieWorld.FONT_NAME, 16);
-        bgColor = new Color(117, 83, 61); // temp --> will be replaced by png background image for buttons
-        textColor = Color.WHITE;
         // set up button image
         image = new GreenfootImage("buybutton-icns/btn-bg.png");
         icnFile = "buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png";
@@ -38,8 +32,6 @@ public class BuyButton extends Actor
         // image.setColor(bgColor);
         // image.fill();
         setImage(image);
-        setText(name, nameFont, 80, nameFont.getSize()+10);
-        setText("Cost: " + cost, costFont, 80, nameFont.getSize() + costFont.getSize()+20);
     }
     
     /**
@@ -73,13 +65,5 @@ public class BuyButton extends Actor
     
     public int getCost() {
         return cost;    
-    }
-    public void setText(String text, Font font) {
-        setText(text, font, 0, font.getSize());
-    }
-    public void setText(String text, Font font, int x, int y) {
-        image.setFont(font);
-        image.setColor(textColor);
-        image.drawString(text, x, y);
     }
 }

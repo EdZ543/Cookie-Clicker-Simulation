@@ -10,6 +10,8 @@ public class Cookie extends Actor
 {
     private int level;
     private int cookiesPerClick;
+    private int animateCount;
+    private final int ANIMATE_DURATION = 30; // how many acts the cookie is enlargened for
     private GreenfootImage image;
     public final String[] COOKIE_FILES = {"placeholder/cookie.png"};
     public final GreenfootImage[] COOKIE_SPRITES = getCookieImageArr();  // use level to index through array, and retrieve the corresponding image.
@@ -17,19 +19,24 @@ public class Cookie extends Actor
     public Cookie() {
         image = COOKIE_SPRITES[0];
         level = 1;
+        animateCount = 0;
         cookiesPerClick = calculateCookieOutput();
         setImage(image);
     }
     
     public void act()
     {
-        // Add your action code here.
+        if(animateCount > 0) {
+            
+        }
     }
     /**
      * Animate sprite when `Cookie` is "clicked" by a `Clicker`
      */
     public void animateClick() {
-        
+        if(animateCount == 0) {
+            animateCount = ANIMATE_DURATION;
+        }
     }
     /**
      * Update the `Cookie`'s level to `int level` and calculate `cookiesPerClick` accordingly
