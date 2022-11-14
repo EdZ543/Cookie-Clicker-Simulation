@@ -8,24 +8,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */ 
 public class Clicker extends SuperSmoothMover
 {
-    private boolean isRed;
     private Player player;
     private int lagTimer = 0;
     private GreenfootImage image;
     private GreenfootImage laggingImage = new GreenfootImage("lag.gif");
+    private boolean isSentient;
 
     /**
      * @param player The player that the clicker belongs to
      * @param isRed Whether the player is red or not
      */
-    public Clicker(Player player, boolean isRed) {
+    public Clicker(Player player, boolean isSentient, String colour) {
         this.player = player;
-        this.isRed = isRed;
+        this.isSentient = isSentient;
         
-        if (isRed) {
+        if (colour == "red") {
             image = new GreenfootImage("red_cursor.png");
-        } else {
+        } else if (colour == "blue") {
             image = new GreenfootImage("blue_cursor.png");
+        } else if (colour == "white") {
+            image = new GreenfootImage("cursor.png");
         }
         
         image.scale(30, 40);
@@ -59,19 +61,7 @@ public class Clicker extends SuperSmoothMover
     }
     
     /**
-     * Makes cursor glide to a specific x and y coordinate
+     * Makes cursor glide to a specific x and y coordinate and then click
      */
-    public void moveTo(int x, int y) {}
-    
-    /**
-     * Makes cursor click whatever it is currently on
-     */
-    public void click() {}
-    
-    /**
-     * Returns the colour of the cursor
-     */
-    public boolean isRed() {
-        return isRed;
-    }
+    public void click(int x, int y) {}
 }
