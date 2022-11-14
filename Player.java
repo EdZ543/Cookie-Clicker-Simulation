@@ -51,8 +51,8 @@ public class Player extends Actor
         CookieWorld cw = (CookieWorld)w;
         
         // Add cookie
-        //cookie = new Cookie();
-        //cw.addObject(cookie, getX(), getY() - 100);
+        cookie = new Cookie();
+        cw.addObject(cookie, getX(), getY() - 180);
         
         // Add clickers
         for (int i = 0; i < clickers; i++) {
@@ -65,7 +65,7 @@ public class Player extends Actor
         int rowHeight = (height - 10) / 2 / (cw.getBuildingClasses().size() - 1);
         
         for (int i = 0; i < cw.getBuildingClasses().size() - 1; i++) {
-            BuildingRow buildingRow = new BuildingRow(cw.getBuildingClasses().get(i), width, rowHeight, 10);
+            BuildingRow buildingRow = new BuildingRow(this, cw.getBuildingClasses().get(i), width, rowHeight, 10);
             buildingRows.put(cw.getBuildingClasses().get(i), buildingRow);
             cw.addObject(buildingRows.get(cw.getBuildingClasses().get(i)), getX(), getY() + 10 + (int)((i + 0.5) * rowHeight));
         }

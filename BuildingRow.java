@@ -10,6 +10,7 @@ public class BuildingRow extends Actor
 {
     private Class buildingType;
     private int spacing;
+    private Player player;
     
     /**
      * @param buildingType The class of building that will live in this row
@@ -17,7 +18,8 @@ public class BuildingRow extends Actor
      * @param height The height of the row
      * @param spacing How far apart each building will be
      */
-    public BuildingRow(Class buildingType, int width, int height, int spacing) {
+    public BuildingRow(Player player, Class buildingType, int width, int height, int spacing) {
+        this.player = player;
         this.buildingType = buildingType;
         this.spacing = spacing;
         
@@ -28,6 +30,7 @@ public class BuildingRow extends Actor
      * Adds a building to this row
      */
     public void addBuilding() {
+        
     }
     
     private GreenfootImage drawBuildingRow(int width, int height) {
