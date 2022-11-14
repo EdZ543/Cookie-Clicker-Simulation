@@ -62,9 +62,9 @@ public class Player extends Actor
         
         // Add building rows
         buildingRows = new HashMap<Class, BuildingRow>();
-        int rowHeight = (height - 10) / 2 / (cw.getBuildingClasses().size() - 1);
+        int rowHeight = (height - 10) / 2 / cw.getBuildingClasses().size();
         
-        for (int i = 0; i < cw.getBuildingClasses().size() - 1; i++) {
+        for (int i = 0; i < cw.getBuildingClasses().size(); i++) {
             BuildingRow buildingRow = new BuildingRow(this, cw.getBuildingClasses().get(i), width, rowHeight, 10);
             buildingRows.put(cw.getBuildingClasses().get(i), buildingRow);
             cw.addObject(buildingRows.get(cw.getBuildingClasses().get(i)), getX(), getY() + 10 + (int)((i + 0.5) * rowHeight));
@@ -72,6 +72,7 @@ public class Player extends Actor
         
         // Add starting grandmas
         for (int i = 0; i < grandmas; i++) {
+            buildingRows.get(Grandma.class).addBuilding();
         }
         
         // Add score text
