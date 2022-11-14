@@ -32,7 +32,7 @@ public class CookieWorld extends World
     // select random index of buyButtons to add respective buidling/activate respective powerup
     private BuyButton[] buyBuildingButtons, buyPowerupButtons, buySabotageButtons, cookieUpgradeButtons;
     
-    private Label buildingTitle, powerupTitle; //sabotageTitle;
+    private Label buildingTitle, powerupTitle, sabotageTitle;
     
     // Player variables
     private Player p1, p2;
@@ -68,7 +68,6 @@ public class CookieWorld extends World
         buildingMap.put(Grandma.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Grandma", 100}));
         buildingMap.put(Portal.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Portal", 100}));
         buildingMap.put(Printer3D.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"3D Printer", 100}));
-        buildingMap.put(CookieRocket.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Rocket", 100}));
         // Initialize powerup hashmap
         powerupMap = new LinkedHashMap<Class, HashMap<String, Object>>();
         powerupMap.put(CookieUpgrade.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Upgrade", 100}));
@@ -105,31 +104,33 @@ public class CookieWorld extends World
         // Draw Buttons
         int btnX, btnY;
         for(int i=0;i<buyBuildingButtons.length;i++) {
-            btnX = i == buyBuildingButtons.length-1 ? 595 : 495 + 100*(i%3);
-            btnY = 100 + 84*(i/3);
+            // btnX = i == buyBuildingButtons.length-1 ? 595 : 495 + 100*(i%3);
+            btnX = 495 + 100*(i%3);
+            btnY = 110 + 84*(i/3);
             addObject(buyBuildingButtons[i], btnX, btnY);
         }
         for(int i=0;i<buyPowerupButtons.length;i++) {
             btnX = buyPowerupButtons.length - i < 3 ? 546 + 100*(i%2) : 495 + 100*(i%3);
-            btnY = 410 + 84*(i/3);
+            btnY = 350 + 84*(i/3);
             addObject(buyPowerupButtons[i], btnX, btnY);
         }
         for(int i=0;i<buySabotageButtons.length;i++) {
             btnX = 546 + 100*(i%2);
-            btnY = 640 + 84*(i/2);
+            btnY = 590 + 84*(i/2);
             addObject(buySabotageButtons[i], btnX, btnY);
         }
         for(int i=0;i<cookieUpgradeButtons.length;i++) {
-            btnX = (cookieUpgradeButtons[i].getImage().getWidth()/2) + 330 + 450*i;
+            btnX = (cookieUpgradeButtons[i].getImage().getWidth()/2) + 330 + 780*i;
             btnY = 360;
             addObject(cookieUpgradeButtons[i], btnX, btnY);
         }
         
         buildingTitle = new Label("Building shop", 30);
         powerupTitle = new Label("Powerup shop", 30);
+        sabotageTitle = new Label("Sabotage shop", 30);
         addObject(buildingTitle, getWidth()/2, 30);
-        addObject(powerupTitle, getWidth()/2, 340);
-        addObject(new Label("Sabotage shop", 30), getWidth()/2, 570);
+        addObject(powerupTitle, getWidth()/2, 270);
+        addObject(sabotageTitle, getWidth()/2, 510);
     }
     
     /**
