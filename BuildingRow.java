@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.lang.reflect.Constructor;
 
 /**
  * The rectangles in which the buildings will stay
@@ -30,7 +31,11 @@ public class BuildingRow extends Actor
      * Adds a building to this row
      */
     public void addBuilding() {
-        
+        try {
+            Constructor<Building> c = buildingType.getConstructor(Player.class);
+            Building building = c.newInstance(player);
+            getWorld().addObject(building, getX(), getY());
+        } catch(Exception e) {}
     }
     
     private GreenfootImage drawBuildingRow(int width, int height) {

@@ -10,7 +10,7 @@ public abstract class Building extends SuperSmoothMover
 {
     protected Player player;
     protected int actCount = 0;
-    protected int actMark = 0;
+    protected int actMark = 10;
     
     public Building(Player player) {
         this.player = player;
