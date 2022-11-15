@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Patrick Hu
  * @version November 2022
  */
-public class BuildingCounter extends Actor
+public class BuildingCounter extends Clickable
 {   
     // **BuildingCounter may be uneccesary if implementing limits on number of buildings a Player can buy.
     

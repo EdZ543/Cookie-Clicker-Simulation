@@ -12,15 +12,15 @@ public class Clicker extends SuperSmoothMover
     private int lagTimer = 0;
     private GreenfootImage image;
     private GreenfootImage laggingImage = new GreenfootImage("lag.gif");
-    private boolean isSentient;
+    private int targetX = -1, targetY = -1;
+    private int clickCount = 0;
 
     /**
      * @param player The player that the clicker belongs to
      * @param isRed Whether the player is red or not
      */
-    public Clicker(Player player, boolean isSentient, String colour) {
+    public Clicker(Player player, String colour) {
         this.player = player;
-        this.isSentient = isSentient;
         
         if (colour == "red") {
             image = new GreenfootImage("red_cursor.png");
@@ -61,7 +61,30 @@ public class Clicker extends SuperSmoothMover
     }
     
     /**
-     * Makes cursor glide to a specific x and y coordinate and then click
+     * Makes cursor glide to a actor and then click
      */
-    public void click(int x, int y) {}
+    public void click(Actor actor) {}
+    
+    /**
+     * Returns a random point on an an actor in a circular region
+     */
+    private int[] getRandomPointOnActor(Actor actor) {
+        GreenfootImage image = actor.getImage();
+        int radius = image.getWidth();
+        
+        double direction = Math.random() * (2 * Math.PI);
+        double magnitude = Math.random() * radius;
+        int x = (int)(actor.getX() + Math.cos(direction) * magnitude);
+        int y = (int)(actor.getY() + Math.sin(direction) * magnitude);
+        int[] ret = {x, y};
+        
+        return ret;
+    }
+    
+    /**
+     * Returns whether the cursor is currently moving towards a position in order to click it
+     */
+    public boolean clicking() {
+        return targetX == -1 && targetY == -1;
+    }
 }

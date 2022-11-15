@@ -26,7 +26,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
  * @version 3.0jc -- Modified by Jordan Cohen
  * 
  */
-public abstract class SuperSmoothMover extends Actor
+public abstract class SuperSmoothMover extends Clickable
 {
     private double exactX;
     private double exactY;
