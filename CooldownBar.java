@@ -17,7 +17,7 @@ public class CooldownBar extends Actor
         this.width = width;
         this.height = height;
         rate = 100.0/(duration*60);
-        String c = "red";//p.getColour();
+        String c = p.getColour();
         if(c == "red") {
             colour = Color.RED;
         } else if(c == "red") {
