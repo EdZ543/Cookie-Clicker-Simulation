@@ -35,6 +35,7 @@ public class Player extends Clickable
     private Label scoreText;
     private Clicker clicker;
     private int clickCount = 0;
+    private Clicker[] clickerBuildings;
     
     /**
      * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
@@ -66,13 +67,14 @@ public class Player extends Clickable
         cw.addObject(cookie, getX(), getY() - 170);
         
         // Add stationary clickers
+        clickerBuildings = new Clicker[clickers];
         for (int i = 0; i < clickers; i++) {
-            Clicker clickerBuilding = new Clicker(this, "white");
-            cw.addObject(clickerBuilding, getX(), 200);
+            clickerBuildings[i] = new Clicker(this, "white", 5);
+            cw.addObject(clickerBuildings[i], getX(), 200);
         }
         
         // Add sentient clicker
-        clicker = new Clicker(this, colour);
+        clicker = new Clicker(this, colour, 5);
         cw.addObject(clicker, getX(), 200);
         
         // Add building rows
@@ -96,18 +98,26 @@ public class Player extends Clickable
     }
     
     public void act() {
+        // Control main clicker
         if (!clicker.clicking()) {
             // If it has enough cookies to buy the cookie rocket, it shall do so immediately
             
             
             // Default state: choose a random point on the cookie and click there
-            
+            //clicker.click(cookie);
             
             // Every 10-15 clicks, it shall attempt to perform a random action:
             // Click on a random clickable building
             // Buy a random building 
             // Buy a random powerup
             // Buy a random sabotage
+        }
+        
+        // Control non-sentient clickers
+        for (int i = 0; i < clickers; i++) {
+            if (!clickerBuildings[i].clicking()) {
+                clickerBuildings[i].click(cookie);
+            }
         }
     }
     
@@ -146,5 +156,16 @@ public class Player extends Clickable
      */
     public String getColour() {
         return colour;
+    }
+    
+    /**
+     * Adds a building to the player's building rows
+     * 
+     * @param x The starting x position of the building (will move towards appropriate place)
+     * @param y The starting y position of the building
+     * @param buildingClass The class of the building
+     */
+    public void addBuilding(int x, int y, Class buildingClass) {
+        buildingRows.get(buildingClass).addBuilding(x, y);
     }
 }

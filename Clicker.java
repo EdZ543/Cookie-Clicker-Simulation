@@ -12,15 +12,18 @@ public class Clicker extends SuperSmoothMover
     private int lagTimer = 0;
     private GreenfootImage image;
     private GreenfootImage laggingImage = new GreenfootImage("lag.gif");
-    private int targetX = -1, targetY = -1;
+    private int[] targetPoint;
+    private boolean clicking = false;
     private int clickCount = 0;
+    private int speed;
 
     /**
      * @param player The player that the clicker belongs to
      * @param isRed Whether the player is red or not
      */
-    public Clicker(Player player, String colour) {
+    public Clicker(Player player, String colour, int speed) {
         this.player = player;
+        this.speed = speed;
         
         if (colour == "red") {
             image = new GreenfootImage("red_cursor.png");
@@ -48,6 +51,18 @@ public class Clicker extends SuperSmoothMover
             
             lagTimer--;
         }
+        
+        if (clicking) {
+            moveTowards(targetPoint[0], targetPoint[1], speed);
+            setRotation(0);
+        
+            if (distanceTo(targetPoint[0], targetPoint[1]) <= speed) {
+                setLocation(targetPoint[0], targetPoint[1]);
+                Clickable object = (Clickable)getOneObjectAtOffset(getX(), getY(), Clickable.class);
+                if (object != null) object.click(player);
+                clicking = false;
+            }
+        }
     }
 
     /**
@@ -63,14 +78,17 @@ public class Clicker extends SuperSmoothMover
     /**
      * Makes cursor glide to a actor and then click
      */
-    public void click(Actor actor) {}
+    public void click(Actor actor) {
+        targetPoint = getRandomPointOnActor(actor);
+        clicking = true;
+    }
     
     /**
      * Returns a random point on an an actor in a circular region
      */
     private int[] getRandomPointOnActor(Actor actor) {
         GreenfootImage image = actor.getImage();
-        int radius = image.getWidth();
+        int radius = image.getWidth() / 2;
         
         double direction = Math.random() * (2 * Math.PI);
         double magnitude = Math.random() * radius;
@@ -85,6 +103,6 @@ public class Clicker extends SuperSmoothMover
      * Returns whether the cursor is currently moving towards a position in order to click it
      */
     public boolean clicking() {
-        return targetX == -1 && targetY == -1;
+        return clicking;
     }
 }
