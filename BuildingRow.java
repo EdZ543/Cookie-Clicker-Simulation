@@ -30,6 +30,17 @@ public class BuildingRow extends Clickable
     /**
      * Adds a building to this row
      */
+    public void addBuilding(int x, int y) {
+        try {
+            Constructor<Building> c = buildingType.getConstructor(Player.class);
+            Building building = c.newInstance(player);
+            getWorld().addObject(building, getX(), getY());
+        } catch(Exception e) {}
+    }
+    
+    /**
+     * Adds a building to this row, 
+     */
     public void addBuilding() {
         try {
             Constructor<Building> c = buildingType.getConstructor(Player.class);

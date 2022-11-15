@@ -226,4 +226,13 @@ public abstract class SuperSmoothMover extends Clickable
       }
     }
     
+    public void moveTowards(int x, int y, int distance) {
+        turnTowards(x, y);
+        move(distance);
+        setRotation(0);
+    }
+    
+    public double distanceTo(int x, int y) {
+        return Math.sqrt(Math.pow(x - getX(), 2) + Math.pow(y - getY(), 2));
+    }
 }
