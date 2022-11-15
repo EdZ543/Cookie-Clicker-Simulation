@@ -4,33 +4,37 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class BuyButton here.
  * 
  * @author Caden Chan
- * @version 2022.11.02
+ * @version 2022.11.14
  */
 public class BuyButton extends Actor
 {
-    private int cooldown;  // if cooldown > 0, cannot activate button.
-    private int highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player
-    private boolean active;  // if neither player can afford the upgrade, grey-out the button
+    protected int cooldown;  // if cooldown > 0, cannot activate button.
+    protected int highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player
+    protected boolean active;  // if neither player can afford the upgrade, grey-out the button
     // info that will be displayed: cost, subclass name, icon
-    private int cost;
-    private Class mySubclass;  // the subclass associated with the button (either a subclass of Builidng or a subclass of Powerup)
-    private String name;
+    protected int cost;
+    protected Class mySubclass;  // the subclass associated with the button (either a subclass of Builidng or a subclass of Powerup)
+    protected String name;
     // Button Attributes
-    private final int WIDTH = 100, HEIGHT = 100;
-    private String icnFile;
-    private GreenfootImage icn;
-    private GreenfootImage image;
+    protected String icnFile;
+    protected GreenfootImage icn;
+    protected GreenfootImage image;
+    /**
+     * @param mySubclass            The subclass of Building or Powerup that is created or activated by this button
+     * @param name                  The name of the Building or Powerup
+     * @param cost                  The cost of the Building or Powerup
+     */
     public BuyButton(Class mySubclass, String name, int cost) {
         this.mySubclass = mySubclass;
         this.name = name;
         this.cost = cost;
+    }
+    public void addedToWorld(World w) {
         // set up button image
         image = new GreenfootImage("buybutton-icns/btn-bg.png");
         icnFile = "buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png";
         icn = new GreenfootImage(icnFile);
-        image.drawImage(icn, 10, 10);
-        // image.setColor(bgColor);
-        // image.fill();
+        image.drawImage(icn, (image.getWidth()-icn.getWidth())/2, (image.getHeight()-icn.getHeight())/2);
         setImage(image);
     }
     
@@ -57,6 +61,11 @@ public class BuyButton extends Actor
     public void act() {
         if(cooldown > 0) {
             cooldown --;
+        }
+        if(Greenfoot.mouseClicked(this)) {
+            image.setColor(new Color(0, 0, 0, 50));
+            image.fill();
+            setImage(image);
         }
     }
     public Class getMySubclass() {

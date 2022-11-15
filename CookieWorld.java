@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
  * - Code
  * 
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
- * @version November 2022
+ * @version 2022.11.14
  */
 public class CookieWorld extends World
 {
@@ -60,6 +60,7 @@ public class CookieWorld extends World
         // Set world background
         background = new GreenfootImage("background0.png");
         setBackground(background);
+        // - - - Prepare world data - - -
         // Initialize building hashmap
         buildingMap = new LinkedHashMap<Class, HashMap<String, Object>>();
         buildingMap.put(AlchemyLab.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Alchemy Lab", 100}));
@@ -81,7 +82,7 @@ public class CookieWorld extends World
         powerupMap.put(Lag.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lag", 100}));
         powerupMap.put(StealShipment.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Steal Shipment", 100}));
         
-        // Initialize BuyButton array
+        // - - - Initialize BuyButton arrays - - -
         // Building Buttons
         buyBuildingButtons = initBuyButtons(getBuildingClasses());
         // Powerup Buttons
@@ -95,13 +96,14 @@ public class CookieWorld extends World
         buySabotageButtons = initBuyButtons(tempSabotages);
         // Cookie Upgrade Buttons
         cookieUpgradeButtons = initBuyButtons(new ArrayList<Class>(Arrays.asList(CookieUpgrade.class, CookieUpgrade.class)));  // two buttons for CookieUpgrade class (one for each player)
-        // Initialize players
+        
+        // - - - Initialize players - - -
         p1 = new Player(400, getHeight(), clickers1, cps1, grandmas1, "Player 1", "red");
         p2 = new Player(400, getHeight(), clickers2, cps2, grandmas2, "Player 2", "blue");
         addObject(p1, 205, 400);
         addObject(p2, 990, 400);
         
-        // Draw Buttons
+        // - - - Draw Buttons - - -
         int btnX, btnY;
         for(int i=0;i<buyBuildingButtons.length;i++) {
             // btnX = i == buyBuildingButtons.length-1 ? 595 : 495 + 100*(i%3);
@@ -120,11 +122,11 @@ public class CookieWorld extends World
             addObject(buySabotageButtons[i], btnX, btnY);
         }
         for(int i=0;i<cookieUpgradeButtons.length;i++) {
-            btnX = (cookieUpgradeButtons[i].getImage().getWidth()/2) + 330 + 780*i;
+            btnX = (cookieUpgradeButtons[i].getImage().getWidth()/2) + 360 + 780*i;
             btnY = 360;
             addObject(cookieUpgradeButtons[i], btnX, btnY);
         }
-        
+        // - - - Draw Subtitles for BuyButton Groups
         buildingTitle = new Label("Building shop", 30);
         powerupTitle = new Label("Powerup shop", 30);
         sabotageTitle = new Label("Sabotage shop", 30);
@@ -202,12 +204,11 @@ public class CookieWorld extends World
     
     /**
      * Return an array of new `BuyButton`s, for each subclass in [Class[] itemClasses] (either `BUIDLING_CLASSES` or `POWERUP_CLASES`)
-     * Throws `MyException` if `getItemCost(Class itemClass)` requirements aren't met.
      * 
      * @param itemClasses           Array containing subclasses of Building or Powerup
      * @return BuyButton[]          Array of buttons for each subclass in `itemClasses`
      */
-    public BuyButton[] initBuyButtons(ArrayList<Class> itemClasses) throws MyException{
+    public BuyButton[] initBuyButtons(ArrayList<Class> itemClasses) {
         BuyButton[] buttons = new BuyButton[itemClasses.size()];
         for(int i=0;i<buttons.length;i++) {
             Class c = itemClasses.get(i);
@@ -234,7 +235,14 @@ public class CookieWorld extends World
         return new ArrayList<Class>(powerupMap.keySet());
     }
     
-    private LinkedHashMap<String, Object> createHashmap(String[] keys, Object[] values) throws MyException{
+    /**
+     * Create a HashMap from an array of keys and values. The `keys` and `values` arrays must have the same lengths
+     * 
+     * @param keys                              Array of keys, as Strings (i.e. index names).
+     * @param values                            Array of values
+     * @return HashMap<String, Object>          HashMap comprised of the keys and values from the provided arrays
+     */
+    private HashMap<String, Object> createHashmap(String[] keys, Object[] values) throws MyException {
         if(keys.length != values.length) {
             throw new MyException("method: createHashmap\nproblem: keys & values arrays must be of equal length");
         }

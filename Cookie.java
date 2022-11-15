@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class Cookie here.
  * 
  * @author Caden Chan
- * @version 2022.11.02
+ * @version 2022.11.14
  */
 public class Cookie extends Actor
 {
@@ -75,7 +75,8 @@ public class Cookie extends Actor
     }
     
     private void updateImage() {
-        this.image = COOKIE_SPRITES[level-1];
+        image = COOKIE_SPRITES[level-1];
+        setImage(image);
         // do things to update image visually
     }
     
