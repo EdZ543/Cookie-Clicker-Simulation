@@ -13,9 +13,8 @@ public abstract class Building extends SuperSmoothMover
     protected int actCount = 0;
     protected int actMark = 10;
     
-    public Building(Player player, BuildingRow buildingRow) {
+    public Building(Player player) {
         this.player = player;
-        this.buildingRow = buildingRow;
     }
     
     public void act() {
@@ -40,24 +39,5 @@ public abstract class Building extends SuperSmoothMover
     public int getNextActMark(int start, int end) {
         int t = getRandomNumberInRange(start * 60, end * 60);
         return actCount + t;
-    }
-    
-    /**
-     * Moves the building to its respective player's row of buildings.
-     * 1st row - Grandmas
-     * 2nd row - Babies
-     * 3rd row - Alchemy Labs
-     * 4th row - 3D Printers
-     * 5th row - Portals
-     * 6th row - Cookie Gods
-     */
-    public void moveToPlayer() {
-        // PSEUDO-CODE: determine x and y position of where each building should be on its respective row
-        // y position is the building row's y position (this value can be hardcoded as building row y-positions are known)
-        // y position needs to offset a bit to create a sense of depth. This offset alternates between up and down the middle of the row.
-        // x position increases based on the where the last building was and the width of the building's png
-            // this value may be stored inside BuildingRow (?) ex. `lastBuildingX`, 'lastBuildingY`
-        // now that building's position on its row is determined, calculate x and y distance from buy button to this position
-        // gradually move building to its position on building row
     }
 }

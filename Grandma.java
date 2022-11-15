@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Grandma extends Building
 {
-    public Grandma(Player player, BuildingRow buildingRow) {
-        super(player, buildingRow);
+    public Grandma(Player player) {
+        super(player);
         
         setImage("./images/placeholder/grandma.png");
     }

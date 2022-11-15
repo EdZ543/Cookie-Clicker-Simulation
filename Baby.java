@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Baby extends Building
 {
-    public Baby(Player player, BuildingRow buildingRow) {
-        super(player, buildingRow);
+    public Baby(Player player) {
+        super(player);
         
         setImage("./images/placeholder/baby.png");
     }

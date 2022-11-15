@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class AlchemyLab extends Building
 {
-    public AlchemyLab(Player player, BuildingRow buildingRow) {
-        super(player, buildingRow);
+    public AlchemyLab(Player player) {
+        super(player);
         
         setImage("./images/placeholder/alchemy-lab.png");
     }

@@ -13,6 +13,7 @@ public class BuildingRow extends Clickable
     private int spacing;
     private Player player;
     
+    
     /**
      * @param buildingType The class of building that will live in this row
      * @param width The width of the row
@@ -33,7 +34,7 @@ public class BuildingRow extends Clickable
     public void addBuilding() {
         try {
             Constructor<Building> c = buildingType.getConstructor(Player.class);
-            Building building = c.newInstance(player, this);
+            Building building = c.newInstance(player);
             getWorld().addObject(building, getX(), getY());
         } catch(Exception e) {}
     }
