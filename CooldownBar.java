@@ -13,7 +13,7 @@ public class CooldownBar extends Actor
     private final int TRNP = 60; // transparency
     private GreenfootImage image;
     private Color colour;
-    public CooldownBar(int width, int height, int duration) {
+    public CooldownBar(int width, int height, Player p, int duration) {
         this.width = width;
         this.height = height;
         rate = 100.0/(duration*60);
