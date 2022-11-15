@@ -1,14 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The final upgrade → whoever can afford this upgrade first wins Starts final rocket launch animation
+ * Write a description of class CookieRocket here.
  * 
- * @author Patrick Hu
+ * @author Patrick Hu 
  * @version November 2022
  */
-public class CookieRocket extends Building
+public class CookieRocket extends SuperSmoothMover
 {
+    Player player;
+    
     public CookieRocket(Player player) {
-        super(player);
+        this.player = player;
+    }
+    
+    public void act() {
+        
     }
 }

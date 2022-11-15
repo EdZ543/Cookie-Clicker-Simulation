@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Portal extends Building
 {
-    public Portal(Player player) {
-        super(player);
+    public Portal(Player player, BuildingRow buildingRow) {
+        super(player, buildingRow);
     }
     
     public void act()

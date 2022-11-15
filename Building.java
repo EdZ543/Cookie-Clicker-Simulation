@@ -9,11 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public abstract class Building extends SuperSmoothMover
 {
     protected Player player;
+    protected BuildingRow buildingRow;
     protected int actCount = 0;
     protected int actMark = 10;
     
-    public Building(Player player) {
+    public Building(Player player, BuildingRow buildingRow) {
         this.player = player;
+        this.buildingRow = buildingRow;
     }
     
     public void act() {
@@ -38,5 +40,18 @@ public abstract class Building extends SuperSmoothMover
     public int getNextActMark(int start, int end) {
         int t = getRandomNumberInRange(start * 60, end * 60);
         return actCount + t;
+    }
+    
+    /**
+     * Moves the building to its respective player's row of buildings.
+     * 1st row - Grandmas
+     * 2nd row - Babies
+     * 3rd row - Alchemy Labs
+     * 4th row - 3D Printers
+     * 5th row - Portals
+     * 6th row - Cookie Gods
+     */
+    public void moveToPlayer() {
+        
     }
 }
