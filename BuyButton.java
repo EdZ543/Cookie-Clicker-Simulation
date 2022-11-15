@@ -63,9 +63,10 @@ public class BuyButton extends Actor
             cooldown --;
         }
         if(Greenfoot.mouseClicked(this)) {
-            image.setColor(new Color(0, 0, 0, 50));
-            image.fill();
-            setImage(image);
+            // image.setColor(new Color(0, 0, 0, 50));
+            // image.fill();
+            // setImage(image);
+            getWorld().addObject(new CooldownBar(getImage().getWidth(), getImage().getHeight(), Color.BLUE, 3), getX(), getY());
         }
     }
     public Class getMySubclass() {
