@@ -14,7 +14,7 @@ public class CooldownBar extends Actor
     private GreenfootImage image;
     private Color colour;
     /**
-     * 
+     * @param
      */
     public CooldownBar(int width, int height, Color colour, int duration) {
         this.width = width;
