@@ -12,8 +12,8 @@ public class Cookie extends Actor
     private int cookiesPerClick;
     private int animateCount;
     private int originalSize;
-    private final int ANIM_DURATION = 10; // how many acts the cookie is enlargened for
-    private final int ANIM_FACTOR = 40; // increase image by how many pixels on click
+    private final int ANIM_DURATION = 5; // how many acts the cookie is enlargened for
+    private final int ANIM_FACTOR = 30; // increase image by how many pixels on click
     private GreenfootImage image;
     public final String[] COOKIE_FILES = {"placeholder/cookie.png"};
     public final GreenfootImage[] COOKIE_SPRITES = getCookieImageArr();  // use level to index through array, and retrieve the corresponding image.
@@ -31,9 +31,9 @@ public class Cookie extends Actor
     public void act()
     {
         // !Uncomment for testing purposes
-        // if(Greenfoot.mouseClicked(this)){
-            // animateClick();
-        // }
+        if(Greenfoot.mouseClicked(this)){
+            animateClick();
+        }
         if(animateCount > 0) {
             animateCount --;
             if(animateCount == 0) {
@@ -48,7 +48,7 @@ public class Cookie extends Actor
     public void animateClick() {
         if(animateCount == 0) {
             animateCount = ANIM_DURATION;
-            image.scale(originalSize + 60, originalSize + 60);
+            image.scale(originalSize + ANIM_FACTOR, originalSize + ANIM_FACTOR);
             setImage(image);
         }
     }
