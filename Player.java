@@ -11,8 +11,9 @@ import java.util.HashMap;
  * 
  * "AI" behaviour:
  * - If it has enough cookies to buy the cookie rocket, it shall do so immediately
- * - Will click around randomly on the cookie, but every 1-5 seconds, it shall perform an action:
- *   - Click on any clickable buildings
+ * - Default state: choose a random point on the cookie and click there
+ * - Every 10-15 clicks, it shall attempt to perform a random action:
+ *   - Click on a random clickable building
  *   - Buy a random building 
  *   - Buy a random powerup
  *   - Buy a random sabotage
@@ -61,16 +62,16 @@ public class Player extends Actor
         
         // Add cookie
         cookie = new Cookie();
-        cw.addObject(cookie, getX(), getY() - 180);
+        cw.addObject(cookie, getX(), getY() - 170);
         
         // Add stationary clickers
         for (int i = 0; i < clickers; i++) {
-            Clicker clickerBuilding = new Clicker(this, false, "white");
+            Clicker clickerBuilding = new Clicker(this, "white");
             cw.addObject(clickerBuilding, getX(), 200);
         }
         
         // Add sentient clicker
-        clicker = new Clicker(this, false, colour);
+        clicker = new Clicker(this, colour);
         cw.addObject(clicker, getX(), 200);
         
         // Add building rows
@@ -89,12 +90,23 @@ public class Player extends Actor
         }
         
         // Add score text
-        scoreText = new Label(name + "'s Cookies: " + numCookies, 40);
-        cw.addObject(scoreText, getX(), getY() - 370);
+        scoreText = new Label(name + "'s Cookies:\n" + numCookies, 35);
+        cw.addObject(scoreText, getX(), getY() - 360);
     }
     
     public void act() {
-        //
+        
+        // If it has enough cookies to buy the cookie rocket, it shall do so immediately
+        
+        
+        // Default state: choose a random point on the cookie and click there
+        
+        
+        // Every 10-15 clicks, it shall attempt to perform a random action:
+        // Click on a random clickable building
+        // Buy a random building 
+        // Buy a random powerup
+        // Buy a random sabotage
     }
     
     /**
@@ -104,7 +116,7 @@ public class Player extends Actor
      */
     public void changeCookieCount(int x) {
         numCookies += x;
-        scoreText.setValue(name + "'s Cookies: " + numCookies);
+        scoreText.setValue(name + "'s Cookies:\n" + numCookies);
     }
     
     /**
@@ -123,5 +135,14 @@ public class Player extends Actor
      */
     public String getName() {
         return name;
+    }
+    
+    /**
+     * Returns the colour of the player
+     * 
+     * @return String The colour
+     */
+    public String getColour() {
+        return colour;
     }
 }
