@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieGod extends Building
 {
-    public CookieGod(Player player) {
-        super(player);
+    public CookieGod(Player player, BuildingRow buildingRow) {
+        super(player, buildingRow);
         
         setImage("./images/placeholder/cookie-god.png");
     }

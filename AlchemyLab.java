@@ -8,12 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class AlchemyLab extends Building
 {
-    public AlchemyLab(Player player) {
-        super(player);
+    public AlchemyLab(Player player, BuildingRow buildingRow) {
+        super(player, buildingRow);
         
         setImage("./images/placeholder/alchemy-lab.png");
-        
-        // increase player's building count for alchemy lab
     }
     
     public void act() {

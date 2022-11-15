@@ -9,8 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Grandma extends Building
 {
-    public Grandma(Player player) {
-        super(player);
+    public Grandma(Player player, BuildingRow buildingRow) {
+        super(player, buildingRow);
+        
+        setImage("./images/placeholder/grandma.png");
     }
     
     public void act()
@@ -18,7 +20,7 @@ public class Grandma extends Building
         super.act();
         if (actCount == actMark) {
             player.changeCookieCount(getRandomNumberInRange(30, 50));
-            actMark = getNextActMark(10, 20);
+            actMark = getNextActMark(2, 2);
         }
     }
 }

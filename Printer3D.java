@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Printer3D extends Building
 {
-    public Printer3D(Player player) {
-        super(player);
+    public Printer3D(Player player, BuildingRow buildingRow) {
+        super(player, buildingRow);
         
         setImage("./images/placeholder/alchemy-lab.png");
     }
