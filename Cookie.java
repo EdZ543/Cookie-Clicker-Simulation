@@ -31,9 +31,9 @@ public class Cookie extends Clickable
     public void act()
     {
         // !Uncomment for testing purposes
-        if(Greenfoot.mouseClicked(this)){
-            animateClick();
-        }
+        // if(Greenfoot.mouseClicked(this)){
+            // click();
+        // }
         if(animateCount > 0) {
             animateCount --;
             if(animateCount == 0) {
@@ -45,12 +45,13 @@ public class Cookie extends Clickable
     /**
      * Animate sprite when `Cookie` is "clicked" by a `Clicker`
      */
-    public void animateClick() {
+    public void click(Player player) {
         if(animateCount == 0) {
             animateCount = ANIM_DURATION;
             image.scale(originalSize + ANIM_FACTOR, originalSize + ANIM_FACTOR);
             setImage(image);
         }
+        player.changeCookieCount(cookiesPerClick);
     }
     /**
      * Update the `Cookie`'s level to `int level` and calculate `cookiesPerClick` accordingly

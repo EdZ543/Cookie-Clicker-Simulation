@@ -39,22 +39,16 @@ public class BuyButton extends Clickable
     }
     
     /**
-     * Highlight button & add building to [Player p]'s collection
-     * - For when the Player who activates the button is the Player that receives the building
+     * Simulate button being clicked by a player. Create building or activate powerup on click
+     * 
      * @param p        The Player instance that has activated this button
      */
     public void click(Player p) {
-        click(p, p);
+        
     }
     /**
-     * Highlight button & add building to [target p]'s collection
-     * @param p         The Player instance that has activated this button
-     * @param target    The Player instance that receives the building
+     * Show button description when user hovers their cursor over the button
      */
-    public void click(Player p, Player target) {
-        // highlight button with player colour
-        // add buidling to target's collection
-    }
     public void hover() {
         
     }
@@ -62,11 +56,12 @@ public class BuyButton extends Clickable
         if(cooldown > 0) {
             cooldown --;
         }
+        // test method
         if(Greenfoot.mouseClicked(this)) {
             // image.setColor(new Color(0, 0, 0, 50));
             // image.fill();
             // setImage(image);
-            getWorld().addObject(new CooldownBar(getImage().getWidth(), getImage().getHeight(), Color.BLUE, 3), getX(), getY());
+            getWorld().addObject(new CooldownBar((int)(getImage().getWidth()*0.9), getImage().getHeight(), Color.BLUE, 3), getX(), getY());
         }
     }
     public Class getMySubclass() {
