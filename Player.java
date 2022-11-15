@@ -21,7 +21,7 @@ import java.util.HashMap;
  * @author Eddie Zhuang
  * @version November 2022
  */
-public class Player extends Actor
+public class Player extends Clickable
 {
     private Cookie cookie;
     private String colour;
@@ -34,6 +34,7 @@ public class Player extends Actor
     private HashMap<Class, BuildingRow> buildingRows;
     private Label scoreText;
     private Clicker clicker;
+    private int clickCount = 0;
     
     /**
      * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
@@ -95,18 +96,19 @@ public class Player extends Actor
     }
     
     public void act() {
-        
-        // If it has enough cookies to buy the cookie rocket, it shall do so immediately
-        
-        
-        // Default state: choose a random point on the cookie and click there
-        
-        
-        // Every 10-15 clicks, it shall attempt to perform a random action:
-        // Click on a random clickable building
-        // Buy a random building 
-        // Buy a random powerup
-        // Buy a random sabotage
+        if (!clicker.clicking()) {
+            // If it has enough cookies to buy the cookie rocket, it shall do so immediately
+            
+            
+            // Default state: choose a random point on the cookie and click there
+            
+            
+            // Every 10-15 clicks, it shall attempt to perform a random action:
+            // Click on a random clickable building
+            // Buy a random building 
+            // Buy a random powerup
+            // Buy a random sabotage
+        }
     }
     
     /**

@@ -13,6 +13,7 @@ public class Clicker extends SuperSmoothMover
     private GreenfootImage image;
     private GreenfootImage laggingImage = new GreenfootImage("lag.gif");
     private int targetX = -1, targetY = -1;
+    private int clickCount = 0;
 
     /**
      * @param player The player that the clicker belongs to

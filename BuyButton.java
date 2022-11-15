@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Caden Chan
  * @version 2022.11.14
  */
-public class BuyButton extends Actor
+public class BuyButton extends Clickable
 {
     protected int cooldown;  // if cooldown > 0, cannot activate button.
     protected int highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player

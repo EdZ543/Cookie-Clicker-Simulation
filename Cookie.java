@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Caden Chan
  * @version 2022.11.14
  */
-public class Cookie extends Actor
+public class Cookie extends Clickable
 {
     private int level;
     private int cookiesPerClick;
