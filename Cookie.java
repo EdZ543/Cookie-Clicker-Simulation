@@ -14,7 +14,9 @@ public class Cookie extends Clickable
     private final int ANIM_FACTOR = 30; // increase image by how many pixels on click
     private GreenfootImage image;
     private Player player;
-    public final String[] COOKIE_FILES = {"placeholder/cookie.png"};
+    public final String[] COOKIE_FILES = {"placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", 
+        "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", 
+        "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png"};
     public final GreenfootImage[] COOKIE_SPRITES = getCookieImageArr();  // use level to index through array, and retrieve the corresponding image.
     
     /**
