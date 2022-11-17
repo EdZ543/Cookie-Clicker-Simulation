@@ -99,7 +99,7 @@ public class Player extends Clickable
     
     public void act() {
         // Control main clicker
-        if (!clicker.clicking()) {
+        if (!clicker.glidingOrClicking()) {
             // If it has enough cookies to buy the cookie rocket, it shall do so immediately
             
             
@@ -115,8 +115,8 @@ public class Player extends Clickable
         
         // Control non-sentient clickers
         for (int i = 0; i < clickers; i++) {
-            if (!clickerBuildings[i].clicking()) {
-                clickerBuildings[i].click(cookie);
+            if (!clickerBuildings[i].glidingOrClicking()) {
+                clickerBuildings[i].glideAndClick(cookie);
             }
         }
     }
