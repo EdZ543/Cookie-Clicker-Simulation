@@ -63,7 +63,7 @@ public class Player extends Clickable
         CookieWorld cw = (CookieWorld)w;
         
         // Add cookie
-        cookie = new Cookie();
+        cookie = new Cookie(this);
         cw.addObject(cookie, getX(), getY() - 170);
         
         // Add stationary clickers
@@ -82,14 +82,14 @@ public class Player extends Clickable
         int rowHeight = (height - 10) / 2 / cw.getBuildingClasses().size();
         
         for (int i = 0; i < cw.getBuildingClasses().size(); i++) {
-            BuildingRow buildingRow = new BuildingRow(this, cw.getBuildingClasses().get(i), width, rowHeight, 10);
+            BuildingRow buildingRow = new BuildingRow(this, cw.getBuildingClasses().get(i), width, rowHeight, 30);
             buildingRows.put(cw.getBuildingClasses().get(i), buildingRow);
             cw.addObject(buildingRows.get(cw.getBuildingClasses().get(i)), getX(), getY() + 10 + (int)((i + 0.5) * rowHeight));
         }
         
         // Add starting grandmas
         for (int i = 0; i < grandmas; i++) {
-            buildingRows.get(Grandma.class).addBuilding();
+            buildingRows.get(Grandma.class).addBuilding(600, 400);
         }
         
         // Add score text
@@ -99,7 +99,7 @@ public class Player extends Clickable
     
     public void act() {
         // Control main clicker
-        if (!clicker.clicking()) {
+        if (!clicker.glidingOrClicking()) {
             // If it has enough cookies to buy the cookie rocket, it shall do so immediately
             
             
@@ -115,8 +115,8 @@ public class Player extends Clickable
         
         // Control non-sentient clickers
         for (int i = 0; i < clickers; i++) {
-            if (!clickerBuildings[i].clicking()) {
-                clickerBuildings[i].click(cookie);
+            if (!clickerBuildings[i].glidingOrClicking()) {
+                clickerBuildings[i].glideAndClick(cookie);
             }
         }
     }
@@ -167,5 +167,31 @@ public class Player extends Clickable
      */
     public void addBuilding(int x, int y, Class buildingClass) {
         buildingRows.get(buildingClass).addBuilding(x, y);
+    }
+    
+    /**
+     * Causes the player's cursors to start lagging
+     * 
+     * @param seconds The number of seconds to make them lag
+     */
+    public void lagClickers(int seconds) {
+        clicker.lagOut(seconds);
+        for (int i = 0; i < clickerBuildings.length; i++) {
+            clickerBuildings[i].lagOut(seconds);
+        }
+    }
+    
+    /**
+     * Returns the player's cookie.
+     */
+    public Cookie getCookie() {
+        return cookie;
+    }
+    
+    /**
+     * Returns the hashmap of building rows that the player has
+     */
+    public HashMap<Class, BuildingRow> getBuildingRows() {
+        return buildingRows;
     }
 }

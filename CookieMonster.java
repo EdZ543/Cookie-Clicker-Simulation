@@ -8,8 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieMonster extends Sabotage
 {
-    public CookieMonster(Player target) {
-        super(target);
+    public CookieMonster(Player origin) {
+        super(origin);
+    }
+    public void addedToWorld(World w) {
+        super.addedToWorld(w);
     }
     
     public void act() {

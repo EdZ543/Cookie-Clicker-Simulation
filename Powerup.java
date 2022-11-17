@@ -11,11 +11,10 @@ public abstract class Powerup extends SuperSmoothMover
 {
     protected int duration;
     protected int actCount;
-    protected Player target;  // Player that is affected by the Powerup
+    protected Player origin;  // Player that activated the Powerup
     
-    // public abstract void onClickButton();
-    public Powerup(Player target) {
-        this.target = target;
+    public Powerup(Player origin) {
+        this.origin = origin;
         actCount = 0;
     }
     /**
@@ -26,11 +25,16 @@ public abstract class Powerup extends SuperSmoothMover
     {
         // Add your action code here.
     }
-    
+    /**
+     * @return int          How long the powerup lasts
+     */
     public int getDuration() {
         return duration;
     }
-    public Player getTarget() {
-        return target;
+    /**
+     * @return Player       The player that activated this powerup
+     */
+    public Player getOriginPlayer() {
+        return origin;
     }
 }

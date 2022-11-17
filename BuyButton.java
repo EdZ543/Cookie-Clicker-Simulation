@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.lang.reflect.Constructor;
 
 /**
  * Write a description of class BuyButton here.
@@ -43,8 +44,24 @@ public class BuyButton extends Clickable
      * 
      * @param p        The Player instance that has activated this button
      */
-    public void click(Player p) {
-        
+    public void click(Player player) { 
+        double highlightDuration;
+        Color colour;
+        CooldownBar highlight;
+        // Handle Buildings
+        if(Building.class.isAssignableFrom(mySubclass)) {
+            player.addBuilding(getX(), getY(), mySubclass);
+            highlightDuration = 0.5;
+        // Handle Powerups
+        } else {
+            Powerup powerup = createPowerup(player);
+            getWorld().addObject(powerup, 0, 0);
+            highlightDuration = powerup.getDuration() == 0 ? 0.5 : powerup.getDuration();
+        }
+        // Handle BuyButton highlighting
+        colour = player.getColour() == "red" ? Color.RED : Color.BLUE;
+        highlight = new CooldownBar((int)(getImage().getWidth()*0.9), getImage().getHeight(), colour, highlightDuration);
+        getWorld().addObject(highlight, getX(), getY());
     }
     /**
      * Show button description when user hovers their cursor over the button
@@ -58,16 +75,31 @@ public class BuyButton extends Clickable
         }
         // test method
         if(Greenfoot.mouseClicked(this)) {
-            // image.setColor(new Color(0, 0, 0, 50));
-            // image.fill();
-            // setImage(image);
-            getWorld().addObject(new CooldownBar((int)(getImage().getWidth()*0.9), getImage().getHeight(), Color.BLUE, 3), getX(), getY());
+            CooldownBar x = new CooldownBar((int)(getImage().getWidth()*0.9), getImage().getHeight(), Color.BLUE, 3);
         }
     }
+    /**
+     * @return Class        Subclass of Building or Powerup, purchased through this button.
+     */
     public Class getMySubclass() {
         return mySubclass;
     }
     
+    /**
+     * Used by `click` method to create a new Powerup
+     * @return Powerup          new instance of mySubclass, given mySubclass is a Powerup
+     */
+    private Powerup createPowerup(Player player) {
+        try {
+            Constructor<Powerup> c = mySubclass.getConstructor(Player.class);
+            return c.newInstance(player);
+        } catch(Exception e) {}
+        return null;
+    }
+    
+    /**
+     * @return int      Cost, in cookies, to use button
+     */
     public int getCost() {
         return cost;    
     }

@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HandCream extends Powerup
 {
-    public HandCream(Player target) {
-        super(target);
+    public HandCream(Player origin) {
+        super(origin);
     }
     
     public void act() {

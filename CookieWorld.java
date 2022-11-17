@@ -23,7 +23,7 @@ public class CookieWorld extends World
     
     private int clickers2 = 2; 
     private int cps2 = 2;
-    private int grandmas2 = 2;
+    private int grandmas2 = 20;
     
     // World variables
     private GreenfootImage background;
@@ -45,16 +45,13 @@ public class CookieWorld extends World
      *      AlchemyLab.class: {
      *          "name": "Alchemy Lab",
      *          "cost": 10
-     *          }, 
+     *          },  ...etc.
      * }
      */
-   // Global font 
-    public static final String FONT_NAME = "Futura";
     
     public CookieWorld() throws MyException
     {   
         super(1200, 800, 1); 
-        
         // Drawing Order of Classes
         setPaintOrder(Clicker.class, Building.class, Powerup.class, CooldownBar.class, BuyButton.class, Label.class, BuildingRow.class, Cookie.class);
         // Set world background
@@ -106,7 +103,6 @@ public class CookieWorld extends World
         // - - - Draw Buttons - - -
         int btnX, btnY;
         for(int i=0;i<buyBuildingButtons.length;i++) {
-            // btnX = i == buyBuildingButtons.length-1 ? 595 : 495 + 100*(i%3);
             btnX = 495 + 100*(i%3);
             btnY = 110 + 84*(i/3);
             addObject(buyBuildingButtons[i], btnX, btnY);
@@ -140,6 +136,7 @@ public class CookieWorld extends World
      * E.g.: if p1 is passed in, return p2, and vice versa.
      * 
      * @param thisPlayer           The reference Player.
+     * @return Player               The other player
      */
     public Player getOtherPlayer(Player thisPlayer) { // Used to get the affected player in the event of a sabotage
         return thisPlayer == p1 ? p2 : p1;

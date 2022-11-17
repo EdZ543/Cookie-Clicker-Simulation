@@ -10,8 +10,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class ReverseDementia extends Powerup
 {
     public static final int COST = 100; // tbd
-    public ReverseDementia(Player target) {
-        super(target);
+    public ReverseDementia(Player origin) {
+        super(origin);
     }
     public void act()
     {

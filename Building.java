@@ -18,15 +18,8 @@ public abstract class Building extends SuperSmoothMover
     }
     
     public void act() {
+        super.act();
         actCount++;
-    }
-    
-    /**
-     * Gets a random number in the range from `start` to `end` inclusive.
-     */
-    public int getRandomNumberInRange(int start, int end) {
-       int a = Greenfoot.getRandomNumber(end - start + 1);
-       return start + a;
     }
     
     /**

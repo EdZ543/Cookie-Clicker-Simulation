@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GingerbreadMan extends Powerup
 {
-    public GingerbreadMan(Player target) {
-        super(target);
+    public GingerbreadMan(Player origin) {
+        super(origin);
     }
     
     public void act() {
