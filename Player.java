@@ -180,4 +180,11 @@ public class Player extends Clickable
             clickerBuildings[i].lagOut(seconds);
         }
     }
+    
+    /**
+     * Returns the player's cookie.
+     */
+    public Cookie getCookie() {
+        return cookie;
+    }
 }
