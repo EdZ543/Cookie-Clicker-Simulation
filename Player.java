@@ -187,4 +187,11 @@ public class Player extends Clickable
     public Cookie getCookie() {
         return cookie;
     }
+    
+    /**
+     * Returns the hashmap of building rows that the player has
+     */
+    public HashMap<Class, BuildingRow> getBuildingRows() {
+        return buildingRows;
+    }
 }

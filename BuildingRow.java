@@ -84,4 +84,11 @@ public class BuildingRow extends Clickable
             return buildingEdge < rowEdge;
         }
     }
+    
+    /**
+     * Returns the buildings in this row
+     */
+    public ArrayList<Building> getBuildings() {
+        return buildings;
+    }
 }
