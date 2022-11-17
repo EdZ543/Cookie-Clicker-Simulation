@@ -8,8 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Sabotage extends Powerup
 {
+    protected Player target;
     public Sabotage(Player origin) {
         super(origin);
+        this.target = ((CookieWorld)getWorld()).getOtherPlayer(origin);
     }
     
     public void act() {
