@@ -23,14 +23,6 @@ public abstract class Building extends SuperSmoothMover
     }
     
     /**
-     * Gets a random number in the range from `start` to `end` inclusive.
-     */
-    public int getRandomNumberInRange(int start, int end) {
-       int a = Greenfoot.getRandomNumber(end - start + 1);
-       return start + a;
-    }
-    
-    /**
      * Gets the next act mark for when a building performs its action by calculating a random amount of seconds 
      * between a `start` and `end`.
      * 
