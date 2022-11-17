@@ -12,6 +12,9 @@ public class StealShipment extends Sabotage
     public StealShipment(Player origin) {
         super(origin);
     }
+    public void addedToWorld(World w) {
+        super.addedToWorld(w); //required
+    }
     
     public void act() {
         
