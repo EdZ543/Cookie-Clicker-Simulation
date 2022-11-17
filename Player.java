@@ -63,7 +63,7 @@ public class Player extends Clickable
         CookieWorld cw = (CookieWorld)w;
         
         // Add cookie
-        cookie = new Cookie();
+        cookie = new Cookie(this);
         cw.addObject(cookie, getX(), getY() - 170);
         
         // Add stationary clickers
@@ -167,5 +167,17 @@ public class Player extends Clickable
      */
     public void addBuilding(int x, int y, Class buildingClass) {
         buildingRows.get(buildingClass).addBuilding(x, y);
+    }
+    
+    /**
+     * Causes the player's cursors to start lagging
+     * 
+     * @param seconds The number of seconds to make them lag
+     */
+    public void lagClickers(int seconds) {
+        clicker.lagOut(seconds);
+        for (int i = 0; i < clickerBuildings.length; i++) {
+            clickerBuildings[i].lagOut(seconds);
+        }
     }
 }

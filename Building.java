@@ -18,6 +18,7 @@ public abstract class Building extends SuperSmoothMover
     }
     
     public void act() {
+        super.act();
         actCount++;
     }
     
