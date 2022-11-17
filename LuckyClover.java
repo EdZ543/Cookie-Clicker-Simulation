@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LuckyClover extends Powerup
 {
-    public LuckyClover(Player target) {
-        super(target);
+    public LuckyClover(Player origin) {
+        super(origin);
     }
         
     public void act() {

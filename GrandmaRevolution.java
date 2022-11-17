@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GrandmaRevolution extends Sabotage
 {
-    public GrandmaRevolution(Player target) {
-        super(target);
+    public GrandmaRevolution(Player origin) {
+        super(origin);
     }
     
     public void act() {

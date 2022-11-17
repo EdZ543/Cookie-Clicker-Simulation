@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MilkBottles extends Powerup
 {
-    public MilkBottles(Player target) {
-        super(target);
+    public MilkBottles(Player origin) {
+        super(origin);
     }
     
     public void act() {

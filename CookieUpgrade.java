@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieUpgrade extends Powerup
 {
-    public CookieUpgrade(Player target) {  
-        super(target);
+    public CookieUpgrade(Player origin) {  
+        super(origin);
     }
     
     public static void upgrade(Cookie cookie) {

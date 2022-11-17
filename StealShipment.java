@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StealShipment extends Sabotage
 {
-    public StealShipment(Player target) {
-        super(target);
+    public StealShipment(Player origin) {
+        super(origin);
     }
     
     public void act() {

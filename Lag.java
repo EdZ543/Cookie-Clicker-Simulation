@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Lag extends Sabotage
 {
-    public Lag(Player target) {
-        super(target);
+    public Lag(Player origin) {
+        super(origin);
     }
 
     public void act() {

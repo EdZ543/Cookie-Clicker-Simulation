@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Sabotage extends Powerup
 {
-    public Sabotage(Player target) {
-        super(target);
+    public Sabotage(Player origin) {
+        super(origin);
     }
     
     public void act() {
