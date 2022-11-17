@@ -25,10 +25,15 @@ public abstract class Powerup extends SuperSmoothMover
     {
         // Add your action code here.
     }
-    
+    /**
+     * @return int          How long the powerup lasts
+     */
     public int getDuration() {
         return duration;
     }
+    /**
+     * @return Player       The player that gets affected by the powerup
+     */
     public Player getTarget() {
         return target;
     }

@@ -40,6 +40,9 @@ public class CooldownBar extends Actor
         percent -= rate;
         
     }
+    /**
+     * Draw bar based on value of `percent`
+     */
     public void drawBar() {
         image = new GreenfootImage(width, height);
         image.setTransparency(TRNP);
@@ -48,6 +51,9 @@ public class CooldownBar extends Actor
         image.fillRect(0, 0+ height-newH, width, newH);
         setImage(image);
     }
+    /**
+     * @param d         Set duration to `d` seconds
+     */
     public void setDuration(int d) {
         rate = 100.0/(d*60);
     }

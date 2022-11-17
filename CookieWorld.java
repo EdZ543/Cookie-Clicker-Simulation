@@ -45,7 +45,7 @@ public class CookieWorld extends World
      *      AlchemyLab.class: {
      *          "name": "Alchemy Lab",
      *          "cost": 10
-     *          }, 
+     *          },  ...etc.
      * }
      */
     
@@ -137,6 +137,7 @@ public class CookieWorld extends World
      * E.g.: if p1 is passed in, return p2, and vice versa.
      * 
      * @param thisPlayer           The reference Player.
+     * @return Player               The other player
      */
     public Player getOtherPlayer(Player thisPlayer) { // Used to get the affected player in the event of a sabotage
         return thisPlayer == p1 ? p2 : p1;

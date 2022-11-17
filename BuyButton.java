@@ -78,9 +78,17 @@ public class BuyButton extends Clickable
             CooldownBar x = new CooldownBar((int)(getImage().getWidth()*0.9), getImage().getHeight(), Color.BLUE, 3);
         }
     }
+    /**
+     * @return Class        Subclass of Building or Powerup, purchased through this button.
+     */
     public Class getMySubclass() {
         return mySubclass;
     }
+    
+    /**
+     * Used by `click` method to create a new powerup
+     * @return Powerup          new instance of mySubclass, given mySubclass is a Powerup
+     */
     private Powerup createPowerup(Player player) {
         try {
             Constructor<Powerup> c = mySubclass.getConstructor(Player.class);
@@ -88,6 +96,10 @@ public class BuyButton extends Clickable
         } catch(Exception e) {}
         return null;
     }
+    
+    /**
+     * @return int      Cost, in cookies, to use button
+     */
     public int getCost() {
         return cost;    
     }

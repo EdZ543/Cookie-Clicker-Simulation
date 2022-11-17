@@ -8,18 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Cookie extends Clickable
 {
-    private int level;
+    private int level, cookiesPerClick, animateCount, originalSize;
     private final int maxLevel = 10;
-    private int cookiesPerClick;
-    private int animateCount;
-    private int originalSize;
     private final int ANIM_DURATION = 5; // how many acts the cookie is enlargened for
     private final int ANIM_FACTOR = 30; // increase image by how many pixels on click
     private GreenfootImage image;
+    private Player player;
     public final String[] COOKIE_FILES = {"placeholder/cookie.png"};
     public final GreenfootImage[] COOKIE_SPRITES = getCookieImageArr();  // use level to index through array, and retrieve the corresponding image.
     
-    public Cookie() {
+    /**
+     * @param player            Player to whom this cookie belongs
+     */
+    public Cookie(Player player) {
+        this.player = player;
         image = COOKIE_SPRITES[0];
         level = 1;
         originalSize = image.getWidth();
@@ -50,7 +52,7 @@ public class Cookie extends Clickable
     /**
      * Animate sprite when `Cookie` is "clicked" by a `Clicker`
      */
-    public void click(Player player) {
+    public void click() {
         // if(animateCount == 0) {
         animateCount = ANIM_DURATION;
         image.scale(originalSize + ANIM_FACTOR, originalSize + ANIM_FACTOR);
@@ -59,8 +61,7 @@ public class Cookie extends Clickable
         player.changeCookieCount(cookiesPerClick);
     }
     /**
-     * Update the `Cookie`'s level and calculate `cookiesPerClick` accordingly
-     *
+     * Increase the `Cookie`'s level and calculate `cookiesPerClick` accordingly
      */
     public void levelUp() {
         if(level == maxLevel) {
@@ -71,25 +72,38 @@ public class Cookie extends Clickable
         updateImage();
     }
     
-    
+    /**
+     * @return int          Number of cookies per click, dependant on the Cookie's level
+     */
     private int calculateCookieOutput() {
         return (int)Math.pow(level, 3)*4; // **TEMPORARY algorithm placeholder; must create balanced algorithm for deciding how many cookies each click will award the player, based on level.
     }
     
+    /**
+     * Update the Cookie's image, depending on its `level`
+     */
     private void updateImage() {
         image = COOKIE_SPRITES[level-1];
         setImage(image);
-        // do things to update image visually
     }
     // - - - - - GETTERS - - - - - 
+    /**
+     * @return int          Cookie's current level
+     */
     public int getLevel() {
         return level;
     }
     
+    /**
+     * @return int          Number of cookies per click
+     */
     public int getCookieOutput() {
         return cookiesPerClick;
     }
     
+    /**
+     * @return GreenfootImage[]     Initialize an array of Cookie images
+     */
     private GreenfootImage[] getCookieImageArr() {
         GreenfootImage[] images = new GreenfootImage[COOKIE_FILES.length];
         for(int i=0;i<images.length;i++) {
