@@ -13,7 +13,6 @@ public abstract class Powerup extends SuperSmoothMover
     protected int actCount;
     protected Player target;  // Player that is affected by the Powerup
     
-    // public abstract void onClickButton();
     public Powerup(Player target) {
         this.target = target;
         actCount = 0;

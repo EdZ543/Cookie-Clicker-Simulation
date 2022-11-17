@@ -48,8 +48,6 @@ public class CookieWorld extends World
      *          }, 
      * }
      */
-   // Global font 
-    public static final String FONT_NAME = "Futura";
     
     public CookieWorld() throws MyException
     {   
@@ -106,7 +104,6 @@ public class CookieWorld extends World
         // - - - Draw Buttons - - -
         int btnX, btnY;
         for(int i=0;i<buyBuildingButtons.length;i++) {
-            // btnX = i == buyBuildingButtons.length-1 ? 595 : 495 + 100*(i%3);
             btnX = 495 + 100*(i%3);
             btnY = 110 + 84*(i/3);
             addObject(buyBuildingButtons[i], btnX, btnY);

@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Cookie extends Clickable
 {
     private int level;
+    private final int maxLevel = 10;
     private int cookiesPerClick;
     private int animateCount;
     private int originalSize;
@@ -32,7 +33,11 @@ public class Cookie extends Clickable
     {
         // !Uncomment for testing purposes
         // if(Greenfoot.mouseClicked(this)){
-            // click();
+            // if(animateCount == 0) {
+                // animateCount = ANIM_DURATION;
+                // image.scale(originalSize + ANIM_FACTOR, originalSize + ANIM_FACTOR);
+                // setImage(image);
+            // }
         // }
         if(animateCount > 0) {
             animateCount --;
@@ -46,39 +51,43 @@ public class Cookie extends Clickable
      * Animate sprite when `Cookie` is "clicked" by a `Clicker`
      */
     public void click(Player player) {
-        if(animateCount == 0) {
-            animateCount = ANIM_DURATION;
-            image.scale(originalSize + ANIM_FACTOR, originalSize + ANIM_FACTOR);
-            setImage(image);
-        }
+        // if(animateCount == 0) {
+        animateCount = ANIM_DURATION;
+        image.scale(originalSize + ANIM_FACTOR, originalSize + ANIM_FACTOR);
+        setImage(image);
+        // }
         player.changeCookieCount(cookiesPerClick);
     }
     /**
-     * Update the `Cookie`'s level to `int level` and calculate `cookiesPerClick` accordingly
-     * @param level           The cookie's new level
+     * Update the `Cookie`'s level and calculate `cookiesPerClick` accordingly
+     *
      */
-    public void updateLevel(int level) {
-        this.level = level;
+    public void levelUp() {
+        if(level == maxLevel) {
+            return;
+        }
+        level += 1;
         cookiesPerClick = calculateCookieOutput();
         updateImage();
     }
     
-    public int getLevel() {
-        return level;
-    }
-    
-    public int getCookieOutput() {
-        return cookiesPerClick;
-    }
     
     private int calculateCookieOutput() {
-        return level * 5; // **TEMPORARY algorithm placeholder; must create balanced algorithm for deciding how many cookies each click will award the player, based on level.
+        return (int)Math.pow(level, 3)*4; // **TEMPORARY algorithm placeholder; must create balanced algorithm for deciding how many cookies each click will award the player, based on level.
     }
     
     private void updateImage() {
         image = COOKIE_SPRITES[level-1];
         setImage(image);
         // do things to update image visually
+    }
+    // - - - - - GETTERS - - - - - 
+    public int getLevel() {
+        return level;
+    }
+    
+    public int getCookieOutput() {
+        return cookiesPerClick;
     }
     
     private GreenfootImage[] getCookieImageArr() {

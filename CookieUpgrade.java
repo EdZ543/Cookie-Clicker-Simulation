@@ -13,10 +13,10 @@ public class CookieUpgrade extends Powerup
     }
     
     public static void upgrade(Cookie cookie) {
-        
+        cookie.levelUp();
     }
     
-    public static void onClickButton() {
+    public static void click() {
         
     }
 }
