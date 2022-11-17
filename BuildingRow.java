@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
 
 /**
  * The rectangles in which the buildings will stay
@@ -12,7 +13,7 @@ public class BuildingRow extends Clickable
     private Class buildingType;
     private int spacing;
     private Player player;
-    
+    private ArrayList<Building> buildings = new ArrayList<Building>();
     
     /**
      * @param buildingType The class of building that will live in this row
@@ -33,21 +34,26 @@ public class BuildingRow extends Clickable
      * 
      */
     public void addBuilding(int x, int y) {
+        if (!isRoomLeft()) return;
+        
         try {
+            // Create the building
             Constructor<Building> c = buildingType.getConstructor(Player.class);
             Building building = c.newInstance(player);
-            getWorld().addObject(building, getX(), getY());
-        } catch(Exception e) {}
-    }
-    
-    /**
-     * Adds a building to this row, but it doesn't glide.
-     */
-    public void addBuilding() {
-        try {
-            Constructor<Building> c = buildingType.getConstructor(Player.class);
-            Building building = c.newInstance(player);
-            getWorld().addObject(building, getX(), getY());
+            getWorld().addObject(building, x, y);
+            
+            // Make the building move towards the appropriate position
+            int buildingX;
+            if (buildings.isEmpty()) {
+                int imageWidth = building.getImage().getWidth();
+                buildingX = getX() - (getImage().getWidth() / 2) + (imageWidth / 2);
+            } else {
+                buildingX = (int)buildings.get(buildings.size() - 1).getTargetX() + spacing;
+            }
+            building.startGlidingTo(buildingX, getY(), 15);
+            
+            // Add building to array
+            buildings.add(building);
         } catch(Exception e) {}
     }
     
@@ -63,5 +69,19 @@ public class BuildingRow extends Clickable
         ret.drawRect(0, 0, width, height);
         
         return ret;
+    }
+    
+    /**
+     * Returns whether this row has enough space for another building
+     */
+    public boolean isRoomLeft() {
+        if (buildings.isEmpty()) {
+            return true;
+        } else {
+            Building lastBuilding = buildings.get(buildings.size() - 1);
+            int buildingEdge = (int)lastBuilding.getTargetX() + spacing + (lastBuilding.getImage().getWidth() / 2);
+            int rowEdge = getX() + (getImage().getWidth() / 2);
+            return buildingEdge < rowEdge;
+        }
     }
 }

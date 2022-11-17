@@ -264,4 +264,18 @@ public abstract class SuperSmoothMover extends Clickable
             }
         }
     }
+    
+    /**
+     * Returns the X position that the object is gliding to
+     */
+    public double getTargetX() {
+        return targetX;
+    }
+    
+    /**
+     * Returns the Y position that the object is gliding to
+     */
+    public double getTargetY() {
+        return targetY;
+    }
 }

@@ -23,7 +23,7 @@ public class CookieWorld extends World
     
     private int clickers2 = 2; 
     private int cps2 = 2;
-    private int grandmas2 = 2;
+    private int grandmas2 = 20;
     
     // World variables
     private GreenfootImage background;
