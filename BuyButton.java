@@ -55,9 +55,8 @@ public class BuyButton extends Clickable
         // Handle Powerups
         } else {
             Powerup powerup = createPowerup(player);
-            // getWorld().addObject(powerup, 0, 0);
-            highlightDuration = 3;
-            // highlightDuration = powerup.getDuration() == 0 ? 0.5 : powerup.getDuration();
+            getWorld().addObject(powerup, 0, 0);
+            highlightDuration = powerup.getDuration() == 0 ? 0.5 : powerup.getDuration();
         }
         // Handle BuyButton highlighting
         colour = player.getColour() == "red" ? Color.RED : Color.BLUE;
@@ -87,7 +86,7 @@ public class BuyButton extends Clickable
     }
     
     /**
-     * Used by `click` method to create a new powerup
+     * Used by `click` method to create a new Powerup
      * @return Powerup          new instance of mySubclass, given mySubclass is a Powerup
      */
     private Powerup createPowerup(Player player) {

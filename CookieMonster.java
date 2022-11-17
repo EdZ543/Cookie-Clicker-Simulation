@@ -11,6 +11,9 @@ public class CookieMonster extends Sabotage
     public CookieMonster(Player origin) {
         super(origin);
     }
+    public void addedToWorld(World w) {
+        super.addedToWorld(w);
+    }
     
     public void act() {
         

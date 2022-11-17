@@ -13,6 +13,7 @@ public class Lag extends Sabotage
         duration = Greenfoot.getRandomNumber(3) + 3; // 3-5 seconds
     }
     public void addedToWorld(World w) {
+        super.addedToWorld(w);
         target.lagClickers(duration);
     }
     public void act() {

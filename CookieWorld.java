@@ -52,7 +52,6 @@ public class CookieWorld extends World
     public CookieWorld() throws MyException
     {   
         super(1200, 800, 1); 
-        
         // Drawing Order of Classes
         setPaintOrder(Clicker.class, Building.class, Powerup.class, CooldownBar.class, BuyButton.class, Label.class, BuildingRow.class, Cookie.class);
         // Set world background
