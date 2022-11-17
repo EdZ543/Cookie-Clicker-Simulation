@@ -11,10 +11,10 @@ public abstract class Powerup extends SuperSmoothMover
 {
     protected int duration;
     protected int actCount;
-    protected Player target;  // Player that is affected by the Powerup
+    protected Player origin;  // Player that activated the Powerup
     
-    public Powerup(Player target) {
-        this.target = target;
+    public Powerup(Player origin) {
+        this.origin = origin;
         actCount = 0;
     }
     /**
@@ -32,9 +32,9 @@ public abstract class Powerup extends SuperSmoothMover
         return duration;
     }
     /**
-     * @return Player       The player that gets affected by the powerup
+     * @return Player       The player that activated this powerup
      */
-    public Player getTarget() {
-        return target;
+    public Player getOriginPlayer() {
+        return origin;
     }
 }
