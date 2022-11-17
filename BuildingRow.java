@@ -29,7 +29,8 @@ public class BuildingRow extends Clickable
     }
     
     /**
-     * Adds a building to this row
+     * Adds a building to this row, which starts at an x and y position and glides over to the building row
+     * 
      */
     public void addBuilding(int x, int y) {
         try {
@@ -40,7 +41,7 @@ public class BuildingRow extends Clickable
     }
     
     /**
-     * Adds a building to this row, 
+     * Adds a building to this row, but it doesn't glide.
      */
     public void addBuilding() {
         try {

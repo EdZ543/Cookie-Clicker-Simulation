@@ -32,6 +32,10 @@ public abstract class SuperSmoothMover extends Clickable
     private double exactY;
     private double rotation;
     private boolean staticRotation = false;
+    
+    protected double targetX, targetY;
+    protected boolean gliding = false;
+    protected double glideSpeed;
 
     /**
      * Move forward by the specified distance.
@@ -226,13 +230,38 @@ public abstract class SuperSmoothMover extends Clickable
       }
     }
     
-    public void moveTowards(int x, int y, int distance) {
-        turnTowards(x, y);
+    /**
+     * Lets the actor move towards a point without turning.
+     */
+    public void moveTowards(double x, double y, double distance) {
+        turnTowards((int)x, (int)y);
         move(distance);
         setRotation(0);
     }
     
-    public double distanceTo(int x, int y) {
+    public double distanceTo(double x, double y) {
         return Math.sqrt(Math.pow(x - getX(), 2) + Math.pow(y - getY(), 2));
+    }
+    
+    /**
+     * Makes actor start to glide over to a certain point
+     */
+    public void startGlidingTo(double x, double y, double speed) {
+        targetX = x;
+        targetY = y;
+        glideSpeed = speed;
+        gliding = true;
+    }
+    
+    public void act() {
+        if (gliding) {
+            moveTowards(targetX, targetY, glideSpeed);
+        
+            // If it's close enough to the target, stop gliding
+            if (distanceTo(targetX, targetY) <= glideSpeed) {
+                setLocation(targetX, targetY);
+                gliding = false;
+            }
+        }
     }
 }

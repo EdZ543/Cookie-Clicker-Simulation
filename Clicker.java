@@ -13,9 +13,10 @@ public class Clicker extends SuperSmoothMover
     private GreenfootImage image;
     private GreenfootImage laggingImage = new GreenfootImage("lag.gif");
     private int[] targetPoint;
-    private boolean clicking = false;
+    private boolean glidingOrClicking = false;
     private int clickCount = 0;
     private int speed;
+    private int clickingAnimationTimer = 0;
 
     /**
      * @param player The player that the clicker belongs to
@@ -43,6 +44,8 @@ public class Clicker extends SuperSmoothMover
      */
     public void act()
     {
+        super.act();
+        
         // Change image and freeze if lagging out
         if (lagTimer > 0) {
             if (lagTimer == 1) {
@@ -52,15 +55,20 @@ public class Clicker extends SuperSmoothMover
             lagTimer--;
         }
         
-        if (clicking) {
-            moveTowards(targetPoint[0], targetPoint[1], speed);
-            setRotation(0);
-        
-            if (distanceTo(targetPoint[0], targetPoint[1]) <= speed) {
-                setLocation(targetPoint[0], targetPoint[1]);
+        if (glidingOrClicking && !gliding) {
+            clickingAnimationTimer++;
+            
+            if (clickingAnimationTimer == 10) { // Shrink cursor, and click
+                image.scale(20, 30);
+                setImage(image);
+                
                 Clickable object = (Clickable)getOneObjectAtOffset(getX(), getY(), Clickable.class);
-                if (object != null) object.click(player);
-                clicking = false;
+                //if (object != null) object.click(player);
+            } else if (clickingAnimationTimer == 20) { // Unshrink cursor
+                image.scale(30, 40);
+                setImage(image);
+                clickingAnimationTimer = 0;
+                glidingOrClicking = false;
             }
         }
     }
@@ -78,9 +86,10 @@ public class Clicker extends SuperSmoothMover
     /**
      * Makes cursor glide to a actor and then click
      */
-    public void click(Actor actor) {
-        targetPoint = getRandomPointOnActor(actor);
-        clicking = true;
+    public void glideAndClick(Actor actor) {
+        int[] position = getRandomPointOnActor(actor);
+        startGlidingTo(position[0], position[1], speed);
+        glidingOrClicking = true;
     }
     
     /**
@@ -100,9 +109,9 @@ public class Clicker extends SuperSmoothMover
     }
     
     /**
-     * Returns whether the cursor is currently moving towards a position in order to click it
+     * Returns whether the cursor is currently moving towards a position or clicking it
      */
-    public boolean clicking() {
-        return clicking;
+    public boolean glidingOrClicking() {
+        return glidingOrClicking;
     }
 }
