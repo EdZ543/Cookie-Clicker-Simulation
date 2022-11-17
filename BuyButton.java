@@ -55,8 +55,9 @@ public class BuyButton extends Clickable
         // Handle Powerups
         } else {
             Powerup powerup = createPowerup(player);
-            getWorld().addObject(powerup, 0, 0);
-            highlightDuration = powerup.getDuration() == 0 ? 0.5 : powerup.getDuration();
+            // getWorld().addObject(powerup, 0, 0);
+            highlightDuration = 3;
+            // highlightDuration = powerup.getDuration() == 0 ? 0.5 : powerup.getDuration();
         }
         // Handle BuyButton highlighting
         colour = player.getColour() == "red" ? Color.RED : Color.BLUE;
