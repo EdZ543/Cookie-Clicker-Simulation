@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Sabotage here.
+ * Sabotages are powerups which affect the opponent (target) of its activator (origin)
  * 
  * @author Caden Chan
  * @version 2022.11.02
