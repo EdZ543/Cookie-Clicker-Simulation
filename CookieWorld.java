@@ -258,8 +258,8 @@ public class CookieWorld extends World
         return map;
     }
     // used for testing
-    // public Player getP1() {
-        // return p1;
-    // }
+    public Player getP1() {
+        return p1;
+    }
     
 }
