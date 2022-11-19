@@ -17,13 +17,8 @@ public class AlchemyLab extends Building
     public void act() {
         super.act();
         if (actCount == actMark) {
-            produceCookies();    
-            actMark = getNextActMark(5, 10);
+            produce(500, 1000);    
+            actMark = getNextActMark(2, 3);
         }
-    }
-    
-    public void produceCookies() {
-        int produced = getRandomNumberInRange(500, 1000);    
-        player.changeCookieCount(produced);
     }
 }

@@ -3,22 +3,45 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Building here.
  * 
- * @author Eddie Zhuang
+ * @author Patrick Hu
  * @version November 2022
  */
 public abstract class Building extends SuperSmoothMover
 {
+    protected static boolean LUCKY = false;
+    
     protected Player player;
-    protected int actCount = 0;
-    protected int actMark = 10;
+    protected int actCount;
+    protected int actMark;
     
     public Building(Player player) {
         this.player = player;
+        actCount = 0;
+        actMark = 1;
     }
     
     public void act() {
         super.act();
         actCount++;
+    }
+    
+    /**
+     * Changes player's cookie count by amount this building will produce.
+     * If lucky clover powerup is active, will produce upper bound of range specified.
+     * 
+     * @param start     lower bound of the range of production
+     * @param end       upper bound of the range of production
+     */
+    public void produce(int start, int end) {
+        int amount;
+        if (Building.LUCKY) {
+            amount = end;
+        }
+        else {
+            amount = getRandomNumberInRange(start, end);
+        }
+        
+        player.changeCookieCount(amount);
     }
     
     /**

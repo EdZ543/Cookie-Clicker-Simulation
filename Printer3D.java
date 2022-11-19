@@ -17,13 +17,8 @@ public class Printer3D extends Building
     public void act() {
         super.act();
         if (actCount == actMark) {
-            printCookies();
-            getNextActMark(4, 4);
+            produce(650, 900);
+            getNextActMark(2, 3);
         }
-    }
-    
-    public void printCookies() {
-        int amount = getRandomNumberInRange(1800, 2400);    
-        player.changeCookieCount(amount);
     }
 }

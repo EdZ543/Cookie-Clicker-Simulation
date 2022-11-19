@@ -1,8 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The heavens bless the player with 100,000 cookies per 10 seconds
- * 
+ *  
  * @author Patrick Hu
  * @version November 2022
  */
@@ -14,16 +13,11 @@ public class CookieGod extends Building
         setImage("./images/placeholder/cookie-god.png");
     }
     
-    public void act()
-    {
+    public void act() {
         super.act();
         if (actCount == actMark) {
-            bless();
-            actMark = getNextActMark(10, 10);
+            produce(9000, 9000);
+            actMark = getNextActMark(2, 3);
         }
-    }
-    
-    public void bless() {
-        player.changeCookieCount(100000);
     }
 }
