@@ -40,7 +40,7 @@ public class Description extends Clickable
 
 /*
  * Colours used in the description:
- * Brown: #875111
  * Blue: #4086fa
  * Green: #1b9902
+ * Pink: #f0129a
  */
