@@ -1,13 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.HashMap;
 import java.util.ArrayList;
+
 /**
- * Write a description of class MilkBottles here.
+ * 
  * 
  * @author Caden Chan
- * @version 2022.11.02
+ * @version November 2022
  */
-public class MilkBottles extends Powerup
+public class MilkBottles extends Sabotage
 {
     private int startX, startY;
     public MilkBottles(Player origin) {

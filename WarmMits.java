@@ -1,14 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Clickers are moisturized. They click twice as fast.
+ * Warm mittens make clickers click faster.
  * 
  * @author Jonathan Zhao
- * @version 1.0 (November 1)
+ * @version November 2022
  */
-public class HandCream extends Powerup
+public class WarmMits extends Powerup
 {
-    public HandCream(Player origin) {
+    public WarmMits(Player origin) {
         super(origin);
     }
     

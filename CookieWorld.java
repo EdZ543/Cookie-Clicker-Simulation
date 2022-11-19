@@ -70,15 +70,15 @@ public class CookieWorld extends World
         // Initialize powerup hashmap
         powerupMap = new LinkedHashMap<Class, HashMap<String, Object>>();
         powerupMap.put(CookieUpgrade.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Upgrade", 100}));
-        powerupMap.put(GingerbreadMan.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Gingerbread Man", 100}));
-        powerupMap.put(HandCream.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Hand Cream", 100}));
+        powerupMap.put(WarmMits.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Warm Mits", 100}));
         powerupMap.put(LuckyClover.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lucky Clover", 100}));
-        powerupMap.put(MilkBottles.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Milk Bottles", 100}));
+        powerupMap.put(ExtraExpensiveFilament.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Extra Expensive Filament", 100}));
         powerupMap.put(ReverseDementia.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Reverse Dementia", 100}));
+        // Sabotages
         powerupMap.put(CookieMonster.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Monster", 100}));
         powerupMap.put(GrandmaRevolution.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Grandma Revolution", 100}));
         powerupMap.put(Lag.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lag", 100}));
-        powerupMap.put(StealShipment.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Steal Shipment", 100}));
+        powerupMap.put(MilkBottles.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Milk Bottles", 100}));
         
         // - - - Initialize BuyButton arrays - - -
         // Building Buttons
@@ -109,8 +109,8 @@ public class CookieWorld extends World
             addObject(buyBuildingButtons[i], btnX, btnY);
         }
         for(int i=0;i<buyPowerupButtons.length;i++) {
-            btnX = buyPowerupButtons.length - i < 3 ? 546 + 100*(i%2) : 495 + 100*(i%3);
-            btnY = 350 + 84*(i/3);
+            btnX = 546 + 100*(i%2);
+            btnY = 350 + 84*(i/2);
             addObject(buyPowerupButtons[i], btnX, btnY);
         }
         for(int i=0;i<buySabotageButtons.length;i++) {
