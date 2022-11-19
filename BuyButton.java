@@ -22,6 +22,9 @@ public class BuyButton extends Clickable
     protected GreenfootImage image;
     // Clicked animation
     protected int clickedCount;
+    // Buy Button's description of item
+    protected Description desc;
+    protected boolean isBeingHovered;
     /**
      * @param mySubclass            The subclass of Building or Powerup that is created or activated by this button
      * @param name                  The name of the Building or Powerup
@@ -32,15 +35,17 @@ public class BuyButton extends Clickable
         this.name = name;
         this.cost = cost;
         clickedCount = 0;
+        isBeingHovered = false;
     }
+
     public void addedToWorld(World w) {
         // set up button image
         icnFile = "buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png";
         image = createImage();
         setImage(image);
-        
+
     }
-    
+
     /**
      * Simulate button being clicked by a player. Create building or activate powerup on click
      * 
@@ -54,7 +59,7 @@ public class BuyButton extends Clickable
         if(Building.class.isAssignableFrom(mySubclass)) {
             player.addBuilding(getX(), getY(), mySubclass);
             highlightDuration = 0.5;
-        // Handle Powerups
+            // Handle Powerups
         } else {
             Powerup powerup = createPowerup(player);
             getWorld().addObject(powerup, 0, 0);
@@ -68,12 +73,22 @@ public class BuyButton extends Clickable
         image.scale(60, 60);
         setImage(image);
     }
+
     /**
      * Show button description when user hovers their cursor over the button
      */
-    public void hover() {
-        
+    public void checkHover() {
+        if (Greenfoot.mouseMoved(this) && !isBeingHovered) {
+            desc = new Description(mySubclass);
+            getWorld().addObject(desc, getX(), getY() + getImage().getHeight() + 32);
+            isBeingHovered = true;
+        }            
+        if (Greenfoot.mouseMoved(null) && !Greenfoot.mouseMoved(this)) {
+            isBeingHovered = false;
+            getWorld().removeObject(desc);            
+        }
     }
+
     public void act() {
         if(cooldown > 0) {
             cooldown --;
@@ -93,14 +108,17 @@ public class BuyButton extends Clickable
             image.scale(70, 70);
             setImage(image);
         }
+        
+        checkHover();
     }
+
     /**
      * @return Class        Subclass of Building or Powerup, purchased through this button.
      */
     public Class getMySubclass() {
         return mySubclass;
     }
-    
+
     /**
      * Used by `click` method to create a new Powerup
      * @return Powerup          new instance of mySubclass, given mySubclass is a Powerup
@@ -112,13 +130,14 @@ public class BuyButton extends Clickable
         } catch(Exception e) {}
         return null;
     }
-    
+
     /**
      * @return int      Cost, in cookies, to use button
      */
     public int getCost() {
         return cost;    
     }
+
     /**
      * Create the button's image upon instantiation, and whenever 
      * the click animation is over, to work around poor image quality from GreenfootImage.scale().
