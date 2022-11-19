@@ -3,10 +3,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class BottleOfMilk here.
  * 
- * @author (Caden Chan) 
- * @version (a version number or a date)
+ * @author Caden Chan
+ * @version 2022.11.19
  */
-public class BottleOfMilk extends SuperSmoothMover
+public class BottleOfMilk extends Effect
 {
     private int startX, startY, endX, endY;
     private Baby baby;
