@@ -13,6 +13,8 @@ public class ReverseDementia extends Powerup
     public ReverseDementia(Player origin) {
         super(origin);
     }
+    public void addedToWorld(World w) {
+    }
     public void act()
     {
         // Add your action code here.
