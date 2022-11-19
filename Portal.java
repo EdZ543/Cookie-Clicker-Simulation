@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Transports cookies from another dimension
- * Every 5-10 seconds, produces 50-100 cookies
+ * Transports cookies from another the Cookie-verse.
  * 
- * @author Eddie Zhuang
+ * @author Patrick Hu
  * @version November 2022
  */
 public class Portal extends Building
@@ -13,12 +12,11 @@ public class Portal extends Building
         super(player);
     }
     
-    public void act()
-    {
+    public void act() {
         super.act();
         if (actCount == actMark) {
-            player.changeCookieCount(getRandomNumberInRange(50, 100));
-            actMark = getNextActMark(10, 20);
+            produce(2000, 4000);
+            actMark = getNextActMark(3, 3);
         }
     }
 }

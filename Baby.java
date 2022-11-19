@@ -19,15 +19,22 @@ public class Baby extends Building
         super.act();
         if (actCount == actMark) {
             eat();
-            actMark = getNextActMark(10, 20);
+            actMark = getNextActMark(3, 3);
         }
     }
     
     /**
-     * Eats (takes) 20-40 cookies from the other player.
+     * Eats(removes) 20-40 cookies from the other player.
      */
-    public void eat() {
-        int amountToEat = getRandomNumberInRange(20, 40);
+    public void eat() {        
+        int amountToEat;
+        if (Building.LUCKY) {
+            amountToEat = 70;
+        }
+        else {
+            amountToEat = getRandomNumberInRange(50, 70);   
+        }
+        
         CookieWorld cw = (CookieWorld)getWorld();
         Player otherPlayer = cw.getOtherPlayer(player);
         otherPlayer.changeCookieCount(-amountToEat);

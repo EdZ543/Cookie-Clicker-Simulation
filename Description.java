@@ -20,12 +20,27 @@ public class Description extends Clickable
             case "Baby":
                 setImage("./images/descriptions/baby.png");
                 break;
+            case "AlchemyLab":
+                setImage("./images/descriptions/alchemy-lab.png");
+                break;
+            case "Printer3D":
+                setImage("./images/descriptions/printer3D.png");
+                break;
+            case "Portal":
+                setImage("./images/descriptions/portal.png");
+                break;
+            case "CookieGod":
+                setImage("./images/descriptions/cookie-god.png");
+                break;
         }
         
         getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
     }
-    
-    public void act() {
-        
-    }
 }
+
+/*
+ * Colours used in the description:
+ * Blue: #4086fa
+ * Green: #1b9902
+ * Pink: #f0129a
+ */
