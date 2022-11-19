@@ -22,9 +22,8 @@ public class BuyButton extends Clickable
     protected GreenfootImage image;
     // Clicked animation
     protected int clickedCount;
-    // Buy Button's description of item
-    protected Description desc;
-    protected boolean isBeingHovered;
+    // Hover Area for the showing of Descriptions
+    HoverArea hover;
     /**
      * @param mySubclass            The subclass of Building or Powerup that is created or activated by this button
      * @param name                  The name of the Building or Powerup
@@ -35,7 +34,7 @@ public class BuyButton extends Clickable
         this.name = name;
         this.cost = cost;
         clickedCount = 0;
-        isBeingHovered = false;
+        hover = new HoverArea(this);
     }
 
     public void addedToWorld(World w) {
@@ -43,7 +42,8 @@ public class BuyButton extends Clickable
         icnFile = "buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png";
         image = createImage();
         setImage(image);
-
+        // add HoverArea
+        getWorld().addObject(hover, getX(), getY());
     }
 
     /**
@@ -59,7 +59,7 @@ public class BuyButton extends Clickable
         if(Building.class.isAssignableFrom(mySubclass)) {
             player.addBuilding(getX(), getY(), mySubclass);
             highlightDuration = 0.5;
-            // Handle Powerups
+        // Handle Powerups
         } else {
             Powerup powerup = createPowerup(player);
             getWorld().addObject(powerup, 0, 0);
@@ -71,22 +71,7 @@ public class BuyButton extends Clickable
         getWorld().addObject(highlight, getX(), getY());
         clickedCount = 20;
         image.scale(60, 60);
-        setImage(image);
-    }
-
-    /**
-     * Show button description when user hovers their cursor over the button
-     */
-    public void checkHover() {
-        if (Greenfoot.mouseMoved(this) && !isBeingHovered) {
-            desc = new Description(mySubclass);
-            getWorld().addObject(desc, getX(), getY() + getImage().getHeight() + 32);
-            isBeingHovered = true;
-        }            
-        if (Greenfoot.mouseMoved(null) && !Greenfoot.mouseMoved(this)) {
-            isBeingHovered = false;
-            getWorld().removeObject(desc);            
-        }
+        setImage(image);  // helps maintain button image quality
     }
 
     public void act() {
@@ -109,8 +94,6 @@ public class BuyButton extends Clickable
             image.scale(70, 70);
             setImage(image);
         }
-        
-        checkHover();
     }
 
     /**

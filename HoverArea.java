@@ -1,0 +1,49 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Tracks the user's cursor. When the user touches this Actor, it will show the corresponding Description.
+ * Used to show the Description of a BuyButton.
+ * 
+ * @author Patrick Hu 
+ * @version November 2022
+ */
+public class HoverArea extends Actor
+{
+    // Buy Button's description of item
+    private Description desc;
+    private int x, y;
+    private boolean isBeingHovered;
+    private Class itemClass;
+    private BuyButton btn;
+    public HoverArea(BuyButton btn) {
+        this.btn = btn;
+        this.itemClass = btn.getMySubclass();
+        isBeingHovered = false;
+    }
+    public void addedToWorld(World w) {
+        x = btn.getX();
+        y = btn.getY();
+        setLocation(x, y);
+        setImage(new GreenfootImage(btn.getImage().getWidth(), btn.getImage().getHeight()));  // empty image
+    }
+
+    public void act()
+    {
+        checkHoverBuyButton();
+    }
+    /**
+     * Show button description when user hovers their cursor over the button
+     */
+    public void checkHoverBuyButton() {
+        if (Greenfoot.mouseMoved(this) && !isBeingHovered) {
+            desc = new Description(itemClass);
+            int descY = y < 600 ? y + getImage().getHeight() + 32 : y -getImage().getHeight() - 32;
+            getWorld().addObject(desc, x, descY);
+            isBeingHovered = true;
+        }            
+        if (Greenfoot.mouseMoved(null) && !Greenfoot.mouseMoved(this)) {
+            isBeingHovered = false;
+            getWorld().removeObject(desc);            
+        }
+    }
+}
