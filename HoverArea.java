@@ -37,8 +37,9 @@ public class HoverArea extends Actor
     public void checkHoverBuyButton() {
         if (Greenfoot.mouseMoved(this) && !isBeingHovered) {
             desc = new Description(itemClass);
-            int descY = y < 600 ? y + getImage().getHeight() + 32 : y -getImage().getHeight() - 32;
-            getWorld().addObject(desc, x, descY);
+            int descX = x < 1200 - desc.getImage().getWidth()/2 ? x : 1200-desc.getImage().getWidth()/2;   // check if desc is too far right
+            int descY = y < 600 ? y + getImage().getHeight() + 32 : y - getImage().getHeight() - 32; // check if desc is too far down
+            getWorld().addObject(desc, descX, descY);
             isBeingHovered = true;
         }            
         if (Greenfoot.mouseMoved(null) && !Greenfoot.mouseMoved(this)) {

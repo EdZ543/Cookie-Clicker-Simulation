@@ -86,7 +86,7 @@ public class BuyButton extends Clickable
             }
         }
         // test method
-        if(Greenfoot.mouseClicked(this)) {
+        if(Greenfoot.mouseClicked(hover)) {
             // click(((CookieWorld)getWorld()).getP1());
             CooldownBar x = new CooldownBar((int)(getImage().getWidth()*0.9+1), getImage().getHeight(), Color.BLUE, 3);
             getWorld().addObject(x, getX(), getY());
