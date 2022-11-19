@@ -53,7 +53,7 @@ public class CookieWorld extends World
     {   
         super(1200, 800, 1); 
         // Drawing Order of Classes
-        setPaintOrder(Clicker.class, Description.class, Building.class, Powerup.class, CooldownBar.class, BuyButton.class, Label.class, BuildingRow.class, Cookie.class);
+        setPaintOrder(Clicker.class, Description.class, BottleOfMilk.class, Building.class, Powerup.class, CooldownBar.class, BuyButton.class, Label.class, BuildingRow.class, Cookie.class);
         // Set world background
         background = new GreenfootImage("background0.png");
         setBackground(background);
@@ -214,6 +214,14 @@ public class CookieWorld extends World
         }
         return buttons;
     }
+    public BuyButton getPowerupButton(Class powerupClass) {
+        for(BuyButton btn: buyPowerupButtons) {
+            if(btn.getMySubclass() == powerupClass) {
+                return btn;
+            }
+        }
+        return null;
+    }
     /**
      * Return ArrayList of Building subclasses from `buildingMap`
      * 
@@ -249,5 +257,9 @@ public class CookieWorld extends World
         }
         return map;
     }
+    // used for testing
+    // public Player getP1() {
+        // return p1;
+    // }
     
 }
