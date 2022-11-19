@@ -53,7 +53,7 @@ public class CookieWorld extends World
     {   
         super(1200, 800, 1); 
         // Drawing Order of Classes
-        setPaintOrder(Clicker.class, HoverArea.class, Description.class, BottleOfMilk.class, Effect.class, Building.class, Powerup.class, CooldownBar.class, BuyButton.class, Label.class, BuildingRow.class, Cookie.class);
+        setPaintOrder(Lag.class, Clicker.class, HoverArea.class, Description.class, BottleOfMilk.class, Effect.class, Building.class, Powerup.class, CooldownBar.class, BuyButton.class, Label.class, BuildingRow.class, Cookie.class);
         // Set world background
         background = new GreenfootImage("background0.png");
         setBackground(background);
