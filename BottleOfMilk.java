@@ -48,7 +48,7 @@ public class BottleOfMilk extends Effect
         y += viy;
         x += vix;
         viy += ay;
-        if(this.intersects(baby)) {
+        if(baby.getWorld() == null || y > baby.getY()) {
             // baby.giveMilk();
             getWorld().removeObject(this);
             return;

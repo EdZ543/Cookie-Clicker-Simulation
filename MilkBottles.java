@@ -10,16 +10,18 @@ import java.util.ArrayList;
 public class MilkBottles extends Powerup
 {
     private int startX, startY;
+    private Player otherPlayer;
     public MilkBottles(Player origin) {
         super(origin);
     }
     public void addedToWorld(World w) {
         CookieWorld cw = ((CookieWorld)getWorld());
+        otherPlayer = cw.getOtherPlayer(origin);
         BuyButton btn = cw.getPowerupButton(MilkBottles.class);
         startX = btn.getX();
         startY = btn.getY();
         
-        HashMap<Class, BuildingRow> buildingRows = origin.getBuildingRows();
+        HashMap<Class, BuildingRow> buildingRows = otherPlayer.getBuildingRows();
         BuildingRow babyBuildingRow = buildingRows.get(Baby.class);
         ArrayList<Baby> babyBuildings = (ArrayList<Baby>)(ArrayList<?>)babyBuildingRow.getBuildings();
         for(Baby b: babyBuildings) {
