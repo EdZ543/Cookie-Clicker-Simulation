@@ -60,12 +60,13 @@ public class CookieWorld extends World
         // - - - Prepare world data - - -
         // Initialize building hashmap
         buildingMap = new LinkedHashMap<Class, HashMap<String, Object>>();
-        buildingMap.put(AlchemyLab.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Alchemy Lab", 100}));
-        buildingMap.put(Baby.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Baby", 100}));
-        buildingMap.put(CookieGod.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie God", 100}));
         buildingMap.put(Grandma.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Grandma", 100}));
-        buildingMap.put(Portal.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Portal", 100}));
-        buildingMap.put(Printer3D.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"3D Printer", 100}));
+        buildingMap.put(Baby.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Baby", 300}));
+        buildingMap.put(AlchemyLab.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Alchemy Lab", 1000}));
+        buildingMap.put(Printer3D.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"3D Printer", 3500}));
+        buildingMap.put(Portal.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Portal", 7500}));
+        buildingMap.put(CookieGod.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie God", 15000}));
+        
         // Initialize powerup hashmap
         powerupMap = new LinkedHashMap<Class, HashMap<String, Object>>();
         powerupMap.put(CookieUpgrade.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Upgrade", 100}));

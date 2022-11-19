@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public abstract class Building extends SuperSmoothMover
 {
     protected Player player;
-    protected BuildingRow buildingRow; // the building row this building belongs to
     protected int actCount = 0;
     protected int actMark = 10;
     
