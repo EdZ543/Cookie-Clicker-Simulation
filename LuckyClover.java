@@ -13,13 +13,13 @@ public class LuckyClover extends Powerup
     }
     
     public void addedToWorld(World w) {
-        // Building.LUCKY = true;
+        Building.LUCKY = true;
     }
         
     public void act() {
         actCount ++;
         if(actCount == duration*60) {
-            // Building.LUCKY = false;
+            Building.LUCKY = false;
             getWorld().removeObject(this);
         }
     }
