@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class LuckyClover extends Powerup
 {
     private GreenfootImage image;
+    private int rotationCount;
     public LuckyClover(Player origin) {
         super(origin);
         image = new GreenfootImage("effect/luckyclover0.png");
@@ -16,6 +17,7 @@ public class LuckyClover extends Powerup
         image.setTransparency(180);
         duration = 6 + Greenfoot.getRandomNumber(3); // random duration from 6-8
         actCount = duration*60;
+        rotationCount = 0;
     }
     
     public void addedToWorld(World w) {
@@ -24,6 +26,10 @@ public class LuckyClover extends Powerup
     }
         
     public void act() {
+        if(actCount % 3 == 0) {
+            setRotation(rotationCount);
+            rotationCount+=3;
+        }
         if(actCount%25 == 0) {
             addSparkle();
         }
