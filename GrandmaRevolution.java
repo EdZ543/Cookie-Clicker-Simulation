@@ -21,7 +21,6 @@ public class GrandmaRevolution extends Sabotage
     
     public void act() {
         actCount ++;
-        animate();
         if(actCount == duration*60) {
             getWorld().removeObject(this);
             return;
@@ -29,22 +28,24 @@ public class GrandmaRevolution extends Sabotage
     }
     
     private void angerGrandmas() {
-        HashMap<Class, BuildingRow> buildingRows = target.getBuildingRows();
-        BuildingRow grandmaBuildingRow = buildingRows.get(Grandma.class);
-        ArrayList<Grandma> grandmaBuildings = (ArrayList<Grandma>)(ArrayList<?>)grandmaBuildingRow.getBuildings();
-        // grandmaBuildings.removeIf(g -> g.isAngry());
+        ArrayList<Grandma> grandmaBuildings = getGrandmaBuildings();
+        grandmaBuildings.removeIf(g -> g.isAngry());
         if(grandmaBuildings.size() == 0) {
             return;
         }
-        int angerCount = (int)(grandmaBuildings.size() * percent / 100.0);
+        int angerCount = (int)(grandmaBuildings.size() * (percent / 100.0));
         angerCount = angerCount == 0 ? 1 : angerCount;  // at least 1 grandma will be angered
         for(int i=0;i<angerCount;i++) {
+            System.out.println("hi");
             int idx = Greenfoot.getRandomNumber(grandmaBuildings.size());
-            // grandmaBuildings.get(idx).setAngry(true);
+            grandmaBuildings.get(idx).setAngry(true);
             grandmaBuildings.remove(idx);
         }
     }
-    private void animate() {
-        // show icon to indicate that some grandmas have been angered --> fade over time. change grandma sprites as well?
+    private ArrayList<Grandma> getGrandmaBuildings() {
+        HashMap<Class, BuildingRow> buildingRows = target.getBuildingRows();
+        BuildingRow grandmaBuildingRow = buildingRows.get(Grandma.class);
+        return (ArrayList<Grandma>)(ArrayList<?>)grandmaBuildingRow.getBuildings();
+        
     }
 }
