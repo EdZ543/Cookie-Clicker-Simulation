@@ -18,7 +18,7 @@ public class MilkBottles extends Sabotage
     public void addedToWorld(World w) {
         CookieWorld cw = ((CookieWorld)getWorld());
         otherPlayer = cw.getOtherPlayer(origin);
-        BuyButton btn = cw.getPowerupButton(MilkBottles.class);
+        BuyButton btn = cw.getSabotageButton(MilkBottles.class);
         startX = btn.getX();
         startY = btn.getY();
         

@@ -215,9 +215,9 @@ public class CookieWorld extends World
         }
         return buttons;
     }
-    public BuyButton getPowerupButton(Class powerupClass) {
-        for(BuyButton btn: buyPowerupButtons) {
-            if(btn.getMySubclass() == powerupClass) {
+    public BuyButton getSabotageButton(Class sabotageClass) {
+        for(BuyButton btn: buySabotageButtons) {
+            if(btn.getMySubclass() == sabotageClass) {
                 return btn;
             }
         }
