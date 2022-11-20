@@ -3,10 +3,10 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 /**
- * 
+ * Send <code>BottleOfMilk</code>'s to the opponent's babies, neutralizing them
  * 
  * @author Caden Chan
- * @version November 2022
+ * @version 2022.11.19
  */
 public class MilkBottles extends Sabotage
 {

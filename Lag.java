@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Player's wifi becomes destabilized, and their clickers become debilitated for 3-5 seconds
  * 
  * @author Caden Chan
- * @version 2022.11.02
+ * @version 2022.11.19
  */
 public class Lag extends Sabotage
 {

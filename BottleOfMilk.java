@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BottleOfMilk here.
+ * Produced by the <code>MilkBottles Powerup </code>. Triggers <code>giveMilk()</code> method in <code>Baby</code>
  * 
  * @author Caden Chan
  * @version 2022.11.19
