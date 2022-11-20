@@ -225,13 +225,6 @@ public class CookieWorld extends World
         return new ArrayList<Class>(powerupMap.keySet());
     }
     
-    // public void updateCookieUpgradeCost(Player player) {
-        // if(player == p1) {
-            // cookieUpgradeButtons[0].setCost(player.getCookie().getUpgradeCost());
-        // } else {
-            // cookieUpgradeButtons[1].setCost(player.getCookie().getUpgradeCost());
-        // }
-    // }
     public BuyButton getPlayerUpgradeButton(Player player) {
         if(player == p1) {
             return cookieUpgradeButtons[0];
@@ -265,7 +258,7 @@ public class CookieWorld extends World
         toggleButton(cookieUpgradeButtons[1], p2.getCookieCount());
         toggleButton(winButton, maxCookies);
     }
-    private void toggleButton(BuyButton btn, int cookieCount) {
+    public void toggleButton(BuyButton btn, int cookieCount) {
         boolean state = cookieCount > btn.getCost();
         if(btn.isActive() != state && !btn.isMaxedOut()) {
             btn.setActive(state);

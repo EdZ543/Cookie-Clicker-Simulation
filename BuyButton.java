@@ -23,6 +23,7 @@ public class BuyButton extends Clickable
     protected int clickedCount;
     // Hover Area for the showing of Descriptions
     HoverArea hover;
+    Player lastPlayer;
     /**
      * @param mySubclass            The subclass of Building or Powerup that is created or activated by this button
      * @param name                  The name of the Building or Powerup
@@ -36,6 +37,7 @@ public class BuyButton extends Clickable
         hover = new HoverArea(this);
         active = true;
         maxedOut = false;
+        lastPlayer = null;
     }
 
     public void addedToWorld(World w) {
@@ -83,6 +85,7 @@ public class BuyButton extends Clickable
         
         // Charge player for purchase
         player.changeCookieCount(-cost);
+        lastPlayer = player;
     }
 
     public void act() {
@@ -93,7 +96,8 @@ public class BuyButton extends Clickable
             clickedCount --;
             if(clickedCount == 0) {
                 activeImage = new GreenfootImage("buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png"); //maintain image quality
-                setActive(!maxedOut);  // if maxedOut after click, stay inactive. otherwise, make active again (which will then change depending on `handleActiveStateButtons()` in `CookieWorld`
+                ((CookieWorld)getWorld()).toggleButton(this, lastPlayer.getCookieCount());
+                // setActive(true);  // if maxedOut after click, stay inactive. otherwise, make active again (which will then change depending on `handleActiveStateButtons()` in `CookieWorld`
             }
         }
         // test method
@@ -154,7 +158,8 @@ public class BuyButton extends Clickable
         }
         maxedOut = maxed;
         if(maxed) {
-            GreenfootImage maxImage = new GreenfootImage(getImage().getWidth(), getImage().getHeight());
+            GreenfootImage maxIcon = new GreenfootImage("buybutton-icns/max.png");
+            GreenfootImage maxImage = new GreenfootImage(maxIcon.getWidth(), maxIcon.getWidth());
             maxImage.drawImage(new GreenfootImage("buybutton-icns/max.png"), 0, 30);
             maxImage.setTransparency(230);
             hover.setImage(maxImage);
