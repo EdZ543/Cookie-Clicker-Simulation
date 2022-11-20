@@ -11,12 +11,15 @@ public class Grandma extends Building
 {
     private boolean angry;
     private int angryCount;
+    private GreenfootImage angryGranny;
     
     public Grandma(Player player) {
         super(player);
         animationSize = 5;
         scale = 0.53;
         angry = false;
+        angryGranny = new GreenfootImage("./images/angry-grandma.png");
+        angryGranny.scale((int)(angryGranny.getWidth() * scale), (int)(angryGranny.getHeight() * scale));
     }
     
     public void act() {
@@ -29,9 +32,10 @@ public class Grandma extends Building
                 setRotation(90);  // jump up
             } else {
                 setRotation(270);  // fall back down
-            }        
+            }
             move(2); // jumping speed
             setRotation(0);
+            setImage(angryGranny);
             // when Grandma is angry, she begins violently destroying cookies
             if(actCount == actMark) {
                 player.changeCookieCount(-getRandomNumberInRange(20, 40)); // remove 20 to 40 cookies
