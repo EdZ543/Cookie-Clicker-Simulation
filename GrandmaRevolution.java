@@ -15,12 +15,12 @@ public class GrandmaRevolution extends Sabotage
     }
     public void addedToWorld(World w) {
         super.addedToWorld(w);
-        percent = Greenfoot.getRandomNumber(10) + 20; // 20-30% of grandmas get angered
+        percent = getRandomNumberInRange(40, 60); // 40-60% of grandmas get angered
         angerGrandmas();
     }
     
     public void act() {
-        actCount ++;
+        actCount++;
         if(actCount == duration*60) {
             getWorld().removeObject(this);
             return;
@@ -45,6 +45,5 @@ public class GrandmaRevolution extends Sabotage
         HashMap<Class, BuildingRow> buildingRows = target.getBuildingRows();
         BuildingRow grandmaBuildingRow = buildingRows.get(Grandma.class);
         return (ArrayList<Grandma>)(ArrayList<?>)grandmaBuildingRow.getBuildings();
-        
     }
 }

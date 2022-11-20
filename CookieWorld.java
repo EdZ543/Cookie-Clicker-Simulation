@@ -71,9 +71,10 @@ public class CookieWorld extends World
         powerupMap = new LinkedHashMap<Class, HashMap<String, Object>>();
         powerupMap.put(CookieUpgrade.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Upgrade", 100}));
         powerupMap.put(WarmMits.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Warm Mits", 100}));
-        powerupMap.put(LuckyClover.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lucky Clover", 100}));
-        powerupMap.put(ExtraExpensiveFilament.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Extra Expensive Filament", 100}));
         powerupMap.put(ReverseDementia.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Reverse Dementia", 100}));
+        powerupMap.put(ExtraExpensiveFilament.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Extra Expensive Filament", 100}));
+        powerupMap.put(LuckyClover.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lucky Clover", 100}));
+        
         // Sabotages
         powerupMap.put(CookieMonster.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Monster", 100}));
         powerupMap.put(GrandmaRevolution.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Grandma Revolution", 100}));

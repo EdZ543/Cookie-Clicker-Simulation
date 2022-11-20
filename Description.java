@@ -32,6 +32,30 @@ public class Description extends Clickable
             case "CookieGod":
                 setImage("./images/descriptions/cookie-god.png");
                 break;
+            case "WarmMits":
+                setImage("./images/descriptions/warm-mits.png");
+                break;
+            case "ReverseDementia":
+                setImage("./images/descriptions/reverse-dementia.png");
+                break;
+            case "ExtraExpensiveFilament":
+                setImage("./images/descriptions/extra-expensive-filament.png");
+                break;
+            case "LuckyClover":
+                setImage("./images/descriptions/lucky-clover.png");
+                break;
+            case "CookieMonster":
+                setImage("./images/descriptions/cookie-monster.png");
+                break;
+            case "GrandmaRevolution":
+                setImage("./images/descriptions/grandma-revolution.png");
+                break;
+            case "Lag":
+                setImage("./images/descriptions/lag.png");
+                break;
+            case "MilkBottles":
+                setImage("./images/descriptions/milk-bottles.png");
+                break;
         }
         
         getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
@@ -43,5 +67,5 @@ public class Description extends Clickable
  * Blue: #4086fa
  * Green: #1b9902
  * Pink: #f0129a
- * Purple: #    
+ * Purple: #9428ff    
  */
