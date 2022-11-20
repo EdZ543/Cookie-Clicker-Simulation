@@ -12,7 +12,7 @@ public class Grandma extends Building
     public Grandma(Player player) {
         super(player);
         animationSize = 5;
-        scale = 0.5;
+        scale = 0.53;
     }
     
     public void act() {
