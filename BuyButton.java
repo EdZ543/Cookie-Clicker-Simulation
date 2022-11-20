@@ -5,7 +5,7 @@ import java.lang.reflect.Constructor;
  * Write a description of class BuyButton here.
  * 
  * @author Caden Chan
- * @version 2022.11.14
+ * @version 2022.11.19
  */
 public class BuyButton extends Clickable
 {

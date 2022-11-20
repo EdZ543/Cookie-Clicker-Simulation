@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Player's wifi becomes destabilized, and their clickers become debilitated for 3-5 seconds
  * 
  * @author Caden Chan
- * @version 2022.11.02
+ * @version 2022.11.19
  */
 public class Lag extends Sabotage
 {
@@ -22,8 +22,8 @@ public class Lag extends Sabotage
     public void addedToWorld(World w) {
         super.addedToWorld(w);
         target.lagClickers(duration);
-        setLocation(origin.getCookie().getX(), origin.getCookie().getY()-20);
-        // setLocation(origin.getCookie().getX()+120, origin.getCookie().getY()-100); --> will use this if i decide on lag1.png
+        setLocation(target.getCookie().getX(), target.getCookie().getY()-20);
+        // setLocation(target.getCookie().getX()+120, target.getCookie().getY()-100); --> will use this if i decide on lag1.png
     }
     public void act() {
         actCount++;

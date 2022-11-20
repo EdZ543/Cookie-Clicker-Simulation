@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Visual effect for the CookieUpgrade Powerup
  * 
  * @author Caden Chan
- * @version (a version number or a date)
+ * @version 2022.11.19
  */
 public class Sparkle extends Effect
 {
