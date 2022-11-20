@@ -1,8 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Powerup here.
- * 
+ * Players can gain an edge on one another by purchasing subclasses of Powerup.
+ * - Normal Powerups will help boost the Player's cookie output
+ * - Powerups classified as "Sabotages" are activated to crumble each-others' cookie-making rates 
  * 
  * @author Caden Chan
  * @version 2022.11.02
@@ -16,14 +17,6 @@ public abstract class Powerup extends SuperSmoothMover
     public Powerup(Player origin) {
         this.origin = origin;
         actCount = 0;
-    }
-    /**
-     * Act - do whatever the PowerUp wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
     }
     /**
      * @return int          How long the powerup lasts

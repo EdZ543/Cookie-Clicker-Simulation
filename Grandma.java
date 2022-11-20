@@ -21,10 +21,6 @@ public class Grandma extends Building
     
     public void act() {
         super.act();
-        if (actCount == actMark) {
-            produce(30, 50);
-            actMark = getNextActMark(1, 2);
-        }
         if(angry) {
             angryCount++;
             if(angryCount < 10) { // stagger jumping start times
@@ -36,7 +32,17 @@ public class Grandma extends Building
             }        
             move(2); // jumping speed
             setRotation(0);
-            
+            // when Grandma is angry, she begins violently destroying cookies
+            if(actCount == actMark) {
+                player.changeCookieCount(-getRandomNumberInRange(20, 40)); // remove 20 to 40 cookies
+                actMark = getNextActMark(1, 3);
+            }
+        } else {
+            // when Grandma is happy, she will gladly bake you several dozens of cookies!
+            if (actCount == actMark) {
+                produce(30, 50);
+                actMark = getNextActMark(1, 2);
+            }
         }
     }
     

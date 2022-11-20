@@ -9,20 +9,22 @@ import java.lang.reflect.Constructor;
  */
 public class BuyButton extends Clickable
 {
-    protected int cooldown;  // if cooldown > 0, cannot activate button.
-    protected int highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player
-    protected boolean active;  // if neither player can afford the upgrade, grey-out the button
-    protected boolean maxedOut;
-    // info that will be displayed: cost, subclass name, icon
+    // BuyButton states
+    protected boolean active;  // if neither player can afford the upgrade, set to inactive and grey-out the button
+    protected boolean maxedOut; // if max number of purchases is acheived (ex: cookie is at max level), grey out the button.
+    // Info about the BuyButton's subclass
     protected int cost;
     protected Class mySubclass;  // the subclass associated with the button (either a subclass of Builidng or a subclass of Powerup)
     protected String name;
-    // Button Attributes
+    // Button Images
     GreenfootImage activeImage, inactiveImage;
     // Clicked animation
     protected int clickedCount;
+    protected int cooldown;  // if cooldown > 0, cannot activate button.
+    protected int highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player
     // Hover Area for the showing of Descriptions
     HoverArea hover;
+    // Most recent player to use this button
     Player lastPlayer;
     /**
      * @param mySubclass            The subclass of Building or Powerup that is created or activated by this button
@@ -136,11 +138,15 @@ public class BuyButton extends Clickable
     public int getCost() {
         return cost;    
     }
-    
+    /**
+     * @param cookies       The number of cookies clicking this BuyButton should cost
+     */
     public void setCost(int cookies) {
         cost = cookies;
     }
-
+    /**
+     * @param activeState           Set <code>active</code> state to true or false
+     */
     public void setActive(boolean activeState) {
         active = activeState;
         if(activeState) {
@@ -149,26 +155,45 @@ public class BuyButton extends Clickable
             setImage(inactiveImage);
         }
     }
+    /**
+     * @return boolean          Return the button's <code>active</code> state
+     */
     public boolean isActive() {
         return active;
     }
+    /**
+     * Set true if the maximum number of purchases have been acheived. Otherwise, set false.
+     * @param maxed         Set <code>maxedOut</code> state to true or false
+     */
     public void setMaxedOut(boolean maxed) {
         if(maxedOut == maxed) { // nothing changes
             return;
         }
         maxedOut = maxed;
+        // If maxed, add "Max" label and grey out the BuyButton. The "Max" icon is given to the Button's HoverArea
         if(maxed) {
             GreenfootImage maxIcon = new GreenfootImage("buybutton-icns/max.png");
             GreenfootImage maxImage = new GreenfootImage(maxIcon.getWidth(), maxIcon.getWidth());
             maxImage.drawImage(new GreenfootImage("buybutton-icns/max.png"), 0, 30);
             maxImage.setTransparency(230);
             hover.setImage(maxImage);
-            setActive(false);
+            setActive(false); // grey out BuyButton
         } else {
+            // Remove "Max" label
             hover.setImage(new GreenfootImage(getImage().getWidth(), getImage().getHeight()));
         }
     }
+    /**
+     * @return boolean          Return the button's <code>maxedOut</code> state
+     */
     public boolean isMaxedOut() {
         return maxedOut;
+    }
+    /**
+     * BuyButton may only be clicked if the <code>active</code> state is true, and the <code>maxedOut</code> state is false
+     * @return boolean          Return whether the button can be clicked or not
+     */
+    public boolean canClick() {
+        return active && !maxedOut;
     }
 }

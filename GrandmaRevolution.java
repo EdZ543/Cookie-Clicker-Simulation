@@ -2,17 +2,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.HashMap;
 import java.util.ArrayList;
 /**
- * Write a description of class GrandmaRevolution here.
+ * 20-30% of the opponents' Grandma objects become angry, and begin a revolution!
+ * Instead of baking cookies, they will savagely (or as savage as a Grandma can be) destroy the opponent player's cookies
  * 
  * @author Caden Chan
  * @version 2022.11.17
  */
 public class GrandmaRevolution extends Sabotage
 {
-    private double percent;
+    private double percent;  // The percentage of the opponent's grandmas that get angered 
+    /**
+     * @param origin            The Player that activated this GrandmaRevolution
+     */
     public GrandmaRevolution(Player origin) {
         super(origin);
     }
+    /**
+     * Anger 20-30% of [Player target]'s Grandma objects
+     * @param w
+     */
     public void addedToWorld(World w) {
         super.addedToWorld(w);
         percent = getRandomNumberInRange(40, 60); // 40-60% of grandmas get angered
@@ -26,22 +34,28 @@ public class GrandmaRevolution extends Sabotage
             return;
         }
     }
-    
+    /**
+     * Anger a number of the opponents' Grandma objects, depending on the <code>percent</code> instance variable
+     */
     private void angerGrandmas() {
-        ArrayList<Grandma> grandmaBuildings = getGrandmaBuildings();
+        // Get array of the opponents' non-angry grandmas. target = opponent
+        ArrayList<Grandma> grandmaBuildings = getTargetGrandmaBuildings();
         grandmaBuildings.removeIf(g -> g.isAngry());
-        if(grandmaBuildings.size() == 0) {
+        if(grandmaBuildings.size() == 0) {  // if none of opponents' grandmas are angry, do nothing.
             return;
         }
-        int angerCount = (int)(grandmaBuildings.size() * (percent / 100.0));
+        int angerCount = (int)(grandmaBuildings.size() * (percent / 100.0)); // how many Grandmas get angered, based on `percent` variable
         angerCount = angerCount == 0 ? 1 : angerCount;  // at least 1 grandma will be angered
         for(int i=0;i<angerCount;i++) {
             int idx = Greenfoot.getRandomNumber(grandmaBuildings.size());
-            grandmaBuildings.get(idx).setAngry(true);
-            grandmaBuildings.remove(idx);
+            grandmaBuildings.get(idx).setAngry(true); // anger a random Grandma
+            grandmaBuildings.remove(idx);  // remove newly angered Grandma from array of non-angry Grandma objects
         }
     }
-    private ArrayList<Grandma> getGrandmaBuildings() {
+    /**
+     * @return ArrayList<Grandma>           An ArrayList of the opponents' Grandma objects
+     */
+    private ArrayList<Grandma> getTargetGrandmaBuildings() {
         HashMap<Class, BuildingRow> buildingRows = target.getBuildingRows();
         BuildingRow grandmaBuildingRow = buildingRows.get(Grandma.class);
         return (ArrayList<Grandma>)(ArrayList<?>)grandmaBuildingRow.getBuildings();

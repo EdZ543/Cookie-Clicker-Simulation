@@ -200,6 +200,12 @@ public class CookieWorld extends World
         }
         return buttons;
     }
+    /**
+     * Return a <code>BuyButton</code> with the class of <code>sabotageClass</code>
+     * 
+     * @param sabotageClass         The subclass associated with the desired BuyButton
+     * @return      BuyButton       The BuyButton with the subclass of sabotageClass
+     */
     public BuyButton getSabotageButton(Class sabotageClass) {
         for(BuyButton btn: buySabotageButtons) {
             if(btn.getMySubclass() == sabotageClass) {
@@ -218,14 +224,19 @@ public class CookieWorld extends World
     }
     
     /**
-     * Return ArrayList of Powerup subclasses from `powerupMap`
+     * Return ArrayList of Powerup subclasses from the <code>powerupMap</code> HashMap
      * 
      * @return ArrayList<Class>     Subclasses of Powerup
      */
     public ArrayList<Class> getPowerupClasses() {
         return new ArrayList<Class>(powerupMap.keySet());
     }
-    
+    /**
+     * Return the CookieUpgrade BuyButton associated with the player
+     * 
+     * @param       player              The player whose button is being returned
+     * @return      BuyButton           The BuyButton that activates player's CookieUpgrade
+     */
     public BuyButton getPlayerUpgradeButton(Player player) {
         if(player == p1) {
             return cookieUpgradeButtons[0];
@@ -250,21 +261,36 @@ public class CookieWorld extends World
         }
         return map;
     }
+    /**
+     * Loop through all BuyButtons. If neither player can afford it, then set it to inactive
+     */
     private void handleActiveStateButtons() {
         int maxCookies = Math.max(p1.getCookieCount(), p2.getCookieCount());
         toggleButtonArray(buyBuildingButtons, maxCookies);
         toggleButtonArray(buyPowerupButtons, maxCookies);
         toggleButtonArray(buySabotageButtons, maxCookies);
+        toggleButton(winButton, maxCookies);
+        // CookieUpgrade BuyButtons are only affected by their respective players' cookie counts
         toggleButton(cookieUpgradeButtons[0], p1.getCookieCount());
         toggleButton(cookieUpgradeButtons[1], p2.getCookieCount());
-        toggleButton(winButton, maxCookies);
     }
+    /**
+     * 
+     * @param btn               The BuyButton being checked
+     * @param cookieCount       If cookieCount is less than the button's cost, set to inactive; otherwise, set to active
+     */
     public void toggleButton(BuyButton btn, int cookieCount) {
         boolean state = cookieCount > btn.getCost();
         if(btn.isActive() != state && !btn.isMaxedOut()) {
             btn.setActive(state);
         }
     }
+    /**
+     * Loop the toggleButton() method for an array of buttons
+     * 
+     * @param btns              The array of BuyButtons being checked
+     * @param cookieCount       Compare the cost of each BuyButton to this amount of cookies
+     */
     private void toggleButtonArray(BuyButton[] btns, int cookieCount) {
         for(BuyButton btn: btns) {
             toggleButton(btn, cookieCount);
