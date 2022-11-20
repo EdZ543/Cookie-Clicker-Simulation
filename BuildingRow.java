@@ -46,7 +46,7 @@ public class BuildingRow extends Clickable
             int buildingX;
             if (buildings.isEmpty()) {
                 int imageWidth = building.getImage().getWidth();
-                buildingX = getX() - (getImage().getWidth() / 2) + (imageWidth / 2);
+                buildingX = getX() - (getImage().getWidth() / 2) + (imageWidth / 2) + 10;
             } else {
                 buildingX = (int)buildings.get(buildings.size() - 1).getTargetX() + spacing;
             }
@@ -61,7 +61,7 @@ public class BuildingRow extends Clickable
         GreenfootImage ret = new GreenfootImage(width, height);
         
         // Draw inside
-        ret.setColor(new Color(247, 242, 213));
+        ret.setColor(new Color(185, 188, 169));
         ret.fillRect(0, 0, width, height);
         
         // Draw border
