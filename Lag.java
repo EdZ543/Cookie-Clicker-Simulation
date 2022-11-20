@@ -22,8 +22,8 @@ public class Lag extends Sabotage
     public void addedToWorld(World w) {
         super.addedToWorld(w);
         target.lagClickers(duration);
-        setLocation(origin.getCookie().getX(), origin.getCookie().getY()-20);
-        // setLocation(origin.getCookie().getX()+120, origin.getCookie().getY()-100); --> will use this if i decide on lag1.png
+        setLocation(target.getCookie().getX(), target.getCookie().getY()-20);
+        // setLocation(target.getCookie().getX()+120, target.getCookie().getY()-100); --> will use this if i decide on lag1.png
     }
     public void act() {
         actCount++;
