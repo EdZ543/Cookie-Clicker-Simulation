@@ -10,6 +10,9 @@ public abstract class Building extends SuperSmoothMover
 {
     protected static boolean LUCKY = false;
     
+    protected int animationSize;
+    protected int animationIndex;
+    protected double scale; // scale of each image in the building's gif animation
     protected Player player;
     protected int actCount;
     protected int actMark;
@@ -18,6 +21,7 @@ public abstract class Building extends SuperSmoothMover
         this.player = player;
         actCount = 0;
         actMark = 1;
+        animationIndex = 1;
     }
     
     public void act() {
@@ -54,5 +58,15 @@ public abstract class Building extends SuperSmoothMover
     public int getNextActMark(int start, int end) {
         int t = getRandomNumberInRange(start * 60, end * 60);
         return actCount + t;
+    }
+    
+    public void animate() {
+        String className = this.getClass().getSimpleName();
+        if (actCount % 11 == 0 || actCount < 11) {
+            setImage("./gifs/" + className + "/" + animationIndex + ".png");
+            getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
+        }
+        animationIndex++;
+        animationIndex %= animationSize;
     }
 }
