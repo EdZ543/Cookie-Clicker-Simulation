@@ -11,6 +11,7 @@ public class Grandma extends Building
 {
     private boolean angry;
     private int angryCount;
+    
     public Grandma(Player player) {
         super(player);
         animationSize = 5;
@@ -24,7 +25,6 @@ public class Grandma extends Building
             produce(30, 50);
             actMark = getNextActMark(1, 2);
         }
-        animate();
         if(angry) {
             angryCount++;
             if(angryCount < 10) { // stagger jumping start times

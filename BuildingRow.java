@@ -44,11 +44,11 @@ public class BuildingRow extends Clickable
             
             // Make the building move towards the appropriate position
             int buildingX;
+            int imageWidth = building.getImage().getWidth();
             if (buildings.isEmpty()) {
-                int imageWidth = building.getImage().getWidth();
-                buildingX = getX() - (getImage().getWidth() / 2) + (imageWidth / 2) + 10;
+                buildingX = getX() - (getImage().getWidth() / 2) + (imageWidth / 2) + 3;
             } else {
-                buildingX = (int)buildings.get(buildings.size() - 1).getTargetX() + spacing;
+                buildingX = (int)buildings.get(buildings.size() - 1).getTargetX() + (imageWidth / 2) + spacing;
             }
             building.startGlidingTo(buildingX, getY(), 15);
             

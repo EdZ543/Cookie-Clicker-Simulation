@@ -16,18 +16,23 @@ public abstract class Building extends SuperSmoothMover
     protected Player player;
     protected int actCount;
     protected int actMark;
+    protected SimpleTimer timer = new SimpleTimer();
     
     public Building(Player player) {
         this.player = player;
         actCount = 0;
         actMark = 1;
-        animationIndex = 1;
         scale = 1;
+    }
+    
+    public void addedToWorld(World w) {
+        setInitialImage();
     }
     
     public void act() {
         super.act();
         actCount++;
+        animate();
     }
     
     /**
@@ -61,13 +66,20 @@ public abstract class Building extends SuperSmoothMover
         return actCount + t;
     }
     
+    public void setInitialImage() {
+        String className = this.getClass().getSimpleName();
+        setImage("./gifs/" + className + "/0" + ".png");
+        getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
+    }
+    
     public void animate() {
         String className = this.getClass().getSimpleName();
-        if (actCount % 11 == 0 || actCount < 11) {
+        if (actCount % 20 == 0) {
             setImage("./gifs/" + className + "/" + animationIndex + ".png");
             getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
+            timer.mark();
+            animationIndex++;
+            animationIndex %= animationSize;
         }
-        animationIndex++;
-        animationIndex %= animationSize;
     }
 }

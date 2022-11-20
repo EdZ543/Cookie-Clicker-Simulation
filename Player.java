@@ -82,7 +82,7 @@ public class Player extends Clickable
         int rowHeight = (height - 10) / 2 / cw.getBuildingClasses().size();
         
         for (int i = 0; i < cw.getBuildingClasses().size(); i++) {
-            BuildingRow buildingRow = new BuildingRow(this, cw.getBuildingClasses().get(i), width, rowHeight, 30);
+            BuildingRow buildingRow = new BuildingRow(this, cw.getBuildingClasses().get(i), width, rowHeight, 20);
             buildingRows.put(cw.getBuildingClasses().get(i), buildingRow);
             cw.addObject(buildingRows.get(cw.getBuildingClasses().get(i)), getX(), getY() + 10 + (int)((i + 0.5) * rowHeight));
         }

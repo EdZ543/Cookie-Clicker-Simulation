@@ -11,8 +11,8 @@ public class Baby extends Building
 {
     public Baby(Player player) {
         super(player);
-        
-        setImage("./images/placeholder/baby.png");
+        animationSize = 11;
+        scale = 0.5;
     }
     
     public void act() {

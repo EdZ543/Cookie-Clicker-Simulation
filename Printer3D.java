@@ -10,8 +10,8 @@ public class Printer3D extends Building
 {
     public Printer3D(Player player) {
         super(player);
-        
-        setImage("./images/placeholder/alchemy-lab.png");
+        animationSize = 8;
+        scale = 0.5;
     }
     
     public void act() {
@@ -20,5 +20,7 @@ public class Printer3D extends Building
             produce(650, 900);
             getNextActMark(2, 3);
         }
+        
+        animate();
     }
 }

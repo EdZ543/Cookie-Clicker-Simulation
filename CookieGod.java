@@ -9,8 +9,8 @@ public class CookieGod extends Building
 {
     public CookieGod(Player player) {
         super(player);
-        
-        setImage("./images/placeholder/cookie-god.png");
+        animationSize = 7;
+        scale = 0.7;
     }
     
     public void act() {

@@ -10,8 +10,8 @@ public class AlchemyLab extends Building
 {
     public AlchemyLab(Player player) {
         super(player);
-        animationSize = 6;
-        
+        animationSize = 5;
+        scale = 0.52;
     }
     
     public void act() {
@@ -20,7 +20,5 @@ public class AlchemyLab extends Building
             produce(500, 1000);    
             actMark = getNextActMark(2, 3);
         }
-        
-        animate();
     }
 }

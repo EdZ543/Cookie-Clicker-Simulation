@@ -10,6 +10,8 @@ public class Portal extends Building
 {
     public Portal(Player player) {
         super(player);
+        animationSize = 7;
+        scale = 0.6;
     }
     
     public void act() {
@@ -18,5 +20,7 @@ public class Portal extends Building
             produce(2000, 4000);
             actMark = getNextActMark(3, 3);
         }
+        
+        animate();
     }
 }
