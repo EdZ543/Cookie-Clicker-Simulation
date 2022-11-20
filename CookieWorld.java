@@ -70,16 +70,16 @@ public class CookieWorld extends World
         // Initialize powerup hashmap
         powerupMap = new LinkedHashMap<Class, HashMap<String, Object>>();
         powerupMap.put(CookieUpgrade.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Upgrade", 100}));
-        powerupMap.put(WarmMits.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Warm Mits", 100}));
-        powerupMap.put(ReverseDementia.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Reverse Dementia", 100}));
-        powerupMap.put(ExtraExpensiveFilament.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Extra Expensive Filament", 100}));
-        powerupMap.put(LuckyClover.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lucky Clover", 100}));
+        powerupMap.put(WarmMits.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Warm Mits", 200}));
+        powerupMap.put(ReverseDementia.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Reverse Dementia", 750}));
+        powerupMap.put(ExtraExpensiveFilament.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Extra Expensive Filament", 1500}));
+        powerupMap.put(LuckyClover.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lucky Clover", 5000}));
         
         // Sabotages
-        powerupMap.put(CookieMonster.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Monster", 100}));
-        powerupMap.put(GrandmaRevolution.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Grandma Revolution", 100}));
-        powerupMap.put(Lag.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lag", 100}));
-        powerupMap.put(MilkBottles.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Milk Bottles", 100}));
+        powerupMap.put(CookieMonster.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Cookie Monster", 3500}));
+        powerupMap.put(GrandmaRevolution.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Grandma Revolution", 500}));
+        powerupMap.put(Lag.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Lag", 1000}));
+        powerupMap.put(MilkBottles.class, createHashmap(new String[]{"name", "cost"}, new Object[]{"Milk Bottles", 100})); // cost is 100 * number of babies
         
         // - - - Initialize BuyButton arrays - - -
         // Building Buttons

@@ -16,7 +16,6 @@ public abstract class Building extends SuperSmoothMover
     protected Player player;
     protected int actCount;
     protected int actMark;
-    protected SimpleTimer timer = new SimpleTimer();
     
     public Building(Player player) {
         this.player = player;
@@ -77,7 +76,6 @@ public abstract class Building extends SuperSmoothMover
         if (actCount % 20 == 0) {
             setImage("./gifs/" + className + "/" + animationIndex + ".png");
             getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
-            timer.mark();
             animationIndex++;
             animationIndex %= animationSize;
         }
