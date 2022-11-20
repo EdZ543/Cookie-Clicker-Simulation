@@ -12,6 +12,7 @@ public class BuyButton extends Clickable
     protected int cooldown;  // if cooldown > 0, cannot activate button.
     protected int highlightClick;  // highlightClick tracks how many acts the button needs to be highlighted for, after being clicked by a player
     protected boolean active;  // if neither player can afford the upgrade, grey-out the button
+    protected boolean maxedOut;
     // info that will be displayed: cost, subclass name, icon
     protected int cost;
     protected Class mySubclass;  // the subclass associated with the button (either a subclass of Builidng or a subclass of Powerup)
@@ -34,6 +35,7 @@ public class BuyButton extends Clickable
         clickedCount = 0;
         hover = new HoverArea(this);
         active = true;
+        maxedOut = false;
     }
 
     public void addedToWorld(World w) {
@@ -55,8 +57,17 @@ public class BuyButton extends Clickable
         double highlightDuration;
         Color colour;
         CooldownBar highlight;
-        // Handle Buildings
-        if(Building.class.isAssignableFrom(mySubclass)) {
+        // Handle variable changes
+        clickedCount = 20;
+        activeImage.scale(60, 60);
+        setImage(activeImage);  // helps maintain button image quality
+        active = true;
+        
+        // Handle Cookie Rocket
+        if(mySubclass == CookieRocket.class) {
+            return;
+        //Handle Powerups
+        } else if(Building.class.isAssignableFrom(mySubclass)) {
             player.addBuilding(getX(), getY(), mySubclass);
             highlightDuration = 0.5;
         // Handle Powerups
@@ -69,10 +80,7 @@ public class BuyButton extends Clickable
         colour = player.getColour() == "red" ? Color.RED : Color.BLUE;
         highlight = new CooldownBar((int)(getImage().getWidth()*0.9 +1), getImage().getHeight(), colour, highlightDuration);
         getWorld().addObject(highlight, getX(), getY());
-        clickedCount = 20;
-        activeImage.scale(60, 60);
-        setImage(activeImage);  // helps maintain button image quality
-        active = true;
+        
         // Charge player for purchase
         player.changeCookieCount(-cost);
     }
@@ -84,9 +92,8 @@ public class BuyButton extends Clickable
         if(clickedCount > 0) {
             clickedCount --;
             if(clickedCount == 0) {
-                activeImage = new GreenfootImage("buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png");
-                setImage(activeImage);  // maintain button image quality
-                active = true;
+                activeImage = new GreenfootImage("buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png"); //maintain image quality
+                setActive(!maxedOut);  // if maxedOut after click, stay inactive. otherwise, make active again (which will then change depending on `handleActiveStateButtons()` in `CookieWorld`
             }
         }
         // test method
@@ -125,6 +132,10 @@ public class BuyButton extends Clickable
     public int getCost() {
         return cost;    
     }
+    
+    public void setCost(int cookies) {
+        cost = cookies;
+    }
 
     public void setActive(boolean activeState) {
         active = activeState;
@@ -136,5 +147,23 @@ public class BuyButton extends Clickable
     }
     public boolean isActive() {
         return active;
+    }
+    public void setMaxedOut(boolean maxed) {
+        if(maxedOut == maxed) { // nothing changes
+            return;
+        }
+        maxedOut = maxed;
+        if(maxed) {
+            GreenfootImage maxImage = new GreenfootImage(getImage().getWidth(), getImage().getHeight());
+            maxImage.drawImage(new GreenfootImage("buybutton-icns/max.png"), 0, 30);
+            maxImage.setTransparency(230);
+            hover.setImage(maxImage);
+            setActive(false);
+        } else {
+            hover.setImage(new GreenfootImage(getImage().getWidth(), getImage().getHeight()));
+        }
+    }
+    public boolean isMaxedOut() {
+        return maxedOut;
     }
 }

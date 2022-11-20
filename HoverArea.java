@@ -15,6 +15,7 @@ public class HoverArea extends Actor
     private boolean isBeingHovered;
     private Class itemClass;
     private BuyButton btn;
+    private GreenfootImage image;
     public HoverArea(BuyButton btn) {
         this.btn = btn;
         this.itemClass = btn.getMySubclass();
@@ -23,8 +24,16 @@ public class HoverArea extends Actor
     public void addedToWorld(World w) {
         x = btn.getX();
         y = btn.getY();
+        
+        if(itemClass != CookieRocket.class) {
+            image = new GreenfootImage(btn.getImage().getWidth(), btn.getImage().getHeight());  // empty image
+        } else {
+            image = new GreenfootImage(btn.getImage().getWidth()-20, btn.getImage().getHeight()-50);  // empty image
+            x-=10;
+            y += 25;
+        }
         setLocation(x, y);
-        setImage(new GreenfootImage(btn.getImage().getWidth(), btn.getImage().getHeight()));  // empty image
+        setImage(image);
     }
 
     public void act()

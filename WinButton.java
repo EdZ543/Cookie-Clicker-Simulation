@@ -17,6 +17,7 @@ public class WinButton extends BuyButton
         activeImage = new GreenfootImage("buybutton-icns/win-btn.png");
         inactiveImage = new GreenfootImage("buybutton-icns/win-btn-off.png");
         setImage(activeImage);
+        getWorld().addObject(hover, getX(), getY());
         // image = new GreenfootImage(260, 140);
         // String bgFile = "buybutton-icns/win-btn-bg.png";
         // icnFile = "buybutton-icns/temprocket.png";

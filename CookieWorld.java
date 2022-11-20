@@ -34,7 +34,6 @@ public class CookieWorld extends World
     private WinButton winButton;
     private Label buildingTitle, powerupTitle, sabotageTitle;
     private final int WIN = 1000000; // player must reach this amount of cookies to win
-    private int cookieUpgradeCost;
     // Player variables
     private Player p1, p2;
     
@@ -226,6 +225,20 @@ public class CookieWorld extends World
         return new ArrayList<Class>(powerupMap.keySet());
     }
     
+    // public void updateCookieUpgradeCost(Player player) {
+        // if(player == p1) {
+            // cookieUpgradeButtons[0].setCost(player.getCookie().getUpgradeCost());
+        // } else {
+            // cookieUpgradeButtons[1].setCost(player.getCookie().getUpgradeCost());
+        // }
+    // }
+    public BuyButton getPlayerUpgradeButton(Player player) {
+        if(player == p1) {
+            return cookieUpgradeButtons[0];
+        }
+        return cookieUpgradeButtons[1];
+    }
+    
     /**
      * Create a HashMap from an array of keys and values. The `keys` and `values` arrays must have the same lengths
      * 
@@ -254,7 +267,7 @@ public class CookieWorld extends World
     }
     private void toggleButton(BuyButton btn, int cookieCount) {
         boolean state = cookieCount > btn.getCost();
-        if(btn.isActive() != state) {
+        if(btn.isActive() != state && !btn.isMaxedOut()) {
             btn.setActive(state);
         }
     }

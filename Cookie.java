@@ -14,6 +14,7 @@ public class Cookie extends Clickable
     private final int ANIM_FACTOR = 30; // increase image by how many pixels on click
     private GreenfootImage image;
     private Player player;
+    private BuyButton myUpgradeBtn;
     public final String[] COOKIE_FILES = {"placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", 
         "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", 
         "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png"};
@@ -29,10 +30,12 @@ public class Cookie extends Clickable
         originalSize = image.getWidth();
         animateCount = 0;
         cookiesPerClick = calculateCookieOutput();
-        setImage(image);
-        
+        setImage(image);        
     }
-    
+    public void addedToWorld(World w) {
+        myUpgradeBtn = ((CookieWorld)getWorld()).getPlayerUpgradeButton(player);
+        myUpgradeBtn.setCost(getUpgradeCost()); // initialize cookie cost
+    }
     public void act()
     {
         // !Uncomment for testing purposes
@@ -72,6 +75,10 @@ public class Cookie extends Clickable
         level += 1;
         cookiesPerClick = calculateCookieOutput();
         updateImage();
+        myUpgradeBtn.setCost(getUpgradeCost());
+        if(level == maxLevel) {
+            myUpgradeBtn.setMaxedOut(true);
+        }
     }
     
     /**
@@ -101,6 +108,10 @@ public class Cookie extends Clickable
      */
     public int getCookieOutput() {
         return cookiesPerClick;
+    }
+    
+    public int getUpgradeCost() {
+        return 100 * (int)Math.pow(1.8, level); // equation tbd
     }
     
     /**
