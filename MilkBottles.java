@@ -23,6 +23,7 @@ public class MilkBottles extends Sabotage
      * @param w
      */
     public void addedToWorld(World w) {
+        super.addedToWorld(w);
         CookieWorld cw = ((CookieWorld)getWorld());
         BuyButton btn = cw.getSabotageButton(MilkBottles.class); // The BuyButton that activates the MilkBottles Sabotage
         // All BottleOfMilk instances start at the BuyButton
