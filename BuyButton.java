@@ -17,9 +17,7 @@ public class BuyButton extends Clickable
     protected Class mySubclass;  // the subclass associated with the button (either a subclass of Builidng or a subclass of Powerup)
     protected String name;
     // Button Attributes
-    protected String icnFile;
-    protected GreenfootImage icn;
-    protected GreenfootImage image;
+    GreenfootImage activeImage, inactiveImage;
     // Clicked animation
     protected int clickedCount;
     // Hover Area for the showing of Descriptions
@@ -35,13 +33,15 @@ public class BuyButton extends Clickable
         this.cost = cost;
         clickedCount = 0;
         hover = new HoverArea(this);
+        active = true;
     }
 
     public void addedToWorld(World w) {
         // set up button image
-        icnFile = "buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png";
-        image = createImage();
-        setImage(image);
+        activeImage = new GreenfootImage("buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png");
+        inactiveImage = new GreenfootImage("buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + "-off.png");
+        // image = createImage();
+        setImage(activeImage);
         // add HoverArea
         getWorld().addObject(hover, getX(), getY());
     }
@@ -65,13 +65,16 @@ public class BuyButton extends Clickable
             getWorld().addObject(powerup, 0, 0);
             highlightDuration = powerup.getDuration() == 0 ? 0.5 : powerup.getDuration();
         }
-        // Handle BuyButton highlighting
+        // Handle BuyButton highlighting & visuals
         colour = player.getColour() == "red" ? Color.RED : Color.BLUE;
         highlight = new CooldownBar((int)(getImage().getWidth()*0.9 +1), getImage().getHeight(), colour, highlightDuration);
         getWorld().addObject(highlight, getX(), getY());
         clickedCount = 20;
-        image.scale(60, 60);
-        setImage(image);  // helps maintain button image quality
+        activeImage.scale(60, 60);
+        setImage(activeImage);  // helps maintain button image quality
+        active = true;
+        // Charge player for purchase
+        player.changeCookieCount(-cost);
     }
 
     public void act() {
@@ -81,8 +84,9 @@ public class BuyButton extends Clickable
         if(clickedCount > 0) {
             clickedCount --;
             if(clickedCount == 0) {
-                image = createImage();
-                setImage(image);
+                activeImage = new GreenfootImage("buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png");
+                setImage(activeImage);  // maintain button image quality
+                active = true;
             }
         }
         // test method
@@ -122,16 +126,15 @@ public class BuyButton extends Clickable
         return cost;    
     }
 
-    /**
-     * Create the button's image upon instantiation, and whenever 
-     * the click animation is over, to work around poor image quality from GreenfootImage.scale().
-     * 
-     * @return GreenfootImage       BuyButton's image
-     */
-    private GreenfootImage createImage() {
-        GreenfootImage img = new GreenfootImage("buybutton-icns/btn-bg.png");
-        icn = new GreenfootImage(icnFile);
-        img.drawImage(icn, (img.getWidth()-icn.getWidth())/2, (img.getHeight()-icn.getHeight())/2);
-        return img;
+    public void setActive(boolean activeState) {
+        active = activeState;
+        if(activeState) {
+            setImage(activeImage);
+        } else {
+            setImage(inactiveImage);
+        }
+    }
+    public boolean isActive() {
+        return active;
     }
 }

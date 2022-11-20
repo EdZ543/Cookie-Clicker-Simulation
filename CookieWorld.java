@@ -31,9 +31,10 @@ public class CookieWorld extends World
     // Game variables
     // select random index of buyButtons to add respective building/activate respective powerup
     private BuyButton[] buyBuildingButtons, buyPowerupButtons, buySabotageButtons, cookieUpgradeButtons;
-    
+    private WinButton winButton;
     private Label buildingTitle, powerupTitle, sabotageTitle;
-    
+    private final int WIN = 1000000; // player must reach this amount of cookies to win
+    private int cookieUpgradeCost;
     // Player variables
     private Player p1, p2;
     
@@ -53,7 +54,7 @@ public class CookieWorld extends World
     {   
         super(1200, 800, 1); 
         // Drawing Order of Classes
-        setPaintOrder(Lag.class, Clicker.class, HoverArea.class, Description.class, BottleOfMilk.class, Effect.class, Building.class, Powerup.class, CooldownBar.class, BuyButton.class, Label.class, BuildingRow.class, Cookie.class);
+        setPaintOrder(Lag.class, Clicker.class, HoverArea.class, Description.class, BottleOfMilk.class, Effect.class, Building.class, Powerup.class, CooldownBar.class, Label.class, BuyButton.class, BuildingRow.class, Cookie.class);
         // Set world background
         background = new GreenfootImage("background0.png");
         setBackground(background);
@@ -105,17 +106,17 @@ public class CookieWorld extends World
         int btnX, btnY;
         for(int i=0;i<buyBuildingButtons.length;i++) {
             btnX = 495 + 100*(i%3);
-            btnY = 110 + 84*(i/3);
+            btnY = 100 + 84*(i/3);
             addObject(buyBuildingButtons[i], btnX, btnY);
         }
         for(int i=0;i<buyPowerupButtons.length;i++) {
             btnX = 546 + 100*(i%2);
-            btnY = 350 + 84*(i/2);
+            btnY = 330 + 84*(i/2);
             addObject(buyPowerupButtons[i], btnX, btnY);
         }
         for(int i=0;i<buySabotageButtons.length;i++) {
             btnX = 546 + 100*(i%2);
-            btnY = 590 + 84*(i/2);
+            btnY = 550 + 84*(i/2);
             addObject(buySabotageButtons[i], btnX, btnY);
         }
         for(int i=0;i<cookieUpgradeButtons.length;i++) {
@@ -123,15 +124,22 @@ public class CookieWorld extends World
             btnY = 360;
             addObject(cookieUpgradeButtons[i], btnX, btnY);
         }
+        winButton = new WinButton(CookieRocket.class, "Cookie Rocket", WIN);
+        addObject(winButton, getWidth()/2 + 10, 710);
         // - - - Draw Subtitles for BuyButton Groups
         buildingTitle = new Label("Building shop", 30);
         powerupTitle = new Label("Powerup shop", 30);
         sabotageTitle = new Label("Sabotage shop", 30);
+        // Label winTitle = new Label("Blast Off!", 30);
         addObject(buildingTitle, getWidth()/2, 30);
-        addObject(powerupTitle, getWidth()/2, 270);
-        addObject(sabotageTitle, getWidth()/2, 510);
+        addObject(powerupTitle, getWidth()/2, 260);
+        addObject(sabotageTitle, getWidth()/2, 480);
+        // addObject(winTitle, getWidth()/2, 745);
     }
-    
+    public void act() {
+        handleActiveStateButtons();
+        
+    }
     /**
      * Returns the player that is NOT [Player thisPlayer].
      * E.g.: if p1 is passed in, return p2, and vice versa.
@@ -143,30 +151,7 @@ public class CookieWorld extends World
         return thisPlayer == p1 ? p2 : p1;
     }
     
-    /**
-     * Method buys a random Building for [Player p], if the player can afford it.
-     * 
-     * @param p             The player that is buying the buidling
-     */    
-    public void buyBuilding(Player p) {  // can be modified to make some purchases more/less likely than others
-        ArrayList<BuyButton> adjustedBuyButtons = (ArrayList<BuyButton>)Arrays.asList(buyBuildingButtons);
-        adjustedBuyButtons.removeIf(b -> b.getCost() > p.getCookieCount());
-        int rand = Greenfoot.getRandomNumber(adjustedBuyButtons.size());
-        Class buildingClass = adjustedBuyButtons.get(rand).getMySubclass();
-        // do things
-    }
-    /**
-     * Method buys a random Powerup for [Player p], if the player can afford it.
-     * 
-     * @param p             The player that is buying the powerup
-     */   
-    public void buyPowerup(Player p) {// can be modified to make some purchases more/less likely than others
-        ArrayList<BuyButton> adjustedBuyButtons = (ArrayList<BuyButton>)Arrays.asList(buyPowerupButtons);
-        adjustedBuyButtons.removeIf(b -> b.getCost() > p.getCookieCount());
-        int rand = Greenfoot.getRandomNumber(adjustedBuyButtons.size());
-        Class powerupClass = adjustedBuyButtons.get(rand).getMySubclass();
-        // do things
-    }
+    
     /**
      * Returns the cost of [Class itemClass] by retrieving its [public static int COST] field
      * 
@@ -257,6 +242,26 @@ public class CookieWorld extends World
             map.put(keys[i], values[i]);
         }
         return map;
+    }
+    private void handleActiveStateButtons() {
+        int maxCookies = Math.max(p1.getCookieCount(), p2.getCookieCount());
+        toggleButtonArray(buyBuildingButtons, maxCookies);
+        toggleButtonArray(buyPowerupButtons, maxCookies);
+        toggleButtonArray(buySabotageButtons, maxCookies);
+        toggleButton(cookieUpgradeButtons[0], p1.getCookieCount());
+        toggleButton(cookieUpgradeButtons[1], p2.getCookieCount());
+        toggleButton(winButton, maxCookies);
+    }
+    private void toggleButton(BuyButton btn, int cookieCount) {
+        boolean state = cookieCount > btn.getCost();
+        if(btn.isActive() != state) {
+            btn.setActive(state);
+        }
+    }
+    private void toggleButtonArray(BuyButton[] btns, int cookieCount) {
+        for(BuyButton btn: btns) {
+            toggleButton(btn, cookieCount);
+        }
     }
     // used for testing
     public Player getP1() {

@@ -36,7 +36,6 @@ public class GrandmaRevolution extends Sabotage
         int angerCount = (int)(grandmaBuildings.size() * (percent / 100.0));
         angerCount = angerCount == 0 ? 1 : angerCount;  // at least 1 grandma will be angered
         for(int i=0;i<angerCount;i++) {
-            System.out.println("hi");
             int idx = Greenfoot.getRandomNumber(grandmaBuildings.size());
             grandmaBuildings.get(idx).setAngry(true);
             grandmaBuildings.remove(idx);
