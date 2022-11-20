@@ -27,14 +27,14 @@ public class Grandma extends Building
         animate();
         if(angry) {
             angryCount++;
-            if(angryCount < 10) {
+            if(angryCount < 10) { // stagger jumping start times
                 return;
-            } else if(angryCount%20<10) {
-                setRotation(90);
+            } else if(angryCount%20<10) { // jumping rate
+                setRotation(90);  // jump up
             } else {
-                setRotation(270);
+                setRotation(270);  // fall back down
             }        
-            move(2);
+            move(2); // jumping speed
             setRotation(0);
             
         }
@@ -47,7 +47,7 @@ public class Grandma extends Building
     public void setAngry(boolean angryState) {
         angry = angryState;
         if(angryState) {
-            angryCount = -10 + Greenfoot.getRandomNumber(10);
+            angryCount = -10 + Greenfoot.getRandomNumber(10); // stagger jumping start times
         }
     }
 }
