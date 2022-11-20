@@ -22,6 +22,7 @@ public abstract class Building extends SuperSmoothMover
         actCount = 0;
         actMark = 1;
         animationIndex = 1;
+        scale = 1;
     }
     
     public void act() {

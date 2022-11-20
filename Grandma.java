@@ -9,10 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Grandma extends Building
 {
+    protected boolean angry;
+    
     public Grandma(Player player) {
         super(player);
         animationSize = 5;
         scale = 0.53;
+        angry = false;
     }
     
     public void act() {
@@ -23,5 +26,13 @@ public class Grandma extends Building
         }
         
         animate();
+    }
+    
+    public boolean isAngry() {
+        return angry;
+    }
+    
+    public void setAngry(boolean angryState) {
+        angry = angryState;
     }
 }
