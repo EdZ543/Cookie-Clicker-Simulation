@@ -17,7 +17,7 @@ public class CookieUpgrade extends Powerup
     public void act() {
         actCount ++;
         if(actCount %3 == 0) {
-            animate();
+            addSparkle();
         }
         if(actCount == 120) {
             getWorld().removeObject(this);
@@ -26,7 +26,7 @@ public class CookieUpgrade extends Powerup
     public void upgrade(Cookie cookie) {
         cookie.levelUp();
     }
-    public void animate() {  // sparkle effect on top of cookie
+    public void addSparkle() {  // sparkle effect on top of cookie
         Sparkle sparkle = new Sparkle(Greenfoot.getRandomNumber(60) + 90, origin.getCookie());
         getWorld().addObject(sparkle, 0, 0);
     }
