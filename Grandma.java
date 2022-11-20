@@ -11,8 +11,8 @@ public class Grandma extends Building
 {
     public Grandma(Player player) {
         super(player);
-        
-        setImage("./images/placeholder/grandma.png");
+        animationSize = 5;
+        scale = 0.5;
     }
     
     public void act() {
@@ -21,5 +21,7 @@ public class Grandma extends Building
             produce(30, 50);
             actMark = getNextActMark(1, 2);
         }
+        
+        animate();
     }
 }
