@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Grandma extends Building
 {
-    protected boolean angry;
-    
+    private boolean angry;
+    private int angryCount;
     public Grandma(Player player) {
         super(player);
         animationSize = 5;
@@ -24,8 +24,20 @@ public class Grandma extends Building
             produce(30, 50);
             actMark = getNextActMark(1, 2);
         }
-        
         animate();
+        if(angry) {
+            angryCount++;
+            if(angryCount < 10) {
+                return;
+            } else if(angryCount%20<10) {
+                setRotation(90);
+            } else {
+                setRotation(270);
+            }        
+            move(2);
+            setRotation(0);
+            
+        }
     }
     
     public boolean isAngry() {
@@ -34,5 +46,9 @@ public class Grandma extends Building
     
     public void setAngry(boolean angryState) {
         angry = angryState;
+        if(angryState) {
+            angryCount = -10 + Greenfoot.getRandomNumber(10);
+        }
     }
 }
+

@@ -10,6 +10,7 @@ public class CookieUpgrade extends Powerup
 {
     public CookieUpgrade(Player origin) {  
         super(origin);
+        setImage(new GreenfootImage(10, 10)); // empty image
     }
     public void addedToWorld(World w) {
         upgrade(origin.getCookie());

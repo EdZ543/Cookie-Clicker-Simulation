@@ -119,7 +119,7 @@ public class CookieWorld extends World
             addObject(buySabotageButtons[i], btnX, btnY);
         }
         for(int i=0;i<cookieUpgradeButtons.length;i++) {
-            btnX = (cookieUpgradeButtons[i].getImage().getWidth()/2) + 360 + 780*i;
+            btnX = (cookieUpgradeButtons[i].getImage().getWidth()/2) + 355 + 790*i;
             btnY = 360;
             addObject(cookieUpgradeButtons[i], btnX, btnY);
         }
