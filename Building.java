@@ -62,7 +62,7 @@ public abstract class Building extends SuperSmoothMover
     
     public void animate() {
         String className = this.getClass().getSimpleName();
-        if (actCount % 11 == 0) {
+        if (actCount % 11 == 0 || actCount < 11) {
             setImage("./gifs/" + className + "/" + animationIndex + ".png");
             getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
         }
