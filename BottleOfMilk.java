@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BottleOfMilk extends Effect
 {
-    private int startX, startY, endX, endY;
+    private int startX, startY, endX, endY;  // BottleOfMilk starts at BuyButton (startX, startY), lands on Baby (endX, endY)
     private Baby baby;
     private GreenfootImage image;
     // Variables for movement calculations
@@ -24,8 +24,8 @@ public class BottleOfMilk extends Effect
         y = startY;
         dx = endX - startX;
         dy = endY - startY;
-        ay = 30.0/60;
-        t = 1.2*60;
+        ay = 30.0/60;  // gravity
+        t = 1.2*60;  // how long it takes for the bottle to reach the baby, in acts.
         /**
          * projectile motion equations 
          * dy = viy * t + (1/2)a * t^2
@@ -39,6 +39,10 @@ public class BottleOfMilk extends Effect
         image = new GreenfootImage("placeholder/bottleofmilk.png");
         setImage(image);
     }
+    /**
+     * BottleOfMilk starts at the MilkBottles BuyButton.
+     * @param w
+     */
     public void addedToWorld(World w) {
         setLocation(startX,startY);
     }

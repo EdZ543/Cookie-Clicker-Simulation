@@ -15,6 +15,5 @@ public class CookieRocket extends SuperSmoothMover
     }
     
     public void act() {
-        
     }
 }

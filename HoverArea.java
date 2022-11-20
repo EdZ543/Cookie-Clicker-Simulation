@@ -16,6 +16,9 @@ public class HoverArea extends Actor
     private Class itemClass;
     private BuyButton btn;
     private GreenfootImage image;
+    /**
+     * @param btn           The BuyButton that owns this HoverArea
+     */
     public HoverArea(BuyButton btn) {
         this.btn = btn;
         this.itemClass = btn.getMySubclass();

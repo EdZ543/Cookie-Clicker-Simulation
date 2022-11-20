@@ -13,10 +13,11 @@ public class WinButton extends BuyButton
         super(mySubclass, name, cost);
     }
     public void addedToWorld(World w) {
-        // set up button image
+        // set up button images
         activeImage = new GreenfootImage("buybutton-icns/win-btn.png");
         inactiveImage = new GreenfootImage("buybutton-icns/win-btn-off.png");
         setImage(activeImage);
+        // add HoverArea object
         getWorld().addObject(hover, getX(), getY());
         // image = new GreenfootImage(260, 140);
         // String bgFile = "buybutton-icns/win-btn-bg.png";

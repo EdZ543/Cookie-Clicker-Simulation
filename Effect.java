@@ -15,7 +15,7 @@ public class Effect extends Actor
     }
     public static void fade(GreenfootImage image, int timeLeft, int fadeTime, int startTransparency) {
         double percent = timeLeft / (double)fadeTime;
-        // Transparency 0 -- 255
+        // Transparency goes from [startTransparency to 0
         int newTransparency = (int)(percent * startTransparency);
         image.setTransparency(newTransparency);
     }

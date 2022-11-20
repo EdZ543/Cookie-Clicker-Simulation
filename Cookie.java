@@ -1,7 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Cookie here.
+ * Each player gets their own Cookie. It is clicked by Clicker objects to gain cookies.
+ * Increasing the Cookie's level will increase the number of cookies gained per click!
  * 
  * @author Caden Chan
  * @version 2022.11.14
@@ -15,23 +16,28 @@ public class Cookie extends Clickable
     private GreenfootImage image;
     private Player player;
     private BuyButton myUpgradeBtn;
+    // Array of file paths, one for each of the Cookie's different levels
     public final String[] COOKIE_FILES = {"placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", 
         "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", 
         "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png"};
-    public final GreenfootImage[] COOKIE_SPRITES = getCookieImageArr();  // use level to index through array, and retrieve the corresponding image.
+    public final GreenfootImage[] COOKIE_SPRITES = getCookieSpriteArr();  // use level to index through array, and retrieve the corresponding image.
     
     /**
      * @param player            Player to whom this cookie belongs
      */
     public Cookie(Player player) {
         this.player = player;
-        image = COOKIE_SPRITES[0];
+        image = COOKIE_SPRITES[0];  // starting image
         level = 1;
         originalSize = image.getWidth();
         animateCount = 0;
         cookiesPerClick = calculateCookieOutput();
         setImage(image);        
     }
+    /**
+     * Set the cost to upgrade
+     * @param w
+     */
     public void addedToWorld(World w) {
         myUpgradeBtn = ((CookieWorld)getWorld()).getPlayerUpgradeButton(player);
         myUpgradeBtn.setCost(getUpgradeCost()); // initialize cookie cost
@@ -46,37 +52,38 @@ public class Cookie extends Clickable
                 // setImage(image);
             // }
         // }
+        // Imitate clicking animation
         if(animateCount > 0) {
             animateCount --;
             if(animateCount == 0) {
-                image.scale(originalSize, originalSize);
+                image.scale(originalSize, originalSize); // bring cookie back to original size
                 setImage(image);
             }
         }
     }
     /**
-     * Animate sprite when `Cookie` is "clicked" by a `Clicker`
+     * Make sprite bigger when `Cookie` is "clicked" by a `Clicker`, to
+     * make it seem like it's being "clicked"
      */
     public void click() {
-        // if(animateCount == 0) {
         animateCount = ANIM_DURATION;
         image.scale(originalSize + ANIM_FACTOR, originalSize + ANIM_FACTOR);
         setImage(image);
-        // }
+        // give cookies to player
         player.changeCookieCount(cookiesPerClick);
     }
     /**
      * Increase the `Cookie`'s level and calculate `cookiesPerClick` accordingly
      */
     public void levelUp() {
-        if(level == maxLevel) {
+        if(level == maxLevel) {  // if level is at max, do nothing
             return;
         }
         level += 1;
         cookiesPerClick = calculateCookieOutput();
-        updateImage();
-        myUpgradeBtn.setCost(getUpgradeCost());
-        if(level == maxLevel) {
+        updateSprite();  // change sprite based on new level
+        myUpgradeBtn.setCost(getUpgradeCost());  // get cost of next upgrade
+        if(level == maxLevel) {  // if level is now max, reflect this on the Cookie's upgrade button
             myUpgradeBtn.setMaxedOut(true);
         }
     }
@@ -89,9 +96,9 @@ public class Cookie extends Clickable
     }
     
     /**
-     * Update the Cookie's image, depending on its `level`
+     * Update the Cookie's sprite, depending on its `level`
      */
-    private void updateImage() {
+    private void updateSprite() {
         image = COOKIE_SPRITES[level-1];
         setImage(image);
     }
@@ -109,15 +116,17 @@ public class Cookie extends Clickable
     public int getCookieOutput() {
         return cookiesPerClick;
     }
-    
+    /**
+     * @return int          Number of cookies required to purchase the next Cookie level
+     */
     public int getUpgradeCost() {
         return 100 * (int)Math.pow(1.8, level); // equation tbd
     }
     
     /**
-     * @return GreenfootImage[]     Initialize an array of Cookie images
+     * @return GreenfootImage[]     Initialize an array of Cookie sprites
      */
-    private GreenfootImage[] getCookieImageArr() {
+    private GreenfootImage[] getCookieSpriteArr() {
         GreenfootImage[] images = new GreenfootImage[COOKIE_FILES.length];
         for(int i=0;i<images.length;i++) {
             images[i] = new GreenfootImage(COOKIE_FILES[i]);
