@@ -13,7 +13,6 @@ public class StartButton extends MenuButton
         image = new GreenfootImage("menu/button/startbutton.png");
         hoverImage = new GreenfootImage("menu/button/startbutton-hover.png");
         clickedImage = new GreenfootImage("menu/button/startbutton-clicked.png");
-        image.scale(300, 120);
         setImage(image);
     }
     public void act()

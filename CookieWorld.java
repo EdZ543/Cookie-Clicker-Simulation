@@ -25,6 +25,8 @@ public class CookieWorld extends World
     private int cps2 = 2;
     private int grandmas2 = 3;
     
+    private int startDelay = 120;
+    
     // World variables
     private GreenfootImage background;
     
@@ -137,6 +139,14 @@ public class CookieWorld extends World
         // addObject(winTitle, getWidth()/2, 745);
     }
     public void act() {
+        if(startDelay > 0) {
+            startDelay--;
+            if(startDelay == 0) {
+                // p1.start();
+                // p2.start();
+            }
+            return;
+        }
         handleActiveStateButtons();
         
     }
