@@ -19,14 +19,6 @@ public class WinButton extends BuyButton
         setImage(activeImage);
         // add HoverArea object
         getWorld().addObject(hover, getX(), getY());
-        // image = new GreenfootImage(260, 140);
-        // String bgFile = "buybutton-icns/win-btn-bg.png";
-        // icnFile = "buybutton-icns/temprocket.png";
-        // GreenfootImage bg = new GreenfootImage(bgFile);
-        // icn = new GreenfootImage(icnFile);
-        // image.drawImage(bg, 20, image.getHeight()-bg.getHeight());
-        // image.drawImage(icn, (image.getWidth()-icn.getWidth())/2 + 90, (image.getHeight()-icn.getHeight())/2);
-        // setImage(image);
     }
     public void act()
     {
