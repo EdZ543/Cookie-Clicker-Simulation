@@ -8,8 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Clickable extends Actor
 {
-    protected boolean readyToClick = false;
-    
     /**
      * Method called when a clicker clicks on this object
      * 
@@ -23,12 +21,5 @@ public abstract class Clickable extends Actor
     protected int getRandomNumberInRange(int start, int end) {
        int a = Greenfoot.getRandomNumber(end - start + 1);
        return start + a;
-    }
-    
-    /**
-     * Returns whether the building must be clicked right now
-     */
-    public boolean isReadyToClick() {
-        return readyToClick;
     }
 }

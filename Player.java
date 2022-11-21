@@ -69,12 +69,12 @@ public class Player extends Clickable
         // Add stationary clickers
         clickerBuildings = new Clicker[clickers];
         for (int i = 0; i < clickers; i++) {
-            clickerBuildings[i] = new Clicker(this, "white", 10);
+            clickerBuildings[i] = new Clicker(this, "white", 15);
             cw.addObject(clickerBuildings[i], getX(), 200);
         }
         
         // Add sentient clicker
-        clicker = new Clicker(this, colour, 20);
+        clicker = new Clicker(this, colour, 15);
         cw.addObject(clicker, getX(), 200);
         
         // Add building rows
@@ -110,23 +110,37 @@ public class Player extends Clickable
                 clicker.glideAndClick(cookie);
             } else {
                 // Attempt to perform a random action:
-                int randomAction = getRandomNumberInRange(1, 4);
-                if (randomAction >= 1) {
+                int randomAction = getRandomNumberInRange(1, 3);
+                if (randomAction == 1) {
                     // Click on a random clickable building
                     ArrayList<Building> clickableBuildings = getClickableBuildings();
                     if (!clickableBuildings.isEmpty()) {
                         Building toClick = clickableBuildings.get(getRandomNumberInRange(0, clickableBuildings.size() - 1));
                         clicker.glideAndClick(toClick);
                     }
-                } else if (randomAction == 2) {
-                    // Buy a random building 
-                } else if (randomAction == 3) {
-                    // Buy a random powerup
-                } else if (randomAction == 4) {
-                    // Buy a random sabotage
+                } else {
+                    ArrayList<BuyButton> affordableButtons = new ArrayList<BuyButton>();
+                    
+                    if (randomAction == 2) {
+                        // Buy a random building
+                        affordableButtons = cw.getAffordableBuildingButtons(numCookies);
+                        
+                    } else if (randomAction == 3) {
+                        // Buy a random powerup
+                        affordableButtons = cw.getAffordablePowerupButtons(numCookies, name);
+                        
+                    } else if (randomAction == 4) {
+                        // Buy a random sabotage
+                        affordableButtons = cw.getAffordableSabotageButtons(numCookies);
+                    }
+                    
+                    if (!affordableButtons.isEmpty()) {
+                        BuyButton toClick = affordableButtons.get(getRandomNumberInRange(0, affordableButtons.size() - 1));
+                        clicker.glideAndClick(toClick);
+                    }
                 }
                 
-                actionTime += getRandomNumberInRange(2, 3);
+                actionTime += getRandomNumberInRange(2, 5);
             }
         }
         

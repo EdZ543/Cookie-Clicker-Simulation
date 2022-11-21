@@ -327,4 +327,43 @@ public class CookieWorld extends World
     public WinButton getWinButton() {
         return winButton;
     }
+ 
+    public ArrayList<BuyButton> getAffordableBuildingButtons(int numCookies) {
+        ArrayList<BuyButton> affordableButtons = new ArrayList<BuyButton>();
+        for (int i = 0; i < buyBuildingButtons.length; i++) {
+            if (numCookies >= buyBuildingButtons[i].getCost()) {
+                affordableButtons.add(buyBuildingButtons[i]);
+            }
+        }
+        
+        return affordableButtons;
+    }
+    
+    public ArrayList<BuyButton> getAffordablePowerupButtons(int numCookies, String name) {
+        ArrayList<BuyButton> affordableButtons = new ArrayList<BuyButton>();
+        for (int i = 0; i < buyPowerupButtons.length; i++) {
+            if (numCookies >= buyPowerupButtons[i].getCost()) {
+                affordableButtons.add(buyPowerupButtons[i]);
+            } 
+        }
+        
+        if (name == "Player 1") {
+            affordableButtons.add(cookieUpgradeButtons[0]);
+        } else {
+            affordableButtons.add(cookieUpgradeButtons[1]);
+        }
+        
+        return affordableButtons;
+    }
+    
+    public ArrayList<BuyButton> getAffordableSabotageButtons(int numCookies) {
+        ArrayList<BuyButton> affordableButtons = new ArrayList<BuyButton>();
+        for (int i = 0; i < buySabotageButtons.length; i++) {
+            if (numCookies >= buySabotageButtons[i].getCost()) {
+                affordableButtons.add(buySabotageButtons[i]);
+            }
+        }
+        
+        return affordableButtons;
+    }
 }

@@ -13,6 +13,7 @@ public class Clicker extends SuperSmoothMover
     private GreenfootImage image;
     private GreenfootImage laggingImage = new GreenfootImage("lag.png");
     private int[] targetPoint;
+    private Clickable targetObject;
     private boolean glidingOrClicking = false;
     private int clickCount = 0;
     private int speed;
@@ -57,20 +58,17 @@ public class Clicker extends SuperSmoothMover
         } else if (glidingOrClicking && !gliding) {
             clickingAnimationTimer++;
             
-            if (clickingAnimationTimer == 10) { // Shrink cursor, and click
+            if (clickingAnimationTimer == 8) { // Shrink cursor, and click
                 image.scale(20, 30);
                 setImage(image);
                 
                 clickCount++;
                 
-                // Click a clickable object
-                for (Clickable object : getObjectsAtOffset(0, 0, Clickable.class)) {
-                    if (object != null && object.isReadyToClick()) {
-                        object.click(player);
-                        break;
-                    }
+                // Click target
+                if (targetObject != null) {
+                    targetObject.click(player);
                 }
-            } else if (clickingAnimationTimer == 20) { // Unshrink cursor
+            } else if (clickingAnimationTimer == 16) { // Unshrink cursor
                 image.scale(30, 40);
                 setImage(image);
                 clickingAnimationTimer = 0;
@@ -92,8 +90,9 @@ public class Clicker extends SuperSmoothMover
     /**
      * Makes cursor glide to a actor and then click
      */
-    public void glideAndClick(Actor actor) {
+    public void glideAndClick(Clickable actor) {
         int[] position = getRandomPointOnActor(actor);
+        targetObject = actor;
         startGlidingTo(position[0], position[1], speed);
         glidingOrClicking = true;
     }
