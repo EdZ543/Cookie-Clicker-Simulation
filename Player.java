@@ -12,7 +12,7 @@ import java.util.HashMap;
  * "AI" behaviour:
  * - If it has enough cookies to buy the cookie rocket, it shall do so immediately
  * - Default state: choose a random point on the cookie and click there
- * - Every 10-15 clicks, it shall attempt to perform a random action:
+ * - Every 2-5 clicks, it shall attempt to perform a random action:
  *   - Click on a random clickable building
  *   - Buy a random building 
  *   - Buy a random powerup
@@ -34,8 +34,8 @@ public class Player extends Clickable
     private HashMap<Class, BuildingRow> buildingRows;
     private Label scoreText;
     private Clicker clicker;
-    private int clickCount = 0;
     private Clicker[] clickerBuildings;
+    private int actionTime = 15; // number of clicks where the player will perform an action
     
     /**
      * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
@@ -74,7 +74,7 @@ public class Player extends Clickable
         }
         
         // Add sentient clicker
-        clicker = new Clicker(this, colour, 5);
+        clicker = new Clicker(this, colour, 10);
         cw.addObject(clicker, getX(), 200);
         
         // Add building rows
@@ -102,15 +102,29 @@ public class Player extends Clickable
         if (!clicker.glidingOrClicking()) {
             // If it has enough cookies to buy the cookie rocket, it shall do so immediately
             
-            
+            if (clicker.getClickCount() != actionTime) {
             // Default state: choose a random point on the cookie and click there
-            //clicker.click(cookie);
-            
-            // Every 10-15 clicks, it shall attempt to perform a random action:
-            // Click on a random clickable building
-            // Buy a random building 
-            // Buy a random powerup
-            // Buy a random sabotage
+            clicker.glideAndClick(cookie);
+            } else {
+                // Attempt to perform a random action:
+                int randomAction = getRandomNumberInRange(1, 4);
+                if (randomAction == 1) {
+                    // Click on a random clickable building
+                    ArrayList<Building> clickableBuildings = getClickableBuildings();
+                    if (!clickableBuildings.isEmpty()) {
+                        Building toClick = clickableBuildings.get(getRandomNumberInRange(0, clickableBuildings.size() - 1));
+                        clicker.glideAndClick(toClick);
+                    }
+                } else if (randomAction == 2) {
+                    // Buy a random building 
+                } else if (randomAction == 3) {
+                    // Buy a random powerup
+                } else if (randomAction == 4) {
+                    // Buy a random sabotage
+                }
+                
+                actionTime += Greenfoot.getRandomNumber(3) + 2;
+            }
         }
         
         // Control non-sentient clickers
@@ -119,6 +133,24 @@ public class Player extends Clickable
                 clickerBuildings[i].glideAndClick(cookie);
             }
         }
+    }
+    
+    /**
+     * Returns an arraylist of buildings that need to be clicked (e.g. a ready grandma)
+     */
+    private ArrayList<Building> getClickableBuildings() {
+        ArrayList<Building> ret = new ArrayList<Building>();
+        CookieWorld cw = (CookieWorld)getWorld();
+        for (Class buildingType : cw.getBuildingClasses()) {
+            BuildingRow buildingRow = buildingRows.get(buildingType);
+            for (Building building : buildingRow.getBuildings()) {
+                if (building.isReadyToClick()) {
+                    ret.add(building);
+                }
+            }
+        }
+        
+        return ret;
     }
     
     /**

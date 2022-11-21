@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Every 10 - 20 seconds produces 30-50 cookies.
  * They must be clicked by the player to collect the cookies (they are old and cannot carry them by themselves.
  * 
- * @author Patrick Hu
+ * @author Patrick Hu, Eddie Zhuang
  * @version November 2022
  */
 public class Grandma extends Building
@@ -12,6 +12,7 @@ public class Grandma extends Building
     private boolean angry;
     private int angryCount;
     private GreenfootImage angryGranny;
+    private GreenfootImage readyGranny = new GreenfootImage("./gifs/grandma/4.png");
     
     public Grandma(Player player) {
         super(player);
@@ -20,6 +21,7 @@ public class Grandma extends Building
         angry = false;
         angryGranny = new GreenfootImage("powerup-icns/angry-grandma.png");
         angryGranny.scale((int)(angryGranny.getWidth() * scale), (int)(angryGranny.getHeight() * scale));
+        readyGranny.scale((int)(readyGranny.getWidth() * scale), (int)(readyGranny.getHeight() * scale));
     }
     
     public void act() {
@@ -44,9 +46,12 @@ public class Grandma extends Building
         } else {
             // when Grandma is happy, she will gladly bake you several dozens of cookies!
             if (actCount == actMark) {
-                produce(30, 50);
-                actMark = getNextActMark(1, 2);
+                readyToClick = true;
             }
+        }
+        
+        if (readyToClick) {
+            setImage(readyGranny);
         }
     }
     
@@ -56,9 +61,16 @@ public class Grandma extends Building
     
     public void setAngry(boolean angryState) {
         angry = angryState;
+        readyToClick = false;
         if(angryState) {
             angryCount = -10 + Greenfoot.getRandomNumber(10); // stagger jumping start times
         }
+    }
+    
+    public void click() {
+        produce(30, 50);
+        actMark = getNextActMark(1, 2);
+        readyToClick = false;
     }
 }
 

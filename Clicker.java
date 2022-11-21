@@ -53,9 +53,7 @@ public class Clicker extends SuperSmoothMover
             }
             
             lagTimer--;
-        }
-        
-        if (glidingOrClicking && !gliding) {
+        } else if (glidingOrClicking && !gliding) {
             clickingAnimationTimer++;
             
             if (clickingAnimationTimer == 10) { // Shrink cursor, and click
@@ -63,7 +61,8 @@ public class Clicker extends SuperSmoothMover
                 setImage(image);
                 
                 Clickable object = (Clickable)getOneObjectAtOffset(getX(), getY(), Clickable.class);
-                //if (object != null) object.click(player);
+                clickCount++;
+                if (object != null) object.click(player);
             } else if (clickingAnimationTimer == 20) { // Unshrink cursor
                 image.scale(30, 40);
                 setImage(image);
@@ -113,5 +112,12 @@ public class Clicker extends SuperSmoothMover
      */
     public boolean glidingOrClicking() {
         return glidingOrClicking;
+    }
+    
+    /**
+     * Returns the number of times that the cursor has clicked
+     */
+    public int getClickCount() {
+        return clickCount;
     }
 }

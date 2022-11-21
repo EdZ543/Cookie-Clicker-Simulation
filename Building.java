@@ -14,13 +14,12 @@ public abstract class Building extends SuperSmoothMover
     protected int animationIndex;
     protected double scale; // scale of each image in the building's gif animation
     protected Player player;
-    protected int actCount;
-    protected int actMark;
+    protected int actCount = 20;
+    protected int actMark = 0;
+    protected boolean readyToClick = false;
     
     public Building(Player player) {
         this.player = player;
-        actCount = 0;
-        actMark = 1;
         scale = 1;
     }
     
@@ -79,5 +78,12 @@ public abstract class Building extends SuperSmoothMover
             animationIndex++;
             animationIndex %= animationSize;
         }
+    }
+    
+    /**
+     * Returns whether the building must be clicked right now
+     */
+    public boolean isReadyToClick() {
+        return readyToClick;
     }
 }
