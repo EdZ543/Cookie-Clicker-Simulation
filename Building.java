@@ -24,7 +24,10 @@ public abstract class Building extends SuperSmoothMover
     }
     
     public void addedToWorld(World w) {
-        setInitialImage();
+        // set inital image for building immediately so its dimensions are known from the start
+        String className = this.getClass().getSimpleName();
+        setImage("./gifs/" + className + "/0" + ".png");
+        getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
     }
     
     public void act() {
@@ -64,12 +67,9 @@ public abstract class Building extends SuperSmoothMover
         return actCount + t;
     }
     
-    public void setInitialImage() {
-        String className = this.getClass().getSimpleName();
-        setImage("./gifs/" + className + "/0" + ".png");
-        getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
-    }
-    
+    /**
+     * Animates the building's action. For example, grandmas bake and babies eat cookies.
+     */
     public void animate() {
         String className = this.getClass().getSimpleName();
         if (actCount % 20 == 0) {
@@ -85,5 +85,9 @@ public abstract class Building extends SuperSmoothMover
      */
     public boolean isReadyToClick() {
         return readyToClick;
+    }
+    
+    public Player getPlayer() {
+        return player;
     }
 }

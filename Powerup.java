@@ -18,12 +18,14 @@ public abstract class Powerup extends SuperSmoothMover
         this.origin = origin;
         actCount = 0;
     }
+    
     /**
      * @return int          How long the powerup lasts
      */
     public int getDuration() {
         return duration;
     }
+    
     /**
      * @return Player       The player that activated this powerup
      */
