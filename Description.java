@@ -56,6 +56,12 @@ public class Description extends Clickable
             case "MilkBottles":
                 setImage("./images/descriptions/milk-bottles.png");
                 break;
+            case "CookieUpgrade":
+                setImage("./images/descriptions/cookie-upgrade.png");
+                break;
+            case "CookieRocket":
+                setImage("./images/descriptions/cookie-rocket.png");
+                break;
         }
         
         getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
