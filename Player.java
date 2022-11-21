@@ -91,9 +91,6 @@ public class Player extends Clickable
         for (int i = 0; i < grandmas; i++) {
             buildingRows.get(Grandma.class).addBuilding(600, 400);
         }
-        for(int i=0;i<4;i++) {
-            buildingRows.get(Baby.class).addBuilding(600, 400);
-        }
         
         // Add score text
         scoreText = new Label(name + "'s Cookies:\n" + numCookies, 35);
