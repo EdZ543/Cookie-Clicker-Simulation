@@ -28,11 +28,11 @@ public class GrandmaRevolution extends Sabotage
     }
     
     public void act() {
-        actCount++;
         if(actCount == duration*60) {
             getWorld().removeObject(this);
             return;
         }
+        actCount++;
     }
     /**
      * Anger a number of the opponents' Grandma objects, depending on the <code>percent</code> instance variable

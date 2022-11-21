@@ -89,7 +89,11 @@ public class BuyButton extends Clickable
         getWorld().addObject(highlight, getX(), getY());
         
         // Charge player for purchase
-        player.changeCookieCount(-cost);
+        if(mySubclass == MilkBottles.class) {
+            player.changeCookieCount(-MilkBottles.getCost(player));
+        } else {
+            player.changeCookieCount(-cost);
+        }
         lastPlayer = player;
     }
 

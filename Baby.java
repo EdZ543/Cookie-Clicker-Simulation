@@ -19,16 +19,12 @@ public class Baby extends Building
         isDrinkingMilk = false;
         drinkingCount = 0;
         drinkingActs = 90;
-        if(player.getName() == "Player 1") {
-            MilkBottles.p2Cost += 400;
-        } else {
-            MilkBottles.p1Cost += 400;
-        }
     }
     
     public void act() {
         super.act();
         if(drinkingCount == 0 && isDrinkingMilk) {
+            player.getBuildingRows().get(Baby.class).getBuildings().remove(this);
             getWorld().removeObject(this);
         } else if (drinkingCount <= drinkingActs && isDrinkingMilk) {
             Effect.fade(drinkingSprite, drinkingCount, drinkingActs);

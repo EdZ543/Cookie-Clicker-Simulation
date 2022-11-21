@@ -301,7 +301,9 @@ public class CookieWorld extends World
     }
     public void toggleMilkBottlesButton() {
         BuyButton btn = getSabotageButton(MilkBottles.class);
-        if((p1.getCookieCount() > MilkBottles.p1Cost && MilkBottles.p1Cost != 0) || (p2.getCookieCount() > MilkBottles.p2Cost && MilkBottles.p2Cost != 0)) {
+        int p1Cost = MilkBottles.getCost(p1);
+        int p2Cost = MilkBottles.getCost(p2);
+        if((p1.getCookieCount() > p1Cost && p1Cost != 0) || (p2.getCookieCount() > p2Cost && p2Cost != 0)) {
             btn.setActive(true);
         } else {
             btn.setActive(false);

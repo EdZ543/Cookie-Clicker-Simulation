@@ -11,13 +11,12 @@ import java.util.ArrayList;
 public class MilkBottles extends Sabotage
 {
     private int startX, startY;     // MilkBottles are launched from (startX, startY)
-    public static int p1Cost, p2Cost;
     /**
      * @param origin            The Player who activated the MilkBottles sabotage        
      */
     public MilkBottles(Player origin) {
         super(origin);
-        
+        duration = 3;
     }
     /**
      * Instantiate one BottleOfMilk object for each of the opponent's Baby objects
@@ -38,16 +37,19 @@ public class MilkBottles extends Sabotage
         for(Baby b: babyBuildings) {
             sendMilkBottle(b); // milk bottles are thrown to each baby.
         }
-        // Reset cost
-        if(origin.getName() == "Player 1") {
-            p1Cost = 0;
-        } else {
-            p2Cost = 0;
-        }
+        // // Reset cost
+        // if(origin.getName() == "Player 1") {
+            // p1Cost = 0;
+        // } else {
+            // p2Cost = 0;
+        // }
     }
     
     public void act() {
-        getWorld().removeObject(this);
+        if(actCount == duration*60) {
+            getWorld().removeObject(this);
+        }
+        actCount++;
     }
     /**
      * @param b             The Baby that the BottleOfMilk is being thrown towards
@@ -56,5 +58,10 @@ public class MilkBottles extends Sabotage
         // BottleOfMilk movement is handled in its act method. 
         BottleOfMilk boM = new BottleOfMilk(startX, startY, b);
         getWorld().addObject(boM, startX, startY);
+    }
+    public static int getCost(Player player) {
+        Player otherPlayer = ((CookieWorld)player.getWorld()).getOtherPlayer(player);
+        ArrayList<Building> babies = otherPlayer.getBuildingRows().get(Baby.class).getBuildings();
+        return babies.size() * 400;
     }
 }
