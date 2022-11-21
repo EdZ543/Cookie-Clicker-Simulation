@@ -65,7 +65,7 @@ public class Cookie extends Clickable
      * Make sprite bigger when `Cookie` is "clicked" by a `Clicker`, to
      * make it seem like it's being "clicked"
      */
-    public void click() {
+    public void click(Player player) {
         animateCount = ANIM_DURATION;
         image.scale(originalSize + ANIM_FACTOR, originalSize + ANIM_FACTOR);
         setImage(image);
