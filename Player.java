@@ -100,15 +100,18 @@ public class Player extends Clickable
     public void act() {
         // Control main clicker
         if (!clicker.glidingOrClicking()) {
-            // If it has enough cookies to buy the cookie rocket, it shall do so immediately
+            CookieWorld cw = (CookieWorld)getWorld();
             
-            if (clicker.getClickCount() != actionTime) {
-            // Default state: choose a random point on the cookie and click there
-            clicker.glideAndClick(cookie);
+            // If it has enough cookies to buy the cookie rocket, it shall do so immediately
+            if (numCookies >= CookieWorld.getWinAmount()) {
+                clicker.glideAndClick(cw.getWinButton());
+            } else if (clicker.getClickCount() != actionTime) {
+                // Default state: choose a random point on the cookie and click there
+                clicker.glideAndClick(cookie);
             } else {
                 // Attempt to perform a random action:
                 int randomAction = getRandomNumberInRange(1, 4);
-                if (randomAction == 1) {
+                if (randomAction >= 1) {
                     // Click on a random clickable building
                     ArrayList<Building> clickableBuildings = getClickableBuildings();
                     if (!clickableBuildings.isEmpty()) {
@@ -123,7 +126,7 @@ public class Player extends Clickable
                     // Buy a random sabotage
                 }
                 
-                actionTime += (int)getRandomNumberInRange(2, 5);
+                actionTime += getRandomNumberInRange(2, 3);
             }
         }
         
