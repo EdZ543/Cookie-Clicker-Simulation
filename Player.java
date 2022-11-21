@@ -35,7 +35,7 @@ public class Player extends Clickable
     private Label scoreText;
     private Clicker clicker;
     private Clicker[] clickerBuildings;
-    private int actionTime = 15; // number of clicks where the player will perform an action
+    private int actionTime = 2; // number of clicks where the player will perform an action
     
     /**
      * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
@@ -69,12 +69,12 @@ public class Player extends Clickable
         // Add stationary clickers
         clickerBuildings = new Clicker[clickers];
         for (int i = 0; i < clickers; i++) {
-            clickerBuildings[i] = new Clicker(this, "white", 5);
+            clickerBuildings[i] = new Clicker(this, "white", 10);
             cw.addObject(clickerBuildings[i], getX(), 200);
         }
         
         // Add sentient clicker
-        clicker = new Clicker(this, colour, 10);
+        clicker = new Clicker(this, colour, 20);
         cw.addObject(clicker, getX(), 200);
         
         // Add building rows
@@ -123,7 +123,7 @@ public class Player extends Clickable
                     // Buy a random sabotage
                 }
                 
-                actionTime += Greenfoot.getRandomNumber(3) + 2;
+                actionTime += (int)getRandomNumberInRange(2, 5);
             }
         }
         

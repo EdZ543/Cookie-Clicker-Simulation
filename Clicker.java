@@ -61,9 +61,15 @@ public class Clicker extends SuperSmoothMover
                 image.scale(20, 30);
                 setImage(image);
                 
-                Clickable object = (Clickable)getOneObjectAtOffset(getX(), getY(), Clickable.class);
                 clickCount++;
-                if (object != null) object.click(player);
+                
+                // Click a clickable object
+                for (Clickable object : getObjectsAtOffset(0, 0, Clickable.class)) {
+                    if (object != null && object.isReadyToClick()) {
+                        object.click(player);
+                        break;
+                    }
+                }
             } else if (clickingAnimationTimer == 20) { // Unshrink cursor
                 image.scale(30, 40);
                 setImage(image);
@@ -97,7 +103,8 @@ public class Clicker extends SuperSmoothMover
      */
     private int[] getRandomPointOnActor(Actor actor) {
         GreenfootImage image = actor.getImage();
-        int radius = image.getWidth() / 2;
+        int lesserDimension = Math.min(image.getWidth(), image.getHeight());
+        int radius = lesserDimension / 2;
         
         double direction = Math.random() * (2 * Math.PI);
         double magnitude = Math.random() * radius;

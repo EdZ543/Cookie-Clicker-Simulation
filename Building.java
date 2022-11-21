@@ -16,7 +16,6 @@ public abstract class Building extends SuperSmoothMover
     protected Player player;
     protected int actCount = 0;
     protected int actMark = 100;
-    protected boolean readyToClick = false;
     
     public Building(Player player) {
         this.player = player;
@@ -78,12 +77,5 @@ public abstract class Building extends SuperSmoothMover
             animationIndex++;
             animationIndex %= animationSize;
         }
-    }
-    
-    /**
-     * Returns whether the building must be clicked right now
-     */
-    public boolean isReadyToClick() {
-        return readyToClick;
     }
 }
