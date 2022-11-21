@@ -62,7 +62,7 @@ public class Baby extends Building
      * Milk Bottles powerup is activated.
      */
     public void drinkMilk() {
-        drinkingSprite = new GreenfootImage("baby-drinking-milk.png");
+        drinkingSprite = new GreenfootImage("powerup-icns/baby-drinking-milk.png");
         drinkingSprite.scale(50, 50);
         setImage(drinkingSprite);
         isDrinkingMilk = true;

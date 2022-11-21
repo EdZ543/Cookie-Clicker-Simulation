@@ -18,7 +18,7 @@ public class Grandma extends Building
         animationSize = 5;
         scale = 0.53;
         angry = false;
-        angryGranny = new GreenfootImage("./images/angry-grandma.png");
+        angryGranny = new GreenfootImage("powerup-icns/angry-grandma.png");
         angryGranny.scale((int)(angryGranny.getWidth() * scale), (int)(angryGranny.getHeight() * scale));
     }
     

@@ -38,7 +38,7 @@ public class BottleOfMilk extends Effect
          */
         viy = (dy - 0.5*ay*t*t)/t;
         vix = dx/t;
-        image = new GreenfootImage("placeholder/bottleofmilk.png");
+        image = new GreenfootImage("powerup-icns/bottleofmilk.png");
         setImage(image);
     }
     /**
