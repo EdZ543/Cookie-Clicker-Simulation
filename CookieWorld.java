@@ -151,7 +151,6 @@ public class CookieWorld extends World
         return thisPlayer == p1 ? p2 : p1;
     }
     
-    
     /**
      * Returns the cost of [Class itemClass] by retrieving its [public static int COST] field
      * 
@@ -280,8 +279,12 @@ public class CookieWorld extends World
      * @param cookieCount       If cookieCount is less than the button's cost, set to inactive; otherwise, set to active
      */
     public void toggleButton(BuyButton btn, int cookieCount) {
+        if(btn.getMySubclass() == MilkBottles.class) {
+            toggleMilkBottlesButton();
+            return;
+        }
         boolean state = cookieCount > btn.getCost();
-        if(btn.isActive() != state && !btn.isMaxedOut()) {
+        if(!btn.isMaxedOut()) {
             btn.setActive(state);
         }
     }
@@ -294,6 +297,14 @@ public class CookieWorld extends World
     private void toggleButtonArray(BuyButton[] btns, int cookieCount) {
         for(BuyButton btn: btns) {
             toggleButton(btn, cookieCount);
+        }
+    }
+    public void toggleMilkBottlesButton() {
+        BuyButton btn = getSabotageButton(MilkBottles.class);
+        if((p1.getCookieCount() > MilkBottles.p1Cost && MilkBottles.p1Cost != 0) || (p2.getCookieCount() > MilkBottles.p2Cost && MilkBottles.p2Cost != 0)) {
+            btn.setActive(true);
+        } else {
+            btn.setActive(false);
         }
     }
     // used for testing

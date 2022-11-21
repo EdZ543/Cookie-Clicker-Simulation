@@ -18,6 +18,7 @@ public class BuyButton extends Clickable
     protected String name;
     // Button Images
     GreenfootImage activeImage, inactiveImage;
+    GreenfootImage activeImagePressed, inactiveImagePressed;
     // Clicked animation
     protected int clickedCount;
     protected int cooldown;  // if cooldown > 0, cannot activate button.
@@ -43,10 +44,13 @@ public class BuyButton extends Clickable
     }
 
     public void addedToWorld(World w) {
-        // set up button image
+        // set up button images
         activeImage = new GreenfootImage("buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png");
         inactiveImage = new GreenfootImage("buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + "-off.png");
-        // image = createImage();
+        activeImagePressed = new GreenfootImage(activeImage);
+        activeImagePressed.scale(70, 70);
+        inactiveImagePressed = new GreenfootImage(inactiveImage);
+        inactiveImagePressed.scale(70, 70);
         setImage(activeImage);
         // add HoverArea
         getWorld().addObject(hover, getX(), getY());
@@ -63,8 +67,7 @@ public class BuyButton extends Clickable
         CooldownBar highlight;
         // Handle variable changes
         clickedCount = 20;
-        activeImage.scale(60, 60);
-        setImage(activeImage);  // helps maintain button image quality
+        setImage(activeImagePressed);  // helps maintain button image quality
         active = true;
         
         // Handle Cookie Rocket
@@ -97,8 +100,12 @@ public class BuyButton extends Clickable
         if(clickedCount > 0) {
             clickedCount --;
             if(clickedCount == 0) {
-                activeImage = new GreenfootImage("buybutton-icns/" + mySubclass.getSimpleName().toLowerCase() + ".png"); //maintain image quality
-                ((CookieWorld)getWorld()).toggleButton(this, lastPlayer.getCookieCount());
+                if(getCost() <= lastPlayer.getCookieCount()) {
+                    setImage(activeImage);
+                } else {
+                    setImage(inactiveImage);
+                }
+                // ((CookieWorld)getWorld()).toggleButton(this, lastPlayer.getCookieCount());
                 // setActive(true);  // if maxedOut after click, stay inactive. otherwise, make active again (which will then change depending on `handleActiveStateButtons()` in `CookieWorld`
             }
         }
@@ -150,9 +157,17 @@ public class BuyButton extends Clickable
     public void setActive(boolean activeState) {
         active = activeState;
         if(activeState) {
-            setImage(activeImage);
+            if(clickedCount == 0) {
+                setImage(activeImage);
+            } else {
+                setImage(activeImagePressed);
+            }
         } else {
-            setImage(inactiveImage);
+            if(clickedCount == 0) {
+                setImage(inactiveImage);
+            } else {
+                setImage(inactiveImagePressed);
+            }
         }
     }
     /**
