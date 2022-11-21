@@ -40,16 +40,18 @@ public class GrandmaRevolution extends Sabotage
     private void angerGrandmas() {
         // Get array of the opponents' non-angry grandmas. target = opponent
         ArrayList<Grandma> grandmaBuildings = getTargetGrandmaBuildings();
-        grandmaBuildings.removeIf(g -> g.isAngry());
-        if(grandmaBuildings.size() == 0) {  // if none of opponents' grandmas are angry, do nothing.
-            return;
+        ArrayList<Grandma> notAngryGrandmas = new ArrayList<Grandma>();
+        for (Grandma granny : grandmaBuildings) {
+            if (!granny.isAngry()) {
+                notAngryGrandmas.add(granny);
+            }
         }
-        int angerCount = (int)(grandmaBuildings.size() * (percent / 100.0)); // how many Grandmas get angered, based on `percent` variable
+        int angerCount = (int)(notAngryGrandmas.size() * (percent / 100.0)); // how many Grandmas get angered, based on `percent` variable
         angerCount = angerCount == 0 ? 1 : angerCount;  // at least 1 grandma will be angered
         for(int i=0;i<angerCount;i++) {
-            int idx = Greenfoot.getRandomNumber(grandmaBuildings.size());
-            grandmaBuildings.get(idx).setAngry(true); // anger a random Grandma
-            grandmaBuildings.remove(idx);  // remove newly angered Grandma from array of non-angry Grandma objects
+            int idx = Greenfoot.getRandomNumber(notAngryGrandmas.size());
+            notAngryGrandmas.get(idx).setAngry(true); // anger a random Grandma
+            notAngryGrandmas.remove(idx);  // remove newly angered Grandma from array of non-angry Grandma objects
         }
     }
     /**

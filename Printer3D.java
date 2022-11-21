@@ -20,7 +20,14 @@ public class Printer3D extends Building
     public void act() {
         super.act();
         if (actCount == actMark) {
-            produce(650, 900);
+            if (hasExtraExpensiveFilament) {
+                int newLower = (int)(650 * 1.5);
+                int newUpper = (int)(900 * 1.5);
+                produce(newLower, newUpper);
+            }
+            else {
+                produce(650, 900);   
+            }
             actMark = getNextActMark(2, 3);
         }
     }
