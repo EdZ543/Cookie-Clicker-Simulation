@@ -123,7 +123,7 @@ public class Player extends Clickable
                     
                     if (randomAction == 2) {
                         // Buy a random building
-                        affordableButtons = cw.getAffordableBuildingButtons(numCookies);
+                        affordableButtons = cw.getAffordableBuildingButtons(numCookies, this);
                         
                     } else if (randomAction == 3) {
                         // Buy a random powerup

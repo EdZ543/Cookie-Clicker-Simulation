@@ -328,10 +328,16 @@ public class CookieWorld extends World
         return winButton;
     }
  
-    public ArrayList<BuyButton> getAffordableBuildingButtons(int numCookies) {
+    public ArrayList<BuyButton> getAffordableBuildingButtons(int numCookies, Player player) {
+        HashMap<Class, BuildingRow> buildingRows = player.getBuildingRows();
+        
         ArrayList<BuyButton> affordableButtons = new ArrayList<BuyButton>();
         for (int i = 0; i < buyBuildingButtons.length; i++) {
-            if (numCookies >= buyBuildingButtons[i].getCost()) {
+            Class subclass = buyBuildingButtons[i].getMySubclass();
+            BuildingRow buildingRow = buildingRows.get(subclass);
+            
+            // Returns button if the player has room left, and they can afford it
+            if (buildingRow.isRoomLeft() && numCookies >= buyBuildingButtons[i].getCost()) {
                 affordableButtons.add(buyBuildingButtons[i]);
             }
         }
