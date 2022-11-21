@@ -14,8 +14,8 @@ public abstract class Building extends SuperSmoothMover
     protected int animationIndex;
     protected double scale; // scale of each image in the building's gif animation
     protected Player player;
-    protected int actCount = 20;
-    protected int actMark = 0;
+    protected int actCount = 0;
+    protected int actMark = 100;
     protected boolean readyToClick = false;
     
     public Building(Player player) {

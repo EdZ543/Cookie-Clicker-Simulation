@@ -27,6 +27,7 @@ public class Grandma extends Building
     public void act() {
         super.act();
         if(angry) {
+            readyToClick = false;
             angryCount++;
             if(angryCount < 10) { // stagger jumping start times
                 return;

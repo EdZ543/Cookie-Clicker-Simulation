@@ -11,7 +11,7 @@ public class Clicker extends SuperSmoothMover
     private Player player;
     private int lagTimer = 0;
     private GreenfootImage image;
-    private GreenfootImage laggingImage = new GreenfootImage("lag.gif");
+    private GreenfootImage laggingImage = new GreenfootImage("lag.png");
     private int[] targetPoint;
     private boolean glidingOrClicking = false;
     private int clickCount = 0;
@@ -35,6 +35,7 @@ public class Clicker extends SuperSmoothMover
         }
         
         image.scale(30, 40);
+        laggingImage.scale(30, 40);
         setImage(image);
     }
 
