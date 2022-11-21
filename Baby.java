@@ -22,7 +22,7 @@ public class Baby extends Building
         super.act();
         if (actCount == actMark) {
             eat();
-            actMark = getNextActMark(3, 3);
+            actMark = getNextActMark(1, 1);
         }
         
         if (isDrinkingMilk) {
@@ -39,7 +39,7 @@ public class Baby extends Building
             amountToEat = 70;
         }
         else {
-            amountToEat = getRandomNumberInRange(50, 70);   
+            amountToEat = getRandomNumberInRange(70, 90);   
         }
         
         CookieWorld cw = (CookieWorld)getWorld();

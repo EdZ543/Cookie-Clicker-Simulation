@@ -18,9 +18,7 @@ public class Printer3D extends Building
         super.act();
         if (actCount == actMark) {
             produce(650, 900);
-            getNextActMark(2, 3);
+            actMark = getNextActMark(2, 3);
         }
-        
-        animate();
     }
 }

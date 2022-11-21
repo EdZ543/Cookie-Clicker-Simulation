@@ -19,11 +19,11 @@ public class CookieWorld extends World
     // Variable adjustments from menu (temporary, will be passed in from constructor)
     private int clickers1 = 3; 
     private int cps1 = 1;
-    private int grandmas1 = 4;
+    private int grandmas1 = 1;
     
     private int clickers2 = 2; 
     private int cps2 = 2;
-    private int grandmas2 = 20;
+    private int grandmas2 = 3;
     
     // World variables
     private GreenfootImage background;

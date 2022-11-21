@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Every 5-10 seconds, the alchemy lab will produce 500-1000 cookies
+ * 
  * 
  * @author Patrick Hu 
  * @version November 2022
@@ -17,7 +17,7 @@ public class AlchemyLab extends Building
     public void act() {
         super.act();
         if (actCount == actMark) {
-            produce(500, 1000);    
+            produce(200, 400);    
             actMark = getNextActMark(2, 3);
         }
     }
