@@ -1,22 +1,30 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartButton here.
+ * Start the simulation!
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Caden Chan 
+ * @version 2022.11.21
  */
 public class StartButton extends MenuButton
 {
-    /**
-     * Act - do whatever the StartButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public StartButton() {
+        // Load images
+        image = new GreenfootImage("menu/button/startbutton.png");
+        hoverImage = new GreenfootImage("menu/button/startbutton-hover.png");
+        clickedImage = new GreenfootImage("menu/button/startbutton-clicked.png");
+        image.scale(300, 120);
+        setImage(image);
+    }
     public void act()
     {
-        // Add your action code here.
+        super.act();
     }
     public void clicked() {
-        
+        // setImage();
+        Greenfoot.setWorld(new CookieWorld());
+    }
+    public void checkHover() {
+        super.checkHover();
     }
 }

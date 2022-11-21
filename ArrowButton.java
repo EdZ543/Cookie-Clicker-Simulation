@@ -8,15 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ArrowButton extends MenuButton
 {
-    /**
-     * Act - do whatever the ArrowButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public ArrowButton(boolean isLeft) {
+        String path = isLeft ? "leftarrow" : "rightarrow";
+        image = new GreenfootImage("menu/button/" + path + ".png");
+        hoverImage = new GreenfootImage("menu/button/" + path + "-hover.png");
+        clickedImage = new GreenfootImage("menu/button/" + path + "-clicked.png");
+        inactiveImage = new GreenfootImage("menu/button/" + path + "-off.png");
+        setImage(image);
+    }
     public void act()
     {
-        // Add your action code here.
+        super.act();
     }
     public void clicked() {
         
     }
+    public void checkHover() {
+        super.checkHover();
+    }
+    
 }

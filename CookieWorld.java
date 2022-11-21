@@ -49,7 +49,7 @@ public class CookieWorld extends World
      * }
      */
     
-    public CookieWorld() throws MyException
+    public CookieWorld()
     {   
         super(1200, 800, 1); 
         // Drawing Order of Classes
@@ -250,10 +250,7 @@ public class CookieWorld extends World
      * @param values                            Array of values
      * @return HashMap<String, Object>          HashMap comprised of the keys and values from the provided arrays
      */
-    private HashMap<String, Object> createHashmap(String[] keys, Object[] values) throws MyException {
-        if(keys.length != values.length) {
-            throw new MyException("method: createHashmap\nproblem: keys & values arrays must be of equal length");
-        }
+    private HashMap<String, Object> createHashmap(String[] keys, Object[] values){
         LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
         for(int i=0;i<keys.length;i++ ){
             map.put(keys[i], values[i]);
