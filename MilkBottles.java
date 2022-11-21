@@ -11,11 +11,13 @@ import java.util.ArrayList;
 public class MilkBottles extends Sabotage
 {
     private int startX, startY;     // MilkBottles are launched from (startX, startY)
+    public static int p1Cost, p2Cost;
     /**
      * @param origin            The Player who activated the MilkBottles sabotage        
      */
     public MilkBottles(Player origin) {
         super(origin);
+        
     }
     /**
      * Instantiate one BottleOfMilk object for each of the opponent's Baby objects
@@ -35,6 +37,12 @@ public class MilkBottles extends Sabotage
         ArrayList<Baby> babyBuildings = (ArrayList<Baby>)(ArrayList<?>)babyBuildingRow.getBuildings();
         for(Baby b: babyBuildings) {
             sendMilkBottle(b); // milk bottles are thrown to each baby.
+        }
+        // Reset cost
+        if(origin.getName() == "Player 1") {
+            p1Cost = 0;
+        } else {
+            p2Cost = 0;
         }
     }
     

@@ -18,8 +18,10 @@ public class BottleOfMilk extends Effect
         this.startX = startX;
         this.startY = startY;
         this.baby = baby;
-        this.endX = baby.getX();
-        this.endY = baby.getY();
+        if(baby.getWorld() != null) {
+            this.endX = baby.getX();
+            this.endY = baby.getY();
+        }
         x = startX;
         y = startY;
         dx = endX - startX;
@@ -53,7 +55,7 @@ public class BottleOfMilk extends Effect
         x += vix;
         viy += ay;
         if(baby.getWorld() == null || intersects(baby)) {
-            // baby.giveMilk();
+            baby.drinkMilk();
             getWorld().removeObject(this);
             return;
         }

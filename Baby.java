@@ -10,23 +10,37 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Baby extends Building
 {
     private boolean isDrinkingMilk; // whether the baby was given a milk bottle
-    
+    private int drinkingCount, drinkingActs;
+    private GreenfootImage drinkingSprite;
     public Baby(Player player) {
         super(player);
         animationSize = 11;
         scale = 0.5;
         isDrinkingMilk = false;
+        drinkingCount = 0;
+        drinkingActs = 90;
+        if(player.getName() == "Player 1") {
+            MilkBottles.p2Cost += 400;
+        } else {
+            MilkBottles.p1Cost += 400;
+        }
     }
     
     public void act() {
         super.act();
-        if (actCount == actMark) {
-            eat();
-            actMark = getNextActMark(1, 1);
+        if(drinkingCount == 0 && isDrinkingMilk) {
+            getWorld().removeObject(this);
+        } else if (drinkingCount <= drinkingActs && isDrinkingMilk) {
+            Effect.fade(drinkingSprite, drinkingCount, drinkingActs);
+        } else {
+            if (actCount == actMark) {
+                eat();
+                actMark = getNextActMark(1, 1);
+            }
         }
-        
-        if (isDrinkingMilk) {
-            fade();
+        if(isDrinkingMilk) {
+            setImage(drinkingSprite);
+            drinkingCount --;
         }
     }
     
@@ -52,22 +66,25 @@ public class Baby extends Building
      * Milk Bottles powerup is activated.
      */
     public void drinkMilk() {
-        setImage("./images/baby-drinking-milk.png");
+        drinkingSprite = new GreenfootImage("baby-drinking-milk.png");
+        drinkingSprite.scale(50, 50);
+        setImage(drinkingSprite);
         isDrinkingMilk = true;
+        drinkingCount = 120;
     }
     
-    /**
-     * Gradually fades out the baby and then removes it from the world.
-     */
-    public void fade() {
-        int curTransparency = getImage().getTransparency();
-        if (curTransparency == 0) {
-            getWorld().removeObject(this);
-            return;
-        }
-        int newTransparency = getImage().getTransparency() - 5;
-        if (actCount % 15 == 0) {
-            getImage().setTransparency(newTransparency);
-        }
-    }
+    // /**
+     // * Gradually fades out the baby and then removes it from the world.
+     // */
+    // public void fade() {
+        // int curTransparency = getImage().getTransparency();
+        // if (curTransparency == 0) {
+            // getWorld().removeObject(this);
+            // return;
+        // }
+        // int newTransparency = getImage().getTransparency() - 5;
+        // if (actCount % 15 == 0) {
+            // getImage().setTransparency(newTransparency);
+        // }
+    // }
 }
