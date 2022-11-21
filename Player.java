@@ -35,7 +35,7 @@ public class Player extends Clickable
     private Label scoreText;
     private Clicker clicker;
     private Clicker[] clickerBuildings;
-    private int actionTime = 15; // number of clicks where the player will perform an action
+    private int actionTime = 2; // number of clicks where the player will perform an action
     
     /**
      * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
@@ -69,12 +69,12 @@ public class Player extends Clickable
         // Add stationary clickers
         clickerBuildings = new Clicker[clickers];
         for (int i = 0; i < clickers; i++) {
-            clickerBuildings[i] = new Clicker(this, "white", 5);
+            clickerBuildings[i] = new Clicker(this, "white", 10);
             cw.addObject(clickerBuildings[i], getX(), 200);
         }
         
         // Add sentient clicker
-        clicker = new Clicker(this, colour, 10);
+        clicker = new Clicker(this, colour, 20);
         cw.addObject(clicker, getX(), 200);
         
         // Add building rows
@@ -100,15 +100,18 @@ public class Player extends Clickable
     public void act() {
         // Control main clicker
         if (!clicker.glidingOrClicking()) {
-            // If it has enough cookies to buy the cookie rocket, it shall do so immediately
+            CookieWorld cw = (CookieWorld)getWorld();
             
-            if (clicker.getClickCount() != actionTime) {
-            // Default state: choose a random point on the cookie and click there
-            clicker.glideAndClick(cookie);
+            // If it has enough cookies to buy the cookie rocket, it shall do so immediately
+            if (numCookies >= CookieWorld.getWinAmount()) {
+                clicker.glideAndClick(cw.getWinButton());
+            } else if (clicker.getClickCount() != actionTime) {
+                // Default state: choose a random point on the cookie and click there
+                clicker.glideAndClick(cookie);
             } else {
                 // Attempt to perform a random action:
                 int randomAction = getRandomNumberInRange(1, 4);
-                if (randomAction == 1) {
+                if (randomAction >= 1) {
                     // Click on a random clickable building
                     ArrayList<Building> clickableBuildings = getClickableBuildings();
                     if (!clickableBuildings.isEmpty()) {
@@ -123,7 +126,7 @@ public class Player extends Clickable
                     // Buy a random sabotage
                 }
                 
-                actionTime += Greenfoot.getRandomNumber(3) + 2;
+                actionTime += getRandomNumberInRange(2, 3);
             }
         }
         

@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Every 10 - 20 seconds produces 30-50 cookies.
+ * Every 2-5 seconds produces 30-50 cookies.
  * They must be clicked by the player to collect the cookies (they are old and cannot carry them by themselves.
  * 
  * @author Patrick Hu, Eddie Zhuang
@@ -26,7 +26,7 @@ public class Grandma extends Building
     
     public void act() {
         super.act();
-        if(angry) {
+        if (angry) {
             readyToClick = false;
             angryCount++;
             if(angryCount < 10) { // stagger jumping start times
@@ -62,15 +62,14 @@ public class Grandma extends Building
     
     public void setAngry(boolean angryState) {
         angry = angryState;
-        readyToClick = false;
         if(angryState) {
             angryCount = -10 + Greenfoot.getRandomNumber(10); // stagger jumping start times
         }
     }
     
-    public void click() {
+    public void click(Player player) {
         produce(30, 50);
-        actMark = getNextActMark(1, 2);
+        actMark = getNextActMark(2, 5);
         readyToClick = false;
     }
 }

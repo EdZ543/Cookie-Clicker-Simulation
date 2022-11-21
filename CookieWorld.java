@@ -33,7 +33,7 @@ public class CookieWorld extends World
     private BuyButton[] buyBuildingButtons, buyPowerupButtons, buySabotageButtons, cookieUpgradeButtons;
     private WinButton winButton;
     private Label buildingTitle, powerupTitle, sabotageTitle;
-    private final int WIN = 1000000; // player must reach this amount of cookies to win
+    private static final int WIN = 1000000; // player must reach this amount of cookies to win
     // Player variables
     private Player p1, p2;
     
@@ -314,4 +314,17 @@ public class CookieWorld extends World
         return p1;
     }
     
+    /**
+     * Returns the amount of cookies a player needs to win
+     */
+    public static int getWinAmount() {
+        return WIN;
+    }
+    
+    /**
+     * Returns the win button
+     */
+    public WinButton getWinButton() {
+        return winButton;
+    }
 }
