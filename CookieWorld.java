@@ -17,13 +17,6 @@ import java.util.LinkedHashMap;
 public class CookieWorld extends World
 {
     // Variable adjustments from menu (temporary, will be passed in from constructor)
-    private int clickers1 = 3; 
-    private int cps1 = 1;
-    private int grandmas1 = 1;
-    
-    private int clickers2 = 2; 
-    private int cps2 = 2;
-    private int grandmas2 = 3;
     
     private int startDelay = 120;
     
@@ -51,7 +44,7 @@ public class CookieWorld extends World
      * }
      */
     
-    public CookieWorld()
+    public CookieWorld(int[] clickers, int[] grandmas, int[] cpsRates)
     {   
         super(1200, 800, 1); 
         // Drawing Order of Classes
@@ -99,8 +92,8 @@ public class CookieWorld extends World
         cookieUpgradeButtons = initBuyButtons(new ArrayList<Class>(Arrays.asList(CookieUpgrade.class, CookieUpgrade.class)));  // two buttons for CookieUpgrade class (one for each player)
         
         // - - - Initialize players - - -
-        p1 = new Player(412, getHeight(), clickers1, cps1, grandmas1, "Player 1", "red");
-        p2 = new Player(420, getHeight(), clickers2, cps2, grandmas2, "Player 2", "blue");
+        p1 = new Player(412, getHeight(), clickers[0], cpsRates[0], grandmas[0], "Player 1", "red");
+        p2 = new Player(420, getHeight(), clickers[1], cpsRates[1], grandmas[1], "Player 2", "blue");
         addObject(p1, 205, 400);
         addObject(p2, 990, 400);
         

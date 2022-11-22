@@ -20,7 +20,7 @@ public abstract class MenuButton extends Actor
         if(clickCount > 0) {
             clickCount --;
             if(clickCount == 0) {
-                setImage(image); //setImage(hoverImage)
+                setImage(hoverImage); //setImage(image)
             }
         }
         if(Greenfoot.mousePressed(this)){

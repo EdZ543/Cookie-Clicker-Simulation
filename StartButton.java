@@ -21,7 +21,7 @@ public class StartButton extends MenuButton
     }
     public void clicked() {
         // setImage();
-        Greenfoot.setWorld(new CookieWorld());
+        ((MenuWorld)getWorld()).start();
     }
     public void checkHover() {
         super.checkHover();
