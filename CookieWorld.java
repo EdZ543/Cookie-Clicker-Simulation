@@ -12,6 +12,7 @@ import java.util.LinkedHashMap;
  * - Code
  *   - SuperSmoothMover from Mr. Cohen
  * - Sound
+ *   - Click sound effect obtained from https://www.zapsplat.com
  * 
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
  * @version 2022.11.14
