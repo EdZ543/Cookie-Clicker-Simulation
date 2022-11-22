@@ -15,7 +15,7 @@ public class Lag extends Sabotage
      */
     public Lag(Player origin) {
         super(origin);
-        duration = Greenfoot.getRandomNumber(3) + 3; // lasts 3-5 seconds
+        duration = (Greenfoot.getRandomNumber(3) + 3)*60; // lasts 3-5 seconds
         image = new GreenfootImage("effect/lag0.png");
         setImage(image);
         // Initialize image-blinking variables
@@ -46,7 +46,7 @@ public class Lag extends Sabotage
                 image.setTransparency(255);
             }
         }
-        if(actCount == duration*60 + (duration*60)%50) { // add (duration*60)%50 to time removal of Lag object with blinking
+        if(actCount == duration + duration%50) { // add duration%50 to time removal of Lag object with blinking
             getWorld().removeObject(this);
         }
     }

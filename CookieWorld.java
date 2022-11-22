@@ -362,10 +362,13 @@ public class CookieWorld extends World
         return affordableButtons;
     }
     
-    public ArrayList<BuyButton> getAffordableSabotageButtons(int numCookies) {
+    public ArrayList<BuyButton> getAffordableSabotageButtons(int numCookies, Player player) {
         ArrayList<BuyButton> affordableButtons = new ArrayList<BuyButton>();
         for (int i = 0; i < buySabotageButtons.length; i++) {
-            if (numCookies >= buySabotageButtons[i].getCost()) {
+            //special cost handling for MilkBottles sabotage
+            boolean saboIsMilkBottles = buySabotageButtons[i].getMySubclass() == MilkBottles.class;
+            int saboCost = saboIsMilkBottles ? MilkBottles.getCost(player) : buySabotageButtons[i].getCost(); 
+            if (numCookies >= saboCost) {
                 affordableButtons.add(buySabotageButtons[i]);
             }
         }

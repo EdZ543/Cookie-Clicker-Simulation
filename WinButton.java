@@ -16,6 +16,10 @@ public class WinButton extends BuyButton
         // set up button images
         activeImage = new GreenfootImage("buybutton-icns/win-btn.png");
         inactiveImage = new GreenfootImage("buybutton-icns/win-btn-off.png");
+        activeImagePressed = new GreenfootImage(activeImage);
+        activeImagePressed.scale(230, 124);
+        inactiveImagePressed = new GreenfootImage(inactiveImage);
+        inactiveImagePressed.scale(230, 124);
         setImage(activeImage);
         // add HoverArea object
         getWorld().addObject(hover, getX(), getY());

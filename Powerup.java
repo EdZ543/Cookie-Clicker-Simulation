@@ -10,7 +10,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Powerup extends SuperSmoothMover
 {
-    protected int duration;
+    protected int duration;  //duration, in acts
     protected int actCount;
     protected Player origin;  // Player that activated the Powerup
     
@@ -20,7 +20,7 @@ public abstract class Powerup extends SuperSmoothMover
     }
     
     /**
-     * @return int          How long the powerup lasts
+     * @return int          How long the powerup lasts, in acts
      */
     public int getDuration() {
         return duration;

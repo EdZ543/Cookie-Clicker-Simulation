@@ -15,8 +15,8 @@ public class LuckyClover extends Powerup
         image = new GreenfootImage("effect/luckyclover0.png");
         setImage(image);
         image.setTransparency(180);
-        duration = 6 + Greenfoot.getRandomNumber(3); // random duration from 6-8
-        actCount = duration*60;
+        duration = (6 + Greenfoot.getRandomNumber(3))*60; // random duration from 6-8 seconds, in acts
+        actCount = duration;
         rotationCount = 0;
     }
     

@@ -28,7 +28,7 @@ public class GrandmaRevolution extends Sabotage
     }
     
     public void act() {
-        if(actCount == duration*60) {
+        if(actCount == duration) {
             getWorld().removeObject(this);
             return;
         }

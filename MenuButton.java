@@ -28,7 +28,6 @@ public abstract class MenuButton extends Actor
             setImage(clickedImage);
         }
         if(Greenfoot.mouseClicked(this)) {
-            System.out.println("hi");
             clicked();
         }
         if(clickCount == 0) {

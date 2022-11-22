@@ -24,7 +24,7 @@ public class CooldownBar extends Actor
     public CooldownBar(int width, int height, Color colour, double duration) {
         this.width = width;
         this.height = height;
-        rate = 100.0/(duration*60); // by how much the `percent` variable should change per act
+        rate = 100.0/(duration); // by how much the `percent` variable should change per act
         this.colour = colour;
         image = new GreenfootImage(width, height);
     }
@@ -53,9 +53,9 @@ public class CooldownBar extends Actor
         setImage(image);
     }
     /**
-     * @param d         Set duration to `d` seconds
+     * @param d         Set duration to `d` acts
      */
     public void setDuration(int d) {
-        rate = 100.0/(d*60);
+        rate = 100.0/d;
     }
 }

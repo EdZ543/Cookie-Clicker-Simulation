@@ -16,7 +16,7 @@ public class MilkBottles extends Sabotage
      */
     public MilkBottles(Player origin) {
         super(origin);
-        duration = 3;
+        duration = 3*60; // last 3 seconds
     }
     /**
      * Instantiate one BottleOfMilk object for each of the opponent's Baby objects
@@ -37,16 +37,10 @@ public class MilkBottles extends Sabotage
         for(Baby b: babyBuildings) {
             sendMilkBottle(b); // milk bottles are thrown to each baby.
         }
-        // // Reset cost
-        // if(origin.getName() == "Player 1") {
-            // p1Cost = 0;
-        // } else {
-            // p2Cost = 0;
-        // }
     }
     
     public void act() {
-        if(actCount == duration*60) {
+        if(actCount == duration) {
             getWorld().removeObject(this);
         }
         actCount++;

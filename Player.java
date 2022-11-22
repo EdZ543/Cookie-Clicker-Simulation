@@ -110,7 +110,7 @@ public class Player extends Clickable
                 clicker.glideAndClick(cookie);
             } else {
                 // Attempt to perform a random action:
-                int randomAction = getRandomNumberInRange(1, 3);
+                int randomAction = getRandomNumberInRange(1, 4);
                 if (randomAction == 1) {
                     // Click on a random clickable building
                     ArrayList<Building> clickableBuildings = getClickableBuildings();
@@ -131,7 +131,7 @@ public class Player extends Clickable
                         
                     } else if (randomAction == 4) {
                         // Buy a random sabotage
-                        affordableButtons = cw.getAffordableSabotageButtons(numCookies);
+                        affordableButtons = cw.getAffordableSabotageButtons(numCookies, this);
                     }
                     
                     if (!affordableButtons.isEmpty()) {

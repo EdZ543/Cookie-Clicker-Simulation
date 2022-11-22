@@ -25,7 +25,7 @@ public class CookieMonster extends Sabotage
     
     public void act() {
         animate();
-        if(actCount == duration*60) {
+        if(actCount == duration) {
             getWorld().removeObject(this);
         }   
         actCount++;

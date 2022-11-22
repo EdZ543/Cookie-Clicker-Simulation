@@ -76,12 +76,12 @@ public class BuyButton extends Clickable
         //Handle Powerups
         } else if(Building.class.isAssignableFrom(mySubclass)) {
             player.addBuilding(getX(), getY(), mySubclass);
-            highlightDuration = 0.5;
+            highlightDuration = 30;
         // Handle Powerups
         } else {
             Powerup powerup = createPowerup(player);
             getWorld().addObject(powerup, 0, 0);
-            highlightDuration = powerup.getDuration() == 0 ? 0.5 : powerup.getDuration();
+            highlightDuration = powerup.getDuration() == 0 ? 30 : powerup.getDuration();
         }
         // Handle BuyButton highlighting & visuals
         colour = player.getColour() == "red" ? Color.RED : Color.BLUE;
@@ -104,7 +104,7 @@ public class BuyButton extends Clickable
         if(clickedCount > 0) {
             clickedCount --;
             if(clickedCount == 0) {
-                if(getCost() <= lastPlayer.getCookieCount()) {
+                if(getCost() <= lastPlayer.getCookieCount()  && !maxedOut) {
                     setImage(activeImage);
                 } else {
                     setImage(inactiveImage);
