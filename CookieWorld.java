@@ -31,6 +31,8 @@ public class CookieWorld extends World
     private static final int WIN = 1000000; // player must reach this amount of cookies to win
     // Player variables
     private Player p1, p2;
+    // Whether game has been won
+    private boolean gameWon;
     
     // Master lists of Building/Powerup classes
     private LinkedHashMap<Class, HashMap<String, Object>> buildingMap;
@@ -48,7 +50,7 @@ public class CookieWorld extends World
     {   
         super(1200, 800, 1); 
         // Drawing Order of Classes
-        setPaintOrder(Lag.class, Clicker.class, HoverArea.class, Description.class, BottleOfMilk.class, Effect.class, Building.class, Powerup.class, CooldownBar.class, Label.class, BuyButton.class, BuildingRow.class, Cookie.class);
+        setPaintOrder(CookieRocket.class, DarkOverlay.class, Lag.class, Clicker.class, HoverArea.class, Description.class, BottleOfMilk.class, Effect.class, Building.class, Powerup.class, CooldownBar.class, Label.class, BuyButton.class, BuildingRow.class, Cookie.class);
         // Set world background
         background = new GreenfootImage("background0.png");
         setBackground(background);
@@ -96,6 +98,9 @@ public class CookieWorld extends World
         p2 = new Player(420, getHeight(), clickers[1], cpsRates[1], grandmas[1], "Player 2", "blue");
         addObject(p1, 205, 400);
         addObject(p2, 990, 400);
+        
+        // - - - Rest - - -
+        gameWon = false;
         
         // - - - Draw Buttons - - -
         int btnX, btnY;
@@ -374,5 +379,13 @@ public class CookieWorld extends World
         }
         
         return affordableButtons;
+    }
+    
+    public boolean gameIsWon() {
+        return gameWon;
+    }
+    
+    public void setGameWon(boolean x) {
+        gameWon = x;
     }
 }

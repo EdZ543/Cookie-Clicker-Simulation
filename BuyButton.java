@@ -69,15 +69,22 @@ public class BuyButton extends Clickable
         clickedCount = 20;
         setImage(activeImagePressed);  // helps maintain button image quality
         active = true;
-        
+
         // Handle Cookie Rocket
         if(mySubclass == CookieRocket.class) {
+            CookieWorld cw = (CookieWorld)getWorld();
+            if (!cw.gameIsWon()) {
+                CookieRocket rocket = new CookieRocket(player);
+                getWorld().addObject(rocket, getX(), getY() + 20);                
+                cw.setGameWon(true);
+            }
+
             return;
-        //Handle Powerups
+            //Handle Powerups
         } else if(Building.class.isAssignableFrom(mySubclass)) {
             player.addBuilding(getX(), getY(), mySubclass);
             highlightDuration = 30;
-        // Handle Powerups
+            // Handle Powerups
         } else {
             Powerup powerup = createPowerup(player);
             getWorld().addObject(powerup, 0, 0);
@@ -87,7 +94,7 @@ public class BuyButton extends Clickable
         colour = player.getColour() == "red" ? Color.RED : Color.BLUE;
         highlight = new CooldownBar((int)(getImage().getWidth()*0.9 +1), getImage().getHeight(), colour, highlightDuration);
         getWorld().addObject(highlight, getX(), getY());
-        
+
         // Charge player for purchase
         if(mySubclass == MilkBottles.class) {
             player.changeCookieCount(-MilkBottles.getCost(player));
@@ -149,12 +156,14 @@ public class BuyButton extends Clickable
     public int getCost() {
         return cost;    
     }
+
     /**
      * @param cookies       The number of cookies clicking this BuyButton should cost
      */
     public void setCost(int cookies) {
         cost = cookies;
     }
+
     /**
      * @param activeState           Set <code>active</code> state to true or false
      */
@@ -174,12 +183,14 @@ public class BuyButton extends Clickable
             }
         }
     }
+
     /**
      * @return boolean          Return the button's <code>active</code> state
      */
     public boolean isActive() {
         return active;
     }
+
     /**
      * Set true if the maximum number of purchases have been acheived. Otherwise, set false.
      * @param maxed         Set <code>maxedOut</code> state to true or false
@@ -202,12 +213,14 @@ public class BuyButton extends Clickable
             hover.setImage(new GreenfootImage(getImage().getWidth(), getImage().getHeight()));
         }
     }
+
     /**
      * @return boolean          Return the button's <code>maxedOut</code> state
      */
     public boolean isMaxedOut() {
         return maxedOut;
     }
+
     /**
      * BuyButton may only be clicked if the <code>active</code> state is true, and the <code>maxedOut</code> state is false
      * @return boolean          Return whether the button can be clicked or not

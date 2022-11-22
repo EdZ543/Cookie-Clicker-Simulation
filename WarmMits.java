@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Warm mittens make clickers click faster.
+ * Warm mittens make clickers click faster (increases their production).
  * 
  * @author Jonathan Zhao
  * @version November 2022

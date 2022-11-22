@@ -24,10 +24,9 @@ public class WinButton extends BuyButton
         // add HoverArea object
         getWorld().addObject(hover, getX(), getY());
     }
-    public void act()
-    {
-        if(active) {
-            // do something to make it obvious that it's special
+    public void act() {
+        if (active) {
+            
         }
     }
 }
