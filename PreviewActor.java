@@ -1,19 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PreviewActor here.
+ * Superclass for all previewers. Shows what the MenuWorld settings look like
+ * in the simulation
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Caden Chan
+ * @version November 2022
  */
 public abstract class PreviewActor extends SuperSmoothMover
 {
-    /**
-     * Act - do whatever the PreviewActor wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
-    }
+    
 }

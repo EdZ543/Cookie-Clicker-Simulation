@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PreviewClicker here.
+ * Show preview of clicker and its speed/cps
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Eddie Zhuang, Caden Chan
+ * @version November 2022
  */
 public class PreviewClicker extends PreviewActor
 {

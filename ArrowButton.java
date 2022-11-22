@@ -1,18 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ArrowButton here.
+ * Button clicked by the user to modify MenuWorld settings
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Caden Chan 
+ * @version 2022.11.22
  */
 public class ArrowButton extends MenuButton
 {
     private boolean isLeft;
     private MenuSetting menuSetting;
+    /**
+     * @param isLeft                The direction of the arrow (left/right)
+     * @param menuSetting           The setting that this arrow button controls
+     */
     public ArrowButton(boolean isLeft, MenuSetting menuSetting) {
         this.isLeft = isLeft;
         this.menuSetting = menuSetting;
+        // Preset button images
         String path = isLeft ? "leftarrow" : "rightarrow";
         image = new GreenfootImage("menu/button/" + path + ".png");
         hoverImage = new GreenfootImage("menu/button/" + path + "-hover.png");
@@ -25,9 +30,9 @@ public class ArrowButton extends MenuButton
         super.act();
     }
     public void clicked() {
-        if(isLeft) {
+        if(isLeft) {  // If this button is left-facing, decrease associated setting
             menuSetting.decrCount();
-        } else {
+        } else {  // If this button is right-facing, increase associated setting
             menuSetting.incrCount();
         }
     }

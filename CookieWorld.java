@@ -45,7 +45,12 @@ public class CookieWorld extends World
      *          },  ...etc.
      * }
      */
-    
+    /**
+     * Each array is of length 2. Index 0 = Player 1, index 1 = Player 2.
+     * @param grandmas              Number of starting grandmas for p1 and p2 respectively
+     * @param clickers              Number of clickers for p1 and p2 respectively 
+     * @param cpsRates              CPS for the clickers of p1 and p2 respectively
+     */
     public CookieWorld(int[] grandmas, int[] clickers, int[] cpsRates)
     {   
         super(1200, 800, 1); 

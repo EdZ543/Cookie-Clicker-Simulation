@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PreviewGrandma here.
+ * Show preview of Grandma objects
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author  Patrick Hu, Eddie Zhuang, Caden Chan
+ * @version November 2022
  */
 public class PreviewGrandma extends PreviewActor
 {

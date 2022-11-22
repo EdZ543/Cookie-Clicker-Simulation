@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class WelcomeWorld here.
+ * The title screen
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -12,6 +12,9 @@ public class WelcomeWorld extends World
     private GoButton nextButton;
     private Label tempTitle;
     private Label tempAuthors;
+    /**
+     * The first screen seen by the user
+     */
     public WelcomeWorld()
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
@@ -29,6 +32,9 @@ public class WelcomeWorld extends World
         tempAuthors = new Label("By Patrick H., Jonathan Z., Eddie Z., Caden C.", 40);
         addObject(tempAuthors, 600, 160);
     }
+    /**
+     * Go to the menu screen, represented by <code>MenuWorld</code>
+     */
     public void goToMenu() {
         Greenfoot.setWorld(new MenuWorld());
     }

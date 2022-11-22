@@ -17,23 +17,30 @@ public abstract class MenuButton extends Actor
         if (!active) {
             return;
         }
+        // Show clickedImage for 15 acts, then set back to regular image
         if(clickCount > 0) {
             clickCount --;
             if(clickCount == 0) {
                 setImage(image);
             }
         }
+        // When mouse is pressed, show clickedImage
         if(Greenfoot.mousePressed(this)){
             clickCount=15;
             setImage(clickedImage);
         }
+        // When mouse is released, activate clicked() functionality
         if(Greenfoot.mouseClicked(this)) {
             clicked();
         }
+        // When button has not just been clicked, check for hovering cursor
         if(clickCount == 0) {
             checkHover();
         }
     }
+    /**
+     * If user cursor is hovering over the button, change image to hoverImage
+     */
     public void checkHover() {
         if(Greenfoot.mouseMoved(this)) {
             setImage(hoverImage);
@@ -41,9 +48,16 @@ public abstract class MenuButton extends Actor
             setImage(image);
         }
     }
+    /**
+     * @return boolean          Button's <code>active</code> state
+     */
     public boolean isActive() {
         return active;
     }
+    /**
+     * If inactive, set image to inactiveImage
+     * @param a             Set <code>active</code> state to boolean value of a
+     */
     public void setActive(boolean a) {
         active = a;
         if(a) {

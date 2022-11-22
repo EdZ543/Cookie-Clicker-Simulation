@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GoMenuButton here.
+ * Clicked by user to transition from the welcome screen to the menu.
  * 
  * @author Caden Chan 
  * @version 2022.11.22
@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GoButton extends MenuButton
 {
     public GoButton() {
-        // Load images
+        // Preset images
         image = new GreenfootImage("menu/button/gobutton.png");
         hoverImage = new GreenfootImage("menu/button/gobutton-hover.png");
         clickedImage = new GreenfootImage("menu/button/gobutton-clicked.png");
@@ -19,8 +19,10 @@ public class GoButton extends MenuButton
     {
         super.act();
     }
+    /**
+     * Go to MenuWorld
+     */
     public void clicked() {
-        // setImage();
         ((WelcomeWorld)getWorld()).goToMenu();
     }
     public void checkHover() {

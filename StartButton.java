@@ -8,8 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartButton extends MenuButton
 {
+    /**
+     * Button used to start the simulation
+     */
     public StartButton() {
-        // Load images
+        // Preset images
         image = new GreenfootImage("menu/button/startbutton.png");
         hoverImage = new GreenfootImage("menu/button/startbutton-hover.png");
         clickedImage = new GreenfootImage("menu/button/startbutton-clicked.png");
@@ -19,6 +22,9 @@ public class StartButton extends MenuButton
     {
         super.act();
     }
+    /**
+     * When startButton is clicked, start the simulation.
+     */
     public void clicked() {
         // setImage();
         ((MenuWorld)getWorld()).start();
