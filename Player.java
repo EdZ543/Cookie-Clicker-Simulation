@@ -28,7 +28,7 @@ public class Player extends Clickable
     private int width, height;
     private int numCookies = 0;
     private int clickers;
-    private int cps;
+    private int speed;
     private int grandmas;
     private String name;
     private HashMap<Class, BuildingRow> buildingRows;
@@ -42,16 +42,16 @@ public class Player extends Clickable
      * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
      * @param height The width all the player's stuff will take up (rows, cookie, counter text, etc.)
      * @param clickers How many clickers the player will start off with
-     * @param cps The number of clicks per second each clicker will be able to have
+     * @param speed The speed of the clicker
      * @param grandmas  Number of starting grandmas
      * @param name The name of the player, for text displays. Example: "Player 1"
      * @param isRed Whether the player is red or not (blue)
      */
-    public Player(int width, int height, int clickers, int cps, int grandmas, String name, String colour) {
+    public Player(int width, int height, int clickers, int speed, int grandmas, String name, String colour) {
         this.width = width;
         this.height = height;
         this.clickers = clickers;
-        this.cps = cps;
+        this.speed = speed;
         this.grandmas = grandmas;
         this.name = name;
         this.colour = colour;
@@ -77,12 +77,12 @@ public class Player extends Clickable
         // Add stationary clickers
         clickerBuildings = new Clicker[clickers];
         for (int i = 0; i < clickers; i++) {
-            clickerBuildings[i] = new Clicker(this, "white", cps);
+            clickerBuildings[i] = new Clicker(this, "white", speed);
             cw.addObject(clickerBuildings[i], getX(), 200);
         }
         
         // Add sentient clicker
-        clicker = new Clicker(this, colour, cps);
+        clicker = new Clicker(this, colour, speed);
         cw.addObject(clicker, getX(), 200);
         
         // Add building rows

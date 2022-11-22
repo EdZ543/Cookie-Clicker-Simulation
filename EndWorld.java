@@ -1,17 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The ending animation when a player wins
+ * The ending screen when a player wins
  * 
  * @author Eddie Zhuang
  * @version November 2022
  */
 public class EndWorld extends World
-{
-    private GreenfootImage canvas;
-    private Font font = new Font(20);
-
-    /**
+{/**
      * Constructor for objects of class EndWorld.
      * 
      * @param player The player who won
@@ -19,9 +15,12 @@ public class EndWorld extends World
     public EndWorld(Player player) {    
         super(1200, 800, 1);
         
-        // Draw scene
-        canvas = new GreenfootImage(getWidth(), getHeight());
-        //canvas.drawString(player.getName() + "wins!", 300, 100);
-        //setBackground(canvas);
+        // Draw background
+        GreenfootImage bg = new GreenfootImage("welcome-background.png");
+        setBackground(bg);
+        
+        // Add text
+        Label playerLabel = new Label(player.getName() + " wins!", 60);
+        addObject(playerLabel, 600, 400);
     }
 }

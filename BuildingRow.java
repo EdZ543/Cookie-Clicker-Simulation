@@ -79,7 +79,7 @@ public class BuildingRow extends Clickable
             return true;
         } else {
             Building lastBuilding = buildings.get(buildings.size() - 1);
-            int buildingEdge = (int)lastBuilding.getTargetX() + spacing + (lastBuilding.getImage().getWidth() / 2);
+            int buildingEdge = (int)lastBuilding.getTargetX() + spacing + lastBuilding.getImage().getWidth();
             int rowEdge = getX() + (getImage().getWidth() / 2);
             return buildingEdge < rowEdge;
         }

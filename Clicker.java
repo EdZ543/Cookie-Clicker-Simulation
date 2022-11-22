@@ -25,7 +25,7 @@ public class Clicker extends SuperSmoothMover
      */
     public Clicker(Player player, String colour, int speed) {
         this.player = player;
-        this.speed = speed;
+        this.speed = 5 + speed * 2;
         
         if (colour == "red") {
             image = new GreenfootImage("red_cursor.png");

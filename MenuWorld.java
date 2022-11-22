@@ -9,12 +9,12 @@ import java.util.ArrayList;
  */
 public class MenuWorld extends World
 {
-    private int[] grandmas, clickers, cpsRates; // modifiable simulation parameters
+    private int[] grandmas, clickers, speeds; // modifiable simulation parameters
     private GreenfootImage bg;
     // Start simulation button
     private StartButton startButton;
     // Setting displays w/ buttons
-    private MenuSetting p1_grandmaSetting, p1_clickerSetting, p1_cpsSetting, p2_grandmaSetting, p2_clickerSetting, p2_cpsSetting;
+    private MenuSetting p1_grandmaSetting, p1_clickerSetting, p1_speedSetting, p2_grandmaSetting, p2_clickerSetting, p2_speedSetting;
     private Label p1_title, p2_title;
     // Clicker and Grandma previewer arrays
     private ArrayList<PreviewClicker> p1_previewClickers, p2_previewClickers;
@@ -22,7 +22,7 @@ public class MenuWorld extends World
     // Min/Max values for each setting
     private final int[] gMinMax = {0, 5};       // {min,max} starting grandma counts
     private final int[] cMinMax = {0, 5};       // {min,max} clicker counts
-    private final int[] cpsMinMax = {1, 5};     // {min,max} cps
+    private final int[] speedMinMax = {1, 5};     // {min,max} speed
     // Preset Grandma previewer positions
     private final int[][] p1_previewGrandmaPos = getGrandmaPositions(400, 200, 1);
     private final int[][] p2_previewGrandmaPos = getGrandmaPositions(800, 200, -1);
@@ -48,21 +48,21 @@ public class MenuWorld extends World
         p1_title.setFillColor(Color.RED);
         p1_grandmaSetting = new MenuSetting(gMinMax[0], gMinMax[1], 200, 300, "Number of\nGrandmas", 0, 1);
         p1_clickerSetting = new MenuSetting(cMinMax[0], cMinMax[1], 200, 500, "Number of\nClickers", 1, 1);
-        p1_cpsSetting = new MenuSetting(cpsMinMax[0], cpsMinMax[1], 200, 700, "Clicks Per Second\n(CPS)", 2, 1);
+        p1_speedSetting = new MenuSetting(speedMinMax[0], speedMinMax[1], 200, 700, "Clicker Speed", 2, 1);
         addObject(p1_title, 200, 100);
         addObject(p1_grandmaSetting, 0, 0);
         addObject(p1_clickerSetting, 0, 0);
-        addObject(p1_cpsSetting, 0, 0);
+        addObject(p1_speedSetting, 0, 0);
         // Player 2 Settings
         p2_title = new Label("Player 2", 60);
         p2_title.setFillColor(Color.BLUE);
         p2_grandmaSetting = new MenuSetting(gMinMax[0], gMinMax[1], 1000, 300, "Number of\nGrandmas", 0, 2);
         p2_clickerSetting = new MenuSetting(cMinMax[0], cMinMax[1], 1000, 500, "Number of\nClickers", 1, 2);
-        p2_cpsSetting = new MenuSetting(cpsMinMax[0], cpsMinMax[1], 1000, 700, "Clicks Per Second\n(CPS)", 2, 2);
+        p2_speedSetting = new MenuSetting(speedMinMax[0], speedMinMax[1], 1000, 700, "Clicker Speed", 2, 2);
         addObject(p2_title, 1000, 100);
         addObject(p2_grandmaSetting, 0, 0);
         addObject(p2_clickerSetting, 0, 0);
-        addObject(p2_cpsSetting, 0, 0);
+        addObject(p2_speedSetting, 0, 0);
         // add PreviewGrandmas
         p1_previewGrandmas = new ArrayList<PreviewGrandma>();
         p2_previewGrandmas = new ArrayList<PreviewGrandma>();
@@ -94,9 +94,9 @@ public class MenuWorld extends World
     public void start() {
         grandmas = new int[]{p1_grandmaSetting.getCount(), p2_grandmaSetting.getCount()};
         clickers = new int[]{p1_clickerSetting.getCount(), p2_clickerSetting.getCount()};
-        cpsRates = new int[]{p1_cpsSetting.getCount(), p2_cpsSetting.getCount()};
+        speeds = new int[]{p1_speedSetting.getCount(), p2_speedSetting.getCount()};
         tracks[0].stop();
-        Greenfoot.setWorld(new CookieWorld(tracks[1], grandmas, clickers, cpsRates));
+        Greenfoot.setWorld(new CookieWorld(tracks[1], grandmas, clickers, speeds));
     }
     /**
      * Display a PreviewGrandma object to the Menu. Position is based on p1_previewGrandmaPos and p2_previewGrandmaPos
@@ -180,21 +180,21 @@ public class MenuWorld extends World
         removeObject(clicker);
     }
     /**
-     * Change the CPS (clicks per second) of the PreviewClickers belonging to the given player
+     * Change the speed of the PreviewClickers belonging to the given player
      * 
      * @param player                The ID of the player whose CPS is altered
-     * @param newCps                The player's clickers' new CPS
+     * @param newSpeed                The player's clickers' new CPS
      */
-    public void editCps(int player, int newCps) {
+    public void editSpeed(int player, int newSpeed) {
         // Player 1
         if(player == 1) {
             for(PreviewClicker clicker: p1_previewClickers) {
-                clicker.setSpeed(2 + newCps);
+                clicker.setSpeed(2 + newSpeed);
             }
         // Player 2
         } else {
             for(PreviewClicker clicker: p2_previewClickers) {
-                clicker.setSpeed(2 + newCps);
+                clicker.setSpeed(2 + newSpeed);
             }
         }
     }

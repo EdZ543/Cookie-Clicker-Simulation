@@ -49,9 +49,9 @@ public class CookieWorld extends World
      * Each array is of length 2. Index 0 = Player 1, index 1 = Player 2.
      * @param grandmas              Number of starting grandmas for p1 and p2 respectively
      * @param clickers              Number of clickers for p1 and p2 respectively 
-     * @param cpsRates              CPS for the clickers of p1 and p2 respectively
+     * @param speeds              Speed for the clickers of p1 and p2 respectively
      */
-    public CookieWorld(GreenfootSound bgMusic, int[] grandmas, int[] clickers, int[] cpsRates)
+    public CookieWorld(GreenfootSound bgMusic, int[] grandmas, int[] clickers, int[] speeds)
     {   
         super(1200, 800, 1); 
         // Drawing Order of Classes
@@ -99,8 +99,8 @@ public class CookieWorld extends World
         cookieUpgradeButtons = initBuyButtons(new ArrayList<Class>(Arrays.asList(CookieUpgrade.class, CookieUpgrade.class)));  // two buttons for CookieUpgrade class (one for each player)
         
         // - - - Initialize players - - -
-        p1 = new Player(412, getHeight(), clickers[0], cpsRates[0], grandmas[0], "Player 1", "red");
-        p2 = new Player(420, getHeight(), clickers[1], cpsRates[1], grandmas[1], "Player 2", "blue");
+        p1 = new Player(412, getHeight(), clickers[0], speeds[0], grandmas[0], "Player 1", "red");
+        p2 = new Player(420, getHeight(), clickers[1], speeds[1], grandmas[1], "Player 2", "blue");
         addObject(p1, 205, 400);
         addObject(p2, 990, 400);
         

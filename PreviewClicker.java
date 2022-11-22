@@ -19,7 +19,7 @@ public class PreviewClicker extends PreviewActor
         image.scale(30, 40);
         setImage(image);
         actCount = 0;
-        this.speed = speed;
+        this.speed = 5 + speed * 2;
     }
     public void addedToWorld(World w) {
         startX = getX();
@@ -72,6 +72,6 @@ public class PreviewClicker extends PreviewActor
         return ret;
     }
     public void setSpeed(int x) {
-        speed = x;
+        speed = 5 + x * 2;
     }
 }

@@ -59,7 +59,7 @@ public class MenuSetting extends Actor
         } else if(settingID == 1) {
             ((MenuWorld)getWorld()).addPreviewClicker(this.player);
         } else if(settingID == 2) {
-            ((MenuWorld)getWorld()).editCps(this.player, count);
+            ((MenuWorld)getWorld()).editSpeed(this.player, count);
         }
         counter.setValue(Math.min(count, maxVal));  // Math.min just to be safe, cant be greater than maxVal :b
     }
@@ -76,7 +76,7 @@ public class MenuSetting extends Actor
         } else if(settingID == 1) {
             ((MenuWorld)getWorld()).removePreviewClicker(this.player);
         } else if(settingID == 2) {
-            ((MenuWorld)getWorld()).editCps(this.player, count);
+            ((MenuWorld)getWorld()).editSpeed(this.player, count);
         }
         counter.setValue(Math.max(count, minVal));  // Math.max just to be safe, cant be less than minVal :b
     }
