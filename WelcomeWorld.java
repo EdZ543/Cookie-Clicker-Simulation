@@ -12,6 +12,7 @@ public class WelcomeWorld extends World
     private GoButton nextButton;
     private Label tempTitle;
     private Label tempAuthors;
+    private GreenfootSound bgMusic = new GreenfootSound("menubg.mp3");
     /**
      * The first screen seen by the user
      */
@@ -31,11 +32,23 @@ public class WelcomeWorld extends World
         // Authors
         tempAuthors = new Label("By Patrick H., Jonathan Z., Eddie Z., Caden C.", 40);
         addObject(tempAuthors, 600, 160);
+        // Background Music for WelcomeWorld & MenuWorld
+        bgMusic.setVolume(40);
+    }
+    // Program started (via Greenfoot)
+    public void started() {
+        super.started();
+        bgMusic.playLoop();
+    }
+    // Program stopped (via Greenfoot)
+    public void stopped() {
+        super.stopped();
+        bgMusic.stop();
     }
     /**
      * Go to the menu screen, represented by <code>MenuWorld</code>
      */
     public void goToMenu() {
-        Greenfoot.setWorld(new MenuWorld());
+        Greenfoot.setWorld(new MenuWorld(bgMusic));
     }
 }
