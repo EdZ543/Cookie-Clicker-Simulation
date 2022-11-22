@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Every 2-5 seconds produces 30-50 cookies.
+ * Every 5-10 seconds produces 30-50 cookies.
  * They must be clicked by the player to collect the cookies (they are old and cannot carry them by themselves.
  * 
  * @author Patrick Hu, Eddie Zhuang, Caden Chan
@@ -13,7 +13,6 @@ public class Grandma extends Building
     private int angryCount;
     private GreenfootImage angryGranny, readyGranny;
     private boolean reverseDementiaActive;
-    private int initialX, initialY; // store inital y position for when grandma calms down from jumping (when angry)
 
     public Grandma(Player player) {
         super(player);
@@ -26,12 +25,6 @@ public class Grandma extends Building
         
         angryGranny.scale((int)(angryGranny.getWidth() * scale), (int)(angryGranny.getHeight() * scale));
         readyGranny.scale((int)(readyGranny.getWidth() * scale), (int)(readyGranny.getHeight() * scale));
-    }
-
-    public void addedToWorld(World w) {
-        super.addedToWorld(w);
-        initialX = getX();
-        initialY = getY();
     }
 
     public void act() {
@@ -52,7 +45,7 @@ public class Grandma extends Building
             // when Grandma is angry, she begins violently destroying cookies
             if(actCount == actMark) {
                 player.changeCookieCount(-getRandomNumberInRange(60, 100)); // remove 60 to 100 cookies
-                actMark = getNextActMark(1, 3);
+                actMark = getNextActMark(5, 10);
             }
         } else {
             // when Grandma is happy, she will gladly bake you several dozens of cookies!
@@ -74,34 +67,30 @@ public class Grandma extends Building
         angry = angryState;
         if(angryState) {
             angryCount = -10 + Greenfoot.getRandomNumber(10); // stagger jumping start times
+        } else {
+            setLocation(targetX, targetY);
         }
+        readyToClick = false;
+        actMark = getNextActMark(5, 10);
     }
 
     public void click(Player player) {
         if (reverseDementiaActive) {
             produce(60, 100);
-        }
-        else {
+        } else {
             produce(30, 50);   
         }
-        actMark = getNextActMark(2, 5);
+        actMark = getNextActMark(5, 10);
         readyToClick = false;
     }
 
     public void reverseDementia() {
         reverseDementiaActive = true;
+        setAngry(false);
     }
 
     public void undoReverseDementia() {
         reverseDementiaActive = false;
-    }
-
-    public int getInitialX() {
-         return initialX;
-    }
-    
-    public int getInitialY() {
-        return initialY;
     }
 }
 

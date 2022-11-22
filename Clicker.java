@@ -23,7 +23,10 @@ public class Clicker extends SuperSmoothMover
     private String colour;
 
     /**
+     * Clicker constructor
+     * 
      * @param player The player that the clicker belongs to
+     * @param colour The colour of the clicker
      * @param isRed Whether the player is red or not
      * @param sentient Whether the clicker is the main one owned by the player
      */
@@ -33,6 +36,7 @@ public class Clicker extends SuperSmoothMover
         this.speed = 5 + speed * 2;
         this.sentient = sentient;
         
+        // Assign image
         if (colour == "red") {
             image = new GreenfootImage("red_cursor.png");
         } else if (colour == "blue") {
@@ -40,9 +44,10 @@ public class Clicker extends SuperSmoothMover
         } else if (colour == "white") {
             image = new GreenfootImage("cursor.png");
         }
-        
         image.scale(30, 40);
         setImage(image);
+        
+        // Setup sound
         clickSound.setVolume(30);
     }
 
@@ -61,6 +66,7 @@ public class Clicker extends SuperSmoothMover
                 setImage(image);
             }
             lagTimer--;
+        // Animation when doing the actual clicking
         } else if (glidingOrClicking && !gliding) {
             clickingAnimationTimer++;
             
