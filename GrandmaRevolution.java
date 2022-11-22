@@ -46,6 +46,9 @@ public class GrandmaRevolution extends Sabotage
                 notAngryGrandmas.add(granny);
             }
         }
+        if(notAngryGrandmas.size() == 0) { // if all grandmas are angry, do nothing
+            return;
+        }
         int angerCount = (int)(notAngryGrandmas.size() * (percent / 100.0)); // how many Grandmas get angered, based on `percent` variable
         angerCount = angerCount == 0 ? 1 : angerCount;  // at least 1 grandma will be angered
         for(int i=0;i<angerCount;i++) {
