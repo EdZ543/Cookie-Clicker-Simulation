@@ -36,6 +36,7 @@ public class Player extends Clickable
     private Clicker clicker;
     private Clicker[] clickerBuildings;
     private int actionTime = 2; // number of clicks where the player will perform an action
+    private boolean start = false;
     
     /**
      * @param width The width all the player's stuff will take up (rows, cookie, counter text, etc.)
@@ -59,6 +60,13 @@ public class Player extends Clickable
         setImage((GreenfootImage)null);
     }
     
+    /**
+     * Let the player start moving
+     */
+    public void start() {
+        start = false;
+    }
+    
     public void addedToWorld(World w) {
         CookieWorld cw = (CookieWorld)w;
         
@@ -69,12 +77,12 @@ public class Player extends Clickable
         // Add stationary clickers
         clickerBuildings = new Clicker[clickers];
         for (int i = 0; i < clickers; i++) {
-            clickerBuildings[i] = new Clicker(this, "white", 15);
+            clickerBuildings[i] = new Clicker(this, "white", 10);
             cw.addObject(clickerBuildings[i], getX(), 200);
         }
         
         // Add sentient clicker
-        clicker = new Clicker(this, colour, 15);
+        clicker = new Clicker(this, colour, 10);
         cw.addObject(clicker, getX(), 200);
         
         // Add building rows
@@ -98,6 +106,8 @@ public class Player extends Clickable
     }
     
     public void act() {
+        if(!start) return;
+        
         // Control main clicker
         if (!clicker.glidingOrClicking()) {
             CookieWorld cw = (CookieWorld)getWorld();
@@ -177,6 +187,8 @@ public class Player extends Clickable
      */
     public void changeCookieCount(int x) {
         numCookies += x;
+        // Make sure doesn't go negative
+        numCookies = Math.max(numCookies, 0);
         scoreText.setValue(name + "'s Cookies:\n" + numCookies);
     }
     
