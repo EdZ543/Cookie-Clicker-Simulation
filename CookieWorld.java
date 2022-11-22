@@ -52,7 +52,7 @@ public class CookieWorld extends World
         // Drawing Order of Classes
         setPaintOrder(CookieRocket.class, DarkOverlay.class, Lag.class, Clicker.class, HoverArea.class, Description.class, BottleOfMilk.class, Effect.class, Building.class, Powerup.class, CooldownBar.class, Label.class, BuyButton.class, BuildingRow.class, Cookie.class);
         // Set world background
-        background = new GreenfootImage("background0.png");
+        background = new GreenfootImage("cookie-background.png");
         setBackground(background);
         // - - - Prepare world data - - -
         // Initialize building hashmap

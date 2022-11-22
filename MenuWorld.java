@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class MenuWorld extends World
 {
     private int[] grandmas, clickers, cpsRates; // modifiable simulation parameters
+    private GreenfootImage bg;
     private StartButton startButton;
     private MenuSetting p1_grandmaSetting, p1_clickerSetting, p1_cpsSetting, p2_grandmaSetting, p2_clickerSetting, p2_cpsSetting;
     private Label p1_title, p2_title;
@@ -20,11 +21,14 @@ public class MenuWorld extends World
     
     private final int[][] p1_previewGrandmaPos = getGrandmaPositions(400, 200, 1);
     private final int[][] p2_previewGrandmaPos = getGrandmaPositions(800, 200, -1);
-    private final int[] p1_previewClickerPos = new int[]{460, 450};
-    private final int[] p2_previewClickerPos = new int[]{740, 350};
+    private final int[] p1_previewClickerPos = new int[]{450, 420};
+    private final int[] p2_previewClickerPos = new int[]{750, 420};
     public MenuWorld()
     {    
         super(1200, 800, 1); 
+        // Background
+        bg = new GreenfootImage("menu-background.png");
+        setBackground(bg);
         // Start button
         startButton = new StartButton();
         addObject(startButton, 600, 640);
