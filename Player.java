@@ -120,8 +120,8 @@ public class Player extends Clickable
                 clicker.glideAndClick(cookie);
             } else {
                 // Attempt to perform a random action:
-                int randomAction = getRandomNumberInRange(1, 4);
-                if (randomAction == 1) {
+                int randomAction = getRandomNumberInRange(1, 100);
+                if (randomAction <= 20) {
                     // Click on a random clickable building
                     ArrayList<Building> clickableBuildings = getClickableBuildings();
                     if (!clickableBuildings.isEmpty()) {
@@ -131,15 +131,15 @@ public class Player extends Clickable
                 } else {
                     ArrayList<BuyButton> affordableButtons = new ArrayList<BuyButton>();
                     
-                    if (randomAction == 2) {
+                    if (randomAction <= 60) {
                         // Buy a random building
                         affordableButtons = cw.getAffordableBuildingButtons(numCookies, this);
                         
-                    } else if (randomAction == 3) {
+                    } else if (randomAction <= 80) {
                         // Buy a random powerup
                         affordableButtons = cw.getAffordablePowerupButtons(numCookies, name);
                         
-                    } else if (randomAction == 4) {
+                    } else {
                         // Buy a random sabotage
                         affordableButtons = cw.getAffordableSabotageButtons(numCookies, this);
                     }
@@ -255,4 +255,9 @@ public class Player extends Clickable
     public HashMap<Class, BuildingRow> getBuildingRows() {
         return buildingRows;
     }
+    
+    /**
+     * Returns the player's clickers
+     */
+    public ArrayList<Clicker> getClickers() { return null; }
 }
