@@ -17,7 +17,6 @@ import java.util.LinkedHashMap;
 public class CookieWorld extends World
 {
     // Variable adjustments from menu (temporary, will be passed in from constructor)
-    
     private int startDelay = 120;
     
     // World variables
@@ -155,13 +154,12 @@ public class CookieWorld extends World
         if(startDelay > 0) {
             startDelay--;
             if(startDelay == 0) {
-                // p1.start();
-                // p2.start();
+                p1.start();
+                p2.start();
             }
             return;
         }
         handleActiveStateButtons();
-        
     }
     /**
      * Returns the player that is NOT [Player thisPlayer].

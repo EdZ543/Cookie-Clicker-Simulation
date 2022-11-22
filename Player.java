@@ -64,7 +64,7 @@ public class Player extends Clickable
      * Let the player start moving
      */
     public void start() {
-        start = false;
+        start = true;
     }
     
     public void addedToWorld(World w) {
