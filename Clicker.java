@@ -18,16 +18,20 @@ public class Clicker extends SuperSmoothMover
     private int speed;
     private int clickingAnimationTimer = 0;
     private int animationIndex;
+    private GreenfootSound clickSound = new GreenfootSound("click.mp3");
+    private boolean sentient;
     private String colour;
 
     /**
      * @param player The player that the clicker belongs to
      * @param isRed Whether the player is red or not
+     * @param sentient Whether the clicker is the main one owned by the player
      */
-    public Clicker(Player player, String colour, int speed) {
+    public Clicker(Player player, String colour, int speed, boolean sentient) {
         this.player = player;
         this.colour = colour;
         this.speed = 5 + speed * 2;
+        this.sentient = sentient;
         
         if (colour == "red") {
             image = new GreenfootImage("red_cursor.png");
@@ -39,6 +43,7 @@ public class Clicker extends SuperSmoothMover
         
         image.scale(30, 40);
         setImage(image);
+        clickSound.setVolume(30);
     }
 
     /**
@@ -64,6 +69,7 @@ public class Clicker extends SuperSmoothMover
                 setImage(image);
                 
                 clickCount++;
+                if (sentient) clickSound.play();
                 
                 // Click target
                 if (targetObject != null) {

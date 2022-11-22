@@ -16,11 +16,11 @@ public class EndWorld extends World
         super(1200, 800, 1);
         
         // Draw background
-        GreenfootImage bg = new GreenfootImage("welcome-background.png");
+        GreenfootImage bg = new GreenfootImage("endbg.png");
         setBackground(bg);
         
         // Add text
         Label playerLabel = new Label(player.getName() + " wins!", 60);
-        addObject(playerLabel, 600, 400);
+        addObject(playerLabel, 600, 100);
     }
 }
