@@ -52,7 +52,7 @@ public class CookieWorld extends World
      * @param clickers              Number of clickers for p1 and p2 respectively 
      * @param cpsRates              CPS for the clickers of p1 and p2 respectively
      */
-    public CookieWorld(int[] grandmas, int[] clickers, int[] cpsRates)
+    public CookieWorld(GreenfootSound bgMusic, int[] grandmas, int[] clickers, int[] cpsRates)
     {   
         super(1200, 800, 1); 
         // Drawing Order of Classes
@@ -140,8 +140,7 @@ public class CookieWorld extends World
         addObject(powerupTitle, getWidth()/2, 260);
         addObject(sabotageTitle, getWidth()/2, 480);
         // BG Music
-        bgMusic = WelcomeWorld.tracks[1];
-        bgMusic.setVolume(60);
+        this.bgMusic = bgMusic;
         bgMusic.playLoop();
     }
     public void started() {

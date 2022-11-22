@@ -30,16 +30,16 @@ public class MenuWorld extends World
     private final int[] p1_previewClickerPos = new int[]{450, 420};
     private final int[] p2_previewClickerPos = new int[]{750, 420};
     // Background Music
-    GreenfootSound bgMusic;
+    GreenfootSound[] tracks;
     
-    public MenuWorld(GreenfootSound bgMusic)
+    public MenuWorld(GreenfootSound[] tracks)
     {    
         super(1200, 800, 1); 
         // Background
         bg = new GreenfootImage("menu-background.png");
         setBackground(bg);
         // Music
-        this.bgMusic = bgMusic;
+        this.tracks = tracks;
         // Start button
         startButton = new StartButton();
         addObject(startButton, 600, 640);
@@ -81,12 +81,12 @@ public class MenuWorld extends World
     // Program started (via Greenfoot)
     public void started() {
         super.started();
-        bgMusic.playLoop();
+        tracks[0].playLoop();
     }
     // Program stopped (via Greenfoot)
     public void stopped() {
         super.stopped();
-        bgMusic.stop();
+        tracks[0].stop();
     }
     /**
      * Start the simulation. Pass in the user's selected settings into CookieWorld. Stop the menu background music
@@ -95,8 +95,8 @@ public class MenuWorld extends World
         grandmas = new int[]{p1_grandmaSetting.getCount(), p2_grandmaSetting.getCount()};
         clickers = new int[]{p1_clickerSetting.getCount(), p2_clickerSetting.getCount()};
         cpsRates = new int[]{p1_cpsSetting.getCount(), p2_cpsSetting.getCount()};
-        bgMusic.stop();
-        Greenfoot.setWorld(new CookieWorld(grandmas, clickers, cpsRates));
+        tracks[0].stop();
+        Greenfoot.setWorld(new CookieWorld(tracks[1], grandmas, clickers, cpsRates));
     }
     /**
      * Display a PreviewGrandma object to the Menu. Position is based on p1_previewGrandmaPos and p2_previewGrandmaPos
