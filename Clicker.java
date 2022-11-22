@@ -18,6 +18,7 @@ public class Clicker extends SuperSmoothMover
     private int speed;
     private int clickingAnimationTimer = 0;
     private int animationIndex;
+    private String colour;
 
     /**
      * @param player The player that the clicker belongs to
@@ -25,6 +26,7 @@ public class Clicker extends SuperSmoothMover
      */
     public Clicker(Player player, String colour, int speed) {
         this.player = player;
+        this.colour = colour;
         this.speed = 5 + speed * 2;
         
         if (colour == "red") {
@@ -136,5 +138,25 @@ public class Clicker extends SuperSmoothMover
     /**
      * Make clicker go into mitten state
      */
-    public void mittenOut() {}
+    public void wearMitten() {
+        image = new GreenfootImage("./images/placeholder/mitten.jpg");
+        image.scale(30, 40);
+        setImage(image);
+    }
+    
+    /**
+     * Make clicker go back into orginal cursor state
+     */
+    public void takeOffMitten() {
+        if (colour == "red") {
+            image = new GreenfootImage("red_cursor.png");
+        } else if (colour == "blue") {
+            image = new GreenfootImage("blue_cursor.png");
+        } else if (colour == "white") {
+            image = new GreenfootImage("cursor.png");
+        }
+        
+        image.scale(30, 40);
+        setImage(image);
+    }
 }

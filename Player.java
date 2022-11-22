@@ -259,5 +259,7 @@ public class Player extends Clickable
     /**
      * Returns the player's clickers
      */
-    public ArrayList<Clicker> getClickers() { return null; }
+    public Clicker[] getClickers() {
+        return clickerBuildings;
+    }
 }
