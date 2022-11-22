@@ -13,7 +13,6 @@ public class Grandma extends Building
     private int angryCount;
     private GreenfootImage angryGranny, readyGranny;
     private boolean reverseDementiaActive;
-    private int initialX, initialY; // store inital y position for when grandma calms down from jumping (when angry)
 
     public Grandma(Player player) {
         super(player);
@@ -26,12 +25,6 @@ public class Grandma extends Building
         
         angryGranny.scale((int)(angryGranny.getWidth() * scale), (int)(angryGranny.getHeight() * scale));
         readyGranny.scale((int)(readyGranny.getWidth() * scale), (int)(readyGranny.getHeight() * scale));
-    }
-
-    public void addedToWorld(World w) {
-        super.addedToWorld(w);
-        initialX = getX();
-        initialY = getY();
     }
 
     public void act() {
@@ -94,14 +87,6 @@ public class Grandma extends Building
 
     public void undoReverseDementia() {
         reverseDementiaActive = false;
-    }
-
-    public int getInitialX() {
-         return initialX;
-    }
-    
-    public int getInitialY() {
-        return initialY;
     }
 }
 

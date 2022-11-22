@@ -77,12 +77,12 @@ public class Player extends Clickable
         // Add stationary clickers
         clickerBuildings = new Clicker[clickers];
         for (int i = 0; i < clickers; i++) {
-            clickerBuildings[i] = new Clicker(this, "white", speed);
+            clickerBuildings[i] = new Clicker(this, "white", speed, false);
             cw.addObject(clickerBuildings[i], getX(), 200);
         }
         
         // Add sentient clicker
-        clicker = new Clicker(this, colour, speed);
+        clicker = new Clicker(this, colour, speed, true);
         cw.addObject(clicker, getX(), 200);
         
         // Add building rows
@@ -259,5 +259,7 @@ public class Player extends Clickable
     /**
      * Returns the player's clickers
      */
-    public ArrayList<Clicker> getClickers() { return null; }
+    public Clicker[] getClickers() {
+        return clickerBuildings;
+    }
 }

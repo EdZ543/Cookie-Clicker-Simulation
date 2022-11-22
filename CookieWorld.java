@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+
 /** 
  * Credits
  * - Images
@@ -12,10 +13,12 @@ import java.util.LinkedHashMap;
  * - Code
  *   - SuperSmoothMover from Mr. Cohen
  * - Sound
+ *   - Click sound effect obtained from https://www.zapsplat.com
  * 
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
  * @version 2022.11.14
  */
+
 public class CookieWorld extends World
 {
     // Variable adjustments from menu (temporary, will be passed in from constructor)
@@ -31,8 +34,10 @@ public class CookieWorld extends World
     private WinButton winButton;
     private Label buildingTitle, powerupTitle, sabotageTitle;
     private static final int WIN = 1000000; // player must reach this amount of cookies to win
+    
     // Player variables
     private Player p1, p2;
+    
     // Whether game has been won
     private boolean gameWon;
     
@@ -48,19 +53,24 @@ public class CookieWorld extends World
      * }
      */
     /**
-     * Each array is of length 2. Index 0 = Player 1, index 1 = Player 2.
-     * @param grandmas              Number of starting grandmas for p1 and p2 respectively
-     * @param clickers              Number of clickers for p1 and p2 respectively 
-     * @param speeds              Speed for the clickers of p1 and p2 respectively
+     * CookieWorld constructor. Each array is of length 2. Index 0 = Player 1, index 1 = Player 2.
+     * 
+     * @param bgMusic             The background music
+     * @param grandmas            Number of starting grandmas for p1 and p2 respectively
+     * @param clickers            Number of clickers for p1 and p2 respectively 
+     * @param speeds              Speeds for the clickers of p1 and p2 respectively
      */
     public CookieWorld(GreenfootSound bgMusic, int[] grandmas, int[] clickers, int[] speeds)
     {   
         super(1200, 800, 1); 
+        
         // Drawing Order of Classes
         setPaintOrder(CookieRocket.class, DarkOverlay.class, Lag.class, Clicker.class, HoverArea.class, Description.class, BottleOfMilk.class, Effect.class, Building.class, Powerup.class, CooldownBar.class, Label.class, BuyButton.class, BuildingRow.class, Cookie.class);
+        
         // Set world background
         background = new GreenfootImage("cookie-background.png");
         setBackground(background);
+        
         // - - - Prepare world data - - -
         // Initialize building hashmap
         buildingMap = new LinkedHashMap<Class, HashMap<String, Object>>();
@@ -144,15 +154,21 @@ public class CookieWorld extends World
         this.bgMusic = bgMusic;
         bgMusic.playLoop();
     }
+    
     public void started() {
+        // Start background music
         super.started();
         bgMusic.playLoop();
     }
+    
     public void stopped() {
+        // Stop background music
         super.stopped();
         bgMusic.stop();
     }
+    
     public void act() {
+        // Start simulation after delay
         if(startDelay > 0) {
             startDelay--;
             if(startDelay == 0) {
@@ -161,6 +177,7 @@ public class CookieWorld extends World
             }
             return;
         }
+        
         handleActiveStateButtons();
     }
     /**
@@ -253,6 +270,7 @@ public class CookieWorld extends World
     public ArrayList<Class> getPowerupClasses() {
         return new ArrayList<Class>(powerupMap.keySet());
     }
+    
     /**
      * Return the CookieUpgrade BuyButton associated with the player
      * 
@@ -329,13 +347,11 @@ public class CookieWorld extends World
             btn.setActive(false);
         }
     }
-    // used for testing
-    public Player getP1() {
-        return p1;
-    }
     
     /**
      * Returns the amount of cookies a player needs to win
+     * 
+     * @return int The amount of cookies
      */
     public static int getWinAmount() {
         return WIN;
@@ -343,11 +359,20 @@ public class CookieWorld extends World
     
     /**
      * Returns the win button
+     * 
+     * @return WinButton The button
      */
     public WinButton getWinButton() {
         return winButton;
     }
  
+    /**
+     * Returns an arraylist of all building BuyButtons that the player can afford, and that the player has space for
+     * 
+     * @param numCookies The number of cookies the player has
+     * @param player The player buying the buildings
+     * @return ArrayList<BuyButton> The arraylist of BuyButtons
+     */
     public ArrayList<BuyButton> getAffordableBuildingButtons(int numCookies, Player player) {
         HashMap<Class, BuildingRow> buildingRows = player.getBuildingRows();
         
@@ -365,6 +390,13 @@ public class CookieWorld extends World
         return affordableButtons;
     }
     
+    /**
+     * Returns an arraylist of all powerup BuyButtons that the player can afford
+     * 
+     * @param numCookies The number of cookies the player has
+     * @param player The player buying the powerup
+     * @return ArrayList<BuyButton> The arraylist of BuyButtons
+     */
     public ArrayList<BuyButton> getAffordablePowerupButtons(int numCookies, String name) {
         ArrayList<BuyButton> affordableButtons = new ArrayList<BuyButton>();
         for (int i = 0; i < buyPowerupButtons.length; i++) {
@@ -382,6 +414,13 @@ public class CookieWorld extends World
         return affordableButtons;
     }
     
+    /**
+     * Returns an arraylist of all sabotage BuyButtons that the player can afford
+     * 
+     * @param numCookies The number of cookies the player has
+     * @param player The player buying the sabotage
+     * @return ArrayList<BuyButton> The arraylist of BuyButtons
+     */
     public ArrayList<BuyButton> getAffordableSabotageButtons(int numCookies, Player player) {
         ArrayList<BuyButton> affordableButtons = new ArrayList<BuyButton>();
         for (int i = 0; i < buySabotageButtons.length; i++) {
@@ -396,11 +435,26 @@ public class CookieWorld extends World
         return affordableButtons;
     }
     
+    /**
+     * Returns whether a player has won
+     * 
+     * @return boolean Whether a player has won
+     */
     public boolean gameIsWon() {
         return gameWon;
     }
     
+    /**
+     * Sets whether the game should be over
+     * 
+     * @param x Whether the game is over
+     */
     public void setGameWon(boolean x) {
         gameWon = x;
+    }
+    
+    // Test method
+    public Player getP1() {
+        return p1;
     }
 }
