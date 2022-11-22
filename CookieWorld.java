@@ -10,6 +10,8 @@ import java.util.LinkedHashMap;
  *   - Cursor image provided by Tobias Ahlin Bjerrome at https://tobiasahlin.com/blog/common-mac-os-x-lion-cursors/
  *   - Spinning wheel of death provided by howdytom at https://apple.stackexchange.com/questions/243675/location-of-the-resource-files-for-the-spinning-wait-cursor
  * - Code
+ *   - SuperSmoothMover from Mr. Cohen
+ * - Sound
  * 
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
  * @version 2022.11.14

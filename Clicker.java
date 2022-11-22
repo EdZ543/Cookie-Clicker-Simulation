@@ -132,4 +132,9 @@ public class Clicker extends SuperSmoothMover
             animationIndex %= 12;
         }
     }
+    
+    /**
+     * Make clicker go into mitten state
+     */
+    public void mittenOut() {}
 }
