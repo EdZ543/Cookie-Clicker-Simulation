@@ -46,7 +46,7 @@ public class CookieWorld extends World
      * }
      */
     
-    public CookieWorld(int[] clickers, int[] grandmas, int[] cpsRates)
+    public CookieWorld(int[] grandmas, int[] clickers, int[] cpsRates)
     {   
         super(1200, 800, 1); 
         // Drawing Order of Classes

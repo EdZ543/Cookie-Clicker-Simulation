@@ -8,7 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ArrowButton extends MenuButton
 {
-    public ArrowButton(boolean isLeft) {
+    private boolean isLeft;
+    private MenuSetting menuSetting;
+    public ArrowButton(boolean isLeft, MenuSetting menuSetting) {
+        this.isLeft = isLeft;
+        this.menuSetting = menuSetting;
         String path = isLeft ? "leftarrow" : "rightarrow";
         image = new GreenfootImage("menu/button/" + path + ".png");
         hoverImage = new GreenfootImage("menu/button/" + path + "-hover.png");
@@ -21,7 +25,11 @@ public class ArrowButton extends MenuButton
         super.act();
     }
     public void clicked() {
-        
+        if(isLeft) {
+            menuSetting.decrCount();
+        } else {
+            menuSetting.incrCount();
+        }
     }
     public void checkHover() {
         super.checkHover();
