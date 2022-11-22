@@ -15,19 +15,20 @@ public class Sparkle extends Effect
      * @param target            Actor on which the sparkle will choose a random location to spawn
      */
     public Sparkle(int duration, Actor target) {
-        this(duration, target, false);
+        this(duration, target, CookieUpgrade.class);
     }
     /**
      * Constructor allowing for different styles of sparkles, depending on isLucky
      * @param duration          How long the sparkle stays on the screen
      * @param target            Actor on which the sparkle will choose a random location to spawn
-     * @param isLucky           If isLucky is true, use green sparkles.
+     * @param powerupClass      Choose sparkles sprites based on the powerup.
      */
-    public Sparkle(int duration, Actor target, boolean isLucky) {  // if isLucky, use green sparkles
+    public Sparkle(int duration, Actor target, Class powerupClass) {  // if isLucky, use green sparkles
         this.duration = duration;
         this.target = target;
         fadeLen = duration > 90 ? 90 : duration/2;  // i.e. fade after 90 acts OR [duration/2] acts
-        String filePath = isLucky ? "effect/sparkles/luckysparkles" :"effect/sparkles/sparkles"; // choose the type of sparkles
+        // green if luckyclover, blue if extraexpensivefilament, otherwise yellow.
+        String filePath = powerupClass == LuckyClover.class ? "effect/sparkles/luckysparkles" : powerupClass == ExtraExpensiveFilament.class ? "effect/sparkles/bluesparkles" : "effect/sparkles/sparkles"; // choose the type of sparkles
         image = new GreenfootImage(filePath + Greenfoot.getRandomNumber(4) + ".png");  // choose random sprite in sparkles collection
         setImage(image);
     }
