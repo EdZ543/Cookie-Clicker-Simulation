@@ -46,6 +46,7 @@ public class MenuWorld extends World
         // Player 1 Settings
         p1_title = new Label("Player 1", 60);
         p1_title.setFillColor(Color.RED);
+        p1_title.setLineColor(Color.WHITE);
         p1_grandmaSetting = new MenuSetting(gMinMax[0], gMinMax[1], 200, 300, "Number of\nGrandmas", 0, 1);
         p1_clickerSetting = new MenuSetting(cMinMax[0], cMinMax[1], 200, 500, "Number of\nClickers", 1, 1);
         p1_speedSetting = new MenuSetting(speedMinMax[0], speedMinMax[1], 200, 700, "Clicker Speed", 2, 1);
@@ -56,6 +57,7 @@ public class MenuWorld extends World
         // Player 2 Settings
         p2_title = new Label("Player 2", 60);
         p2_title.setFillColor(Color.BLUE);
+        p2_title.setLineColor(Color.WHITE);
         p2_grandmaSetting = new MenuSetting(gMinMax[0], gMinMax[1], 1000, 300, "Number of\nGrandmas", 0, 2);
         p2_clickerSetting = new MenuSetting(cMinMax[0], cMinMax[1], 1000, 500, "Number of\nClickers", 1, 2);
         p2_speedSetting = new MenuSetting(speedMinMax[0], speedMinMax[1], 1000, 700, "Clicker Speed", 2, 2);
