@@ -368,7 +368,7 @@ public class CookieWorld extends World
             //special cost handling for MilkBottles sabotage
             boolean saboIsMilkBottles = buySabotageButtons[i].getMySubclass() == MilkBottles.class;
             int saboCost = saboIsMilkBottles ? MilkBottles.getCost(player) : buySabotageButtons[i].getCost(); 
-            if (numCookies >= saboCost) {
+            if (numCookies >= saboCost && saboCost != 0) {
                 affordableButtons.add(buySabotageButtons[i]);
             }
         }
