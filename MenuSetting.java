@@ -13,18 +13,21 @@ public class MenuSetting extends Actor
 {
     private ArrowButton leftArrow, rightArrow;
     private Label counter, titleLabel;
-    private int count, minVal, maxVal, x, y;
+    private int count, minVal, maxVal, x, y, player;
     private final int fontSize = 60;
     private final int spacing = 20;
+    private int settingID;  // 0 = # of grandmas, 1 = # of clickers, 2 = cps
     /**
      * 
      * Note: The overall MenuSetting is centered on the <code>Label counter</code>.
      */
-    public MenuSetting(int minVal, int maxVal, int x, int y, String title) {
+    public MenuSetting(int minVal, int maxVal, int x, int y, String title, int settingID, int player) {
         this.minVal = minVal;
         this.maxVal = maxVal;
         this.x = x;
         this.y = y;
+        this.settingID = settingID;
+        this.player = player;
         count = minVal;
         leftArrow = new ArrowButton(true, this);
         leftArrow.setActive(false); // start as inactive, since initialized with count = minVal
@@ -51,6 +54,13 @@ public class MenuSetting extends Actor
         if(count == minVal+1) {
             leftArrow.setActive(true);
         }
+        if(settingID == 0) {
+            ((MenuWorld)getWorld()).addPreviewGrandma(this.player);
+        } else if(settingID == 1) {
+            ((MenuWorld)getWorld()).addPreviewClicker(this.player);
+        } else if(settingID == 2) {
+            ((MenuWorld)getWorld()).editCps(this.player, count);
+        }
         counter.setValue(Math.min(count, maxVal));  // Math.min just to be safe, cant be greater than maxVal :b
     }
     public void decrCount() {
@@ -60,6 +70,13 @@ public class MenuSetting extends Actor
         }
         if(count == maxVal-1) {
             rightArrow.setActive(true);
+        }
+        if(settingID == 0) {
+            ((MenuWorld)getWorld()).removePreviewGrandma(this.player);
+        } else if(settingID == 1) {
+            ((MenuWorld)getWorld()).removePreviewClicker(this.player);
+        } else if(settingID == 2) {
+            ((MenuWorld)getWorld()).editCps(this.player, count);
         }
         counter.setValue(Math.max(count, minVal));  // Math.max just to be safe, cant be less than minVal :b
     }
