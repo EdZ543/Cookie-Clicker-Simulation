@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * Warm mittens make clickers click faster (increases their production).
@@ -8,11 +9,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WarmMits extends Powerup
 {
+    private Clicker[] myClickers;
+    
     public WarmMits(Player origin) {
         super(origin);
+        duration = (int)(60 * 3.5); // 3.5 seconds in acts
+        myClickers = origin.getClickers();
+        getImage().clear();
+    }
+    
+    public void addedToWorld(World w) {
+        for (Clicker clicker : myClickers) {
+            clicker.wearMitten();
+        }
     }
     
     public void act() {
-        
+        actCount++;
+        if (actCount == duration) {
+            for (Clicker clicker : myClickers) {
+                clicker.takeOffMitten();
+            }
+            getWorld().removeObject(this);
+        }
     }
 }

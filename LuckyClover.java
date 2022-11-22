@@ -42,7 +42,7 @@ public class LuckyClover extends Powerup
         actCount --;
     }
     public void addSparkle() {  // sparkle effect on top of cookie
-        Sparkle sparkle = new Sparkle(Greenfoot.getRandomNumber(60) + 90, this, true);
+        Sparkle sparkle = new Sparkle(Greenfoot.getRandomNumber(60) + 90, this, LuckyClover.class);
         getWorld().addObject(sparkle, 0, 0);
     }
 }
