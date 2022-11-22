@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The title screen
  * 
- * @author (your name) 
+ * @author Caden Chan,  
  * @version (a version number or a date)
  */
 public class WelcomeWorld extends World
