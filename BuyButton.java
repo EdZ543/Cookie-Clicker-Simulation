@@ -75,7 +75,7 @@ public class BuyButton extends Clickable
             CookieWorld cw = (CookieWorld)getWorld();
             if (!cw.gameIsWon()) {
                 CookieRocket rocket = new CookieRocket(player);
-                getWorld().addObject(rocket, getX(), getY() + 20);                
+                getWorld().addObject(rocket, getX(), getY() + 100);                
                 cw.setGameWon(true);
             }
 

@@ -13,7 +13,7 @@ public class WelcomeWorld extends World
     private Label tempTitle;
     private Label tempAuthors;
     private final String[] trackNames = {"menubg.mp3", "mainbg.mp3"};
-    public GreenfootSound[] tracks = new GreenfootSound[2];
+    protected GreenfootSound[] tracks = new GreenfootSound[2];
     /**
      * The first screen seen by the user
      */

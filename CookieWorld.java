@@ -453,6 +453,10 @@ public class CookieWorld extends World
         gameWon = x;
     }
     
+    public GreenfootSound getBgMusic() {
+        return bgMusic;
+    }
+    
     // Test method
     public Player getP1() {
         return p1;

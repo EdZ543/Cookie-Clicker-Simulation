@@ -19,6 +19,9 @@ public class Clicker extends SuperSmoothMover
     private int clickingAnimationTimer = 0;
     private int animationIndex;
     private GreenfootSound clickSound = new GreenfootSound("click.mp3");
+    private GreenfootSound buildingPurchaseSound = new GreenfootSound("building-purchase.wav");
+    private GreenfootSound powerupPurchaseSound = new GreenfootSound("powerup-purchase.wav");
+    private GreenfootSound sabotagePurchaseSound = new GreenfootSound("sabotage-purchase.wav");
     private boolean sentient;
     private String colour;
 
@@ -49,6 +52,9 @@ public class Clicker extends SuperSmoothMover
         
         // Setup sound
         clickSound.setVolume(30);
+        buildingPurchaseSound.setVolume(80);
+        powerupPurchaseSound.setVolume(75);
+        sabotagePurchaseSound.setVolume(80);
     }
 
     /**
@@ -75,7 +81,21 @@ public class Clicker extends SuperSmoothMover
                 setImage(image);
                 
                 clickCount++;
-                if (sentient) clickSound.play();
+                if (sentient) {
+                    clickSound.play();
+                    if (BuyButton.class.isAssignableFrom(targetObject.getClass())) { // if target object was a BuyButton
+                        BuyButton bb = (BuyButton)targetObject;
+                        if (Building.class.isAssignableFrom(bb.getMySubclass())) {
+                            buildingPurchaseSound.play();
+                        }
+                        else if (Powerup.class.isAssignableFrom(bb.getMySubclass()) && !Sabotage.class.isAssignableFrom(bb.getMySubclass())) {
+                            powerupPurchaseSound.play();       
+                        }
+                        else {
+                            sabotagePurchaseSound.play();
+                        }
+                    }
+                }
                 
                 // Click target
                 if (targetObject != null) {

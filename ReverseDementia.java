@@ -2,6 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
+ * Powerup that makes grandmas twice as efficient and calms down any angry grandmas 
  * 
  * @author Jonathan Zhao
  * @version November 2022
@@ -12,7 +13,7 @@ public class ReverseDementia extends Powerup
     
     public ReverseDementia(Player origin) {
         super(origin);
-        duration = (int)(60 * 3.5); // 3.5 seconds in acts
+        duration = (int)(60 * 5); // 5 seconds in acts
         myGrandmas = new ArrayList<Grandma>();
         getImage().clear(); // clear image
     }

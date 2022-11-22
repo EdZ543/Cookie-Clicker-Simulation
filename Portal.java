@@ -17,7 +17,7 @@ public class Portal extends Building
     public void act() {
         super.act();
         if (actCount == actMark) {
-            produce(2000, 4000);
+            produce(3000, 4000);
             actMark = getNextActMark(3, 3);
         }
         

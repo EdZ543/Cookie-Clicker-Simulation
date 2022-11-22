@@ -21,12 +21,12 @@ public class Printer3D extends Building
         super.act();
         if (actCount == actMark) {
             if (hasExtraExpensiveFilament) {
-                int newLower = (int)(650 * 1.5);
-                int newUpper = (int)(900 * 1.5);
+                int newLower = (int)(800 * 1.5);
+                int newUpper = (int)(1100 * 1.5);
                 produce(newLower, newUpper);
             }
             else {
-                produce(650, 900);   
+                produce(800, 1100);   
             }
             actMark = getNextActMark(2, 3);
         }

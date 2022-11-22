@@ -17,8 +17,8 @@ public class AlchemyLab extends Building
     public void act() {
         super.act();
         if (actCount == actMark) {
-            produce(200, 400);    
-            actMark = getNextActMark(2, 3);
+            produce(400, 500);    
+            actMark = getNextActMark(2, 2);
         }
     }
 }
