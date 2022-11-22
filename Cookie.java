@@ -10,7 +10,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Cookie extends Clickable
 {
     private int level, cookiesPerClick, animateCount, originalSize;
-    private final int maxLevel = 10;
+    private final int maxLevel = 4;
     private final int ANIM_DURATION = 5; // how many acts the cookie is enlargened for
     private final int ANIM_FACTOR = 30; // increase image by how many pixels on click
     private GreenfootImage image;
@@ -18,8 +18,7 @@ public class Cookie extends Clickable
     private BuyButton myUpgradeBtn;
     // Array of file paths, one for each of the Cookie's different levels
     public final String[] COOKIE_FILES = {"placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", 
-        "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", 
-        "placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png"};
+        "placeholder/cookie.png"};
     public final GreenfootImage[] COOKIE_SPRITES = getCookieSpriteArr();  // use level to index through array, and retrieve the corresponding image.
     
     /**
@@ -89,10 +88,14 @@ public class Cookie extends Clickable
     }
     
     /**
+     * - level 1: 8 cookies per second
+     * - level 2: 32 cookies per second
+     * - level 3: 128 cookies per second
+     * - level 4: 512 cookies per second
      * @return int          Number of cookies per click, dependant on the Cookie's level
      */
     private int calculateCookieOutput() {
-        return (int)Math.pow(level, 3)*4; // **TEMPORARY algorithm placeholder; must create balanced algorithm for deciding how many cookies each click will award the player, based on level.
+        return (int)Math.pow(4, level)*2; // **TEMPORARY algorithm placeholder; must create balanced algorithm for deciding how many cookies each click will award the player, based on level.
     }
     
     /**
@@ -117,10 +120,14 @@ public class Cookie extends Clickable
         return cookiesPerClick;
     }
     /**
+     * 1000 * 5^currentlevel
+     * - level 2 = 5000
+     * - level 3 = 25000
+     * - level 4 = 125000
      * @return int          Number of cookies required to purchase the next Cookie level
      */
     public int getUpgradeCost() {
-        return 100 * (int)Math.pow(1.8, level); // equation tbd
+        return 1000*(int)Math.pow(5, level);
     }
     
     /**
