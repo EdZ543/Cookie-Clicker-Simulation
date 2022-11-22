@@ -14,6 +14,7 @@ public class ReverseDementia extends Powerup
         super(origin);
         duration = (int)(60 * 3.5); // 3.5 seconds in acts
         myGrandmas = new ArrayList<Grandma>();
+        getImage().clearImage(); // clear image
     }
     
     public void addedToWorld(World w) {

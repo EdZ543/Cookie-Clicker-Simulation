@@ -17,6 +17,7 @@ public class MilkBottles extends Sabotage
     public MilkBottles(Player origin) {
         super(origin);
         duration = 3*60; // last 3 seconds
+        getImage().clear();  // empty image
     }
     /**
      * Instantiate one BottleOfMilk object for each of the opponent's Baby objects

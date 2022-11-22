@@ -15,6 +15,7 @@ public class ExtraExpensiveFilament extends Powerup
         super(origin);
         duration = (int)(60 * 3.5); // 3.5 seconds in acts
         myPrinters = new ArrayList<Printer3D>();
+        getImage().clear(); // empty image
     }
     
     public void addedToWorld(World w) {
