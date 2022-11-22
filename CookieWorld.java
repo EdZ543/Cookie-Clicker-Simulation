@@ -22,6 +22,7 @@ public class CookieWorld extends World
     
     // World variables
     private GreenfootImage background;
+    private GreenfootSound bgMusic;
     
     // Game variables
     // select random index of buyButtons to add respective building/activate respective powerup
@@ -135,11 +136,21 @@ public class CookieWorld extends World
         buildingTitle = new Label("Building shop", 30);
         powerupTitle = new Label("Powerup shop", 30);
         sabotageTitle = new Label("Sabotage shop", 30);
-        // Label winTitle = new Label("Blast Off!", 30);
         addObject(buildingTitle, getWidth()/2, 30);
         addObject(powerupTitle, getWidth()/2, 260);
         addObject(sabotageTitle, getWidth()/2, 480);
-        // addObject(winTitle, getWidth()/2, 745);
+        // BG Music
+        bgMusic = WelcomeWorld.tracks[1];
+        bgMusic.setVolume(60);
+        bgMusic.playLoop();
+    }
+    public void started() {
+        super.started();
+        bgMusic.playLoop();
+    }
+    public void stopped() {
+        super.stopped();
+        bgMusic.stop();
     }
     public void act() {
         if(startDelay > 0) {

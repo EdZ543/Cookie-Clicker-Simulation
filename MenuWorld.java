@@ -78,6 +78,16 @@ public class MenuWorld extends World
             addPreviewClicker(2);
         }
     }
+    // Program started (via Greenfoot)
+    public void started() {
+        super.started();
+        bgMusic.playLoop();
+    }
+    // Program stopped (via Greenfoot)
+    public void stopped() {
+        super.stopped();
+        bgMusic.stop();
+    }
     /**
      * Start the simulation. Pass in the user's selected settings into CookieWorld. Stop the menu background music
      */

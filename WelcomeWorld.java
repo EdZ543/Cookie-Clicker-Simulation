@@ -12,7 +12,9 @@ public class WelcomeWorld extends World
     private GoButton nextButton;
     private Label tempTitle;
     private Label tempAuthors;
-    private GreenfootSound bgMusic = new GreenfootSound("menubg.mp3");
+    private static final String[] trackNames = {"menubg.mp3", "mainbg.mp3"};
+    public static GreenfootSound[] tracks = initMusic(trackNames);
+    private GreenfootSound bgMusic = tracks[0];
     /**
      * The first screen seen by the user
      */
@@ -50,5 +52,21 @@ public class WelcomeWorld extends World
      */
     public void goToMenu() {
         Greenfoot.setWorld(new MenuWorld(bgMusic));
+    }
+    /**
+     * Initialize background music
+     */
+    public static GreenfootSound[] initMusic(String[] trackNames) {
+        GreenfootSound[] tracks = new GreenfootSound[trackNames.length];
+        GreenfootSound track;
+        for(int i=0;i<tracks.length;i++) {
+            track = new GreenfootSound(trackNames[i]);
+            track.setVolume(0);
+            track.play();  // trick to make it so that tracks dont need to load later on
+            track.stop();
+            track.setVolume(60);
+            tracks[i] = track;
+        }
+        return tracks;
     }
 }
