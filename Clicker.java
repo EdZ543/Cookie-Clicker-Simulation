@@ -11,13 +11,13 @@ public class Clicker extends SuperSmoothMover
     private Player player;
     private int lagTimer = 0;
     private GreenfootImage image;
-    private GreenfootImage laggingImage = new GreenfootImage("lag.png");
     private int[] targetPoint;
     private Clickable targetObject;
     private boolean glidingOrClicking = false;
     private int clickCount = 0;
     private int speed;
     private int clickingAnimationTimer = 0;
+    private int animationIndex;
 
     /**
      * @param player The player that the clicker belongs to
@@ -36,7 +36,6 @@ public class Clicker extends SuperSmoothMover
         }
         
         image.scale(30, 40);
-        laggingImage.scale(30, 40);
         setImage(image);
     }
 
@@ -50,10 +49,10 @@ public class Clicker extends SuperSmoothMover
         
         // Change image and freeze if lagging out
         if (lagTimer > 0) {
+            animateLag();
             if (lagTimer == 1) {
                 setImage(image);
             }
-            
             lagTimer--;
         } else if (glidingOrClicking && !gliding) {
             clickingAnimationTimer++;
@@ -83,7 +82,6 @@ public class Clicker extends SuperSmoothMover
      * @param seconds Number of seconds the clicker will lag out for
      */
     public void lagOut(int seconds) {
-        setImage(laggingImage);
         lagTimer = seconds * 60;
     }
     
@@ -126,5 +124,12 @@ public class Clicker extends SuperSmoothMover
      */
     public int getClickCount() {
         return clickCount;
+    }
+    public void animateLag() {
+        if (lagTimer % 3 == 0) {
+            setImage("./gifs/lagclicker/" + animationIndex + ".png");
+            animationIndex++;
+            animationIndex %= 12;
+        }
     }
 }

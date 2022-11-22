@@ -31,7 +31,6 @@ public class Lag extends Sabotage
         super.addedToWorld(w);
         target.lagClickers(duration/60);  // cause opponents' clickers to lag out. target = opponnent
         setLocation(target.getCookie().getX(), target.getCookie().getY()-20);
-        // setLocation(target.getCookie().getX()+120, target.getCookie().getY()-100); --> will use this if i decide on lag1.png
     }
     public void act() {
         actCount++;
