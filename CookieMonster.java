@@ -30,7 +30,7 @@ public class CookieMonster extends Sabotage
         target.changeCookieCount(-takenCookies);
         
         // place it next to its player's cookie
-        setLocation(origin.getX() - 155, origin.getY() - 150);
+        setLocation(target.getX() - 155, target.getY() - 150);
     }
     
     public void act() {
