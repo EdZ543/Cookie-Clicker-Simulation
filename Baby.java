@@ -42,12 +42,12 @@ public class Baby extends Building
     }
     
     /**
-     * Eats(removes) 50-70 cookies from the other player.
+     * Eats(removes) 5-10 cookies from the other player.
      */
     public void eat() {        
         int amountToEat;
         if (Building.LUCKY) {
-            amountToEat = 50;
+            amountToEat = 10;
         }
         else {
             amountToEat = getRandomNumberInRange(5, 10);   

@@ -13,7 +13,7 @@ public class WelcomeWorld extends World
     private Label tempTitle;
     private Label tempAuthors;
     private final String[] trackNames = {"menubg.mp3", "mainbg.mp3"};
-    protected GreenfootSound[] tracks = new GreenfootSound[2];
+    protected static GreenfootSound[] tracks = new GreenfootSound[2];
     /**
      * The first screen seen by the user    
      */
@@ -45,7 +45,7 @@ public class WelcomeWorld extends World
     // Program stopped (via Greenfoot)
     public void stopped() {
         super.stopped();
-        tracks[0].stop();
+        tracks[0].pause();
     }
     /**
      * Go to the story screen, represented by <code>StoryWorld</code>

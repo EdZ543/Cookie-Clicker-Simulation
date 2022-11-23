@@ -88,7 +88,7 @@ public class MenuWorld extends World
     // Program stopped (via Greenfoot)
     public void stopped() {
         super.stopped();
-        tracks[0].stop();
+        tracks[0].pause();
     }
     /**
      * Start the simulation. Pass in the user's selected settings into CookieWorld. Stop the menu background music
