@@ -32,9 +32,15 @@ public class CookieUpgrade extends Powerup
             getWorld().removeObject(this);
         }
     }
+    /**
+     * @param cookie            The cookie that is being levelled-up
+     */
     private void upgrade(Cookie cookie) {
         cookie.levelUp();
     }
+    /**
+     * Add one sparkle
+     */
     private void addSparkle() {  // add a sparkle effect on top of cookie
         Sparkle sparkle = new Sparkle(Greenfoot.getRandomNumber(60) + 90, origin.getCookie());
         getWorld().addObject(sparkle, 0, 0);

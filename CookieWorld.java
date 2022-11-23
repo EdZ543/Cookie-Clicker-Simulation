@@ -12,7 +12,8 @@ import java.util.LinkedHashMap;
  *   - Spinning wheel of death provided by howdytom at https://apple.stackexchange.com/questions/243675/location-of-the-resource-files-for-the-spinning-wait-cursor
  *   - Remaining art created by Jonathan Zhao
  * - Code
- *   - SuperSmoothMover from Mr. Cohen
+ *   - SuperSmoothMover & Effect from Mr. Cohen
+ *   - Label by Amjad Altadmri
  * - Sound
  *   - Click sound effect obtained from https://www.zapsplat.com
  *   - Rocket sound effect obtained from https://mixkit.co/free-sound-effects/rocket/

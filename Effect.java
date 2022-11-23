@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Superclass for all Effects.
- * @author Mr. Cohen, edited by Caden Chan
+ * @author Mr. Cohen, Caden Chan
  * @version November 2022
  */
 public class Effect extends Actor

@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Increasing the Cookie's level will increase the number of cookies gained per click!
  * 
  * @author Caden Chan
- * @version 2022.11.14
+ * @version 2022.11.22
  */
 public class Cookie extends Clickable
 {
@@ -27,13 +27,13 @@ public class Cookie extends Clickable
         this.player = player;
         image = COOKIE_SPRITES[0];  // starting image
         level = 1;
-        originalSize = image.getWidth();
+        originalSize = image.getWidth(); // save original size
         animateCount = 0;
-        cookiesPerClick = calculateCookieOutput();
+        cookiesPerClick = calculateCookieOutput();  // get initial cookiesPerClick
         setImage(image);
     }
     /**
-     * Set the cost to upgrade
+     * Set the cost for next upgrade
      */
     public void addedToWorld(World w) {
         myUpgradeBtn = ((CookieWorld)getWorld()).getPlayerUpgradeButton(player);

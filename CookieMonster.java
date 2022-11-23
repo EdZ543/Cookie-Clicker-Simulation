@@ -4,8 +4,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * CookieMonster has entered the scene! Eats up a chunk of the opponent's cookies
  * The amount of cookies that the CookieMonster eats depends on the player's level.
  * 
- * @author Caden Chan
- * @version 2022.11.02
+ * @author Caden Chan, Jonathan Zhao
+ * @version 2022.11.22
  */
 public class CookieMonster extends Sabotage
 {

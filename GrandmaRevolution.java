@@ -5,8 +5,8 @@ import java.util.ArrayList;
  * 40-60% of the opponents' Grandma objects become angry, and begin a revolution!
  * Instead of baking cookies, they will savagely (or as savage as a Grandma can be) destroy the opponent player's cookies
  * 
- * @author Caden Chan
- * @version 2022.11.17
+ * @author Caden Chan, Patrick Hu, Jonathan Zhao
+ * @version 2022.11.22
  */
 public class GrandmaRevolution extends Sabotage
 {

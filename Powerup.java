@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * - Normal Powerups will help boost the Player's cookie output
  * - Powerups classified as "Sabotages" are activated to crumble each-others' cookie-making rates 
  * 
- * @author Caden Chan
+ * @author Caden Chan, Jonathan Zhao
  * @version 2022.11.02
  */
 public abstract class Powerup extends SuperSmoothMover

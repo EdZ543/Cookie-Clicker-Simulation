@@ -10,6 +10,9 @@ public class LuckyClover extends Powerup
 {
     private GreenfootImage image;
     private int rotationCount;
+    /**
+     * @param origin            Player that activated this instance of LuckyClover
+     */
     public LuckyClover(Player origin) {
         super(origin);
         image = new GreenfootImage("effect/luckyclover0.png");
@@ -26,21 +29,24 @@ public class LuckyClover extends Powerup
     }
         
     public void act() {
-        if(actCount % 3 == 0) {
+        if(actCount % 3 == 0) {  // rotate every 3 acts
             setRotation(rotationCount);
             rotationCount+=3;
         }
-        if(actCount%25 == 0) {
+        if(actCount%25 == 0) {  // sparkle effect
             addSparkle();
         }
-        if(actCount == 0) {
+        if(actCount == 0) {  // terminate lucky effect
             Building.LUCKY = false;
             getWorld().removeObject(this);
-        } else if (actCount <= 120){
+        } else if (actCount <= 120){   // fade the clover effect
             Effect.fade (image, actCount, 120, 180);
         }
         actCount --;
     }
+    /**
+     * Add one sparkle
+     */
     public void addSparkle() {  // sparkle effect on top of cookie
         Sparkle sparkle = new Sparkle(Greenfoot.getRandomNumber(60) + 90, this, LuckyClover.class);
         getWorld().addObject(sparkle, 0, 0);

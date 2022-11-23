@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * The menu screen. The user may adjust simulation settings here, before hitting the
  * "Start" button, to begin the simulation.
  * 
- * @author Caden Chan, 
+ * @author Caden Chan
  * @version 2022.11.22
  */
 public class MenuWorld extends World

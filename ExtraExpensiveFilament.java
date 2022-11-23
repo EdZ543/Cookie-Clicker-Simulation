@@ -33,7 +33,7 @@ public class ExtraExpensiveFilament extends Powerup
     
     public void act() {
         actCount--;
-        if(actCount%20 == 0) {
+        if(actCount%20 == 0) {  // add sparkle every 20 acts
             addSparkle();
         }
         if (actCount == 0) {
@@ -43,18 +43,11 @@ public class ExtraExpensiveFilament extends Powerup
             getWorld().removeObject(this);
         }
     }
-    public void addSparkle() {  // sparkle effect on top of cookie
+    /**
+     * Add one sparkle
+     */
+    public void addSparkle() {  // sparkle effect on top of building row
         Sparkle sparkle = new Sparkle(Greenfoot.getRandomNumber(60) + 90, printerRow, ExtraExpensiveFilament.class);
-        // int[] pos = getRandomPos();
-        // System.out.println(pos);
         getWorld().addObject(sparkle, 0, 0);
     }
-    // public int[] getRandomPos() { // get random position to place sparkle
-        // int[] pos = new int[2];
-        // int w = printerRow.getImage().getWidth();
-        // int h = printerRow.getImage().getHeight();
-        // pos[0] = (printerRow.getX() - w/2) + Greenfoot.getRandomNumber(w);
-        // pos[1] = (printerRow.getY() - h/2) + Greenfoot.getRandomNumber(h);
-        // return pos;
-    // }
 }
