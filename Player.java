@@ -137,7 +137,8 @@ public class Player extends Clickable
                         
                     } else if (randomAction <= 80) {
                         // Buy a random powerup
-                        affordableButtons = cw.getAffordablePowerupButtons(numCookies, name);
+                        boolean cookieMaxed = (cookie.getLevel() == cookie.getMaxLevel());
+                        affordableButtons = cw.getAffordablePowerupButtons(numCookies, name, cookieMaxed);
                         
                     } else {
                         // Buy a random sabotage
