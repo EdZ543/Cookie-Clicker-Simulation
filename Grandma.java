@@ -44,7 +44,7 @@ public class Grandma extends Building
             setImage(angryGranny);
             // when Grandma is angry, she begins violently destroying cookies
             if(actCount == actMark) {
-                player.changeCookieCount(-getRandomNumberInRange(60, 100)); // remove 60 to 100 cookies
+                player.changeCookieCount(-getRandomNumberInRange(5, 10));
                 actMark = getNextActMark(5, 10);
             }
         } else {

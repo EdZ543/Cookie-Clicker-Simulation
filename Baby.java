@@ -47,10 +47,10 @@ public class Baby extends Building
     public void eat() {        
         int amountToEat;
         if (Building.LUCKY) {
-            amountToEat = 70;
+            amountToEat = 50;
         }
         else {
-            amountToEat = getRandomNumberInRange(70, 90);   
+            amountToEat = getRandomNumberInRange(5, 10);   
         }
         
         CookieWorld cw = (CookieWorld)getWorld();

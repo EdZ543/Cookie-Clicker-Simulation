@@ -17,8 +17,8 @@ public class Cookie extends Clickable
     private Player player;
     private BuyButton myUpgradeBtn;
     // Array of file paths, one for each of the Cookie's different levels
-    public final String[] COOKIE_FILES = {"placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", 
-        "placeholder/cookie.png"};
+    public final String[] COOKIE_FILES = {"placeholder/cookie.png", "cookielevels/level2cookie.png", "cookielevels/level3cookie.png", 
+        "cookielevels/level4cookie.png"};
     public final GreenfootImage[] COOKIE_SPRITES = getCookieSpriteArr();  // use level to index through array, and retrieve the corresponding image.
     
     /**
@@ -88,14 +88,10 @@ public class Cookie extends Clickable
     }
     
     /**
-     * - level 1: 8 cookies per second
-     * - level 2: 32 cookies per second
-     * - level 3: 128 cookies per second
-     * - level 4: 512 cookies per second
      * @return int          Number of cookies per click, dependant on the Cookie's level
      */
     private int calculateCookieOutput() {
-        return (int)Math.pow(4, level)*2; // **TEMPORARY algorithm placeholder; must create balanced algorithm for deciding how many cookies each click will award the player, based on level.
+        return 50 + (int)Math.pow(4, level)*2; // **TEMPORARY algorithm placeholder; must create balanced algorithm for deciding how many cookies each click will award the player, based on level.
     }
     
     /**
