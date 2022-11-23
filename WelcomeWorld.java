@@ -48,10 +48,10 @@ public class WelcomeWorld extends World
         tracks[0].stop();
     }
     /**
-     * Go to the menu screen, represented by <code>MenuWorld</code>
+     * Go to the story screen, represented by <code>StoryWorld</code>
      */
-    public void goToMenu() {
-        Greenfoot.setWorld(new MenuWorld(tracks));
+    public void goToStory() {
+        Greenfoot.setWorld(new StoryWorld());
     }
     /**
      * Initialize background music
