@@ -17,7 +17,9 @@ import java.util.LinkedHashMap;
  * - Sound
  *   - Click sound effect obtained from https://www.zapsplat.com
  *   - Rocket sound effect obtained from https://mixkit.co/free-sound-effects/rocket/
- * 
+ * - Music
+ *   - Welcome/Menu background music: "Snowdin Town" by Toby Fox
+ *   - Simulation background music: "Field of Hopes and Dreams" by Toby Fox
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
  * @version 2022.11.14
  */
