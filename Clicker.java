@@ -36,7 +36,7 @@ public class Clicker extends SuperSmoothMover
     public Clicker(Player player, String colour, int speed, boolean sentient) {
         this.player = player;
         this.colour = colour;
-        this.speed = 5 + speed * 2;
+        this.speed = 7 + speed * 2;
         this.sentient = sentient;
         
         // Assign image

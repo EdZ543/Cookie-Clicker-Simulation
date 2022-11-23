@@ -152,6 +152,7 @@ public class CookieWorld extends World
         addObject(sabotageTitle, getWidth()/2, 480);
         // BG Music
         this.bgMusic = bgMusic;
+        bgMusic.setVolume(10);
         bgMusic.playLoop();
     }
     
@@ -396,9 +397,10 @@ public class CookieWorld extends World
      * 
      * @param numCookies The number of cookies the player has
      * @param player The player buying the powerup
+     * @param cookieMaxed Whether the player has already fully upgraded their cookie
      * @return ArrayList<BuyButton> The arraylist of BuyButtons
      */
-    public ArrayList<BuyButton> getAffordablePowerupButtons(int numCookies, String name) {
+    public ArrayList<BuyButton> getAffordablePowerupButtons(int numCookies, String name, boolean cookieMaxed) {
         ArrayList<BuyButton> affordableButtons = new ArrayList<BuyButton>();
         for (int i = 0; i < buyPowerupButtons.length; i++) {
             if (numCookies >= buyPowerupButtons[i].getCost()) {
@@ -406,10 +408,12 @@ public class CookieWorld extends World
             } 
         }
         
-        if (name == "Player 1") {
-            affordableButtons.add(cookieUpgradeButtons[0]);
-        } else {
-            affordableButtons.add(cookieUpgradeButtons[1]);
+        if (!cookieMaxed) {
+            if (name == "Player 1") {
+                affordableButtons.add(cookieUpgradeButtons[0]);
+            } else {
+                affordableButtons.add(cookieUpgradeButtons[1]);
+            }
         }
         
         return affordableButtons;
