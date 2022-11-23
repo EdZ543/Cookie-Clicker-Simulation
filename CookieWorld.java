@@ -153,7 +153,7 @@ public class CookieWorld extends World
         addObject(sabotageTitle, getWidth()/2, 480);
         // BG Music
         this.bgMusic = bgMusic;
-        bgMusic.setVolume(10);
+        bgMusic.setVolume(20);
         bgMusic.playLoop();
     }
     
