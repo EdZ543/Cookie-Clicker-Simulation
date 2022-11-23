@@ -17,8 +17,7 @@ public class Cookie extends Clickable
     private Player player;
     private BuyButton myUpgradeBtn;
     // Array of file paths, one for each of the Cookie's different levels
-    public final String[] COOKIE_FILES = {"placeholder/cookie.png", "placeholder/cookie.png", "placeholder/cookie.png", 
-        "placeholder/cookie.png"};
+    public final String[] COOKIE_FILES = {"./images/cookie-levels/level1.png", "./images/cookie-levels/level2.png", "./images/cookie-levels/level3.png", "./images/cookie-levels/level4.png"};
     public final GreenfootImage[] COOKIE_SPRITES = getCookieSpriteArr();  // use level to index through array, and retrieve the corresponding image.
     
     /**
@@ -31,11 +30,10 @@ public class Cookie extends Clickable
         originalSize = image.getWidth();
         animateCount = 0;
         cookiesPerClick = calculateCookieOutput();
-        setImage(image);        
+        setImage(image);
     }
     /**
      * Set the cost to upgrade
-     * @param w
      */
     public void addedToWorld(World w) {
         myUpgradeBtn = ((CookieWorld)getWorld()).getPlayerUpgradeButton(player);

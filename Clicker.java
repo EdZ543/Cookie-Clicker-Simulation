@@ -167,7 +167,7 @@ public class Clicker extends SuperSmoothMover
      * Make clicker go into mitten state
      */
     public void wearMitten() {
-        image = new GreenfootImage("./images/placeholder/mitten.jpg");
+        image = new GreenfootImage("./images/mitten.png");
         image.scale(30, 40);
         setImage(image);
     }

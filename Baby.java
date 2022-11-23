@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Babies do not produce cookies for their player but instead take away 
- * cookies from the other player. It does so at a rate of 70-90 cookies
+ * cookies from the other player.
  * every second.
  * 
  * @author Patrick Hu
@@ -32,7 +32,7 @@ public class Baby extends Building
         } else {
             if (actCount == actMark) {
                 eat();
-                actMark = getNextActMark(1, 1);
+                actMark = getNextActMark(2, 3);
             }
         }
         if(isDrinkingMilk) {
@@ -47,10 +47,10 @@ public class Baby extends Building
     public void eat() {        
         int amountToEat;
         if (Building.LUCKY) {
-            amountToEat = 70;
+            amountToEat = 60;
         }
         else {
-            amountToEat = getRandomNumberInRange(70, 90);   
+            amountToEat = getRandomNumberInRange(40, 60);   
         }
         
         CookieWorld cw = (CookieWorld)getWorld();
