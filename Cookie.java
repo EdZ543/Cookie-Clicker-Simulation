@@ -41,14 +41,6 @@ public class Cookie extends Clickable
     }
     public void act()
     {
-        // !Uncomment for testing purposes
-        // if(Greenfoot.mouseClicked(this)){
-            // if(animateCount == 0) {
-                // animateCount = ANIM_DURATION;
-                // image.scale(originalSize + ANIM_FACTOR, originalSize + ANIM_FACTOR);
-                // setImage(image);
-            // }
-        // }
         // Imitate clicking animation
         if(animateCount > 0) {
             animateCount --;

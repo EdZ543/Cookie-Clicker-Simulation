@@ -117,18 +117,7 @@ public class BuyButton extends Clickable
                 } else {
                     setImage(inactiveImage);
                 }
-                // ((CookieWorld)getWorld()).toggleButton(this, lastPlayer.getCookieCount());
-                // setActive(true);  // if maxedOut after click, stay inactive. otherwise, make active again (which will then change depending on `handleActiveStateButtons()` in `CookieWorld`
             }
-        }
-        // test method
-        if(Greenfoot.mouseClicked(hover)) {
-            click(((CookieWorld)getWorld()).getP1());
-            // CooldownBar x = new CooldownBar((int)(getImage().getWidth()*0.9+1), getImage().getHeight(), Color.BLUE, 3);
-            // getWorld().addObject(x, getX(), getY());
-            // clickedCount = 10;
-            // image.scale(70, 70);
-            // setImage(image);
         }
     }
 

@@ -16,8 +16,9 @@ public class WelcomeWorld extends World
 {
     private GreenfootImage bg;
     private GoButton nextButton;
-    private Label tempTitle;
-    private Label tempAuthors;
+    private Label titleLabel;
+    private Label authorLabel;
+    private PreviewClicker welcomeClicker;
     private final String[] trackNames = {"menubg.mp3", "mainbg.mp3"};
     protected static GreenfootSound[] tracks = new GreenfootSound[2];
     /**
@@ -37,18 +38,25 @@ public class WelcomeWorld extends World
         nextButton = new GoButton();
         addObject(nextButton, 600, 600);
         // Title
-        tempTitle = new Label("Cookie Clicker Simulation!", 60);
-        addObject(tempTitle, 600, 100);
+        titleLabel = new Label("Cookie Clicker Simulation!", 60);
+        addObject(titleLabel, 600, 160);
         // Authors
-        tempAuthors = new Label("By Patrick H., Jonathan Z., Eddie Z., Caden C.", 40);
-        addObject(tempAuthors, 600, 160);
+        authorLabel = new Label("By Patrick H., Jonathan Z., Eddie Z., Caden C.", 40);
+        addObject(authorLabel, 600, 220);
+        // Preview Clicker
+        welcomeClicker = new PreviewClicker(200, 4);
+        addObject(welcomeClicker, 600, 400);
     }
-    // Program started (via Greenfoot)
+    /**
+     * Play music when program is run
+     */
     public void started() {
         super.started();
         tracks[0].playLoop();
     }
-    // Program stopped (via Greenfoot)
+    /**
+     * Stop music when program is stopped
+     */
     public void stopped() {
         super.stopped();
         tracks[0].pause();
@@ -67,7 +75,7 @@ public class WelcomeWorld extends World
         track.setVolume(0);
         track.play();  // trick to preload music, to avoid long loading times later on
         track.stop();
-        track.setVolume(40);
+        track.setVolume(30);
         return track;
     }
 }

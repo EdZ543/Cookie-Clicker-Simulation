@@ -9,19 +9,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class StoryWorld extends World
 {   
     private int storyIndex = 0;
-    
+    private Label instructionLabel;
     public StoryWorld() {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 800, 1); 
         
         GreenfootImage bg = new GreenfootImage("story/story0.png");
         setBackground(bg);
+        instructionLabel = new Label("Click to hear a special announcement from President Dough!...", 30);
+        addObject(instructionLabel, 600, 700);
     }
     
     public void act() {
         WelcomeWorld.tracks[0].play();
         
         if (Greenfoot.mouseClicked(this)) {
+            if(storyIndex == 0) {
+                removeObject(instructionLabel);
+            }
             if (storyIndex == 8) {
                 Greenfoot.setWorld(new MenuWorld(WelcomeWorld.tracks));
                 return;
