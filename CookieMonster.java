@@ -9,11 +9,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieMonster extends Sabotage
 {
+    private int actCount;
+    private double scale = 0.8;
     private int percentToTake;
     private int takenCookies;
+    private int animationSize, animationIndex;
     
     public CookieMonster(Player origin) {
         super(origin);
+        actCount = 0;
+        duration = 60 * 4;
+        animationSize = 2;
+        animationIndex = 0;
         percentToTake = getRandomNumberInRange(10, 25);
     }
     
@@ -21,17 +28,25 @@ public class CookieMonster extends Sabotage
         super.addedToWorld(w);
         takenCookies = target.getCookieCount() * (int)((double)percentToTake / 100);
         target.changeCookieCount(-takenCookies);
+        
+        // place it next to its player's cookie
+        setLocation(origin.getX() - 155, origin.getY() - 150);
     }
     
     public void act() {
-        animate();
         if(actCount == duration) {
             getWorld().removeObject(this);
         }   
         actCount++;
+        animate();
     }
     
     public void animate() {
-        // show cookie monster entering the world and eating cookies maybe
+        if (actCount % 10 == 0) {
+            setImage("./gifs/cookie-monster/" + animationIndex + ".png");
+            getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
+            animationIndex++;
+            animationIndex %= animationSize;
+        }
     }
 }

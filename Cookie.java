@@ -31,11 +31,10 @@ public class Cookie extends Clickable
         originalSize = image.getWidth();
         animateCount = 0;
         cookiesPerClick = calculateCookieOutput();
-        setImage(image);        
+        setImage(image);
     }
     /**
      * Set the cost to upgrade
-     * @param w
      */
     public void addedToWorld(World w) {
         myUpgradeBtn = ((CookieWorld)getWorld()).getPlayerUpgradeButton(player);
