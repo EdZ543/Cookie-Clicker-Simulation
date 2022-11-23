@@ -9,6 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WinButton extends BuyButton
 {
+    /**
+     * @param mySubclass            Set to CookieRocket.class
+     * @param name                  Button name
+     * @param cost                  Cost to activate this button
+     */
     public WinButton(Class mySubclass, String name, int cost) {
         super(mySubclass, name, cost);
     }
@@ -23,10 +28,5 @@ public class WinButton extends BuyButton
         setImage(activeImage);
         // add HoverArea object
         getWorld().addObject(hover, getX(), getY());
-    }
-    public void act() {
-        if (active) {
-            
-        }
     }
 }

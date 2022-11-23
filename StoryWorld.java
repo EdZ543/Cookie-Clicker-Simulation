@@ -22,8 +22,7 @@ public class StoryWorld extends World
     
     public void act() {
         WelcomeWorld.tracks[0].play();
-        
-        if (Greenfoot.mouseClicked(this)) {
+        if (Greenfoot.mouseClicked(this) || Greenfoot.mouseClicked(instructionLabel)) {
             if(storyIndex == 0) {
                 removeObject(instructionLabel);
             }

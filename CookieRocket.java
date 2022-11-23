@@ -26,7 +26,7 @@ public class CookieRocket extends SuperSmoothMover
         setImage("./cookie-rocket.png");
         getImage().scale((int)(getImage().getWidth() * scale), (int)(getImage().getHeight() * scale));
         setRotation(-90);
-        launchSound.setVolume(30);
+        launchSound.setVolume(60);
         launchSound.play();
     }
     

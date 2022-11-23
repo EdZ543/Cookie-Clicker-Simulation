@@ -15,6 +15,7 @@ import java.util.LinkedHashMap;
  *   - SuperSmoothMover from Mr. Cohen
  * - Sound
  *   - Click sound effect obtained from https://www.zapsplat.com
+ *   - Rocket sound effect obtained from https://mixkit.co/free-sound-effects/rocket/
  * 
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
  * @version 2022.11.14
@@ -22,6 +23,7 @@ import java.util.LinkedHashMap;
 
 public class CookieWorld extends World
 {
+    public static final boolean DEMO_MODE = true; // set to true for user to activate buttons, on behalf of p1
     // Variable adjustments from menu (temporary, will be passed in from constructor)
     private int startDelay = 120;
     
@@ -40,7 +42,7 @@ public class CookieWorld extends World
     private Player p1, p2;
     
     // Whether game has been won
-    private boolean gameWon;
+    public boolean gameWon;
     
     // Master lists of Building/Powerup classes
     private LinkedHashMap<Class, HashMap<String, Object>> buildingMap;

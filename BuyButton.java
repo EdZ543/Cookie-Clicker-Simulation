@@ -112,6 +112,9 @@ public class BuyButton extends Clickable
         if(clickedCount > 0) {
             clickedCount --;
             if(clickedCount == 0) {
+                if(lastPlayer == null) {
+                    return;
+                }
                 if(getCost() <= lastPlayer.getCookieCount()  && !maxedOut) {
                     setImage(activeImage);
                 } else {
@@ -119,6 +122,8 @@ public class BuyButton extends Clickable
                 }
             }
         }
+        if(CookieWorld.DEMO_MODE && Greenfoot.mouseClicked(hover)) {
+            click(((CookieWorld)getWorld()).getP1());        }
     }
 
     /**
