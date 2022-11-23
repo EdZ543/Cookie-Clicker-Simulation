@@ -106,12 +106,12 @@ public class Player extends Clickable
     }
     
     public void act() {
-        if(!start) return;
+        CookieWorld cw = (CookieWorld)getWorld();
+        if(!start || cw.gameIsWon())
+            return;
         
         // Control main clicker
         if (!clicker.glidingOrClicking()) {
-            CookieWorld cw = (CookieWorld)getWorld();
-            
             // If it has enough cookies to buy the cookie rocket, it shall do so immediately
             if (numCookies >= CookieWorld.getWinAmount()) {
                 clicker.glideAndClick(cw.getWinButton());
