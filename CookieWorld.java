@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 
 public class CookieWorld extends World
 {
-    public static final boolean DEMO_MODE = true; // set to true for user to activate buttons, on behalf of p1
+    public static final boolean DEMO_MODE = false; // set to true for user to activate buttons, on behalf of p1
     // Variable adjustments from menu (temporary, will be passed in from constructor)
     private int startDelay = 120;
     
