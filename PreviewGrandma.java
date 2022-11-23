@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Show preview of Grandma objects
  * 
- * @author  Patrick Hu, Eddie Zhuang, Caden Chan
+ * @author Patrick Hu, Eddie Zhuang, Caden Chan
  * @version November 2022
  */
 public class PreviewGrandma extends PreviewActor
@@ -16,10 +16,9 @@ public class PreviewGrandma extends PreviewActor
         actCount = 0;
         animate();
     }
-    public void act()
-    {
+    public void act() {
         animate();
-        actCount ++;
+        actCount++;
     }
     public void animate() {
         if (actCount % 20 == 0) {

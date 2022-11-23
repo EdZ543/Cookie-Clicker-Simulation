@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class ExtraExpensiveFilament here.
+ * Powerup that makes all 3D printers for its respective player 1.5x more efficient.
  * 
  * @author Jonathan Zhao
  * @version November 2022

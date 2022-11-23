@@ -165,6 +165,7 @@ public class CookieWorld extends World
         // Stop background music
         super.stopped();
         bgMusic.stop();
+        CookieRocket.launchSound.stop();
     }
     
     public void act() {

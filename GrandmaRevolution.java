@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.HashMap;
 import java.util.ArrayList;
 /**
- * 20-30% of the opponents' Grandma objects become angry, and begin a revolution!
+ * 40-60% of the opponents' Grandma objects become angry, and begin a revolution!
  * Instead of baking cookies, they will savagely (or as savage as a Grandma can be) destroy the opponent player's cookies
  * 
  * @author Caden Chan

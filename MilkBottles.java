@@ -22,7 +22,6 @@ public class MilkBottles extends Sabotage
     /**
      * Instantiate one BottleOfMilk object for each of the opponent's Baby objects
      * 
-     * @param w
      */
     public void addedToWorld(World w) {
         super.addedToWorld(w);

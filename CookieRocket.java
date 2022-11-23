@@ -14,7 +14,7 @@ public class CookieRocket extends SuperSmoothMover
     private double speed;
     private double acceleration;
     private Player player; // the player who won
-    private GreenfootSound launchSound = new GreenfootSound("./sounds/rocket-launch.wav");
+    protected static GreenfootSound launchSound = new GreenfootSound("./sounds/rocket-launch.wav");
     
     public CookieRocket(Player player) {
         this.player = player;
@@ -38,7 +38,7 @@ public class CookieRocket extends SuperSmoothMover
     
     public void act() {
         actCount++;
-        if (actCount < 300) { // first 5 seconds
+        if (actCount < 180) { // first 3 seconds
             move(speed); // move slowly
         }
         else {

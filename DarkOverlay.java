@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class DarkOverlay here.
+ * A black background with its opacity reduced to act as a dark overlay.
  * 
  * @author Patrick Hu
  * @version November 2022

@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * 
+ * Alchemy labs produce between 400 to 500 cookies per 2 seconds.
  * 
  * @author Patrick Hu 
  * @version November 2022
