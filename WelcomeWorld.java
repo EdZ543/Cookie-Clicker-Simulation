@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The title screen
+ * The title screen of the simulation.
  * 
- * @author Caden Chan,  
- * @version (a version number or a date)
+ * @author Caden Chan
+ * @version November 2022
  */
 public class WelcomeWorld extends World
 {
@@ -15,7 +15,7 @@ public class WelcomeWorld extends World
     private final String[] trackNames = {"menubg.mp3", "mainbg.mp3"};
     protected GreenfootSound[] tracks = new GreenfootSound[2];
     /**
-     * The first screen seen by the user
+     * The first screen seen by the user    
      */
     public WelcomeWorld()
     {    

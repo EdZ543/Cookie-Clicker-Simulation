@@ -166,6 +166,7 @@ public class CookieWorld extends World
         // Stop background music
         super.stopped();
         bgMusic.stop();
+        CookieRocket.launchSound.stop();
     }
     
     public void act() {
@@ -409,9 +410,9 @@ public class CookieWorld extends World
         
         if (!cookieMaxed) {
             if (name == "Player 1") {
-                affordableButtons.add(cookieUpgradeButtons[0]);
+                if (numCookies >= cookieUpgradeButtons[0].getCost()) affordableButtons.add(cookieUpgradeButtons[0]);
             } else {
-                affordableButtons.add(cookieUpgradeButtons[1]);
+                if (numCookies >= cookieUpgradeButtons[1].getCost()) affordableButtons.add(cookieUpgradeButtons[1]);
             }
         }
         

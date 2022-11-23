@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Building here.
+ * A building that produces cookies for its respective player.
  * 
  * @author Patrick Hu, Jonathan Zhao
  * @version November 2022

@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class LuckyClover here.
+ * Powerup that makes all buildings output their maximum amount.
  * 
  * @author Caden Chan
  * @version 2022.11.19

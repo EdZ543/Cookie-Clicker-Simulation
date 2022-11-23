@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * An object that can be clicked
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Eddie Zhuang
+ * @version November 2022
  */
 public abstract class Clickable extends Actor
 {

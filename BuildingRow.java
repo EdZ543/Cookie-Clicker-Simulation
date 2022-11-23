@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * The rectangles in which the buildings will stay
  * 
  * @author Eddie Zhuang
- * @version (a version number or a date)
+ * @version November 2022
  */
 public class BuildingRow extends Clickable
 {

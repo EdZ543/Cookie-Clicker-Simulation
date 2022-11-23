@@ -2,7 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.lang.reflect.Constructor;
 
 /**
- * Write a description of class BuyButton here.
+ * A button that the cursors will click in order to buy an item.
+ * Items include the cookie upgrade, buildings, powerups, and sabotages.
  * 
  * @author Caden Chan
  * @version 2022.11.19

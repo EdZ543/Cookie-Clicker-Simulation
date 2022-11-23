@@ -1,8 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Takes other player's cookies.
- * Every 10-20 seconds, baby will eat away 20-40 cookies.
+ * Babies do not produce cookies for their player but instead take away 
+ * cookies from the other player. It does so at a rate of 70-90 cookies
+ * every second.
  * 
  * @author Patrick Hu
  * @version November 2022
@@ -41,7 +42,7 @@ public class Baby extends Building
     }
     
     /**
-     * Eats(removes) 20-40 cookies from the other player.
+     * Eats(removes) 50-70 cookies from the other player.
      */
     public void eat() {        
         int amountToEat;
@@ -68,19 +69,4 @@ public class Baby extends Building
         isDrinkingMilk = true;
         drinkingCount = 120;
     }
-    
-    // /**
-     // * Gradually fades out the baby and then removes it from the world.
-     // */
-    // public void fade() {
-        // int curTransparency = getImage().getTransparency();
-        // if (curTransparency == 0) {
-            // getWorld().removeObject(this);
-            // return;
-        // }
-        // int newTransparency = getImage().getTransparency() - 5;
-        // if (actCount % 15 == 0) {
-            // getImage().setTransparency(newTransparency);
-        // }
-    // }
 }

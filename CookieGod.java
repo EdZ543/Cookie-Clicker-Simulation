@@ -1,7 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- *  
+ * The most powerful building that produces 9000 cookies every 2-3 seconds.
+ * 
  * @author Patrick Hu
  * @version November 2022
  */

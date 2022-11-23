@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Transports cookies from another the Cookie-verse.
+ * Transports 3000 - 4000 cookies from the Cookie-verse every 3 seconds.
  * 
  * @author Patrick Hu
  * @version November 2022
@@ -20,7 +20,5 @@ public class Portal extends Building
             produce(3000, 4000);
             actMark = getNextActMark(3, 3);
         }
-        
-        animate();
     }
 }

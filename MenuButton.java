@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MenuButton here.
+ * Buttons used in the menu screen.
  * 
  * @author Caden Chan 
  * @version 2022.11.21

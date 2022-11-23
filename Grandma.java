@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Every 5-10 seconds produces 30-50 cookies.
+ * Every 1-2 seconds produces 30-50 cookies.
  * They must be clicked by the player to collect the cookies (they are old and cannot carry them by themselves.
  * 
  * @author Patrick Hu, Eddie Zhuang, Caden Chan
@@ -62,7 +62,7 @@ public class Grandma extends Building
     public boolean isAngry() {
         return angry;
     }
-
+    
     public void setAngry(boolean angryState) {
         angry = angryState;
         if(angryState) {
@@ -73,7 +73,10 @@ public class Grandma extends Building
         readyToClick = false;
         actMark = getNextActMark(5, 10);
     }
-
+    
+    /**
+     * Collects cookies from the grandma.
+     */
     public void click(Player player) {
         if (reverseDementiaActive) {
             produce(60, 100);
