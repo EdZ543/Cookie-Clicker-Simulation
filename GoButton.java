@@ -20,10 +20,10 @@ public class GoButton extends MenuButton
         super.act();
     }
     /**
-     * Go to MenuWorld
+     * Go to StoryWorld
      */
     public void clicked() {
-        ((WelcomeWorld)getWorld()).goToMenu();
+        ((WelcomeWorld)getWorld()).goToStory();
     }
     public void checkHover() {
         super.checkHover();
