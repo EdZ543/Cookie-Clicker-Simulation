@@ -15,9 +15,17 @@ public class EndWorld extends World
     public EndWorld(Player player) {    
         super(1200, 800, 1);
         
-        // Draw background
-        GreenfootImage bg = new GreenfootImage("endbg.png");
-        setBackground(bg);
+        // Draw background based on which player won
+        if(player.getName().equals("Player 1")) {
+            GreenfootImage bg = new GreenfootImage("endbg1.png");
+            setBackground(bg);
+        }
+        else {
+            GreenfootImage bg = new GreenfootImage("endbg2.png");
+            setBackground(bg);
+        }
+        
+        
         
         // Add text
         Label playerLabel = new Label(player.getName() + " wins!", 60);
