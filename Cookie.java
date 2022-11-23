@@ -140,4 +140,13 @@ public class Cookie extends Clickable
         }
         return images;
     }
+    
+    /**
+     * Returns the cookie's max level
+     * 
+     * @return int The level
+     */
+    public int getMaxLevel() {
+        return maxLevel;
+    }
 }
