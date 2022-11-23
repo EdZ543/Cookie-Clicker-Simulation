@@ -30,7 +30,7 @@ public class Cookie extends Clickable
         originalSize = image.getWidth();
         animateCount = 0;
         cookiesPerClick = calculateCookieOutput();
-        setImage(image);  
+        setImage(image);
     }
     /**
      * Set the cost to upgrade
