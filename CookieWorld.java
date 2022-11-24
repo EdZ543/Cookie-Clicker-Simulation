@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
  *  <li>Background image from the original Cookie Clicker by Orteil, provided by caveman at https://wallpapercave.com/cookie-clicker-wallpapers</li>
  *  <li>Cursor image provided by Tobias Ahlin Bjerrome at https://tobiasahlin.com/blog/common-mac-os-x-lion-cursors/</li>
  *  <li>Spinning wheel of death provided by howdytom at https://apple.stackexchange.com/questions/243675/location-of-the-resource-files-for-the-spinning-wait-cursor</li>
+ *  <li>Button object backgrounds provided by https://www.freepik.com/free-vector/wooden-buttons-ui-game_12632833.htm</li>
  *  <li>Remaining art created by Jonathan Zhao</li>
  * </ul>
  * <h3>Code</h3>
@@ -478,12 +479,17 @@ public class CookieWorld extends World
     public void setGameWon(boolean x) {
         gameWon = x;
     }
-    
+    /**
+     * @return GreenfootSound       Return the background music
+     */
     public GreenfootSound getBgMusic() {
         return bgMusic;
     }
     
-    // Test method
+    /**
+     * Used when DEMO_MODE = true, to allow the testing of BuyButtons during the "game".
+     * @return Player               Player 1 object
+     */
     public Player getP1() {
         return p1;
     }
