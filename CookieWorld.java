@@ -5,21 +5,29 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 /** 
- * Credits
- * - Images
- *   - Background image from the original Cookie Clicker by Orteil, provided by caveman at https://wallpapercave.com/cookie-clicker-wallpapers
- *   - Cursor image provided by Tobias Ahlin Bjerrome at https://tobiasahlin.com/blog/common-mac-os-x-lion-cursors/
- *   - Spinning wheel of death provided by howdytom at https://apple.stackexchange.com/questions/243675/location-of-the-resource-files-for-the-spinning-wait-cursor
- *   - Remaining art created by Jonathan Zhao
- * - Code
- *   - SuperSmoothMover & Effect from Mr. Cohen
- *   - Label by Amjad Altadmri
- * - Sound
- *   - Click sound effect obtained from https://www.zapsplat.com
- *   - Rocket sound effect obtained from https://mixkit.co/free-sound-effects/rocket/
- * - Music
- *   - Welcome/Menu background music: "Snowdin Town" by Toby Fox
- *   - Simulation background music: "Field of Hopes and Dreams" by Toby Fox
+ * <h2>Credits</h2>
+ * <h3>Images</h3>
+ * <ul>
+ *  <li>Background image from the original Cookie Clicker by Orteil, provided by caveman at https://wallpapercave.com/cookie-clicker-wallpapers</li>
+ *  <li>Cursor image provided by Tobias Ahlin Bjerrome at https://tobiasahlin.com/blog/common-mac-os-x-lion-cursors/</li>
+ *  <li>Spinning wheel of death provided by howdytom at https://apple.stackexchange.com/questions/243675/location-of-the-resource-files-for-the-spinning-wait-cursor</li>
+ *  <li>Remaining art created by Jonathan Zhao</li>
+ * </ul>
+ * <h3>Code</h3>
+ * <ul>
+ *   <li>SuperSmoothMover & Effect from Mr. Cohen</li>
+ *   <li>Label by Amjad Altadmri</li>
+ * </ul>
+ * <h3>Sound</h3>
+ * <ul>
+ *   <li>Click sound effect obtained from https://www.zapsplat.com</li>
+ *   <li>Rocket sound effect obtained from https://mixkit.co/free-sound-effects/rocket/</li>
+ * </ul>
+ * <h3>Music</h3>
+ * <ul>
+ *   <li>Welcome/Menu background music: "Snowdin Town" by Toby Fox</li>
+ *   <li>Simulation background music: "Field of Hopes and Dreams" by Toby Fox</li>
+ * <ul>
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
  * @version 2022.11.14
  */
