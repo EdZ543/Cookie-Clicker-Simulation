@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
  *  <li>Background image from the original Cookie Clicker by Orteil, provided by caveman at https://wallpapercave.com/cookie-clicker-wallpapers</li>
  *  <li>Cursor image provided by Tobias Ahlin Bjerrome at https://tobiasahlin.com/blog/common-mac-os-x-lion-cursors/</li>
  *  <li>Spinning wheel of death provided by howdytom at https://apple.stackexchange.com/questions/243675/location-of-the-resource-files-for-the-spinning-wait-cursor</li>
- *  <li>Button object backgrounds provided by https://www.freepik.com/free-vector/wooden-buttons-ui-game_12632833.htm</li>
+ *  <li>Button object backgrounds provided by https://www.freepik.com/free-vector/wooden-buttons-ui-game_12632833.htm>wooden buttons</li>
  *  <li>Remaining art created by Jonathan Zhao</li>
  * </ul>
  * <h3>Code</h3>
@@ -30,7 +30,7 @@ import java.util.LinkedHashMap;
  *   <li>Simulation background music: "Field of Hopes and Dreams" by Toby Fox</li>
  * <ul>
  * @author Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao
- * @version 2022.11.14
+ * @version 2022.11.23
  */
 
 public class CookieWorld extends World
@@ -54,7 +54,7 @@ public class CookieWorld extends World
     private Player p1, p2;
     
     // Whether game has been won
-    public boolean gameWon;
+    private boolean gameWon;
     
     // Master lists of Building/Powerup classes
     private LinkedHashMap<Class, HashMap<String, Object>> buildingMap;
@@ -329,7 +329,7 @@ public class CookieWorld extends World
         toggleButton(cookieUpgradeButtons[1], p2.getCookieCount());
     }
     /**
-     * 
+     * Set button to active or inactive, depending on whether or not it can be afforded
      * @param btn               The BuyButton being checked
      * @param cookieCount       If cookieCount is less than the button's cost, set to inactive; otherwise, set to active
      */
@@ -354,6 +354,9 @@ public class CookieWorld extends World
             toggleButton(btn, cookieCount);
         }
     }
+    /**
+     * Special version of the toggleButton method, specifically to handle the MilkBottles sabotage
+     */
     public void toggleMilkBottlesButton() {
         BuyButton btn = getSabotageButton(MilkBottles.class);
         int p1Cost = MilkBottles.getCost(p1);

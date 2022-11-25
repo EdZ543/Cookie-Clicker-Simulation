@@ -60,6 +60,7 @@ extends greenfoot.World</pre>
   <li>Background image from the original Cookie Clicker by Orteil, provided by caveman at https://wallpapercave.com/cookie-clicker-wallpapers</li>
   <li>Cursor image provided by Tobias Ahlin Bjerrome at https://tobiasahlin.com/blog/common-mac-os-x-lion-cursors/</li>
   <li>Spinning wheel of death provided by howdytom at https://apple.stackexchange.com/questions/243675/location-of-the-resource-files-for-the-spinning-wait-cursor</li>
+  <li>Button object backgrounds provided by https://www.freepik.com/free-vector/wooden-buttons-ui-game_12632833.htm>wooden buttons</li>
   <li>Remaining art created by Jonathan Zhao</li>
  </ul>
  <h3>Code</h3>
@@ -79,7 +80,7 @@ extends greenfoot.World</pre>
  <ul></div>
 <dl>
 <dt><span class="simpleTagLabel">Version:</span></dt>
-<dd>2022.11.14</dd>
+<dd>2022.11.23</dd>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Patrick Hu, Eddie Zhuang, Caden Chan, Jonathan Zhao</dd>
 </dl>
@@ -106,11 +107,6 @@ extends greenfoot.World</pre>
 <tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEMO_MODE">DEMO_MODE</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#gameWon">gameWon</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -230,7 +226,9 @@ extends greenfoot.World</pre>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>Player</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getP1()">getP1</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Used when DEMO_MODE = true, to allow the testing of BuyButtons during the "game".</div>
+</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>BuyButton</code></td>
@@ -336,7 +334,7 @@ extends greenfoot.World</pre>
 <a id="DEMO_MODE">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>DEMO_MODE</h4>
 <pre>public static final&nbsp;boolean DEMO_MODE</pre>
@@ -344,15 +342,6 @@ extends greenfoot.World</pre>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="constant-values.html#CookieWorld.DEMO_MODE">Constant Field Values</a></dd>
 </dl>
-</li>
-</ul>
-<a id="gameWon">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>gameWon</h4>
-<pre>public&nbsp;boolean gameWon</pre>
 </li>
 </ul>
 </li>
@@ -702,6 +691,10 @@ extends greenfoot.World</pre>
 <li class="blockList">
 <h4>getBgMusic</h4>
 <pre class="methodSignature">public&nbsp;greenfoot.GreenfootSound&nbsp;getBgMusic()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>GreenfootSound       Return the background music</dd>
+</dl>
 </li>
 </ul>
 <a id="getP1()">
@@ -711,6 +704,11 @@ extends greenfoot.World</pre>
 <li class="blockList">
 <h4>getP1</h4>
 <pre class="methodSignature">public&nbsp;Player&nbsp;getP1()</pre>
+<div class="block">Used when DEMO_MODE = true, to allow the testing of BuyButtons during the "game".</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Player               Player 1 object</dd>
+</dl>
 </li>
 </ul>
 </li>
