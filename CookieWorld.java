@@ -23,6 +23,10 @@ import java.util.LinkedHashMap;
  * <ul>
  *   <li>Click sound effect obtained from https://www.zapsplat.com</li>
  *   <li>Rocket sound effect obtained from https://mixkit.co/free-sound-effects/rocket/</li>
+ *   <li>Building purchase sound effect obtained from https://www.youtube.com/watch?v=4kVTqUxJYBA</li>
+ *   <li>Powerup purchase sound effect obtained from https://www.youtube.com/watch?v=v94-AQxceGk</li>
+ *   <li>Sabotage purchase sound effect obtained from https://www.youtube.com/watch?v=1UviLSfx5vs</li>
+ *   <li>Rocket launch sound effect obtained from https://www.youtube.com/watch?v=YDhY0elzq20</li>
  * </ul>
  * <h3>Music</h3>
  * <ul>
