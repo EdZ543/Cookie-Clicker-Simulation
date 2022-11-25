@@ -1,11 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Create a group of actors which work together to manage a setting. Includes:
- * - Arrow buttons (increase/decrease value of simulation setting)
- * - Counter (Text showing the value of the simulation setting)
- * - Title (What is the name of the setting?)
- * 
+ * Create a group of actors which work together to manage a setting. 
+ * <h4>Includes:</h4>
+ * <ul>
+ *  <li>Arrow buttons (increase/decrease value of simulation setting)</li>
+ *  <li>Counter (Text showing the value of the simulation setting)</li>
+ *  <li>Title (What is the name of the setting?)</li>
+ * </ul>
  * @author Caden Chan
  * @version 2022.11.22
  */

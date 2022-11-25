@@ -16,6 +16,9 @@ public class CookieRocket extends SuperSmoothMover
     private Player player; // the player who won
     protected static GreenfootSound launchSound = new GreenfootSound("./sounds/rocket-launch.wav");
     
+    /**
+     * @param player            The player who has won
+     */
     public CookieRocket(Player player) {
         this.player = player;
         actCount = 0;
@@ -56,7 +59,10 @@ public class CookieRocket extends SuperSmoothMover
         speed += acceleration;
         move(speed);
     }
-    
+    /**
+     * Check to see if the rocket has reached the top of the world. <br>
+     * Show the end screen.
+     */
     public void checkEdges() {
         // if at top of world
         if (getY() <= 0) {

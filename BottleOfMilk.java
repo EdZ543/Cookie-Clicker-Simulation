@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Produced by the <code>MilkBottles Powerup </code>. Triggers <code>giveMilk()</code> method in <code>Baby</code>
+ * Produced by the <code>MilkBottles Powerup </code>. Triggers <code>drinkMilk()</code> method in <code>Baby</code>
  * 
  * @author Caden Chan
  * @version 2022.11.19
@@ -14,6 +14,11 @@ public class BottleOfMilk extends Effect
     // Variables for movement calculations
     private double dx, dy, vix, viy, ay, t;
     private double x, y;
+    /**
+     * @param startX                The x-value of the bottle's starting location (The BuyButton it came from)
+     * @param startY                The y-value of the bottle's starting location (The BuyButton it came from)
+     * @param baby                  The baby that this bottle is going towards
+     */
     public BottleOfMilk(int startX, int startY, Baby baby) {
         this.startX = startX;
         this.startY = startY;

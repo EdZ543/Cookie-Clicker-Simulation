@@ -13,6 +13,10 @@ public class PreviewClicker extends PreviewActor
     private boolean glidingOrClicking;
     private int clickingAnimationTimer, actCount, startX, startY, radius;
     private GreenfootImage image;
+    /**
+     * @param radius                The radius that clicker can move within
+     * @param speed                 The clicker's speed
+     */
     public PreviewClicker(int radius, int speed) {
         this.radius = radius;
         image = new GreenfootImage("cursor.png");
@@ -62,6 +66,10 @@ public class PreviewClicker extends PreviewActor
         startGlidingTo(targetPosition[0], targetPosition[1], speed);
         glidingOrClicking = true;
     }
+    /**
+     * Get a random point within the PreviewClicker's <code>radius</code>
+     * @return int[]            The coordinates of the clicker's next position 
+     */
     private int[] getRandomPoint() {
         
         double direction = Math.random() * (2 * Math.PI);
@@ -71,6 +79,10 @@ public class PreviewClicker extends PreviewActor
         
         return ret;
     }
+    /**
+     * Set the PreviewClicker's speed
+     * @param x         Clicker speed value
+     */
     public void setSpeed(int x) {
         speed = 2 + x * 2;
     }

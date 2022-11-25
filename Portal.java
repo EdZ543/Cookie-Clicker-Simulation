@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Portal extends Building
 {
+    /**
+     * @param player            The player who has purchased a Portal
+     */
     public Portal(Player player) {
         super(player);
         animationSize = 7;

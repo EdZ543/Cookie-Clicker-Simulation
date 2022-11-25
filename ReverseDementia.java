@@ -10,14 +10,18 @@ import java.util.ArrayList;
 public class ReverseDementia extends Powerup
 {
     private ArrayList<Grandma> myGrandmas;
-    
+    /**
+     * @param origin            The player that activated ReverseDementia
+     */
     public ReverseDementia(Player origin) {
         super(origin);
         duration = (int)(60 * 5); // 5 seconds in acts
         myGrandmas = new ArrayList<Grandma>();
         getImage().clear(); // clear image
     }
-    
+    /**
+     * Make all Grandma objects not angry
+     */
     public void addedToWorld(World w) {
         // grab all grandmas that belong to player and upgrade them
         ArrayList<Grandma> allGrandmas = (ArrayList<Grandma>)getWorld().getObjects(Grandma.class);

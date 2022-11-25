@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class AlchemyLab extends Building
 {
+    /**
+     * @param player            The player who has purchased an AlchemyLab
+     */
     public AlchemyLab(Player player) {
         super(player);
         animationSize = 5;

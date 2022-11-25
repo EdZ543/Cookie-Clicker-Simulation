@@ -20,6 +20,9 @@ public class PreviewGrandma extends PreviewActor
         animate();
         actCount++;
     }
+    /**
+     * Animate the grandma
+     */
     public void animate() {
         if (actCount % 20 == 0) {
             setImage("./gifs/grandma/" + animationIndex + ".png");

@@ -22,7 +22,9 @@ public class LuckyClover extends Powerup
         actCount = duration;
         rotationCount = 0;
     }
-    
+    /**
+     * Make the player lucky
+     */
     public void addedToWorld(World w) {
         Building.LUCKY = true;
         setLocation(origin.getCookie().getX(), origin.getCookie().getY());

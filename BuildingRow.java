@@ -56,7 +56,6 @@ public class BuildingRow extends Clickable
             buildings.add(building);
         } catch(Exception e) {}
     }
-    
     private GreenfootImage drawBuildingRow(int width, int height) {
         GreenfootImage ret = new GreenfootImage(width, height);
         

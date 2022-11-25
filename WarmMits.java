@@ -11,6 +11,9 @@ public class WarmMits extends Powerup
 {
     private Clicker[] myClickers;
     
+    /**
+     * @param origin            The player who activated WarmMits
+     */
     public WarmMits(Player origin) {
         super(origin);
         duration = (int)(60 * 3.5); // 3.5 seconds in acts

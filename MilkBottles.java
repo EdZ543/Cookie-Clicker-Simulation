@@ -20,8 +20,7 @@ public class MilkBottles extends Sabotage
         getImage().clear();  // empty image
     }
     /**
-     * Instantiate one BottleOfMilk object for each of the opponent's Baby objects
-     * 
+     * Instantiate one BottleOfMilk object for each of the opponent's Baby object
      */
     public void addedToWorld(World w) {
         super.addedToWorld(w);
@@ -53,6 +52,11 @@ public class MilkBottles extends Sabotage
         BottleOfMilk boM = new BottleOfMilk(startX, startY, b);
         getWorld().addObject(boM, startX, startY);
     }
+    /**
+     * Get the cost to use this sabotage, which is unique per player. <br>
+     * Calculation: <code>(# of babies owned by player) * 400 cookies</code>
+     * @param player            The player whose cost is being calculated
+     */
     public static int getCost(Player player) {
         Player otherPlayer = ((CookieWorld)player.getWorld()).getOtherPlayer(player);
         ArrayList<Building> babies = otherPlayer.getBuildingRows().get(Baby.class).getBuildings();

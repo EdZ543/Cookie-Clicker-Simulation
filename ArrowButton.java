@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Button clicked by the user to modify MenuWorld settings
+ * Button clicked by the user to modify MenuWorld settings, by increasing or decreasing its counter.
  * 
  * @author Caden Chan 
  * @version 2022.11.22
@@ -29,6 +29,10 @@ public class ArrowButton extends MenuButton
     {
         super.act();
     }
+    /**
+     * If this arrow button points leftwards, decrease the menuSetting's value. <br>
+     * If this arrow button points rightwards, increase the menuSetting's value.
+     */
     public void clicked() {
         if(isLeft) {  // If this button is left-facing, decrease associated setting
             menuSetting.decrCount();

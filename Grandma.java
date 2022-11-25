@@ -13,7 +13,9 @@ public class Grandma extends Building
     private int angryCount;
     private GreenfootImage angryGranny, readyGranny;
     private boolean reverseDementiaActive;
-
+    /**
+     * @param player            The player who has purchased a Grandma
+     */
     public Grandma(Player player) {
         super(player);
         animationSize = 5;

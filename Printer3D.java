@@ -10,6 +10,9 @@ public class Printer3D extends Building
 {
     private boolean hasExtraExpensiveFilament;
     
+    /**
+     * @param player            The player who has purchased a 3D Printer
+     */
     public Printer3D(Player player) {
         super(player);
         animationSize = 8;
@@ -31,11 +34,15 @@ public class Printer3D extends Building
             actMark = getNextActMark(2, 3);
         }
     }
-    
+    /**
+     * Activate the effect of the ExtraExpensiveFilament powerup
+     */
     public void upgradeFilament() {
         hasExtraExpensiveFilament = true;
     }
-    
+    /**
+     * Remove the effect of the ExtraExpensiveFilament powerup
+     */
     public void removeUpgradedFilament() {
         hasExtraExpensiveFilament = false;
     }

@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CookieGod extends Building
 {
+    /**
+     * @param player            The player who has purchased a Cookie God
+     */
     public CookieGod(Player player) {
         super(player);
         animationSize = 7;

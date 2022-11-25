@@ -53,6 +53,7 @@ public class Cookie extends Clickable
     /**
      * Make sprite bigger when `Cookie` is "clicked" by a `Clicker`, to
      * make it seem like it's being "clicked"
+     * @param player            The player that has clicked this cookie
      */
     public void click(Player player) {
         animateCount = ANIM_DURATION;
@@ -130,7 +131,7 @@ public class Cookie extends Clickable
     /**
      * Returns the cookie's max level
      * 
-     * @return int The level
+     * @return int The cookie's max level
      */
     public int getMaxLevel() {
         return maxLevel;

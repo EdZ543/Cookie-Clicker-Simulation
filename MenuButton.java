@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Buttons used in the menu screen.
+ * Superclass for buttons used in the menu screen, clickable by the user. (I/O buttons).
  * 
  * @author Caden Chan 
  * @version 2022.11.21

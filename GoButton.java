@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Clicked by user to transition from the welcome screen to the menu.
+ * Clicked by user to transition from the welcome screen to the StoryWorld.
  * 
  * @author Caden Chan 
  * @version 2022.11.22

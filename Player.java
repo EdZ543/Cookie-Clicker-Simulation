@@ -4,20 +4,25 @@ import java.util.HashMap;
 
 /**
  * A player in this simulation, of which there are two.
- * Adjustable properties:
- * - Clicks per second
- * - Number of clickers
- * - Number of starting grandmas
- * 
- * "AI" behaviour:
- * - If it has enough cookies to buy the cookie rocket, it shall do so immediately
- * - Default state: choose a random point on the cookie and click there
- * - Every 2-5 clicks, it shall attempt to perform a random action:
- *   - Click on a random clickable building
- *   - Buy a random building 
- *   - Buy a random powerup
- *   - Buy a random sabotage
- * 
+ * <h4>Adjustable properties:</h4>
+ * <ul>
+ *   <li>Clicks per second</li>
+ *   <li>Number of clickers</li>
+ *   <li>Number of starting grandmas</li>
+ * </ul>
+ * <h4>"AI" behaviour:</h4>
+ * <ul>
+ *   <li>If it has enough cookies to buy the cookie rocket, it shall do so immediately</li>
+ *   <li>Default state: choose a random point on the cookie and click there</li>
+ *   <li>Every 2-5 clicks, it shall attempt to perform a random action:
+ *      <ul>
+ *       <li>Click on a random clickable building</li>
+ *       <li>Buy a random building</li>
+ *       <li>Buy a random powerup</li>
+ *       <li>Buy a random sabotage</li>
+ *      </ul>
+ *   </li>
+ * <ul>
  * @author Eddie Zhuang
  * @version November 2022
  */

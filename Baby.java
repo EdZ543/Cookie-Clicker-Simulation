@@ -13,6 +13,9 @@ public class Baby extends Building
     private boolean isDrinkingMilk; // whether the baby was given a milk bottle
     private int drinkingCount, drinkingActs;
     private GreenfootImage drinkingSprite;
+    /**
+     * @param player            The player who has purchased a Baby
+     */
     public Baby(Player player) {
         super(player);
         animationSize = 11;

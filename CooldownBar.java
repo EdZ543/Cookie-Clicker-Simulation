@@ -1,10 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Used exclusively by BuyButton to:
- * - Display which Player clicked which button, based on colour
- * - Display how long a Powerup lasts / how much time it has left
- * 
+ * A rectangular bar which slowly shrinks vertically over time.
+ * <h4>Used exclusively by BuyButton to:</h4>
+ * <ul>
+ *  <li>Display which Player clicked which button, based on colour</li>
+ *  <li>Display how long a Powerup lasts / how much time it has left</li>
+ * </ul>
  * @author Caden Chan 
  * @version 2022.11.15
  */
@@ -42,7 +44,7 @@ public class CooldownBar extends Actor
         percent -= rate;
     }
     /**
-     * Draw bar based on value of `percent`
+     * Draw bar based on value of <code>percent</code>
      */
     public void drawBar() {
         image = new GreenfootImage(width, height);
@@ -53,6 +55,7 @@ public class CooldownBar extends Actor
         setImage(image);
     }
     /**
+     * Set duration of this CooldownBar
      * @param d         Set duration to `d` acts
      */
     public void setDuration(int d) {
