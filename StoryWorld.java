@@ -10,6 +10,9 @@ public class StoryWorld extends World
 {   
     private int storyIndex = 0;
     private Label instructionLabel;
+    /**
+     * The constructor for StoryWorld, where the simulation's story is displayed
+     */
     public StoryWorld() {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 800, 1); 

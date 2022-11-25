@@ -1,13 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The title screen of the simulation.
+ * The title screen of the simulation. <br>
+ * <p>
  * The cookie clicker simulation simulates two players fighting to bake the most
  * amount of cookies possible! The winner gets to go to the moon with the president.
  * There are 6 buildings that can be purchased along with 4 powerups and sabotages to be
  * used against the opposing player. AI-controlled mouse movement clicks buy buttons to 
  * purchase these item in order to increase their cookie production. The first to 
  * 1,000,000 cookies wins!
+ * </p>
  * 
  * @author Caden Chan, Patrick Hu
  * @version November 2022

@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * The menu screen. The user may adjust simulation settings here, before hitting the
+ * The menu screen. Here, the user may adjust simulation settings, before hitting the
  * "Start" button, to begin the simulation.
  * 
  * @author Caden Chan
@@ -31,7 +31,10 @@ public class MenuWorld extends World
     private final int[] p2_previewClickerPos = new int[]{750, 420};
     // Background Music
     GreenfootSound[] tracks;
-    
+    /**
+     * Constructor for the MenuWorld, where the user makes selections on their simulation settings.
+     * @param tracks            The world's background music tracks.
+     */
     public MenuWorld(GreenfootSound[] tracks)
     {    
         super(1200, 800, 1); 
@@ -182,7 +185,8 @@ public class MenuWorld extends World
         removeObject(clicker);
     }
     /**
-     * Change the speed of the PreviewClickers belonging to the given player
+     * Change the speed of the PreviewClickers belonging to the given player. This reflects what the clicker speed
+     * would be in the simulation itself.
      * 
      * @param player                The ID of the player whose CPS is altered
      * @param newSpeed                The player's clickers' new CPS
